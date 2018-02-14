@@ -1,0 +1,11 @@
+version: '2'
+services:
+    biblio-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/biblio/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=biblio
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
