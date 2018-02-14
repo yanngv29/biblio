@@ -1,0 +1,35 @@
+
+{
+    "biblioApp": {
+        "conference" : {
+            "home": {
+                "title": "Conferences",
+                "createLabel": "Créer un nouveau Conference",
+                "createOrEditLabel": "Créer ou éditer un Conference"
+            },
+            "created": "Un nouveau Conference a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Conference avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Conference avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Conference {{ id }} ?"
+            },
+            "detail": {
+                "title": "Conference"
+            },
+            "idConference": "Id Conference",
+            "type": "Type",
+            "nom": "Nom",
+            "audience": "Audience",
+            "comiteSelection": "Comite Selection",
+            "editeur": "Editeur",
+            "dateDebut": "Date Debut",
+            "dateFin": "Date Fin",
+            "ville": "Ville",
+            "pays": "Pays",
+            "lienSite": "Lien Site",
+            "lienActes": "Lien Actes",
+            "divers": "Divers",
+            "notation": "Notation"
+        }
+    }
+}

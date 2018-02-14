@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="biblioApp.ouvrage.home.title">Ouvrages</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ouvrage" [routerLink]="['/', { outlets: { popup: ['ouvrage-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="biblioApp.ouvrage.home.createLabel">
+            Create new Ouvrage
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ouvrages">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.idOuvrage">Id Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.titre">Titre</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.type">Type</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.participation">Participation</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.annee">Annee</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.numeroEdition">Numero Edition</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.volume">Volume</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.traduction">Traduction</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.lieu">Lieu</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.maisonEdition">Maison Edition</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.collection">Collection</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.hal">Hal</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ouvrage of ouvrages ;trackBy: trackId">
+                <td><a [routerLink]="['../ouvrage', ouvrage.id ]">{{ouvrage.id}}</a></td>
+                <td>{{ouvrage.idOuvrage}}</td>
+                <td>{{ouvrage.titre}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.type}}">{{ouvrage.type}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participation}}">{{ouvrage.participation}}</td>
+                <td>{{ouvrage.annee}}</td>
+                <td>{{ouvrage.numeroEdition}}</td>
+                <td>{{ouvrage.volume}}</td>
+                <td>{{ouvrage.traduction}}</td>
+                <td>{{ouvrage.lieu}}</td>
+                <td>{{ouvrage.maisonEdition}}</td>
+                <td>{{ouvrage.collection}}</td>
+                <td>{{ouvrage.hal}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ouvrage', ouvrage.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ouvrage/'+ ouvrage.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ouvrage/'+ ouvrage.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

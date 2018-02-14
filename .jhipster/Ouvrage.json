@@ -1,0 +1,79 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notation",
+            "otherEntityName": "notation",
+            "otherEntityRelationshipName": "ouvrage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "chapitre",
+            "otherEntityName": "chapitre",
+            "otherEntityRelationshipName": "ouvrage"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idOuvrage",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeOuvrage",
+            "fieldValues": "SCIENTIFIQUE,VULGARISATION"
+        },
+        {
+            "fieldName": "participation",
+            "fieldType": "TypeParticipation",
+            "fieldValues": "COMPLETE,PARTIELLE"
+        },
+        {
+            "fieldName": "annee",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroEdition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "traduction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maisonEdition",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "collection",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153407",
+    "javadoc": "Acte de conférence : identifiant obligatoire",
+    "entityTableName": "ouvrage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

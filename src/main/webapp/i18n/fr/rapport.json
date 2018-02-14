@@ -1,0 +1,27 @@
+
+{
+    "biblioApp": {
+        "rapport" : {
+            "home": {
+                "title": "Rapports",
+                "createLabel": "Créer un nouveau Rapport",
+                "createOrEditLabel": "Créer ou éditer un Rapport"
+            },
+            "created": "Un nouveau Rapport a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Rapport avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Rapport avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Rapport {{ id }} ?"
+            },
+            "detail": {
+                "title": "Rapport"
+            },
+            "idMemoire": "Id Memoire",
+            "type": "Type",
+            "date": "Date",
+            "lieu": "Lieu",
+            "maisonEdition": "Maison Edition",
+            "notation": "Notation"
+        }
+    }
+}

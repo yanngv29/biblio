@@ -1,0 +1,42 @@
+
+<div *ngIf="publicationGouvernementale">
+    <h2><span jhiTranslate="biblioApp.publicationGouvernementale.detail.title">Publication Gouvernementale</span> {{publicationGouvernementale.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.publicationGouvernementale.idPG">Id PG</span></dt>
+        <dd>
+            <span>{{publicationGouvernementale.idPG}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.publicationGouvernementale.date">Date</span></dt>
+        <dd>
+            <span>{{publicationGouvernementale.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.publicationGouvernementale.numeroEdition">Numero Edition</span></dt>
+        <dd>
+            <span>{{publicationGouvernementale.numeroEdition}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.publicationGouvernementale.lieu">Lieu</span></dt>
+        <dd>
+            <span>{{publicationGouvernementale.lieu}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.publicationGouvernementale.maisonEdition">Maison Edition</span></dt>
+        <dd>
+            <span>{{publicationGouvernementale.maisonEdition}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'publication-gouvernementale/'+ publicationGouvernementale.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

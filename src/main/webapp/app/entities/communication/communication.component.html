@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="biblioApp.communication.home.title">Communications</span>
+        <button class="btn btn-primary float-right jh-create-entity create-communication" [routerLink]="['/', { outlets: { popup: ['communication-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="biblioApp.communication.home.createLabel">
+            Create new Communication
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="communications">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="biblioApp.communication.idCommunication">Id Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.type">Type</span></th>
+            <th><span jhiTranslate="biblioApp.communication.hal">Hal</span></th>
+            <th><span jhiTranslate="biblioApp.communication.conference">Conference</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let communication of communications ;trackBy: trackId">
+                <td><a [routerLink]="['../communication', communication.id ]">{{communication.id}}</a></td>
+                <td>{{communication.idCommunication}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeCommunication.' + communication.type}}">{{communication.type}}</td>
+                <td>{{communication.hal}}</td>
+                <td>
+                    <div *ngIf="communication.conference">
+                        <a [routerLink]="['../conference', communication.conference?.id ]" >{{communication.conference?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../communication', communication.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'communication/'+ communication.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'communication/'+ communication.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "conference",
+            "otherEntityName": "conference",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "memoire",
+            "otherEntityName": "memoire",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "ouvrage",
+            "otherEntityName": "ouvrage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "publicationGouvernementale",
+            "otherEntityName": "publicationGouvernementale",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "rapport",
+            "otherEntityName": "rapport",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "revue",
+            "otherEntityName": "revue",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idNotation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cnu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rang",
+            "fieldType": "Rang",
+            "fieldValues": "A,B,C"
+        },
+        {
+            "fieldName": "debut",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fin",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153405",
+    "javadoc": "Notation",
+    "entityTableName": "notation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

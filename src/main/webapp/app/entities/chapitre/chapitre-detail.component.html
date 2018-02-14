@@ -1,0 +1,44 @@
+
+<div *ngIf="chapitre">
+    <h2><span jhiTranslate="biblioApp.chapitre.detail.title">Chapitre</span> {{chapitre.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.chapitre.idChapitre">Id Chapitre</span></dt>
+        <dd>
+            <span>{{chapitre.idChapitre}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chapitre.pageDebut">Page Debut</span></dt>
+        <dd>
+            <span>{{chapitre.pageDebut}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chapitre.pageFin">Page Fin</span></dt>
+        <dd>
+            <span>{{chapitre.pageFin}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chapitre.hal">Hal</span></dt>
+        <dd>
+            <span>{{chapitre.hal}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chapitre.ouvrage">Ouvrage</span></dt>
+        <dd>
+            <div *ngIf="chapitre.ouvrage">
+                <a [routerLink]="['/ouvrage', chapitre.ouvrage?.id]">{{chapitre.ouvrage?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'chapitre/'+ chapitre.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

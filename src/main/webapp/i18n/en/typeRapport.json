@@ -1,0 +1,9 @@
+{
+    "biblioApp": {
+        "TypeRapport" : {
+            "null": "",
+            "RECHERCHE": "RECHERCHE",
+            "PROJET": "PROJET"
+        }
+    }
+}

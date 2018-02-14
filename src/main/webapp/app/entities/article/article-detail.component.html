@@ -1,0 +1,60 @@
+
+<div *ngIf="article">
+    <h2><span jhiTranslate="biblioApp.article.detail.title">Article</span> {{article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.article.idArticle">Id Article</span></dt>
+        <dd>
+            <span>{{article.idArticle}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeArticle.' + article.type}}">{{article.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.pageDebut">Page Debut</span></dt>
+        <dd>
+            <span>{{article.pageDebut}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.pageFin">Page Fin</span></dt>
+        <dd>
+            <span>{{article.pageFin}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.hal">Hal</span></dt>
+        <dd>
+            <span>{{article.hal}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.numeroRevue">Numero Revue</span></dt>
+        <dd>
+            <div *ngIf="article.numeroRevue">
+                <a [routerLink]="['/numero-revue', article.numeroRevue?.id]">{{article.numeroRevue?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.acte">Acte</span></dt>
+        <dd>
+            <div *ngIf="article.acte">
+                <a [routerLink]="['/acte', article.acte?.id]">{{article.acte?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.conference">Conference</span></dt>
+        <dd>
+            <div *ngIf="article.conference">
+                <a [routerLink]="['/conference', article.conference?.id]">{{article.conference?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'article/'+ article.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

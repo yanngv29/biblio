@@ -1,0 +1,9 @@
+{
+    "biblioApp": {
+        "TypeOuvrage" : {
+            "null": "",
+            "SCIENTIFIQUE": "SCIENTIFIQUE",
+            "VULGARISATION": "VULGARISATION"
+        }
+    }
+}

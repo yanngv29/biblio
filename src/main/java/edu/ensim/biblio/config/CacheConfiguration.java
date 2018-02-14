@@ -42,6 +42,27 @@ public class CacheConfiguration {
             cm.createCache(edu.ensim.biblio.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Acte.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Article.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Chapitre.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Communication.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Conference.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Conference.class.getName() + ".notations", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Contribution.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Memoire.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Memoire.class.getName() + ".notations", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Notation.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.NumeroRevue.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Ouvrage.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Ouvrage.class.getName() + ".notations", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Ouvrage.class.getName() + ".chapitres", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Publication.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.PublicationGouvernementale.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.PublicationGouvernementale.class.getName() + ".notations", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Rapport.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Rapport.class.getName() + ".notations", jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Revue.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ensim.biblio.domain.Revue.class.getName() + ".notations", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

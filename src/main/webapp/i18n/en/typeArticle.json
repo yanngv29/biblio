@@ -1,0 +1,11 @@
+{
+    "biblioApp": {
+        "TypeArticle" : {
+            "null": "",
+            "PUBLIE": "PUBLIE",
+            "EN_PREPUBLICATION": "EN_PREPUBLICATION",
+            "SOUS_PRESSE": "SOUS_PRESSE",
+            "COURT": "COURT"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+
+<div *ngIf="revue">
+    <h2><span jhiTranslate="biblioApp.revue.detail.title">Revue</span> {{revue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.revue.idRevue">Id Revue</span></dt>
+        <dd>
+            <span>{{revue.idRevue}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.nom">Nom</span></dt>
+        <dd>
+            <span>{{revue.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.audience">Audience</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.Audience.' + revue.audience}}">{{revue.audience}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.comiteSelection">Comite Selection</span></dt>
+        <dd>
+            <span>{{revue.comiteSelection}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.mois">Mois</span></dt>
+        <dd>
+            <span>{{revue.mois}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.annee">Annee</span></dt>
+        <dd>
+            <span>{{revue.annee}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.volume">Volume</span></dt>
+        <dd>
+            <span>{{revue.volume}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.numeroVolume">Numero Volume</span></dt>
+        <dd>
+            <span>{{revue.numeroVolume}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.lieu">Lieu</span></dt>
+        <dd>
+            <span>{{revue.lieu}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.lien">Lien</span></dt>
+        <dd>
+            <span>{{revue.lien}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.revue.divers">Divers</span></dt>
+        <dd>
+            <span>{{revue.divers}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'revue/'+ revue.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

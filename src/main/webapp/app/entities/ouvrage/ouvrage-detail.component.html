@@ -1,0 +1,70 @@
+
+<div *ngIf="ouvrage">
+    <h2><span jhiTranslate="biblioApp.ouvrage.detail.title">Ouvrage</span> {{ouvrage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.ouvrage.idOuvrage">Id Ouvrage</span></dt>
+        <dd>
+            <span>{{ouvrage.idOuvrage}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.titre">Titre</span></dt>
+        <dd>
+            <span>{{ouvrage.titre}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.type}}">{{ouvrage.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.participation">Participation</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participation}}">{{ouvrage.participation}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.annee">Annee</span></dt>
+        <dd>
+            <span>{{ouvrage.annee}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.numeroEdition">Numero Edition</span></dt>
+        <dd>
+            <span>{{ouvrage.numeroEdition}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.volume">Volume</span></dt>
+        <dd>
+            <span>{{ouvrage.volume}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.traduction">Traduction</span></dt>
+        <dd>
+            <span>{{ouvrage.traduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.lieu">Lieu</span></dt>
+        <dd>
+            <span>{{ouvrage.lieu}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.maisonEdition">Maison Edition</span></dt>
+        <dd>
+            <span>{{ouvrage.maisonEdition}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.collection">Collection</span></dt>
+        <dd>
+            <span>{{ouvrage.collection}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.hal">Hal</span></dt>
+        <dd>
+            <span>{{ouvrage.hal}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ouvrage/'+ ouvrage.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

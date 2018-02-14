@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conference",
+            "otherEntityName": "conference",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idCommunication",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeCommunication",
+            "fieldValues": "AFFICHE,ATELIER,TABLE_RONDE"
+        },
+        {
+            "fieldName": "hal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153401",
+    "javadoc": "Communication : identifiant et type obligatoires",
+    "entityTableName": "communication",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

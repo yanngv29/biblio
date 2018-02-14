@@ -1,0 +1,27 @@
+
+{
+    "biblioApp": {
+        "memoire" : {
+            "home": {
+                "title": "Memoires",
+                "createLabel": "Create a new Memoire",
+                "createOrEditLabel": "Create or edit a Memoire"
+            },
+            "created": "A new Memoire is created with identifier {{ param }}",
+            "updated": "A Memoire is updated with identifier {{ param }}",
+            "deleted": "A Memoire is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Memoire {{ id }}?"
+            },
+            "detail": {
+                "title": "Memoire"
+            },
+            "idMemoire": "Id Memoire",
+            "type": "Type",
+            "date": "Date",
+            "lieu": "Lieu",
+            "hal": "Hal",
+            "notation": "Notation"
+        }
+    }
+}

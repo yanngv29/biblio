@@ -1,0 +1,64 @@
+
+<div *ngIf="contribution">
+    <h2><span jhiTranslate="biblioApp.contribution.detail.title">Contribution</span> {{contribution.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.contribution.idChercheur">Id Chercheur</span></dt>
+        <dd>
+            <span>{{contribution.idChercheur}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.Participation.' + contribution.type}}">{{contribution.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.rang">Rang</span></dt>
+        <dd>
+            <span>{{contribution.rang}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.publication">Publication</span></dt>
+        <dd>
+            <div *ngIf="contribution.publication">
+                <a [routerLink]="['/publication', contribution.publication?.id]">{{contribution.publication?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.acte">Acte</span></dt>
+        <dd>
+            <div *ngIf="contribution.acte">
+                <a [routerLink]="['/acte', contribution.acte?.id]">{{contribution.acte?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.ouvrage">Ouvrage</span></dt>
+        <dd>
+            <div *ngIf="contribution.ouvrage">
+                <a [routerLink]="['/ouvrage', contribution.ouvrage?.id]">{{contribution.ouvrage?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.revue">Revue</span></dt>
+        <dd>
+            <div *ngIf="contribution.revue">
+                <a [routerLink]="['/revue', contribution.revue?.id]">{{contribution.revue?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.contribution.memoire">Memoire</span></dt>
+        <dd>
+            <div *ngIf="contribution.memoire">
+                <a [routerLink]="['/memoire', contribution.memoire?.id]">{{contribution.memoire?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'contribution/'+ contribution.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,40 @@
+
+<div *ngIf="communication">
+    <h2><span jhiTranslate="biblioApp.communication.detail.title">Communication</span> {{communication.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.communication.idCommunication">Id Communication</span></dt>
+        <dd>
+            <span>{{communication.idCommunication}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.communication.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeCommunication.' + communication.type}}">{{communication.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.communication.hal">Hal</span></dt>
+        <dd>
+            <span>{{communication.hal}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.communication.conference">Conference</span></dt>
+        <dd>
+            <div *ngIf="communication.conference">
+                <a [routerLink]="['/conference', communication.conference?.id]">{{communication.conference?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'communication/'+ communication.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

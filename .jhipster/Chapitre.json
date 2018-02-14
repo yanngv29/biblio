@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "ouvrage",
+            "otherEntityName": "ouvrage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idChapitre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pageDebut",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pageFin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153400",
+    "javadoc": "Chapitre : identifiant nécessaire",
+    "entityTableName": "chapitre",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,102 @@
+<div>
+    <h2>
+        <span jhiTranslate="biblioApp.notation.home.title">Notations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-notation" [routerLink]="['/', { outlets: { popup: ['notation-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="biblioApp.notation.home.createLabel">
+            Create new Notation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="notations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="biblioApp.notation.idNotation">Id Notation</span></th>
+            <th><span jhiTranslate="biblioApp.notation.cnu">Cnu</span></th>
+            <th><span jhiTranslate="biblioApp.notation.rang">Rang</span></th>
+            <th><span jhiTranslate="biblioApp.notation.debut">Debut</span></th>
+            <th><span jhiTranslate="biblioApp.notation.fin">Fin</span></th>
+            <th><span jhiTranslate="biblioApp.notation.conference">Conference</span></th>
+            <th><span jhiTranslate="biblioApp.notation.memoire">Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.notation.ouvrage">Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.notation.publicationGouvernementale">Publication Gouvernementale</span></th>
+            <th><span jhiTranslate="biblioApp.notation.rapport">Rapport</span></th>
+            <th><span jhiTranslate="biblioApp.notation.revue">Revue</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let notation of notations ;trackBy: trackId">
+                <td><a [routerLink]="['../notation', notation.id ]">{{notation.id}}</a></td>
+                <td>{{notation.idNotation}}</td>
+                <td>{{notation.cnu}}</td>
+                <td jhiTranslate="{{'biblioApp.Rang.' + notation.rang}}">{{notation.rang}}</td>
+                <td>{{notation.debut}}</td>
+                <td>{{notation.fin}}</td>
+                <td>
+                    <div *ngIf="notation.conference">
+                        <a [routerLink]="['../conference', notation.conference?.id ]" >{{notation.conference?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="notation.memoire">
+                        <a [routerLink]="['../memoire', notation.memoire?.id ]" >{{notation.memoire?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="notation.ouvrage">
+                        <a [routerLink]="['../ouvrage', notation.ouvrage?.id ]" >{{notation.ouvrage?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="notation.publicationGouvernementale">
+                        <a [routerLink]="['../publication-gouvernementale', notation.publicationGouvernementale?.id ]" >{{notation.publicationGouvernementale?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="notation.rapport">
+                        <a [routerLink]="['../rapport', notation.rapport?.id ]" >{{notation.rapport?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="notation.revue">
+                        <a [routerLink]="['../revue', notation.revue?.id ]" >{{notation.revue?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../notation', notation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'notation/'+ notation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'notation/'+ notation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

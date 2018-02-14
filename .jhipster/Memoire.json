@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notation",
+            "otherEntityName": "notation",
+            "otherEntityRelationshipName": "memoire"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idMemoire",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeMemoire",
+            "fieldValues": "THESE,HDR"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153404",
+    "javadoc": "Mémoire : tous les critères obligatoires",
+    "entityTableName": "memoire",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

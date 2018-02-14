@@ -1,0 +1,93 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myActeLabel" jhiTranslate="biblioApp.acte.home.createOrEditLabel">Create or edit a Acte</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!acte.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="acte.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.idActe" for="field_idActe">Id Acte</label>
+            <input type="text" class="form-control" name="idActe" id="field_idActe"
+                [(ngModel)]="acte.idActe" required/>
+            <div [hidden]="!(editForm.controls.idActe?.dirty && editForm.controls.idActe?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idActe?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.titre" for="field_titre">Titre</label>
+            <input type="text" class="form-control" name="titre" id="field_titre"
+                [(ngModel)]="acte.titre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="acte.type" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.annee" for="field_annee">Annee</label>
+            <input type="number" class="form-control" name="annee" id="field_annee"
+                [(ngModel)]="acte.annee" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.numeroEdition" for="field_numeroEdition">Numero Edition</label>
+            <input type="number" class="form-control" name="numeroEdition" id="field_numeroEdition"
+                [(ngModel)]="acte.numeroEdition" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.volume" for="field_volume">Volume</label>
+            <input type="number" class="form-control" name="volume" id="field_volume"
+                [(ngModel)]="acte.volume" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.traduction" for="field_traduction">Traduction</label>
+            <input type="text" class="form-control" name="traduction" id="field_traduction"
+                [(ngModel)]="acte.traduction" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.lieu" for="field_lieu">Lieu</label>
+            <input type="text" class="form-control" name="lieu" id="field_lieu"
+                [(ngModel)]="acte.lieu" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.maisonEdition" for="field_maisonEdition">Maison Edition</label>
+            <input type="text" class="form-control" name="maisonEdition" id="field_maisonEdition"
+                [(ngModel)]="acte.maisonEdition" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.collection" for="field_collection">Collection</label>
+            <input type="text" class="form-control" name="collection" id="field_collection"
+                [(ngModel)]="acte.collection" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.hal" for="field_hal">Hal</label>
+            <input type="text" class="form-control" name="hal" id="field_hal"
+                [(ngModel)]="acte.hal" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.acte.conference" for="field_conference">Conference</label>
+            <select class="form-control" id="field_conference" name="conference" [(ngModel)]="acte.conference">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="conferenceOption.id === acte.conference?.id ? acte.conference : conferenceOption" *ngFor="let conferenceOption of conferences; trackBy: trackConferenceById">{{conferenceOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -7,6 +7,20 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",
+                "acte": "Acte",
+                "article": "Article",
+                "chapitre": "Chapitre",
+                "communication": "Communication",
+                "conference": "Conference",
+                "contribution": "Contribution",
+                "memoire": "Memoire",
+                "notation": "Notation",
+                "numeroRevue": "Numero Revue",
+                "ouvrage": "Ouvrage",
+                "publication": "Publication",
+                "publicationGouvernementale": "Publication Gouvernementale",
+                "rapport": "Rapport",
+                "revue": "Revue",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

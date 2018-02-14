@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notation",
+            "otherEntityName": "notation",
+            "otherEntityRelationshipName": "conference"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idConference",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeConference",
+            "fieldValues": "CONFERENCE,COLLOQUE,JOURNEE_ETUDE,JOURNEE_ATELIERS,SEMINAIRE,SYMPOSIUM"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "audience",
+            "fieldType": "Audience",
+            "fieldValues": "NATIONALE,INTERNATIONALE"
+        },
+        {
+            "fieldName": "comiteSelection",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "editeur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "ville",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pays",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienSite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienActes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "divers",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153402",
+    "javadoc": "Conférence : critères non définitifs",
+    "entityTableName": "conference",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

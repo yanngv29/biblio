@@ -1,0 +1,56 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "numeroRevue",
+            "otherEntityName": "numeroRevue",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "acte",
+            "otherEntityName": "acte",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conference",
+            "otherEntityName": "conference",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idArticle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeArticle",
+            "fieldValues": "PUBLIE,EN_PREPUBLICATION,SOUS_PRESSE,COURT"
+        },
+        {
+            "fieldName": "pageDebut",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pageFin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153359",
+    "javadoc": "Article : type et identifiant obligatoires",
+    "entityTableName": "article",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

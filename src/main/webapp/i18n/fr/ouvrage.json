@@ -1,0 +1,35 @@
+
+{
+    "biblioApp": {
+        "ouvrage" : {
+            "home": {
+                "title": "Ouvrages",
+                "createLabel": "Créer un nouveau Ouvrage",
+                "createOrEditLabel": "Créer ou éditer un Ouvrage"
+            },
+            "created": "Un nouveau Ouvrage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ouvrage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ouvrage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ouvrage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ouvrage"
+            },
+            "idOuvrage": "Id Ouvrage",
+            "titre": "Titre",
+            "type": "Type",
+            "participation": "Participation",
+            "annee": "Annee",
+            "numeroEdition": "Numero Edition",
+            "volume": "Volume",
+            "traduction": "Traduction",
+            "lieu": "Lieu",
+            "maisonEdition": "Maison Edition",
+            "collection": "Collection",
+            "hal": "Hal",
+            "notation": "Notation",
+            "chapitre": "Chapitre"
+        }
+    }
+}

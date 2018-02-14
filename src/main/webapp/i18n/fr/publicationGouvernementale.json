@@ -1,0 +1,27 @@
+
+{
+    "biblioApp": {
+        "publicationGouvernementale" : {
+            "home": {
+                "title": "PublicationGouvernementales",
+                "createLabel": "Créer un nouveau Publication Gouvernementale",
+                "createOrEditLabel": "Créer ou éditer un Publication Gouvernementale"
+            },
+            "created": "Un nouveau Publication Gouvernementale a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Publication Gouvernementale avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Publication Gouvernementale avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Publication Gouvernementale {{ id }} ?"
+            },
+            "detail": {
+                "title": "Publication Gouvernementale"
+            },
+            "idPG": "Id PG",
+            "date": "Date",
+            "numeroEdition": "Numero Edition",
+            "lieu": "Lieu",
+            "maisonEdition": "Maison Edition",
+            "notation": "Notation"
+        }
+    }
+}

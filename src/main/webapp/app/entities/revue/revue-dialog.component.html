@@ -1,0 +1,88 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRevueLabel" jhiTranslate="biblioApp.revue.home.createOrEditLabel">Create or edit a Revue</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!revue.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="revue.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.idRevue" for="field_idRevue">Id Revue</label>
+            <input type="text" class="form-control" name="idRevue" id="field_idRevue"
+                [(ngModel)]="revue.idRevue" required/>
+            <div [hidden]="!(editForm.controls.idRevue?.dirty && editForm.controls.idRevue?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idRevue?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.nom" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                [(ngModel)]="revue.nom" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.audience" for="field_audience">Audience</label>
+            <select class="form-control" name="audience" [(ngModel)]="revue.audience" id="field_audience" >
+                <option value="NATIONALE">{{'biblioApp.Audience.NATIONALE' | translate}}</option>
+                <option value="INTERNATIONALE">{{'biblioApp.Audience.INTERNATIONALE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.comiteSelection" for="field_comiteSelection">Comite Selection</label>
+            <input type="checkbox" class="form-control" name="comiteSelection" id="field_comiteSelection"
+                [(ngModel)]="revue.comiteSelection" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.mois" for="field_mois">Mois</label>
+            <input type="text" class="form-control" name="mois" id="field_mois"
+                [(ngModel)]="revue.mois" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.annee" for="field_annee">Annee</label>
+            <input type="text" class="form-control" name="annee" id="field_annee"
+                [(ngModel)]="revue.annee" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.volume" for="field_volume">Volume</label>
+            <input type="text" class="form-control" name="volume" id="field_volume"
+                [(ngModel)]="revue.volume" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.numeroVolume" for="field_numeroVolume">Numero Volume</label>
+            <input type="text" class="form-control" name="numeroVolume" id="field_numeroVolume"
+                [(ngModel)]="revue.numeroVolume" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.lieu" for="field_lieu">Lieu</label>
+            <input type="text" class="form-control" name="lieu" id="field_lieu"
+                [(ngModel)]="revue.lieu" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.lien" for="field_lien">Lien</label>
+            <input type="text" class="form-control" name="lien" id="field_lien"
+                [(ngModel)]="revue.lien" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.revue.divers" for="field_divers">Divers</label>
+            <input type="text" class="form-control" name="divers" id="field_divers"
+                [(ngModel)]="revue.divers" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

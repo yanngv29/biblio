@@ -1,0 +1,25 @@
+
+{
+    "biblioApp": {
+        "communication" : {
+            "home": {
+                "title": "Communications",
+                "createLabel": "Créer un nouveau Communication",
+                "createOrEditLabel": "Créer ou éditer un Communication"
+            },
+            "created": "Un nouveau Communication a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Communication avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Communication avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Communication {{ id }} ?"
+            },
+            "detail": {
+                "title": "Communication"
+            },
+            "idCommunication": "Id Communication",
+            "type": "Type",
+            "hal": "Hal",
+            "conference": "Conference"
+        }
+    }
+}

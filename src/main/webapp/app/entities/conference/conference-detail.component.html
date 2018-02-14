@@ -1,0 +1,74 @@
+
+<div *ngIf="conference">
+    <h2><span jhiTranslate="biblioApp.conference.detail.title">Conference</span> {{conference.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.conference.idConference">Id Conference</span></dt>
+        <dd>
+            <span>{{conference.idConference}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeConference.' + conference.type}}">{{conference.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.nom">Nom</span></dt>
+        <dd>
+            <span>{{conference.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.audience">Audience</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.Audience.' + conference.audience}}">{{conference.audience}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.comiteSelection">Comite Selection</span></dt>
+        <dd>
+            <span>{{conference.comiteSelection}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.editeur">Editeur</span></dt>
+        <dd>
+            <span>{{conference.editeur}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.dateDebut">Date Debut</span></dt>
+        <dd>
+            <span>{{conference.dateDebut | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.dateFin">Date Fin</span></dt>
+        <dd>
+            <span>{{conference.dateFin | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.ville">Ville</span></dt>
+        <dd>
+            <span>{{conference.ville}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.pays">Pays</span></dt>
+        <dd>
+            <span>{{conference.pays}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.lienSite">Lien Site</span></dt>
+        <dd>
+            <span>{{conference.lienSite}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.lienActes">Lien Actes</span></dt>
+        <dd>
+            <span>{{conference.lienActes}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.conference.divers">Divers</span></dt>
+        <dd>
+            <span>{{conference.divers}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'conference/'+ conference.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

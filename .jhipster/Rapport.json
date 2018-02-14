@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notation",
+            "otherEntityName": "notation",
+            "otherEntityRelationshipName": "rapport"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idMemoire",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeRapport",
+            "fieldValues": "RECHERCHE,PROJET"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maisonEdition",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153410",
+    "entityTableName": "rapport",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

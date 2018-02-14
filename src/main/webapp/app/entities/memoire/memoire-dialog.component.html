@@ -1,0 +1,60 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMemoireLabel" jhiTranslate="biblioApp.memoire.home.createOrEditLabel">Create or edit a Memoire</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!memoire.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="memoire.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.idMemoire" for="field_idMemoire">Id Memoire</label>
+            <input type="text" class="form-control" name="idMemoire" id="field_idMemoire"
+                [(ngModel)]="memoire.idMemoire" required/>
+            <div [hidden]="!(editForm.controls.idMemoire?.dirty && editForm.controls.idMemoire?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idMemoire?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="memoire.type" id="field_type" >
+                <option value="THESE">{{'biblioApp.TypeMemoire.THESE' | translate}}</option>
+                <option value="HDR">{{'biblioApp.TypeMemoire.HDR' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.date" for="field_date">Date</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="memoire.date"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.lieu" for="field_lieu">Lieu</label>
+            <input type="text" class="form-control" name="lieu" id="field_lieu"
+                [(ngModel)]="memoire.lieu" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.hal" for="field_hal">Hal</label>
+            <input type="text" class="form-control" name="hal" id="field_hal"
+                [(ngModel)]="memoire.hal" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

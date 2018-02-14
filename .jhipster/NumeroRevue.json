@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "revue",
+            "otherEntityName": "revue",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idNumeroRevue",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mois",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "annee",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroVolume",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doi",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153406",
+    "javadoc": "Numéro d'une revue",
+    "entityTableName": "numero_revue",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

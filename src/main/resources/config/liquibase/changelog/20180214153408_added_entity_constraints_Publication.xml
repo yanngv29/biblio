@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Publication.
+    -->
+    <changeSet id="20180214153408-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="publication"
+                                 constraintName="fk_publication_article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+
+        <addForeignKeyConstraint baseColumnNames="communication_id"
+                                 baseTableName="publication"
+                                 constraintName="fk_publication_communication_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="communication"/>
+
+        <addForeignKeyConstraint baseColumnNames="memoire_id"
+                                 baseTableName="publication"
+                                 constraintName="fk_publication_memoire_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="memoire"/>
+
+        <addForeignKeyConstraint baseColumnNames="ouvrage_id"
+                                 baseTableName="publication"
+                                 constraintName="fk_publication_ouvrage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ouvrage"/>
+
+        <addForeignKeyConstraint baseColumnNames="publication_gouvernementale_id"
+                                 baseTableName="publication"
+                                 constraintName="fk_publication_publication_gouvernementale_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publication_gouvernementale"/>
+
+        <addForeignKeyConstraint baseColumnNames="rapport_id"
+                                 baseTableName="publication"
+                                 constraintName="fk_publication_rapport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rapport"/>
+
+    </changeSet>
+</databaseChangeLog>

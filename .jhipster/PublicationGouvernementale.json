@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notation",
+            "otherEntityName": "notation",
+            "otherEntityRelationshipName": "publicationGouvernementale"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idPG",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "numeroEdition",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maisonEdition",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153409",
+    "javadoc": "Publication gouvernementale : identifiant et CNU obligatoires",
+    "entityTableName": "publication_gouvernementale",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

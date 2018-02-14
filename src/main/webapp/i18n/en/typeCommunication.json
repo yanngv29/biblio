@@ -1,0 +1,10 @@
+{
+    "biblioApp": {
+        "TypeCommunication" : {
+            "null": "",
+            "AFFICHE": "AFFICHE",
+            "ATELIER": "ATELIER",
+            "TABLE_RONDE": "TABLE_RONDE"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="biblioApp.numeroRevue.home.title">Numero Revues</span>
+        <button class="btn btn-primary float-right jh-create-entity create-numero-revue" [routerLink]="['/', { outlets: { popup: ['numero-revue-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="biblioApp.numeroRevue.home.createLabel">
+            Create new Numero Revue
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="numeroRevues">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.idNumeroRevue">Id Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.mois">Mois</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.annee">Annee</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.volume">Volume</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.numeroVolume">Numero Volume</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.lien">Lien</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.doi">Doi</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.revue">Revue</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let numeroRevue of numeroRevues ;trackBy: trackId">
+                <td><a [routerLink]="['../numero-revue', numeroRevue.id ]">{{numeroRevue.id}}</a></td>
+                <td>{{numeroRevue.idNumeroRevue}}</td>
+                <td>{{numeroRevue.mois}}</td>
+                <td>{{numeroRevue.annee}}</td>
+                <td>{{numeroRevue.volume}}</td>
+                <td>{{numeroRevue.numeroVolume}}</td>
+                <td>{{numeroRevue.lien}}</td>
+                <td>{{numeroRevue.doi}}</td>
+                <td>
+                    <div *ngIf="numeroRevue.revue">
+                        <a [routerLink]="['../revue', numeroRevue.revue?.id ]" >{{numeroRevue.revue?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../numero-revue', numeroRevue.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'numero-revue/'+ numeroRevue.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'numero-revue/'+ numeroRevue.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

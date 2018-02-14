@@ -1,0 +1,12 @@
+{
+    "biblioApp": {
+        "Participation" : {
+            "null": "",
+            "PUBLICATION": "PUBLICATION",
+            "ENCADREMENT": "ENCADREMENT",
+            "DIRECTION": "DIRECTION",
+            "EDITION": "EDITION",
+            "COORDINATION": "COORDINATION"
+        }
+    }
+}

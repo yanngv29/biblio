@@ -1,0 +1,33 @@
+
+{
+    "biblioApp": {
+        "revue" : {
+            "home": {
+                "title": "Revues",
+                "createLabel": "Create a new Revue",
+                "createOrEditLabel": "Create or edit a Revue"
+            },
+            "created": "A new Revue is created with identifier {{ param }}",
+            "updated": "A Revue is updated with identifier {{ param }}",
+            "deleted": "A Revue is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Revue {{ id }}?"
+            },
+            "detail": {
+                "title": "Revue"
+            },
+            "idRevue": "Id Revue",
+            "nom": "Nom",
+            "audience": "Audience",
+            "comiteSelection": "Comite Selection",
+            "mois": "Mois",
+            "annee": "Annee",
+            "volume": "Volume",
+            "numeroVolume": "Numero Volume",
+            "lieu": "Lieu",
+            "lien": "Lien",
+            "divers": "Divers",
+            "notation": "Notation"
+        }
+    }
+}

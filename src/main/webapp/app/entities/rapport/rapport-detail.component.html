@@ -1,0 +1,42 @@
+
+<div *ngIf="rapport">
+    <h2><span jhiTranslate="biblioApp.rapport.detail.title">Rapport</span> {{rapport.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.rapport.idMemoire">Id Memoire</span></dt>
+        <dd>
+            <span>{{rapport.idMemoire}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeRapport.' + rapport.type}}">{{rapport.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.date">Date</span></dt>
+        <dd>
+            <span>{{rapport.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.lieu">Lieu</span></dt>
+        <dd>
+            <span>{{rapport.lieu}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.maisonEdition">Maison Edition</span></dt>
+        <dd>
+            <span>{{rapport.maisonEdition}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rapport/'+ rapport.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

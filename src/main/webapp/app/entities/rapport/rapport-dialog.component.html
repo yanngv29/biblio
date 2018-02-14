@@ -1,0 +1,60 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRapportLabel" jhiTranslate="biblioApp.rapport.home.createOrEditLabel">Create or edit a Rapport</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!rapport.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="rapport.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.idMemoire" for="field_idMemoire">Id Memoire</label>
+            <input type="text" class="form-control" name="idMemoire" id="field_idMemoire"
+                [(ngModel)]="rapport.idMemoire" required/>
+            <div [hidden]="!(editForm.controls.idMemoire?.dirty && editForm.controls.idMemoire?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idMemoire?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="rapport.type" id="field_type" >
+                <option value="RECHERCHE">{{'biblioApp.TypeRapport.RECHERCHE' | translate}}</option>
+                <option value="PROJET">{{'biblioApp.TypeRapport.PROJET' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.date" for="field_date">Date</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="rapport.date"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.lieu" for="field_lieu">Lieu</label>
+            <input type="text" class="form-control" name="lieu" id="field_lieu"
+                [(ngModel)]="rapport.lieu" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.maisonEdition" for="field_maisonEdition">Maison Edition</label>
+            <input type="text" class="form-control" name="maisonEdition" id="field_maisonEdition"
+                [(ngModel)]="rapport.maisonEdition" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

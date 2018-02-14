@@ -1,0 +1,13 @@
+{
+    "biblioApp": {
+        "TypeConference" : {
+            "null": "",
+            "CONFERENCE": "CONFERENCE",
+            "COLLOQUE": "COLLOQUE",
+            "JOURNEE_ETUDE": "JOURNEE_ETUDE",
+            "JOURNEE_ATELIERS": "JOURNEE_ATELIERS",
+            "SEMINAIRE": "SEMINAIRE",
+            "SYMPOSIUM": "SYMPOSIUM"
+        }
+    }
+}

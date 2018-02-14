@@ -1,0 +1,9 @@
+{
+    "biblioApp": {
+        "TypeParticipation" : {
+            "null": "",
+            "COMPLETE": "COMPLETE",
+            "PARTIELLE": "PARTIELLE"
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notation",
+            "otherEntityName": "notation",
+            "otherEntityRelationshipName": "revue"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idRevue",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "audience",
+            "fieldType": "Audience",
+            "fieldValues": "NATIONALE,INTERNATIONALE"
+        },
+        {
+            "fieldName": "comiteSelection",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "mois",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "annee",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroVolume",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lieu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "divers",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180214153411",
+    "javadoc": "Revue : identifiant, nom et année obligatoires",
+    "entityTableName": "revue",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myArticleLabel" jhiTranslate="biblioApp.article.home.createOrEditLabel">Create or edit a Article</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!article.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="article.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.idArticle" for="field_idArticle">Id Article</label>
+            <input type="text" class="form-control" name="idArticle" id="field_idArticle"
+                [(ngModel)]="article.idArticle" required/>
+            <div [hidden]="!(editForm.controls.idArticle?.dirty && editForm.controls.idArticle?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idArticle?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="article.type" id="field_type" >
+                <option value="PUBLIE">{{'biblioApp.TypeArticle.PUBLIE' | translate}}</option>
+                <option value="EN_PREPUBLICATION">{{'biblioApp.TypeArticle.EN_PREPUBLICATION' | translate}}</option>
+                <option value="SOUS_PRESSE">{{'biblioApp.TypeArticle.SOUS_PRESSE' | translate}}</option>
+                <option value="COURT">{{'biblioApp.TypeArticle.COURT' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.pageDebut" for="field_pageDebut">Page Debut</label>
+            <input type="text" class="form-control" name="pageDebut" id="field_pageDebut"
+                [(ngModel)]="article.pageDebut" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.pageFin" for="field_pageFin">Page Fin</label>
+            <input type="text" class="form-control" name="pageFin" id="field_pageFin"
+                [(ngModel)]="article.pageFin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.hal" for="field_hal">Hal</label>
+            <input type="text" class="form-control" name="hal" id="field_hal"
+                [(ngModel)]="article.hal" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.numeroRevue" for="field_numeroRevue">Numero Revue</label>
+            <select class="form-control" id="field_numeroRevue" name="numeroRevue" [(ngModel)]="article.numeroRevue" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="numeroRevueOption.id === article.numeroRevue?.id ? article.numeroRevue : numeroRevueOption" *ngFor="let numeroRevueOption of numerorevues; trackBy: trackNumeroRevueById">{{numeroRevueOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.acte" for="field_acte">Acte</label>
+            <select class="form-control" id="field_acte" name="acte" [(ngModel)]="article.acte" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="acteOption.id === article.acte?.id ? article.acte : acteOption" *ngFor="let acteOption of actes; trackBy: trackActeById">{{acteOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.conference" for="field_conference">Conference</label>
+            <select class="form-control" id="field_conference" name="conference" [(ngModel)]="article.conference" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="conferenceOption.id === article.conference?.id ? article.conference : conferenceOption" *ngFor="let conferenceOption of conferences; trackBy: trackConferenceById">{{conferenceOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

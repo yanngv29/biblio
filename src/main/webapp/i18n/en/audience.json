@@ -1,0 +1,9 @@
+{
+    "biblioApp": {
+        "Audience" : {
+            "null": "",
+            "NATIONALE": "NATIONALE",
+            "INTERNATIONALE": "INTERNATIONALE"
+        }
+    }
+}

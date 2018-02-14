@@ -1,0 +1,29 @@
+
+{
+    "biblioApp": {
+        "numeroRevue" : {
+            "home": {
+                "title": "Numero Revues",
+                "createLabel": "Create a new Numero Revue",
+                "createOrEditLabel": "Create or edit a Numero Revue"
+            },
+            "created": "A new Numero Revue is created with identifier {{ param }}",
+            "updated": "A Numero Revue is updated with identifier {{ param }}",
+            "deleted": "A Numero Revue is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Numero Revue {{ id }}?"
+            },
+            "detail": {
+                "title": "Numero Revue"
+            },
+            "idNumeroRevue": "Id Numero Revue",
+            "mois": "Mois",
+            "annee": "Annee",
+            "volume": "Volume",
+            "numeroVolume": "Numero Volume",
+            "lien": "Lien",
+            "doi": "Doi",
+            "revue": "Revue"
+        }
+    }
+}
