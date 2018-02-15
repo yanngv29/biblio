@@ -17,34 +17,26 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.revue.idRevue">Id Revue</span></th>
-            <th><span jhiTranslate="biblioApp.revue.nom">Nom</span></th>
+            <th><span jhiTranslate="biblioApp.revue.nomRevue">Nom Revue</span></th>
             <th><span jhiTranslate="biblioApp.revue.audience">Audience</span></th>
             <th><span jhiTranslate="biblioApp.revue.comiteSelection">Comite Selection</span></th>
-            <th><span jhiTranslate="biblioApp.revue.mois">Mois</span></th>
-            <th><span jhiTranslate="biblioApp.revue.annee">Annee</span></th>
-            <th><span jhiTranslate="biblioApp.revue.volume">Volume</span></th>
-            <th><span jhiTranslate="biblioApp.revue.numeroVolume">Numero Volume</span></th>
-            <th><span jhiTranslate="biblioApp.revue.lieu">Lieu</span></th>
-            <th><span jhiTranslate="biblioApp.revue.lien">Lien</span></th>
-            <th><span jhiTranslate="biblioApp.revue.divers">Divers</span></th>
+            <th><span jhiTranslate="biblioApp.revue.langueRevue">Langue Revue</span></th>
+            <th><span jhiTranslate="biblioApp.revue.lieuRevue">Lieu Revue</span></th>
+            <th><span jhiTranslate="biblioApp.revue.lienRevue">Lien Revue</span></th>
+            <th><span jhiTranslate="biblioApp.revue.diversRevue">Divers Revue</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let revue of revues ;trackBy: trackId">
                 <td><a [routerLink]="['../revue', revue.id ]">{{revue.id}}</a></td>
-                <td>{{revue.idRevue}}</td>
-                <td>{{revue.nom}}</td>
+                <td>{{revue.nomRevue}}</td>
                 <td jhiTranslate="{{'biblioApp.Audience.' + revue.audience}}">{{revue.audience}}</td>
                 <td>{{revue.comiteSelection}}</td>
-                <td>{{revue.mois}}</td>
-                <td>{{revue.annee}}</td>
-                <td>{{revue.volume}}</td>
-                <td>{{revue.numeroVolume}}</td>
-                <td>{{revue.lieu}}</td>
-                <td>{{revue.lien}}</td>
-                <td>{{revue.divers}}</td>
+                <td>{{revue.langueRevue}}</td>
+                <td>{{revue.lieuRevue}}</td>
+                <td>{{revue.lienRevue}}</td>
+                <td>{{revue.diversRevue}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

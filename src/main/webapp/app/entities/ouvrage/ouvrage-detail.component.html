@@ -4,53 +4,65 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="biblioApp.ouvrage.idOuvrage">Id Ouvrage</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.titreOuvrage">Titre Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.idOuvrage}}</span>
+            <span>{{ouvrage.titreOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.titre">Titre</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.typeOuvrage">Type Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.titre}}</span>
+            <span jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.typeOuvrage}}">{{ouvrage.typeOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.type">Type</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.participationOuvrage">Participation Ouvrage</span></dt>
         <dd>
-            <span jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.type}}">{{ouvrage.type}}</span>
+            <span jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participationOuvrage}}">{{ouvrage.participationOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.participation">Participation</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.anneeOuvrage">Annee Ouvrage</span></dt>
         <dd>
-            <span jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participation}}">{{ouvrage.participation}}</span>
+            <span>{{ouvrage.anneeOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.annee">Annee</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.numeroEditionOuvrage">Numero Edition Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.annee}}</span>
+            <span>{{ouvrage.numeroEditionOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.numeroEdition">Numero Edition</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.volumeOuvrage">Volume Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.numeroEdition}}</span>
+            <span>{{ouvrage.volumeOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.volume">Volume</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.traductionOuvrage">Traduction Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.volume}}</span>
+            <span>{{ouvrage.traductionOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.traduction">Traduction</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.lieuOuvrage">Lieu Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.traduction}}</span>
+            <span>{{ouvrage.lieuOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.lieu">Lieu</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.maisonEditionOuvrage">Maison Edition Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.lieu}}</span>
+            <span>{{ouvrage.maisonEditionOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.maisonEdition">Maison Edition</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.collectionOuvrage">Collection Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.maisonEdition}}</span>
+            <span>{{ouvrage.collectionOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.collection">Collection</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.langueOuvrage">Langue Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.collection}}</span>
+            <span>{{ouvrage.langueOuvrage}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.ouvrage.hal">Hal</span></dt>
+        <dt><span jhiTranslate="biblioApp.ouvrage.lienOuvrage">Lien Ouvrage</span></dt>
         <dd>
-            <span>{{ouvrage.hal}}</span>
+            <span>{{ouvrage.lienOuvrage}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.doiOuvrage">Doi Ouvrage</span></dt>
+        <dd>
+            <span>{{ouvrage.doiOuvrage}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.halOuvrage">Hal Ouvrage</span></dt>
+        <dd>
+            <span>{{ouvrage.halOuvrage}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.ouvrage.diversOuvrage">Divers Ouvrage</span></dt>
+        <dd>
+            <span>{{ouvrage.diversOuvrage}}</span>
         </dd>
     </dl>
 

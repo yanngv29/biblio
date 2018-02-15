@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Chercheur.
+    -->
+    <changeSet id="20180215164202-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_actes"
+                                 constraintName="fk_chercheur_actes_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="actes_id"
+                                 baseTableName="chercheur_actes"
+                                 constraintName="fk_chercheur_actes_actes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actes"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_article"
+                                 constraintName="fk_chercheur_article_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="articles_id"
+                                 baseTableName="chercheur_article"
+                                 constraintName="fk_chercheur_article_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_chapitre"
+                                 constraintName="fk_chercheur_chapitre_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="chapitres_id"
+                                 baseTableName="chercheur_chapitre"
+                                 constraintName="fk_chercheur_chapitre_chapitres_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chapitre"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_communication"
+                                 constraintName="fk_chercheur_communication_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="communications_id"
+                                 baseTableName="chercheur_communication"
+                                 constraintName="fk_chercheur_communication_communications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="communication"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_ouvrage"
+                                 constraintName="fk_chercheur_ouvrage_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="ouvrages_id"
+                                 baseTableName="chercheur_ouvrage"
+                                 constraintName="fk_chercheur_ouvrage_ouvrages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ouvrage"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_publication_gouvernementale"
+                                 constraintName="fk_chercheur_publication_gouvernementale_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="publication_gouvernementales_id"
+                                 baseTableName="chercheur_publication_gouvernementale"
+                                 constraintName="fk_chercheur_publication_gouvernementale_publication_gouvernementales_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publication_gouvernementale"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_revue"
+                                 constraintName="fk_chercheur_revue_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="revues_id"
+                                 baseTableName="chercheur_revue"
+                                 constraintName="fk_chercheur_revue_revues_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="numero_revue"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_memoire"
+                                 constraintName="fk_chercheur_memoire_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="memoires_id"
+                                 baseTableName="chercheur_memoire"
+                                 constraintName="fk_chercheur_memoire_memoires_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="memoire"/>
+        
+        <addForeignKeyConstraint baseColumnNames="chercheurs_id"
+                                 baseTableName="chercheur_rapport"
+                                 constraintName="fk_chercheur_rapport_chercheurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chercheur"/>
+        <addForeignKeyConstraint baseColumnNames="rapports_id"
+                                 baseTableName="chercheur_rapport"
+                                 constraintName="fk_chercheur_rapport_rapports_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rapport"/>
+        
+    </changeSet>
+</databaseChangeLog>

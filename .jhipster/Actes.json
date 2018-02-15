@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "conference",
+            "otherEntityName": "conference",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "actes"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "titreActe",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anneeActe",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroEditionActe",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "volumeActe",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "traductionActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lieuActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maisonEditionActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "collectionActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "langueActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halActe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversActe",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180215164157",
+    "javadoc": "Actes de conférence : identifiant obligatoire",
+    "entityTableName": "actes",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

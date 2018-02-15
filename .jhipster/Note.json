@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "conference",
+            "otherEntityName": "conference",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "memoire",
+            "otherEntityName": "memoire",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "ouvrage",
+            "otherEntityName": "ouvrage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "publicationGouvernementale",
+            "otherEntityName": "publicationGouvernementale",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "rapport",
+            "otherEntityName": "rapport",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "revue",
+            "otherEntityName": "revue",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cnuNote",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rangNote",
+            "fieldType": "RangNote",
+            "fieldValues": "A,B,C"
+        },
+        {
+            "fieldName": "debutNote",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "finNote",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180215164204",
+    "javadoc": "Notation",
+    "entityTableName": "note",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

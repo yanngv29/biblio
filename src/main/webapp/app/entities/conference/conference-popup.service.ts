@@ -31,10 +31,10 @@ export class ConferencePopupService {
                 this.conferenceService.find(id)
                     .subscribe((conferenceResponse: HttpResponse<Conference>) => {
                         const conference: Conference = conferenceResponse.body;
-                        conference.dateDebut = this.datePipe
-                            .transform(conference.dateDebut, 'yyyy-MM-ddTHH:mm:ss');
-                        conference.dateFin = this.datePipe
-                            .transform(conference.dateFin, 'yyyy-MM-ddTHH:mm:ss');
+                        conference.dateDebutConference = this.datePipe
+                            .transform(conference.dateDebutConference, 'yyyy-MM-ddTHH:mm:ss');
+                        conference.dateFinConference = this.datePipe
+                            .transform(conference.dateFinConference, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.conferenceModalRef(component, conference);
                         resolve(this.ngbModalRef);
                     });

@@ -63,10 +63,10 @@ export class ConferenceService {
      */
     private convertItemFromServer(conference: Conference): Conference {
         const copy: Conference = Object.assign({}, conference);
-        copy.dateDebut = this.dateUtils
-            .convertDateTimeFromServer(conference.dateDebut);
-        copy.dateFin = this.dateUtils
-            .convertDateTimeFromServer(conference.dateFin);
+        copy.dateDebutConference = this.dateUtils
+            .convertDateTimeFromServer(conference.dateDebutConference);
+        copy.dateFinConference = this.dateUtils
+            .convertDateTimeFromServer(conference.dateFinConference);
         return copy;
     }
 
@@ -76,9 +76,9 @@ export class ConferenceService {
     private convert(conference: Conference): Conference {
         const copy: Conference = Object.assign({}, conference);
 
-        copy.dateDebut = this.dateUtils.toDate(conference.dateDebut);
+        copy.dateDebutConference = this.dateUtils.toDate(conference.dateDebutConference);
 
-        copy.dateFin = this.dateUtils.toDate(conference.dateFin);
+        copy.dateFinConference = this.dateUtils.toDate(conference.dateFinConference);
         return copy;
     }
 }

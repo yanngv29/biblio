@@ -16,19 +16,17 @@
             "detail": {
                 "title": "Conference"
             },
-            "idConference": "Id Conference",
-            "type": "Type",
-            "nom": "Nom",
-            "audience": "Audience",
-            "comiteSelection": "Comite Selection",
-            "editeur": "Editeur",
-            "dateDebut": "Date Debut",
-            "dateFin": "Date Fin",
-            "ville": "Ville",
-            "pays": "Pays",
-            "lienSite": "Lien Site",
-            "lienActes": "Lien Actes",
-            "divers": "Divers",
+            "nomConference": "Nom Conference",
+            "typeConference": "Type Conference",
+            "audienceConference": "Audience Conference",
+            "comiteSelectionConference": "Comite Selection Conference",
+            "dateDebutConference": "Date Debut Conference",
+            "dateFinConference": "Date Fin Conference",
+            "villeConference": "Ville Conference",
+            "paysConference": "Pays Conference",
+            "langueConference": "Langue Conference",
+            "lienSiteConference": "Lien Site Conference",
+            "diversConference": "Divers Conference",
             "notation": "Notation"
         }
     }

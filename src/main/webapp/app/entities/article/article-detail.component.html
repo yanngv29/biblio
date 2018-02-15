@@ -4,25 +4,37 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="biblioApp.article.idArticle">Id Article</span></dt>
+        <dt><span jhiTranslate="biblioApp.article.titreArticle">Titre Article</span></dt>
         <dd>
-            <span>{{article.idArticle}}</span>
+            <span>{{article.titreArticle}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.article.type">Type</span></dt>
+        <dt><span jhiTranslate="biblioApp.article.typeArticle">Type Article</span></dt>
         <dd>
-            <span jhiTranslate="{{'biblioApp.TypeArticle.' + article.type}}">{{article.type}}</span>
+            <span jhiTranslate="{{'biblioApp.TypeArticle.' + article.typeArticle}}">{{article.typeArticle}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.article.pageDebut">Page Debut</span></dt>
+        <dt><span jhiTranslate="biblioApp.article.pageDebutArticle">Page Debut Article</span></dt>
         <dd>
-            <span>{{article.pageDebut}}</span>
+            <span>{{article.pageDebutArticle}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.article.pageFin">Page Fin</span></dt>
+        <dt><span jhiTranslate="biblioApp.article.pageFinArticle">Page Fin Article</span></dt>
         <dd>
-            <span>{{article.pageFin}}</span>
+            <span>{{article.pageFinArticle}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.article.hal">Hal</span></dt>
+        <dt><span jhiTranslate="biblioApp.article.langueArticle">Langue Article</span></dt>
         <dd>
-            <span>{{article.hal}}</span>
+            <span>{{article.langueArticle}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.lienArticle">Lien Article</span></dt>
+        <dd>
+            <span>{{article.lienArticle}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.halArticle">Hal Article</span></dt>
+        <dd>
+            <span>{{article.halArticle}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.article.diversArticle">Divers Article</span></dt>
+        <dd>
+            <span>{{article.diversArticle}}</span>
         </dd>
         <dt><span jhiTranslate="biblioApp.article.numeroRevue">Numero Revue</span></dt>
         <dd>
@@ -30,10 +42,10 @@
                 <a [routerLink]="['/numero-revue', article.numeroRevue?.id]">{{article.numeroRevue?.id}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="biblioApp.article.acte">Acte</span></dt>
+        <dt><span jhiTranslate="biblioApp.article.actes">Actes</span></dt>
         <dd>
-            <div *ngIf="article.acte">
-                <a [routerLink]="['/acte', article.acte?.id]">{{article.acte?.id}}</a>
+            <div *ngIf="article.actes">
+                <a [routerLink]="['/actes', article.actes?.id]">{{article.actes?.id}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="biblioApp.article.conference">Conference</span></dt>

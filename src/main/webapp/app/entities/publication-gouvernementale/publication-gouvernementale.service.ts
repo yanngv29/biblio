@@ -63,8 +63,8 @@ export class PublicationGouvernementaleService {
      */
     private convertItemFromServer(publicationGouvernementale: PublicationGouvernementale): PublicationGouvernementale {
         const copy: PublicationGouvernementale = Object.assign({}, publicationGouvernementale);
-        copy.date = this.dateUtils
-            .convertDateTimeFromServer(publicationGouvernementale.date);
+        copy.datePG = this.dateUtils
+            .convertDateTimeFromServer(publicationGouvernementale.datePG);
         return copy;
     }
 
@@ -74,7 +74,7 @@ export class PublicationGouvernementaleService {
     private convert(publicationGouvernementale: PublicationGouvernementale): PublicationGouvernementale {
         const copy: PublicationGouvernementale = Object.assign({}, publicationGouvernementale);
 
-        copy.date = this.dateUtils.toDate(publicationGouvernementale.date);
+        copy.datePG = this.dateUtils.toDate(publicationGouvernementale.datePG);
         return copy;
     }
 }

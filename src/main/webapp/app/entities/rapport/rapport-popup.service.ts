@@ -31,8 +31,8 @@ export class RapportPopupService {
                 this.rapportService.find(id)
                     .subscribe((rapportResponse: HttpResponse<Rapport>) => {
                         const rapport: Rapport = rapportResponse.body;
-                        rapport.date = this.datePipe
-                            .transform(rapport.date, 'yyyy-MM-ddTHH:mm:ss');
+                        rapport.dateRapport = this.datePipe
+                            .transform(rapport.dateRapport, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.rapportModalRef(component, rapport);
                         resolve(this.ngbModalRef);
                     });

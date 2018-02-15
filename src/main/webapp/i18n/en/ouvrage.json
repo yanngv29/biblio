@@ -16,20 +16,22 @@
             "detail": {
                 "title": "Ouvrage"
             },
-            "idOuvrage": "Id Ouvrage",
-            "titre": "Titre",
-            "type": "Type",
-            "participation": "Participation",
-            "annee": "Annee",
-            "numeroEdition": "Numero Edition",
-            "volume": "Volume",
-            "traduction": "Traduction",
-            "lieu": "Lieu",
-            "maisonEdition": "Maison Edition",
-            "collection": "Collection",
-            "hal": "Hal",
-            "notation": "Notation",
-            "chapitre": "Chapitre"
+            "titreOuvrage": "Titre Ouvrage",
+            "typeOuvrage": "Type Ouvrage",
+            "participationOuvrage": "Participation Ouvrage",
+            "anneeOuvrage": "Annee Ouvrage",
+            "numeroEditionOuvrage": "Numero Edition Ouvrage",
+            "volumeOuvrage": "Volume Ouvrage",
+            "traductionOuvrage": "Traduction Ouvrage",
+            "lieuOuvrage": "Lieu Ouvrage",
+            "maisonEditionOuvrage": "Maison Edition Ouvrage",
+            "collectionOuvrage": "Collection Ouvrage",
+            "langueOuvrage": "Langue Ouvrage",
+            "lienOuvrage": "Lien Ouvrage",
+            "doiOuvrage": "Doi Ouvrage",
+            "halOuvrage": "Hal Ouvrage",
+            "diversOuvrage": "Divers Ouvrage",
+            "notation": "Notation"
         }
     }
 }

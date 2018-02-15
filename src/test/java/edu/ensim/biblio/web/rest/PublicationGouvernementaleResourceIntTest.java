@@ -40,20 +40,35 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BiblioApp.class)
 public class PublicationGouvernementaleResourceIntTest {
 
-    private static final String DEFAULT_ID_PG = "AAAAAAAAAA";
-    private static final String UPDATED_ID_PG = "BBBBBBBBBB";
+    private static final String DEFAULT_TITRE_PG = "AAAAAAAAAA";
+    private static final String UPDATED_TITRE_PG = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final Instant DEFAULT_DATE_PG = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_DATE_PG = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final String DEFAULT_NUMERO_EDITION = "AAAAAAAAAA";
-    private static final String UPDATED_NUMERO_EDITION = "BBBBBBBBBB";
+    private static final String DEFAULT_NUMERO_EDITION_PG = "AAAAAAAAAA";
+    private static final String UPDATED_NUMERO_EDITION_PG = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LIEU = "AAAAAAAAAA";
-    private static final String UPDATED_LIEU = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEU_PG = "AAAAAAAAAA";
+    private static final String UPDATED_LIEU_PG = "BBBBBBBBBB";
 
-    private static final String DEFAULT_MAISON_EDITION = "AAAAAAAAAA";
-    private static final String UPDATED_MAISON_EDITION = "BBBBBBBBBB";
+    private static final String DEFAULT_MAISON_EDITION_PG = "AAAAAAAAAA";
+    private static final String UPDATED_MAISON_EDITION_PG = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LANGUE_PG = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_PG = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LIEN_PG = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_PG = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DOI_PG = "AAAAAAAAAA";
+    private static final String UPDATED_DOI_PG = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HAL_PG = "AAAAAAAAAA";
+    private static final String UPDATED_HAL_PG = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_OUVRAGE_PG = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_OUVRAGE_PG = "BBBBBBBBBB";
 
     @Autowired
     private PublicationGouvernementaleRepository publicationGouvernementaleRepository;
@@ -93,11 +108,16 @@ public class PublicationGouvernementaleResourceIntTest {
      */
     public static PublicationGouvernementale createEntity(EntityManager em) {
         PublicationGouvernementale publicationGouvernementale = new PublicationGouvernementale()
-            .idPG(DEFAULT_ID_PG)
-            .date(DEFAULT_DATE)
-            .numeroEdition(DEFAULT_NUMERO_EDITION)
-            .lieu(DEFAULT_LIEU)
-            .maisonEdition(DEFAULT_MAISON_EDITION);
+            .titrePG(DEFAULT_TITRE_PG)
+            .datePG(DEFAULT_DATE_PG)
+            .numeroEditionPG(DEFAULT_NUMERO_EDITION_PG)
+            .lieuPG(DEFAULT_LIEU_PG)
+            .maisonEditionPG(DEFAULT_MAISON_EDITION_PG)
+            .languePG(DEFAULT_LANGUE_PG)
+            .lienPG(DEFAULT_LIEN_PG)
+            .doiPG(DEFAULT_DOI_PG)
+            .halPG(DEFAULT_HAL_PG)
+            .diversOuvragePG(DEFAULT_DIVERS_OUVRAGE_PG);
         return publicationGouvernementale;
     }
 
@@ -121,11 +141,16 @@ public class PublicationGouvernementaleResourceIntTest {
         List<PublicationGouvernementale> publicationGouvernementaleList = publicationGouvernementaleRepository.findAll();
         assertThat(publicationGouvernementaleList).hasSize(databaseSizeBeforeCreate + 1);
         PublicationGouvernementale testPublicationGouvernementale = publicationGouvernementaleList.get(publicationGouvernementaleList.size() - 1);
-        assertThat(testPublicationGouvernementale.getIdPG()).isEqualTo(DEFAULT_ID_PG);
-        assertThat(testPublicationGouvernementale.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testPublicationGouvernementale.getNumeroEdition()).isEqualTo(DEFAULT_NUMERO_EDITION);
-        assertThat(testPublicationGouvernementale.getLieu()).isEqualTo(DEFAULT_LIEU);
-        assertThat(testPublicationGouvernementale.getMaisonEdition()).isEqualTo(DEFAULT_MAISON_EDITION);
+        assertThat(testPublicationGouvernementale.getTitrePG()).isEqualTo(DEFAULT_TITRE_PG);
+        assertThat(testPublicationGouvernementale.getDatePG()).isEqualTo(DEFAULT_DATE_PG);
+        assertThat(testPublicationGouvernementale.getNumeroEditionPG()).isEqualTo(DEFAULT_NUMERO_EDITION_PG);
+        assertThat(testPublicationGouvernementale.getLieuPG()).isEqualTo(DEFAULT_LIEU_PG);
+        assertThat(testPublicationGouvernementale.getMaisonEditionPG()).isEqualTo(DEFAULT_MAISON_EDITION_PG);
+        assertThat(testPublicationGouvernementale.getLanguePG()).isEqualTo(DEFAULT_LANGUE_PG);
+        assertThat(testPublicationGouvernementale.getLienPG()).isEqualTo(DEFAULT_LIEN_PG);
+        assertThat(testPublicationGouvernementale.getDoiPG()).isEqualTo(DEFAULT_DOI_PG);
+        assertThat(testPublicationGouvernementale.getHalPG()).isEqualTo(DEFAULT_HAL_PG);
+        assertThat(testPublicationGouvernementale.getDiversOuvragePG()).isEqualTo(DEFAULT_DIVERS_OUVRAGE_PG);
     }
 
     @Test
@@ -149,10 +174,10 @@ public class PublicationGouvernementaleResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdPGIsRequired() throws Exception {
+    public void checkTitrePGIsRequired() throws Exception {
         int databaseSizeBeforeTest = publicationGouvernementaleRepository.findAll().size();
         // set the field null
-        publicationGouvernementale.setIdPG(null);
+        publicationGouvernementale.setTitrePG(null);
 
         // Create the PublicationGouvernementale, which fails.
 
@@ -176,11 +201,16 @@ public class PublicationGouvernementaleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(publicationGouvernementale.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPG").value(hasItem(DEFAULT_ID_PG.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].numeroEdition").value(hasItem(DEFAULT_NUMERO_EDITION.toString())))
-            .andExpect(jsonPath("$.[*].lieu").value(hasItem(DEFAULT_LIEU.toString())))
-            .andExpect(jsonPath("$.[*].maisonEdition").value(hasItem(DEFAULT_MAISON_EDITION.toString())));
+            .andExpect(jsonPath("$.[*].titrePG").value(hasItem(DEFAULT_TITRE_PG.toString())))
+            .andExpect(jsonPath("$.[*].datePG").value(hasItem(DEFAULT_DATE_PG.toString())))
+            .andExpect(jsonPath("$.[*].numeroEditionPG").value(hasItem(DEFAULT_NUMERO_EDITION_PG.toString())))
+            .andExpect(jsonPath("$.[*].lieuPG").value(hasItem(DEFAULT_LIEU_PG.toString())))
+            .andExpect(jsonPath("$.[*].maisonEditionPG").value(hasItem(DEFAULT_MAISON_EDITION_PG.toString())))
+            .andExpect(jsonPath("$.[*].languePG").value(hasItem(DEFAULT_LANGUE_PG.toString())))
+            .andExpect(jsonPath("$.[*].lienPG").value(hasItem(DEFAULT_LIEN_PG.toString())))
+            .andExpect(jsonPath("$.[*].doiPG").value(hasItem(DEFAULT_DOI_PG.toString())))
+            .andExpect(jsonPath("$.[*].halPG").value(hasItem(DEFAULT_HAL_PG.toString())))
+            .andExpect(jsonPath("$.[*].diversOuvragePG").value(hasItem(DEFAULT_DIVERS_OUVRAGE_PG.toString())));
     }
 
     @Test
@@ -194,11 +224,16 @@ public class PublicationGouvernementaleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(publicationGouvernementale.getId().intValue()))
-            .andExpect(jsonPath("$.idPG").value(DEFAULT_ID_PG.toString()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.numeroEdition").value(DEFAULT_NUMERO_EDITION.toString()))
-            .andExpect(jsonPath("$.lieu").value(DEFAULT_LIEU.toString()))
-            .andExpect(jsonPath("$.maisonEdition").value(DEFAULT_MAISON_EDITION.toString()));
+            .andExpect(jsonPath("$.titrePG").value(DEFAULT_TITRE_PG.toString()))
+            .andExpect(jsonPath("$.datePG").value(DEFAULT_DATE_PG.toString()))
+            .andExpect(jsonPath("$.numeroEditionPG").value(DEFAULT_NUMERO_EDITION_PG.toString()))
+            .andExpect(jsonPath("$.lieuPG").value(DEFAULT_LIEU_PG.toString()))
+            .andExpect(jsonPath("$.maisonEditionPG").value(DEFAULT_MAISON_EDITION_PG.toString()))
+            .andExpect(jsonPath("$.languePG").value(DEFAULT_LANGUE_PG.toString()))
+            .andExpect(jsonPath("$.lienPG").value(DEFAULT_LIEN_PG.toString()))
+            .andExpect(jsonPath("$.doiPG").value(DEFAULT_DOI_PG.toString()))
+            .andExpect(jsonPath("$.halPG").value(DEFAULT_HAL_PG.toString()))
+            .andExpect(jsonPath("$.diversOuvragePG").value(DEFAULT_DIVERS_OUVRAGE_PG.toString()));
     }
 
     @Test
@@ -221,11 +256,16 @@ public class PublicationGouvernementaleResourceIntTest {
         // Disconnect from session so that the updates on updatedPublicationGouvernementale are not directly saved in db
         em.detach(updatedPublicationGouvernementale);
         updatedPublicationGouvernementale
-            .idPG(UPDATED_ID_PG)
-            .date(UPDATED_DATE)
-            .numeroEdition(UPDATED_NUMERO_EDITION)
-            .lieu(UPDATED_LIEU)
-            .maisonEdition(UPDATED_MAISON_EDITION);
+            .titrePG(UPDATED_TITRE_PG)
+            .datePG(UPDATED_DATE_PG)
+            .numeroEditionPG(UPDATED_NUMERO_EDITION_PG)
+            .lieuPG(UPDATED_LIEU_PG)
+            .maisonEditionPG(UPDATED_MAISON_EDITION_PG)
+            .languePG(UPDATED_LANGUE_PG)
+            .lienPG(UPDATED_LIEN_PG)
+            .doiPG(UPDATED_DOI_PG)
+            .halPG(UPDATED_HAL_PG)
+            .diversOuvragePG(UPDATED_DIVERS_OUVRAGE_PG);
 
         restPublicationGouvernementaleMockMvc.perform(put("/api/publication-gouvernementales")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -236,11 +276,16 @@ public class PublicationGouvernementaleResourceIntTest {
         List<PublicationGouvernementale> publicationGouvernementaleList = publicationGouvernementaleRepository.findAll();
         assertThat(publicationGouvernementaleList).hasSize(databaseSizeBeforeUpdate);
         PublicationGouvernementale testPublicationGouvernementale = publicationGouvernementaleList.get(publicationGouvernementaleList.size() - 1);
-        assertThat(testPublicationGouvernementale.getIdPG()).isEqualTo(UPDATED_ID_PG);
-        assertThat(testPublicationGouvernementale.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testPublicationGouvernementale.getNumeroEdition()).isEqualTo(UPDATED_NUMERO_EDITION);
-        assertThat(testPublicationGouvernementale.getLieu()).isEqualTo(UPDATED_LIEU);
-        assertThat(testPublicationGouvernementale.getMaisonEdition()).isEqualTo(UPDATED_MAISON_EDITION);
+        assertThat(testPublicationGouvernementale.getTitrePG()).isEqualTo(UPDATED_TITRE_PG);
+        assertThat(testPublicationGouvernementale.getDatePG()).isEqualTo(UPDATED_DATE_PG);
+        assertThat(testPublicationGouvernementale.getNumeroEditionPG()).isEqualTo(UPDATED_NUMERO_EDITION_PG);
+        assertThat(testPublicationGouvernementale.getLieuPG()).isEqualTo(UPDATED_LIEU_PG);
+        assertThat(testPublicationGouvernementale.getMaisonEditionPG()).isEqualTo(UPDATED_MAISON_EDITION_PG);
+        assertThat(testPublicationGouvernementale.getLanguePG()).isEqualTo(UPDATED_LANGUE_PG);
+        assertThat(testPublicationGouvernementale.getLienPG()).isEqualTo(UPDATED_LIEN_PG);
+        assertThat(testPublicationGouvernementale.getDoiPG()).isEqualTo(UPDATED_DOI_PG);
+        assertThat(testPublicationGouvernementale.getHalPG()).isEqualTo(UPDATED_HAL_PG);
+        assertThat(testPublicationGouvernementale.getDiversOuvragePG()).isEqualTo(UPDATED_DIVERS_OUVRAGE_PG);
     }
 
     @Test

@@ -1,0 +1,90 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNoteLabel" jhiTranslate="biblioApp.note.home.createOrEditLabel">Create or edit a Note</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!note.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="note.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.cnuNote" for="field_cnuNote">Cnu Note</label>
+            <input type="text" class="form-control" name="cnuNote" id="field_cnuNote"
+                [(ngModel)]="note.cnuNote" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.rangNote" for="field_rangNote">Rang Note</label>
+            <select class="form-control" name="rangNote" [(ngModel)]="note.rangNote" id="field_rangNote" >
+                <option value="A">{{'biblioApp.RangNote.A' | translate}}</option>
+                <option value="B">{{'biblioApp.RangNote.B' | translate}}</option>
+                <option value="C">{{'biblioApp.RangNote.C' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.debutNote" for="field_debutNote">Debut Note</label>
+            <input type="text" class="form-control" name="debutNote" id="field_debutNote"
+                [(ngModel)]="note.debutNote" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.finNote" for="field_finNote">Fin Note</label>
+            <input type="text" class="form-control" name="finNote" id="field_finNote"
+                [(ngModel)]="note.finNote" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.conference" for="field_conference">Conference</label>
+            <select class="form-control" id="field_conference" name="conference" [(ngModel)]="note.conference" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="conferenceOption.id === note.conference?.id ? note.conference : conferenceOption" *ngFor="let conferenceOption of conferences; trackBy: trackConferenceById">{{conferenceOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.memoire" for="field_memoire">Memoire</label>
+            <select class="form-control" id="field_memoire" name="memoire" [(ngModel)]="note.memoire" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="memoireOption.id === note.memoire?.id ? note.memoire : memoireOption" *ngFor="let memoireOption of memoires; trackBy: trackMemoireById">{{memoireOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.ouvrage" for="field_ouvrage">Ouvrage</label>
+            <select class="form-control" id="field_ouvrage" name="ouvrage" [(ngModel)]="note.ouvrage" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ouvrageOption.id === note.ouvrage?.id ? note.ouvrage : ouvrageOption" *ngFor="let ouvrageOption of ouvrages; trackBy: trackOuvrageById">{{ouvrageOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.publicationGouvernementale" for="field_publicationGouvernementale">Publication Gouvernementale</label>
+            <select class="form-control" id="field_publicationGouvernementale" name="publicationGouvernementale" [(ngModel)]="note.publicationGouvernementale" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="publicationGouvernementaleOption.id === note.publicationGouvernementale?.id ? note.publicationGouvernementale : publicationGouvernementaleOption" *ngFor="let publicationGouvernementaleOption of publicationgouvernementales; trackBy: trackPublicationGouvernementaleById">{{publicationGouvernementaleOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.rapport" for="field_rapport">Rapport</label>
+            <select class="form-control" id="field_rapport" name="rapport" [(ngModel)]="note.rapport" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="rapportOption.id === note.rapport?.id ? note.rapport : rapportOption" *ngFor="let rapportOption of rapports; trackBy: trackRapportById">{{rapportOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.note.revue" for="field_revue">Revue</label>
+            <select class="form-control" id="field_revue" name="revue" [(ngModel)]="note.revue" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="revueOption.id === note.revue?.id ? note.revue : revueOption" *ngFor="let revueOption of revues; trackBy: trackRevueById">{{revueOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

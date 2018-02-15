@@ -16,14 +16,18 @@
             "detail": {
                 "title": "Article"
             },
-            "idArticle": "Id Article",
-            "type": "Type",
-            "pageDebut": "Page Debut",
-            "pageFin": "Page Fin",
-            "hal": "Hal",
+            "titreArticle": "Titre Article",
+            "typeArticle": "Type Article",
+            "pageDebutArticle": "Page Debut Article",
+            "pageFinArticle": "Page Fin Article",
+            "langueArticle": "Langue Article",
+            "lienArticle": "Lien Article",
+            "halArticle": "Hal Article",
+            "diversArticle": "Divers Article",
             "numeroRevue": "Numero Revue",
-            "acte": "Acte",
-            "conference": "Conference"
+            "actes": "Actes",
+            "conference": "Conference",
+            "auteur": "Auteur"
         }
     }
 }

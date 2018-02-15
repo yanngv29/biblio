@@ -17,36 +17,42 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.idOuvrage">Id Ouvrage</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.titre">Titre</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.type">Type</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.participation">Participation</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.annee">Annee</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.numeroEdition">Numero Edition</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.volume">Volume</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.traduction">Traduction</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.lieu">Lieu</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.maisonEdition">Maison Edition</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.collection">Collection</span></th>
-            <th><span jhiTranslate="biblioApp.ouvrage.hal">Hal</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.titreOuvrage">Titre Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.typeOuvrage">Type Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.participationOuvrage">Participation Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.anneeOuvrage">Annee Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.numeroEditionOuvrage">Numero Edition Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.volumeOuvrage">Volume Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.traductionOuvrage">Traduction Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.lieuOuvrage">Lieu Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.maisonEditionOuvrage">Maison Edition Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.collectionOuvrage">Collection Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.langueOuvrage">Langue Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.lienOuvrage">Lien Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.doiOuvrage">Doi Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.halOuvrage">Hal Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.diversOuvrage">Divers Ouvrage</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let ouvrage of ouvrages ;trackBy: trackId">
                 <td><a [routerLink]="['../ouvrage', ouvrage.id ]">{{ouvrage.id}}</a></td>
-                <td>{{ouvrage.idOuvrage}}</td>
-                <td>{{ouvrage.titre}}</td>
-                <td jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.type}}">{{ouvrage.type}}</td>
-                <td jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participation}}">{{ouvrage.participation}}</td>
-                <td>{{ouvrage.annee}}</td>
-                <td>{{ouvrage.numeroEdition}}</td>
-                <td>{{ouvrage.volume}}</td>
-                <td>{{ouvrage.traduction}}</td>
-                <td>{{ouvrage.lieu}}</td>
-                <td>{{ouvrage.maisonEdition}}</td>
-                <td>{{ouvrage.collection}}</td>
-                <td>{{ouvrage.hal}}</td>
+                <td>{{ouvrage.titreOuvrage}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.typeOuvrage}}">{{ouvrage.typeOuvrage}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participationOuvrage}}">{{ouvrage.participationOuvrage}}</td>
+                <td>{{ouvrage.anneeOuvrage}}</td>
+                <td>{{ouvrage.numeroEditionOuvrage}}</td>
+                <td>{{ouvrage.volumeOuvrage}}</td>
+                <td>{{ouvrage.traductionOuvrage}}</td>
+                <td>{{ouvrage.lieuOuvrage}}</td>
+                <td>{{ouvrage.maisonEditionOuvrage}}</td>
+                <td>{{ouvrage.collectionOuvrage}}</td>
+                <td>{{ouvrage.langueOuvrage}}</td>
+                <td>{{ouvrage.lienOuvrage}}</td>
+                <td>{{ouvrage.doiOuvrage}}</td>
+                <td>{{ouvrage.halOuvrage}}</td>
+                <td>{{ouvrage.diversOuvrage}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

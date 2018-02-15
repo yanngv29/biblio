@@ -13,74 +13,95 @@
                    [(ngModel)]="ouvrage.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.idOuvrage" for="field_idOuvrage">Id Ouvrage</label>
-            <input type="text" class="form-control" name="idOuvrage" id="field_idOuvrage"
-                [(ngModel)]="ouvrage.idOuvrage" required/>
-            <div [hidden]="!(editForm.controls.idOuvrage?.dirty && editForm.controls.idOuvrage?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.titreOuvrage" for="field_titreOuvrage">Titre Ouvrage</label>
+            <input type="text" class="form-control" name="titreOuvrage" id="field_titreOuvrage"
+                [(ngModel)]="ouvrage.titreOuvrage" required/>
+            <div [hidden]="!(editForm.controls.titreOuvrage?.dirty && editForm.controls.titreOuvrage?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idOuvrage?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.titreOuvrage?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.titre" for="field_titre">Titre</label>
-            <input type="text" class="form-control" name="titre" id="field_titre"
-                [(ngModel)]="ouvrage.titre" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.type" for="field_type">Type</label>
-            <select class="form-control" name="type" [(ngModel)]="ouvrage.type" id="field_type" >
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.typeOuvrage" for="field_typeOuvrage">Type Ouvrage</label>
+            <select class="form-control" name="typeOuvrage" [(ngModel)]="ouvrage.typeOuvrage" id="field_typeOuvrage"  required>
                 <option value="SCIENTIFIQUE">{{'biblioApp.TypeOuvrage.SCIENTIFIQUE' | translate}}</option>
                 <option value="VULGARISATION">{{'biblioApp.TypeOuvrage.VULGARISATION' | translate}}</option>
             </select>
+            <div [hidden]="!(editForm.controls.typeOuvrage?.dirty && editForm.controls.typeOuvrage?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.typeOuvrage?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.participation" for="field_participation">Participation</label>
-            <select class="form-control" name="participation" [(ngModel)]="ouvrage.participation" id="field_participation" >
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.participationOuvrage" for="field_participationOuvrage">Participation Ouvrage</label>
+            <select class="form-control" name="participationOuvrage" [(ngModel)]="ouvrage.participationOuvrage" id="field_participationOuvrage" >
                 <option value="COMPLETE">{{'biblioApp.TypeParticipation.COMPLETE' | translate}}</option>
                 <option value="PARTIELLE">{{'biblioApp.TypeParticipation.PARTIELLE' | translate}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.annee" for="field_annee">Annee</label>
-            <input type="number" class="form-control" name="annee" id="field_annee"
-                [(ngModel)]="ouvrage.annee" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.anneeOuvrage" for="field_anneeOuvrage">Annee Ouvrage</label>
+            <input type="number" class="form-control" name="anneeOuvrage" id="field_anneeOuvrage"
+                [(ngModel)]="ouvrage.anneeOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.numeroEdition" for="field_numeroEdition">Numero Edition</label>
-            <input type="number" class="form-control" name="numeroEdition" id="field_numeroEdition"
-                [(ngModel)]="ouvrage.numeroEdition" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.numeroEditionOuvrage" for="field_numeroEditionOuvrage">Numero Edition Ouvrage</label>
+            <input type="number" class="form-control" name="numeroEditionOuvrage" id="field_numeroEditionOuvrage"
+                [(ngModel)]="ouvrage.numeroEditionOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.volume" for="field_volume">Volume</label>
-            <input type="number" class="form-control" name="volume" id="field_volume"
-                [(ngModel)]="ouvrage.volume" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.volumeOuvrage" for="field_volumeOuvrage">Volume Ouvrage</label>
+            <input type="number" class="form-control" name="volumeOuvrage" id="field_volumeOuvrage"
+                [(ngModel)]="ouvrage.volumeOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.traduction" for="field_traduction">Traduction</label>
-            <input type="text" class="form-control" name="traduction" id="field_traduction"
-                [(ngModel)]="ouvrage.traduction" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.traductionOuvrage" for="field_traductionOuvrage">Traduction Ouvrage</label>
+            <input type="text" class="form-control" name="traductionOuvrage" id="field_traductionOuvrage"
+                [(ngModel)]="ouvrage.traductionOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.lieu" for="field_lieu">Lieu</label>
-            <input type="text" class="form-control" name="lieu" id="field_lieu"
-                [(ngModel)]="ouvrage.lieu" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.lieuOuvrage" for="field_lieuOuvrage">Lieu Ouvrage</label>
+            <input type="text" class="form-control" name="lieuOuvrage" id="field_lieuOuvrage"
+                [(ngModel)]="ouvrage.lieuOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.maisonEdition" for="field_maisonEdition">Maison Edition</label>
-            <input type="text" class="form-control" name="maisonEdition" id="field_maisonEdition"
-                [(ngModel)]="ouvrage.maisonEdition" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.maisonEditionOuvrage" for="field_maisonEditionOuvrage">Maison Edition Ouvrage</label>
+            <input type="text" class="form-control" name="maisonEditionOuvrage" id="field_maisonEditionOuvrage"
+                [(ngModel)]="ouvrage.maisonEditionOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.collection" for="field_collection">Collection</label>
-            <input type="text" class="form-control" name="collection" id="field_collection"
-                [(ngModel)]="ouvrage.collection" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.collectionOuvrage" for="field_collectionOuvrage">Collection Ouvrage</label>
+            <input type="text" class="form-control" name="collectionOuvrage" id="field_collectionOuvrage"
+                [(ngModel)]="ouvrage.collectionOuvrage" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.hal" for="field_hal">Hal</label>
-            <input type="text" class="form-control" name="hal" id="field_hal"
-                [(ngModel)]="ouvrage.hal" />
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.langueOuvrage" for="field_langueOuvrage">Langue Ouvrage</label>
+            <input type="text" class="form-control" name="langueOuvrage" id="field_langueOuvrage"
+                [(ngModel)]="ouvrage.langueOuvrage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.lienOuvrage" for="field_lienOuvrage">Lien Ouvrage</label>
+            <input type="text" class="form-control" name="lienOuvrage" id="field_lienOuvrage"
+                [(ngModel)]="ouvrage.lienOuvrage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.doiOuvrage" for="field_doiOuvrage">Doi Ouvrage</label>
+            <input type="text" class="form-control" name="doiOuvrage" id="field_doiOuvrage"
+                [(ngModel)]="ouvrage.doiOuvrage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.halOuvrage" for="field_halOuvrage">Hal Ouvrage</label>
+            <input type="text" class="form-control" name="halOuvrage" id="field_halOuvrage"
+                [(ngModel)]="ouvrage.halOuvrage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.diversOuvrage" for="field_diversOuvrage">Divers Ouvrage</label>
+            <input type="text" class="form-control" name="diversOuvrage" id="field_diversOuvrage"
+                [(ngModel)]="ouvrage.diversOuvrage" />
         </div>
 
     </div>

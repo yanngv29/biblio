@@ -1,0 +1,88 @@
+
+<div *ngIf="chercheur">
+    <h2><span jhiTranslate="biblioApp.chercheur.detail.title">Chercheur</span> {{chercheur.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.chercheur.nomChercheur">Nom Chercheur</span></dt>
+        <dd>
+            <span>{{chercheur.nomChercheur}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.typeChercheur">Type Chercheur</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.TypeChercheur.' + chercheur.typeChercheur}}">{{chercheur.typeChercheur}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.rangChercheur">Rang Chercheur</span></dt>
+        <dd>
+            <span>{{chercheur.rangChercheur}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.actes">Actes</span></dt>
+        <dd>
+            <span *ngFor="let actes of chercheur.actes; let last = last">
+                <a [routerLink]="['/actes', actes?.id ]">{{actes.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.article">Article</span></dt>
+        <dd>
+            <span *ngFor="let article of chercheur.articles; let last = last">
+                <a [routerLink]="['/article', article?.id ]">{{article.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.chapitre">Chapitre</span></dt>
+        <dd>
+            <span *ngFor="let chapitre of chercheur.chapitres; let last = last">
+                <a [routerLink]="['/chapitre', chapitre?.id ]">{{chapitre.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.communication">Communication</span></dt>
+        <dd>
+            <span *ngFor="let communication of chercheur.communications; let last = last">
+                <a [routerLink]="['/communication', communication?.id ]">{{communication.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.ouvrage">Ouvrage</span></dt>
+        <dd>
+            <span *ngFor="let ouvrage of chercheur.ouvrages; let last = last">
+                <a [routerLink]="['/ouvrage', ouvrage?.id ]">{{ouvrage.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.publicationGouvernementale">Publication Gouvernementale</span></dt>
+        <dd>
+            <span *ngFor="let publicationGouvernementale of chercheur.publicationGouvernementales; let last = last">
+                <a [routerLink]="['/publication-gouvernementale', publicationGouvernementale?.id ]">{{publicationGouvernementale.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.revue">Revue</span></dt>
+        <dd>
+            <span *ngFor="let revue of chercheur.revues; let last = last">
+                <a [routerLink]="['/numero-revue', revue?.id ]">{{revue.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.memoire">Memoire</span></dt>
+        <dd>
+            <span *ngFor="let memoire of chercheur.memoires; let last = last">
+                <a [routerLink]="['/memoire', memoire?.id ]">{{memoire.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.chercheur.rapport">Rapport</span></dt>
+        <dd>
+            <span *ngFor="let rapport of chercheur.rapports; let last = last">
+                <a [routerLink]="['/rapport', rapport?.id ]">{{rapport.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'chercheur/'+ chercheur.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

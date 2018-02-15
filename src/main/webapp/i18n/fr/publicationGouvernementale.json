@@ -16,11 +16,16 @@
             "detail": {
                 "title": "Publication Gouvernementale"
             },
-            "idPG": "Id PG",
-            "date": "Date",
-            "numeroEdition": "Numero Edition",
-            "lieu": "Lieu",
-            "maisonEdition": "Maison Edition",
+            "titrePG": "Titre PG",
+            "datePG": "Date PG",
+            "numeroEditionPG": "Numero Edition PG",
+            "lieuPG": "Lieu PG",
+            "maisonEditionPG": "Maison Edition PG",
+            "languePG": "Langue PG",
+            "lienPG": "Lien PG",
+            "doiPG": "Doi PG",
+            "halPG": "Hal PG",
+            "diversOuvragePG": "Divers Ouvrage PG",
             "notation": "Notation"
         }
     }

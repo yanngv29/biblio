@@ -17,22 +17,30 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.memoire.idMemoire">Id Memoire</span></th>
-            <th><span jhiTranslate="biblioApp.memoire.type">Type</span></th>
-            <th><span jhiTranslate="biblioApp.memoire.date">Date</span></th>
-            <th><span jhiTranslate="biblioApp.memoire.lieu">Lieu</span></th>
-            <th><span jhiTranslate="biblioApp.memoire.hal">Hal</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.titreMemoire">Titre Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.typeMemoire">Type Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.dateMemoire">Date Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.lieuMemoire">Lieu Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.langueMemoire">Langue Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.lienMemoire">Lien Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.doiMemoire">Doi Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.halMemoire">Hal Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.diversMemoire">Divers Memoire</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let memoire of memoires ;trackBy: trackId">
                 <td><a [routerLink]="['../memoire', memoire.id ]">{{memoire.id}}</a></td>
-                <td>{{memoire.idMemoire}}</td>
-                <td jhiTranslate="{{'biblioApp.TypeMemoire.' + memoire.type}}">{{memoire.type}}</td>
-                <td>{{memoire.date | date:'medium'}}</td>
-                <td>{{memoire.lieu}}</td>
-                <td>{{memoire.hal}}</td>
+                <td>{{memoire.titreMemoire}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeMemoire.' + memoire.typeMemoire}}">{{memoire.typeMemoire}}</td>
+                <td>{{memoire.dateMemoire | date:'medium'}}</td>
+                <td>{{memoire.lieuMemoire}}</td>
+                <td>{{memoire.langueMemoire}}</td>
+                <td>{{memoire.lienMemoire}}</td>
+                <td>{{memoire.doiMemoire}}</td>
+                <td>{{memoire.halMemoire}}</td>
+                <td>{{memoire.diversMemoire}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

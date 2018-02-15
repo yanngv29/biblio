@@ -31,26 +31,44 @@ public class Rapport implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_memoire", nullable = false)
-    private String idMemoire;
+    @Column(name = "titre_rapport", nullable = false)
+    private String titreRapport;
+
+    @Column(name = "sous_titre_rapport")
+    private String sousTitreRapport;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "jhi_type")
-    private TypeRapport type;
+    @Column(name = "type_rapport")
+    private TypeRapport typeRapport;
 
-    @Column(name = "jhi_date")
-    private Instant date;
+    @Column(name = "date_rapport")
+    private Instant dateRapport;
 
-    @Column(name = "lieu")
-    private String lieu;
+    @Column(name = "lieu_rapport")
+    private String lieuRapport;
 
-    @Column(name = "maison_edition")
-    private String maisonEdition;
+    @Column(name = "maison_edition_rapport")
+    private String maisonEditionRapport;
+
+    @Column(name = "langue_rapport")
+    private String langueRapport;
+
+    @Column(name = "lien_rapport")
+    private String lienRapport;
+
+    @Column(name = "doi_rapport")
+    private String doiRapport;
+
+    @Column(name = "hal_rapport")
+    private String halRapport;
+
+    @Column(name = "divers_ouvrage_rapport")
+    private String diversOuvrageRapport;
 
     @OneToMany(mappedBy = "rapport")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Notation> notations = new HashSet<>();
+    private Set<Note> notations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -61,94 +79,172 @@ public class Rapport implements Serializable {
         this.id = id;
     }
 
-    public String getIdMemoire() {
-        return idMemoire;
+    public String getTitreRapport() {
+        return titreRapport;
     }
 
-    public Rapport idMemoire(String idMemoire) {
-        this.idMemoire = idMemoire;
+    public Rapport titreRapport(String titreRapport) {
+        this.titreRapport = titreRapport;
         return this;
     }
 
-    public void setIdMemoire(String idMemoire) {
-        this.idMemoire = idMemoire;
+    public void setTitreRapport(String titreRapport) {
+        this.titreRapport = titreRapport;
     }
 
-    public TypeRapport getType() {
-        return type;
+    public String getSousTitreRapport() {
+        return sousTitreRapport;
     }
 
-    public Rapport type(TypeRapport type) {
-        this.type = type;
+    public Rapport sousTitreRapport(String sousTitreRapport) {
+        this.sousTitreRapport = sousTitreRapport;
         return this;
     }
 
-    public void setType(TypeRapport type) {
-        this.type = type;
+    public void setSousTitreRapport(String sousTitreRapport) {
+        this.sousTitreRapport = sousTitreRapport;
     }
 
-    public Instant getDate() {
-        return date;
+    public TypeRapport getTypeRapport() {
+        return typeRapport;
     }
 
-    public Rapport date(Instant date) {
-        this.date = date;
+    public Rapport typeRapport(TypeRapport typeRapport) {
+        this.typeRapport = typeRapport;
         return this;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public void setTypeRapport(TypeRapport typeRapport) {
+        this.typeRapport = typeRapport;
     }
 
-    public String getLieu() {
-        return lieu;
+    public Instant getDateRapport() {
+        return dateRapport;
     }
 
-    public Rapport lieu(String lieu) {
-        this.lieu = lieu;
+    public Rapport dateRapport(Instant dateRapport) {
+        this.dateRapport = dateRapport;
         return this;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setDateRapport(Instant dateRapport) {
+        this.dateRapport = dateRapport;
     }
 
-    public String getMaisonEdition() {
-        return maisonEdition;
+    public String getLieuRapport() {
+        return lieuRapport;
     }
 
-    public Rapport maisonEdition(String maisonEdition) {
-        this.maisonEdition = maisonEdition;
+    public Rapport lieuRapport(String lieuRapport) {
+        this.lieuRapport = lieuRapport;
         return this;
     }
 
-    public void setMaisonEdition(String maisonEdition) {
-        this.maisonEdition = maisonEdition;
+    public void setLieuRapport(String lieuRapport) {
+        this.lieuRapport = lieuRapport;
     }
 
-    public Set<Notation> getNotations() {
+    public String getMaisonEditionRapport() {
+        return maisonEditionRapport;
+    }
+
+    public Rapport maisonEditionRapport(String maisonEditionRapport) {
+        this.maisonEditionRapport = maisonEditionRapport;
+        return this;
+    }
+
+    public void setMaisonEditionRapport(String maisonEditionRapport) {
+        this.maisonEditionRapport = maisonEditionRapport;
+    }
+
+    public String getLangueRapport() {
+        return langueRapport;
+    }
+
+    public Rapport langueRapport(String langueRapport) {
+        this.langueRapport = langueRapport;
+        return this;
+    }
+
+    public void setLangueRapport(String langueRapport) {
+        this.langueRapport = langueRapport;
+    }
+
+    public String getLienRapport() {
+        return lienRapport;
+    }
+
+    public Rapport lienRapport(String lienRapport) {
+        this.lienRapport = lienRapport;
+        return this;
+    }
+
+    public void setLienRapport(String lienRapport) {
+        this.lienRapport = lienRapport;
+    }
+
+    public String getDoiRapport() {
+        return doiRapport;
+    }
+
+    public Rapport doiRapport(String doiRapport) {
+        this.doiRapport = doiRapport;
+        return this;
+    }
+
+    public void setDoiRapport(String doiRapport) {
+        this.doiRapport = doiRapport;
+    }
+
+    public String getHalRapport() {
+        return halRapport;
+    }
+
+    public Rapport halRapport(String halRapport) {
+        this.halRapport = halRapport;
+        return this;
+    }
+
+    public void setHalRapport(String halRapport) {
+        this.halRapport = halRapport;
+    }
+
+    public String getDiversOuvrageRapport() {
+        return diversOuvrageRapport;
+    }
+
+    public Rapport diversOuvrageRapport(String diversOuvrageRapport) {
+        this.diversOuvrageRapport = diversOuvrageRapport;
+        return this;
+    }
+
+    public void setDiversOuvrageRapport(String diversOuvrageRapport) {
+        this.diversOuvrageRapport = diversOuvrageRapport;
+    }
+
+    public Set<Note> getNotations() {
         return notations;
     }
 
-    public Rapport notations(Set<Notation> notations) {
-        this.notations = notations;
+    public Rapport notations(Set<Note> notes) {
+        this.notations = notes;
         return this;
     }
 
-    public Rapport addNotation(Notation notation) {
-        this.notations.add(notation);
-        notation.setRapport(this);
+    public Rapport addNotation(Note note) {
+        this.notations.add(note);
+        note.setRapport(this);
         return this;
     }
 
-    public Rapport removeNotation(Notation notation) {
-        this.notations.remove(notation);
-        notation.setRapport(null);
+    public Rapport removeNotation(Note note) {
+        this.notations.remove(note);
+        note.setRapport(null);
         return this;
     }
 
-    public void setNotations(Set<Notation> notations) {
-        this.notations = notations;
+    public void setNotations(Set<Note> notes) {
+        this.notations = notes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -176,11 +272,17 @@ public class Rapport implements Serializable {
     public String toString() {
         return "Rapport{" +
             "id=" + getId() +
-            ", idMemoire='" + getIdMemoire() + "'" +
-            ", type='" + getType() + "'" +
-            ", date='" + getDate() + "'" +
-            ", lieu='" + getLieu() + "'" +
-            ", maisonEdition='" + getMaisonEdition() + "'" +
+            ", titreRapport='" + getTitreRapport() + "'" +
+            ", sousTitreRapport='" + getSousTitreRapport() + "'" +
+            ", typeRapport='" + getTypeRapport() + "'" +
+            ", dateRapport='" + getDateRapport() + "'" +
+            ", lieuRapport='" + getLieuRapport() + "'" +
+            ", maisonEditionRapport='" + getMaisonEditionRapport() + "'" +
+            ", langueRapport='" + getLangueRapport() + "'" +
+            ", lienRapport='" + getLienRapport() + "'" +
+            ", doiRapport='" + getDoiRapport() + "'" +
+            ", halRapport='" + getHalRapport() + "'" +
+            ", diversOuvrageRapport='" + getDiversOuvrageRapport() + "'" +
             "}";
     }
 }

@@ -4,37 +4,61 @@
         {
             "relationshipType": "one-to-many",
             "relationshipName": "notation",
-            "otherEntityName": "notation",
+            "otherEntityName": "note",
             "otherEntityRelationshipName": "rapport"
         }
     ],
     "fields": [
         {
-            "fieldName": "idMemoire",
+            "fieldName": "titreRapport",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "type",
+            "fieldName": "sousTitreRapport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeRapport",
             "fieldType": "TypeRapport",
             "fieldValues": "RECHERCHE,PROJET"
         },
         {
-            "fieldName": "date",
+            "fieldName": "dateRapport",
             "fieldType": "Instant"
         },
         {
-            "fieldName": "lieu",
+            "fieldName": "lieuRapport",
             "fieldType": "String"
         },
         {
-            "fieldName": "maisonEdition",
+            "fieldName": "maisonEditionRapport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "langueRapport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienRapport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doiRapport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halRapport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversOuvrageRapport",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153410",
+    "changelogDate": "20180215164208",
     "entityTableName": "rapport",
     "dto": "no",
     "pagination": "no",

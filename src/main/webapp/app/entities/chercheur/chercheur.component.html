@@ -1,0 +1,116 @@
+<div>
+    <h2>
+        <span jhiTranslate="biblioApp.chercheur.home.title">Chercheurs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-chercheur" [routerLink]="['/', { outlets: { popup: ['chercheur-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="biblioApp.chercheur.home.createLabel">
+            Create new Chercheur
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="chercheurs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.nomChercheur">Nom Chercheur</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.typeChercheur">Type Chercheur</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.rangChercheur">Rang Chercheur</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.actes">Actes</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.article">Article</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.chapitre">Chapitre</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.communication">Communication</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.ouvrage">Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.publicationGouvernementale">Publication Gouvernementale</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.revue">Revue</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.memoire">Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.chercheur.rapport">Rapport</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let chercheur of chercheurs ;trackBy: trackId">
+                <td><a [routerLink]="['../chercheur', chercheur.id ]">{{chercheur.id}}</a></td>
+                <td>{{chercheur.nomChercheur}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeChercheur.' + chercheur.typeChercheur}}">{{chercheur.typeChercheur}}</td>
+                <td>{{chercheur.rangChercheur}}</td>
+                <td>
+                    <span *ngFor="let actes of chercheur.actes; let last = last">
+                            <a class="form-control-static" [routerLink]="['../actes', actes?.id ]">{{actes.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let article of chercheur.articles; let last = last">
+                            <a class="form-control-static" [routerLink]="['../article', article?.id ]">{{article.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let chapitre of chercheur.chapitres; let last = last">
+                            <a class="form-control-static" [routerLink]="['../chapitre', chapitre?.id ]">{{chapitre.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let communication of chercheur.communications; let last = last">
+                            <a class="form-control-static" [routerLink]="['../communication', communication?.id ]">{{communication.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let ouvrage of chercheur.ouvrages; let last = last">
+                            <a class="form-control-static" [routerLink]="['../ouvrage', ouvrage?.id ]">{{ouvrage.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let publicationGouvernementale of chercheur.publicationGouvernementales; let last = last">
+                            <a class="form-control-static" [routerLink]="['../publication-gouvernementale', publicationGouvernementale?.id ]">{{publicationGouvernementale.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let revue of chercheur.revues; let last = last">
+                            <a class="form-control-static" [routerLink]="['../numero-revue', revue?.id ]">{{revue.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let memoire of chercheur.memoires; let last = last">
+                            <a class="form-control-static" [routerLink]="['../memoire', memoire?.id ]">{{memoire.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let rapport of chercheur.rapports; let last = last">
+                            <a class="form-control-static" [routerLink]="['../rapport', rapport?.id ]">{{rapport.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../chercheur', chercheur.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'chercheur/'+ chercheur.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'chercheur/'+ chercheur.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -6,42 +6,49 @@
             "relationshipName": "revue",
             "otherEntityName": "revue",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "writer",
+            "otherEntityName": "article",
+            "otherEntityRelationshipName": "numeroRevue"
         }
     ],
     "fields": [
         {
-            "fieldName": "idNumeroRevue",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "mois",
+            "fieldName": "volumeNumeroRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "annee",
+            "fieldName": "numeroVolumeNumeroRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "volume",
+            "fieldName": "moisNumeroRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "numeroVolume",
+            "fieldName": "anneeNumeroRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "lien",
+            "fieldName": "langueNumeroRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "doi",
+            "fieldName": "lienNumeroRevue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doiNumeroRevue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversNumeroRevue",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153406",
+    "changelogDate": "20180215164205",
     "javadoc": "Numéro d'une revue",
     "entityTableName": "numero_revue",
     "dto": "no",

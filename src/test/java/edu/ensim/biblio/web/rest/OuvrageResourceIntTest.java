@@ -40,41 +40,50 @@ import edu.ensim.biblio.domain.enumeration.TypeParticipation;
 @SpringBootTest(classes = BiblioApp.class)
 public class OuvrageResourceIntTest {
 
-    private static final String DEFAULT_ID_OUVRAGE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_OUVRAGE = "BBBBBBBBBB";
+    private static final String DEFAULT_TITRE_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_TITRE_OUVRAGE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_TITRE = "AAAAAAAAAA";
-    private static final String UPDATED_TITRE = "BBBBBBBBBB";
+    private static final TypeOuvrage DEFAULT_TYPE_OUVRAGE = TypeOuvrage.SCIENTIFIQUE;
+    private static final TypeOuvrage UPDATED_TYPE_OUVRAGE = TypeOuvrage.VULGARISATION;
 
-    private static final TypeOuvrage DEFAULT_TYPE = TypeOuvrage.SCIENTIFIQUE;
-    private static final TypeOuvrage UPDATED_TYPE = TypeOuvrage.VULGARISATION;
+    private static final TypeParticipation DEFAULT_PARTICIPATION_OUVRAGE = TypeParticipation.COMPLETE;
+    private static final TypeParticipation UPDATED_PARTICIPATION_OUVRAGE = TypeParticipation.PARTIELLE;
 
-    private static final TypeParticipation DEFAULT_PARTICIPATION = TypeParticipation.COMPLETE;
-    private static final TypeParticipation UPDATED_PARTICIPATION = TypeParticipation.PARTIELLE;
+    private static final Integer DEFAULT_ANNEE_OUVRAGE = 1;
+    private static final Integer UPDATED_ANNEE_OUVRAGE = 2;
 
-    private static final Integer DEFAULT_ANNEE = 1;
-    private static final Integer UPDATED_ANNEE = 2;
+    private static final Integer DEFAULT_NUMERO_EDITION_OUVRAGE = 1;
+    private static final Integer UPDATED_NUMERO_EDITION_OUVRAGE = 2;
 
-    private static final Integer DEFAULT_NUMERO_EDITION = 1;
-    private static final Integer UPDATED_NUMERO_EDITION = 2;
+    private static final Integer DEFAULT_VOLUME_OUVRAGE = 1;
+    private static final Integer UPDATED_VOLUME_OUVRAGE = 2;
 
-    private static final Integer DEFAULT_VOLUME = 1;
-    private static final Integer UPDATED_VOLUME = 2;
+    private static final String DEFAULT_TRADUCTION_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_TRADUCTION_OUVRAGE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_TRADUCTION = "AAAAAAAAAA";
-    private static final String UPDATED_TRADUCTION = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEU_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEU_OUVRAGE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LIEU = "AAAAAAAAAA";
-    private static final String UPDATED_LIEU = "BBBBBBBBBB";
+    private static final String DEFAULT_MAISON_EDITION_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_MAISON_EDITION_OUVRAGE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_MAISON_EDITION = "AAAAAAAAAA";
-    private static final String UPDATED_MAISON_EDITION = "BBBBBBBBBB";
+    private static final String DEFAULT_COLLECTION_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_COLLECTION_OUVRAGE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_COLLECTION = "AAAAAAAAAA";
-    private static final String UPDATED_COLLECTION = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_OUVRAGE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_HAL = "AAAAAAAAAA";
-    private static final String UPDATED_HAL = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEN_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_OUVRAGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DOI_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_DOI_OUVRAGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HAL_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_HAL_OUVRAGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_OUVRAGE = "BBBBBBBBBB";
 
     @Autowired
     private OuvrageRepository ouvrageRepository;
@@ -114,18 +123,21 @@ public class OuvrageResourceIntTest {
      */
     public static Ouvrage createEntity(EntityManager em) {
         Ouvrage ouvrage = new Ouvrage()
-            .idOuvrage(DEFAULT_ID_OUVRAGE)
-            .titre(DEFAULT_TITRE)
-            .type(DEFAULT_TYPE)
-            .participation(DEFAULT_PARTICIPATION)
-            .annee(DEFAULT_ANNEE)
-            .numeroEdition(DEFAULT_NUMERO_EDITION)
-            .volume(DEFAULT_VOLUME)
-            .traduction(DEFAULT_TRADUCTION)
-            .lieu(DEFAULT_LIEU)
-            .maisonEdition(DEFAULT_MAISON_EDITION)
-            .collection(DEFAULT_COLLECTION)
-            .hal(DEFAULT_HAL);
+            .titreOuvrage(DEFAULT_TITRE_OUVRAGE)
+            .typeOuvrage(DEFAULT_TYPE_OUVRAGE)
+            .participationOuvrage(DEFAULT_PARTICIPATION_OUVRAGE)
+            .anneeOuvrage(DEFAULT_ANNEE_OUVRAGE)
+            .numeroEditionOuvrage(DEFAULT_NUMERO_EDITION_OUVRAGE)
+            .volumeOuvrage(DEFAULT_VOLUME_OUVRAGE)
+            .traductionOuvrage(DEFAULT_TRADUCTION_OUVRAGE)
+            .lieuOuvrage(DEFAULT_LIEU_OUVRAGE)
+            .maisonEditionOuvrage(DEFAULT_MAISON_EDITION_OUVRAGE)
+            .collectionOuvrage(DEFAULT_COLLECTION_OUVRAGE)
+            .langueOuvrage(DEFAULT_LANGUE_OUVRAGE)
+            .lienOuvrage(DEFAULT_LIEN_OUVRAGE)
+            .doiOuvrage(DEFAULT_DOI_OUVRAGE)
+            .halOuvrage(DEFAULT_HAL_OUVRAGE)
+            .diversOuvrage(DEFAULT_DIVERS_OUVRAGE);
         return ouvrage;
     }
 
@@ -149,18 +161,21 @@ public class OuvrageResourceIntTest {
         List<Ouvrage> ouvrageList = ouvrageRepository.findAll();
         assertThat(ouvrageList).hasSize(databaseSizeBeforeCreate + 1);
         Ouvrage testOuvrage = ouvrageList.get(ouvrageList.size() - 1);
-        assertThat(testOuvrage.getIdOuvrage()).isEqualTo(DEFAULT_ID_OUVRAGE);
-        assertThat(testOuvrage.getTitre()).isEqualTo(DEFAULT_TITRE);
-        assertThat(testOuvrage.getType()).isEqualTo(DEFAULT_TYPE);
-        assertThat(testOuvrage.getParticipation()).isEqualTo(DEFAULT_PARTICIPATION);
-        assertThat(testOuvrage.getAnnee()).isEqualTo(DEFAULT_ANNEE);
-        assertThat(testOuvrage.getNumeroEdition()).isEqualTo(DEFAULT_NUMERO_EDITION);
-        assertThat(testOuvrage.getVolume()).isEqualTo(DEFAULT_VOLUME);
-        assertThat(testOuvrage.getTraduction()).isEqualTo(DEFAULT_TRADUCTION);
-        assertThat(testOuvrage.getLieu()).isEqualTo(DEFAULT_LIEU);
-        assertThat(testOuvrage.getMaisonEdition()).isEqualTo(DEFAULT_MAISON_EDITION);
-        assertThat(testOuvrage.getCollection()).isEqualTo(DEFAULT_COLLECTION);
-        assertThat(testOuvrage.getHal()).isEqualTo(DEFAULT_HAL);
+        assertThat(testOuvrage.getTitreOuvrage()).isEqualTo(DEFAULT_TITRE_OUVRAGE);
+        assertThat(testOuvrage.getTypeOuvrage()).isEqualTo(DEFAULT_TYPE_OUVRAGE);
+        assertThat(testOuvrage.getParticipationOuvrage()).isEqualTo(DEFAULT_PARTICIPATION_OUVRAGE);
+        assertThat(testOuvrage.getAnneeOuvrage()).isEqualTo(DEFAULT_ANNEE_OUVRAGE);
+        assertThat(testOuvrage.getNumeroEditionOuvrage()).isEqualTo(DEFAULT_NUMERO_EDITION_OUVRAGE);
+        assertThat(testOuvrage.getVolumeOuvrage()).isEqualTo(DEFAULT_VOLUME_OUVRAGE);
+        assertThat(testOuvrage.getTraductionOuvrage()).isEqualTo(DEFAULT_TRADUCTION_OUVRAGE);
+        assertThat(testOuvrage.getLieuOuvrage()).isEqualTo(DEFAULT_LIEU_OUVRAGE);
+        assertThat(testOuvrage.getMaisonEditionOuvrage()).isEqualTo(DEFAULT_MAISON_EDITION_OUVRAGE);
+        assertThat(testOuvrage.getCollectionOuvrage()).isEqualTo(DEFAULT_COLLECTION_OUVRAGE);
+        assertThat(testOuvrage.getLangueOuvrage()).isEqualTo(DEFAULT_LANGUE_OUVRAGE);
+        assertThat(testOuvrage.getLienOuvrage()).isEqualTo(DEFAULT_LIEN_OUVRAGE);
+        assertThat(testOuvrage.getDoiOuvrage()).isEqualTo(DEFAULT_DOI_OUVRAGE);
+        assertThat(testOuvrage.getHalOuvrage()).isEqualTo(DEFAULT_HAL_OUVRAGE);
+        assertThat(testOuvrage.getDiversOuvrage()).isEqualTo(DEFAULT_DIVERS_OUVRAGE);
     }
 
     @Test
@@ -184,10 +199,28 @@ public class OuvrageResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdOuvrageIsRequired() throws Exception {
+    public void checkTitreOuvrageIsRequired() throws Exception {
         int databaseSizeBeforeTest = ouvrageRepository.findAll().size();
         // set the field null
-        ouvrage.setIdOuvrage(null);
+        ouvrage.setTitreOuvrage(null);
+
+        // Create the Ouvrage, which fails.
+
+        restOuvrageMockMvc.perform(post("/api/ouvrages")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(ouvrage)))
+            .andExpect(status().isBadRequest());
+
+        List<Ouvrage> ouvrageList = ouvrageRepository.findAll();
+        assertThat(ouvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkTypeOuvrageIsRequired() throws Exception {
+        int databaseSizeBeforeTest = ouvrageRepository.findAll().size();
+        // set the field null
+        ouvrage.setTypeOuvrage(null);
 
         // Create the Ouvrage, which fails.
 
@@ -211,18 +244,21 @@ public class OuvrageResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ouvrage.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOuvrage").value(hasItem(DEFAULT_ID_OUVRAGE.toString())))
-            .andExpect(jsonPath("$.[*].titre").value(hasItem(DEFAULT_TITRE.toString())))
-            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].participation").value(hasItem(DEFAULT_PARTICIPATION.toString())))
-            .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE)))
-            .andExpect(jsonPath("$.[*].numeroEdition").value(hasItem(DEFAULT_NUMERO_EDITION)))
-            .andExpect(jsonPath("$.[*].volume").value(hasItem(DEFAULT_VOLUME)))
-            .andExpect(jsonPath("$.[*].traduction").value(hasItem(DEFAULT_TRADUCTION.toString())))
-            .andExpect(jsonPath("$.[*].lieu").value(hasItem(DEFAULT_LIEU.toString())))
-            .andExpect(jsonPath("$.[*].maisonEdition").value(hasItem(DEFAULT_MAISON_EDITION.toString())))
-            .andExpect(jsonPath("$.[*].collection").value(hasItem(DEFAULT_COLLECTION.toString())))
-            .andExpect(jsonPath("$.[*].hal").value(hasItem(DEFAULT_HAL.toString())));
+            .andExpect(jsonPath("$.[*].titreOuvrage").value(hasItem(DEFAULT_TITRE_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].typeOuvrage").value(hasItem(DEFAULT_TYPE_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].participationOuvrage").value(hasItem(DEFAULT_PARTICIPATION_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].anneeOuvrage").value(hasItem(DEFAULT_ANNEE_OUVRAGE)))
+            .andExpect(jsonPath("$.[*].numeroEditionOuvrage").value(hasItem(DEFAULT_NUMERO_EDITION_OUVRAGE)))
+            .andExpect(jsonPath("$.[*].volumeOuvrage").value(hasItem(DEFAULT_VOLUME_OUVRAGE)))
+            .andExpect(jsonPath("$.[*].traductionOuvrage").value(hasItem(DEFAULT_TRADUCTION_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].lieuOuvrage").value(hasItem(DEFAULT_LIEU_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].maisonEditionOuvrage").value(hasItem(DEFAULT_MAISON_EDITION_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].collectionOuvrage").value(hasItem(DEFAULT_COLLECTION_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].langueOuvrage").value(hasItem(DEFAULT_LANGUE_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].lienOuvrage").value(hasItem(DEFAULT_LIEN_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].doiOuvrage").value(hasItem(DEFAULT_DOI_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].halOuvrage").value(hasItem(DEFAULT_HAL_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].diversOuvrage").value(hasItem(DEFAULT_DIVERS_OUVRAGE.toString())));
     }
 
     @Test
@@ -236,18 +272,21 @@ public class OuvrageResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(ouvrage.getId().intValue()))
-            .andExpect(jsonPath("$.idOuvrage").value(DEFAULT_ID_OUVRAGE.toString()))
-            .andExpect(jsonPath("$.titre").value(DEFAULT_TITRE.toString()))
-            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.participation").value(DEFAULT_PARTICIPATION.toString()))
-            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE))
-            .andExpect(jsonPath("$.numeroEdition").value(DEFAULT_NUMERO_EDITION))
-            .andExpect(jsonPath("$.volume").value(DEFAULT_VOLUME))
-            .andExpect(jsonPath("$.traduction").value(DEFAULT_TRADUCTION.toString()))
-            .andExpect(jsonPath("$.lieu").value(DEFAULT_LIEU.toString()))
-            .andExpect(jsonPath("$.maisonEdition").value(DEFAULT_MAISON_EDITION.toString()))
-            .andExpect(jsonPath("$.collection").value(DEFAULT_COLLECTION.toString()))
-            .andExpect(jsonPath("$.hal").value(DEFAULT_HAL.toString()));
+            .andExpect(jsonPath("$.titreOuvrage").value(DEFAULT_TITRE_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.typeOuvrage").value(DEFAULT_TYPE_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.participationOuvrage").value(DEFAULT_PARTICIPATION_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.anneeOuvrage").value(DEFAULT_ANNEE_OUVRAGE))
+            .andExpect(jsonPath("$.numeroEditionOuvrage").value(DEFAULT_NUMERO_EDITION_OUVRAGE))
+            .andExpect(jsonPath("$.volumeOuvrage").value(DEFAULT_VOLUME_OUVRAGE))
+            .andExpect(jsonPath("$.traductionOuvrage").value(DEFAULT_TRADUCTION_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.lieuOuvrage").value(DEFAULT_LIEU_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.maisonEditionOuvrage").value(DEFAULT_MAISON_EDITION_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.collectionOuvrage").value(DEFAULT_COLLECTION_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.langueOuvrage").value(DEFAULT_LANGUE_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.lienOuvrage").value(DEFAULT_LIEN_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.doiOuvrage").value(DEFAULT_DOI_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.halOuvrage").value(DEFAULT_HAL_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.diversOuvrage").value(DEFAULT_DIVERS_OUVRAGE.toString()));
     }
 
     @Test
@@ -270,18 +309,21 @@ public class OuvrageResourceIntTest {
         // Disconnect from session so that the updates on updatedOuvrage are not directly saved in db
         em.detach(updatedOuvrage);
         updatedOuvrage
-            .idOuvrage(UPDATED_ID_OUVRAGE)
-            .titre(UPDATED_TITRE)
-            .type(UPDATED_TYPE)
-            .participation(UPDATED_PARTICIPATION)
-            .annee(UPDATED_ANNEE)
-            .numeroEdition(UPDATED_NUMERO_EDITION)
-            .volume(UPDATED_VOLUME)
-            .traduction(UPDATED_TRADUCTION)
-            .lieu(UPDATED_LIEU)
-            .maisonEdition(UPDATED_MAISON_EDITION)
-            .collection(UPDATED_COLLECTION)
-            .hal(UPDATED_HAL);
+            .titreOuvrage(UPDATED_TITRE_OUVRAGE)
+            .typeOuvrage(UPDATED_TYPE_OUVRAGE)
+            .participationOuvrage(UPDATED_PARTICIPATION_OUVRAGE)
+            .anneeOuvrage(UPDATED_ANNEE_OUVRAGE)
+            .numeroEditionOuvrage(UPDATED_NUMERO_EDITION_OUVRAGE)
+            .volumeOuvrage(UPDATED_VOLUME_OUVRAGE)
+            .traductionOuvrage(UPDATED_TRADUCTION_OUVRAGE)
+            .lieuOuvrage(UPDATED_LIEU_OUVRAGE)
+            .maisonEditionOuvrage(UPDATED_MAISON_EDITION_OUVRAGE)
+            .collectionOuvrage(UPDATED_COLLECTION_OUVRAGE)
+            .langueOuvrage(UPDATED_LANGUE_OUVRAGE)
+            .lienOuvrage(UPDATED_LIEN_OUVRAGE)
+            .doiOuvrage(UPDATED_DOI_OUVRAGE)
+            .halOuvrage(UPDATED_HAL_OUVRAGE)
+            .diversOuvrage(UPDATED_DIVERS_OUVRAGE);
 
         restOuvrageMockMvc.perform(put("/api/ouvrages")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -292,18 +334,21 @@ public class OuvrageResourceIntTest {
         List<Ouvrage> ouvrageList = ouvrageRepository.findAll();
         assertThat(ouvrageList).hasSize(databaseSizeBeforeUpdate);
         Ouvrage testOuvrage = ouvrageList.get(ouvrageList.size() - 1);
-        assertThat(testOuvrage.getIdOuvrage()).isEqualTo(UPDATED_ID_OUVRAGE);
-        assertThat(testOuvrage.getTitre()).isEqualTo(UPDATED_TITRE);
-        assertThat(testOuvrage.getType()).isEqualTo(UPDATED_TYPE);
-        assertThat(testOuvrage.getParticipation()).isEqualTo(UPDATED_PARTICIPATION);
-        assertThat(testOuvrage.getAnnee()).isEqualTo(UPDATED_ANNEE);
-        assertThat(testOuvrage.getNumeroEdition()).isEqualTo(UPDATED_NUMERO_EDITION);
-        assertThat(testOuvrage.getVolume()).isEqualTo(UPDATED_VOLUME);
-        assertThat(testOuvrage.getTraduction()).isEqualTo(UPDATED_TRADUCTION);
-        assertThat(testOuvrage.getLieu()).isEqualTo(UPDATED_LIEU);
-        assertThat(testOuvrage.getMaisonEdition()).isEqualTo(UPDATED_MAISON_EDITION);
-        assertThat(testOuvrage.getCollection()).isEqualTo(UPDATED_COLLECTION);
-        assertThat(testOuvrage.getHal()).isEqualTo(UPDATED_HAL);
+        assertThat(testOuvrage.getTitreOuvrage()).isEqualTo(UPDATED_TITRE_OUVRAGE);
+        assertThat(testOuvrage.getTypeOuvrage()).isEqualTo(UPDATED_TYPE_OUVRAGE);
+        assertThat(testOuvrage.getParticipationOuvrage()).isEqualTo(UPDATED_PARTICIPATION_OUVRAGE);
+        assertThat(testOuvrage.getAnneeOuvrage()).isEqualTo(UPDATED_ANNEE_OUVRAGE);
+        assertThat(testOuvrage.getNumeroEditionOuvrage()).isEqualTo(UPDATED_NUMERO_EDITION_OUVRAGE);
+        assertThat(testOuvrage.getVolumeOuvrage()).isEqualTo(UPDATED_VOLUME_OUVRAGE);
+        assertThat(testOuvrage.getTraductionOuvrage()).isEqualTo(UPDATED_TRADUCTION_OUVRAGE);
+        assertThat(testOuvrage.getLieuOuvrage()).isEqualTo(UPDATED_LIEU_OUVRAGE);
+        assertThat(testOuvrage.getMaisonEditionOuvrage()).isEqualTo(UPDATED_MAISON_EDITION_OUVRAGE);
+        assertThat(testOuvrage.getCollectionOuvrage()).isEqualTo(UPDATED_COLLECTION_OUVRAGE);
+        assertThat(testOuvrage.getLangueOuvrage()).isEqualTo(UPDATED_LANGUE_OUVRAGE);
+        assertThat(testOuvrage.getLienOuvrage()).isEqualTo(UPDATED_LIEN_OUVRAGE);
+        assertThat(testOuvrage.getDoiOuvrage()).isEqualTo(UPDATED_DOI_OUVRAGE);
+        assertThat(testOuvrage.getHalOuvrage()).isEqualTo(UPDATED_HAL_OUVRAGE);
+        assertThat(testOuvrage.getDiversOuvrage()).isEqualTo(UPDATED_DIVERS_OUVRAGE);
     }
 
     @Test

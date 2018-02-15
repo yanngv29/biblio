@@ -1,0 +1,103 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myActesLabel" jhiTranslate="biblioApp.actes.home.createOrEditLabel">Create or edit a Actes</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!actes.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="actes.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.titreActe" for="field_titreActe">Titre Acte</label>
+            <input type="text" class="form-control" name="titreActe" id="field_titreActe"
+                [(ngModel)]="actes.titreActe" required/>
+            <div [hidden]="!(editForm.controls.titreActe?.dirty && editForm.controls.titreActe?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titreActe?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.typeActe" for="field_typeActe">Type Acte</label>
+            <input type="text" class="form-control" name="typeActe" id="field_typeActe"
+                [(ngModel)]="actes.typeActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.anneeActe" for="field_anneeActe">Annee Acte</label>
+            <input type="number" class="form-control" name="anneeActe" id="field_anneeActe"
+                [(ngModel)]="actes.anneeActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.numeroEditionActe" for="field_numeroEditionActe">Numero Edition Acte</label>
+            <input type="number" class="form-control" name="numeroEditionActe" id="field_numeroEditionActe"
+                [(ngModel)]="actes.numeroEditionActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.volumeActe" for="field_volumeActe">Volume Acte</label>
+            <input type="number" class="form-control" name="volumeActe" id="field_volumeActe"
+                [(ngModel)]="actes.volumeActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.traductionActe" for="field_traductionActe">Traduction Acte</label>
+            <input type="text" class="form-control" name="traductionActe" id="field_traductionActe"
+                [(ngModel)]="actes.traductionActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.lieuActe" for="field_lieuActe">Lieu Acte</label>
+            <input type="text" class="form-control" name="lieuActe" id="field_lieuActe"
+                [(ngModel)]="actes.lieuActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.maisonEditionActe" for="field_maisonEditionActe">Maison Edition Acte</label>
+            <input type="text" class="form-control" name="maisonEditionActe" id="field_maisonEditionActe"
+                [(ngModel)]="actes.maisonEditionActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.collectionActe" for="field_collectionActe">Collection Acte</label>
+            <input type="text" class="form-control" name="collectionActe" id="field_collectionActe"
+                [(ngModel)]="actes.collectionActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.langueActe" for="field_langueActe">Langue Acte</label>
+            <input type="text" class="form-control" name="langueActe" id="field_langueActe"
+                [(ngModel)]="actes.langueActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.lienActe" for="field_lienActe">Lien Acte</label>
+            <input type="text" class="form-control" name="lienActe" id="field_lienActe"
+                [(ngModel)]="actes.lienActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.halActe" for="field_halActe">Hal Acte</label>
+            <input type="text" class="form-control" name="halActe" id="field_halActe"
+                [(ngModel)]="actes.halActe" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.diversActe" for="field_diversActe">Divers Acte</label>
+            <input type="text" class="form-control" name="diversActe" id="field_diversActe"
+                [(ngModel)]="actes.diversActe" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.conference" for="field_conference">Conference</label>
+            <select class="form-control" id="field_conference" name="conference" [(ngModel)]="actes.conference">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="conferenceOption.id === actes.conference?.id ? actes.conference : conferenceOption" *ngFor="let conferenceOption of conferences; trackBy: trackConferenceById">{{conferenceOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

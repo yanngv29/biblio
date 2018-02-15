@@ -13,45 +13,44 @@
                    [(ngModel)]="numeroRevue.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.idNumeroRevue" for="field_idNumeroRevue">Id Numero Revue</label>
-            <input type="text" class="form-control" name="idNumeroRevue" id="field_idNumeroRevue"
-                [(ngModel)]="numeroRevue.idNumeroRevue" required/>
-            <div [hidden]="!(editForm.controls.idNumeroRevue?.dirty && editForm.controls.idNumeroRevue?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idNumeroRevue?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.volumeNumeroRevue" for="field_volumeNumeroRevue">Volume Numero Revue</label>
+            <input type="text" class="form-control" name="volumeNumeroRevue" id="field_volumeNumeroRevue"
+                [(ngModel)]="numeroRevue.volumeNumeroRevue" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.mois" for="field_mois">Mois</label>
-            <input type="text" class="form-control" name="mois" id="field_mois"
-                [(ngModel)]="numeroRevue.mois" />
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.numeroVolumeNumeroRevue" for="field_numeroVolumeNumeroRevue">Numero Volume Numero Revue</label>
+            <input type="text" class="form-control" name="numeroVolumeNumeroRevue" id="field_numeroVolumeNumeroRevue"
+                [(ngModel)]="numeroRevue.numeroVolumeNumeroRevue" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.annee" for="field_annee">Annee</label>
-            <input type="text" class="form-control" name="annee" id="field_annee"
-                [(ngModel)]="numeroRevue.annee" />
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.moisNumeroRevue" for="field_moisNumeroRevue">Mois Numero Revue</label>
+            <input type="text" class="form-control" name="moisNumeroRevue" id="field_moisNumeroRevue"
+                [(ngModel)]="numeroRevue.moisNumeroRevue" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.volume" for="field_volume">Volume</label>
-            <input type="text" class="form-control" name="volume" id="field_volume"
-                [(ngModel)]="numeroRevue.volume" />
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.anneeNumeroRevue" for="field_anneeNumeroRevue">Annee Numero Revue</label>
+            <input type="text" class="form-control" name="anneeNumeroRevue" id="field_anneeNumeroRevue"
+                [(ngModel)]="numeroRevue.anneeNumeroRevue" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.numeroVolume" for="field_numeroVolume">Numero Volume</label>
-            <input type="text" class="form-control" name="numeroVolume" id="field_numeroVolume"
-                [(ngModel)]="numeroRevue.numeroVolume" />
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.langueNumeroRevue" for="field_langueNumeroRevue">Langue Numero Revue</label>
+            <input type="text" class="form-control" name="langueNumeroRevue" id="field_langueNumeroRevue"
+                [(ngModel)]="numeroRevue.langueNumeroRevue" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.lien" for="field_lien">Lien</label>
-            <input type="text" class="form-control" name="lien" id="field_lien"
-                [(ngModel)]="numeroRevue.lien" />
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.lienNumeroRevue" for="field_lienNumeroRevue">Lien Numero Revue</label>
+            <input type="text" class="form-control" name="lienNumeroRevue" id="field_lienNumeroRevue"
+                [(ngModel)]="numeroRevue.lienNumeroRevue" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.doi" for="field_doi">Doi</label>
-            <input type="text" class="form-control" name="doi" id="field_doi"
-                [(ngModel)]="numeroRevue.doi" />
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.doiNumeroRevue" for="field_doiNumeroRevue">Doi Numero Revue</label>
+            <input type="text" class="form-control" name="doiNumeroRevue" id="field_doiNumeroRevue"
+                [(ngModel)]="numeroRevue.doiNumeroRevue" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.numeroRevue.diversNumeroRevue" for="field_diversNumeroRevue">Divers Numero Revue</label>
+            <input type="text" class="form-control" name="diversNumeroRevue" id="field_diversNumeroRevue"
+                [(ngModel)]="numeroRevue.diversNumeroRevue" />
         </div>
 
         <div class="form-group">

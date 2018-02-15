@@ -41,20 +41,38 @@ import edu.ensim.biblio.domain.enumeration.TypeRapport;
 @SpringBootTest(classes = BiblioApp.class)
 public class RapportResourceIntTest {
 
-    private static final String DEFAULT_ID_MEMOIRE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_MEMOIRE = "BBBBBBBBBB";
+    private static final String DEFAULT_TITRE_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_TITRE_RAPPORT = "BBBBBBBBBB";
 
-    private static final TypeRapport DEFAULT_TYPE = TypeRapport.RECHERCHE;
-    private static final TypeRapport UPDATED_TYPE = TypeRapport.PROJET;
+    private static final String DEFAULT_SOUS_TITRE_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_RAPPORT = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final TypeRapport DEFAULT_TYPE_RAPPORT = TypeRapport.RECHERCHE;
+    private static final TypeRapport UPDATED_TYPE_RAPPORT = TypeRapport.PROJET;
 
-    private static final String DEFAULT_LIEU = "AAAAAAAAAA";
-    private static final String UPDATED_LIEU = "BBBBBBBBBB";
+    private static final Instant DEFAULT_DATE_RAPPORT = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_DATE_RAPPORT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final String DEFAULT_MAISON_EDITION = "AAAAAAAAAA";
-    private static final String UPDATED_MAISON_EDITION = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEU_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_LIEU_RAPPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MAISON_EDITION_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_MAISON_EDITION_RAPPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LANGUE_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_RAPPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LIEN_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_RAPPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DOI_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_DOI_RAPPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HAL_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_HAL_RAPPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_OUVRAGE_RAPPORT = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_OUVRAGE_RAPPORT = "BBBBBBBBBB";
 
     @Autowired
     private RapportRepository rapportRepository;
@@ -94,11 +112,17 @@ public class RapportResourceIntTest {
      */
     public static Rapport createEntity(EntityManager em) {
         Rapport rapport = new Rapport()
-            .idMemoire(DEFAULT_ID_MEMOIRE)
-            .type(DEFAULT_TYPE)
-            .date(DEFAULT_DATE)
-            .lieu(DEFAULT_LIEU)
-            .maisonEdition(DEFAULT_MAISON_EDITION);
+            .titreRapport(DEFAULT_TITRE_RAPPORT)
+            .sousTitreRapport(DEFAULT_SOUS_TITRE_RAPPORT)
+            .typeRapport(DEFAULT_TYPE_RAPPORT)
+            .dateRapport(DEFAULT_DATE_RAPPORT)
+            .lieuRapport(DEFAULT_LIEU_RAPPORT)
+            .maisonEditionRapport(DEFAULT_MAISON_EDITION_RAPPORT)
+            .langueRapport(DEFAULT_LANGUE_RAPPORT)
+            .lienRapport(DEFAULT_LIEN_RAPPORT)
+            .doiRapport(DEFAULT_DOI_RAPPORT)
+            .halRapport(DEFAULT_HAL_RAPPORT)
+            .diversOuvrageRapport(DEFAULT_DIVERS_OUVRAGE_RAPPORT);
         return rapport;
     }
 
@@ -122,11 +146,17 @@ public class RapportResourceIntTest {
         List<Rapport> rapportList = rapportRepository.findAll();
         assertThat(rapportList).hasSize(databaseSizeBeforeCreate + 1);
         Rapport testRapport = rapportList.get(rapportList.size() - 1);
-        assertThat(testRapport.getIdMemoire()).isEqualTo(DEFAULT_ID_MEMOIRE);
-        assertThat(testRapport.getType()).isEqualTo(DEFAULT_TYPE);
-        assertThat(testRapport.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testRapport.getLieu()).isEqualTo(DEFAULT_LIEU);
-        assertThat(testRapport.getMaisonEdition()).isEqualTo(DEFAULT_MAISON_EDITION);
+        assertThat(testRapport.getTitreRapport()).isEqualTo(DEFAULT_TITRE_RAPPORT);
+        assertThat(testRapport.getSousTitreRapport()).isEqualTo(DEFAULT_SOUS_TITRE_RAPPORT);
+        assertThat(testRapport.getTypeRapport()).isEqualTo(DEFAULT_TYPE_RAPPORT);
+        assertThat(testRapport.getDateRapport()).isEqualTo(DEFAULT_DATE_RAPPORT);
+        assertThat(testRapport.getLieuRapport()).isEqualTo(DEFAULT_LIEU_RAPPORT);
+        assertThat(testRapport.getMaisonEditionRapport()).isEqualTo(DEFAULT_MAISON_EDITION_RAPPORT);
+        assertThat(testRapport.getLangueRapport()).isEqualTo(DEFAULT_LANGUE_RAPPORT);
+        assertThat(testRapport.getLienRapport()).isEqualTo(DEFAULT_LIEN_RAPPORT);
+        assertThat(testRapport.getDoiRapport()).isEqualTo(DEFAULT_DOI_RAPPORT);
+        assertThat(testRapport.getHalRapport()).isEqualTo(DEFAULT_HAL_RAPPORT);
+        assertThat(testRapport.getDiversOuvrageRapport()).isEqualTo(DEFAULT_DIVERS_OUVRAGE_RAPPORT);
     }
 
     @Test
@@ -150,10 +180,10 @@ public class RapportResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdMemoireIsRequired() throws Exception {
+    public void checkTitreRapportIsRequired() throws Exception {
         int databaseSizeBeforeTest = rapportRepository.findAll().size();
         // set the field null
-        rapport.setIdMemoire(null);
+        rapport.setTitreRapport(null);
 
         // Create the Rapport, which fails.
 
@@ -177,11 +207,17 @@ public class RapportResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(rapport.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idMemoire").value(hasItem(DEFAULT_ID_MEMOIRE.toString())))
-            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].lieu").value(hasItem(DEFAULT_LIEU.toString())))
-            .andExpect(jsonPath("$.[*].maisonEdition").value(hasItem(DEFAULT_MAISON_EDITION.toString())));
+            .andExpect(jsonPath("$.[*].titreRapport").value(hasItem(DEFAULT_TITRE_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreRapport").value(hasItem(DEFAULT_SOUS_TITRE_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].typeRapport").value(hasItem(DEFAULT_TYPE_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].dateRapport").value(hasItem(DEFAULT_DATE_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].lieuRapport").value(hasItem(DEFAULT_LIEU_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].maisonEditionRapport").value(hasItem(DEFAULT_MAISON_EDITION_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].langueRapport").value(hasItem(DEFAULT_LANGUE_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].lienRapport").value(hasItem(DEFAULT_LIEN_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].doiRapport").value(hasItem(DEFAULT_DOI_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].halRapport").value(hasItem(DEFAULT_HAL_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].diversOuvrageRapport").value(hasItem(DEFAULT_DIVERS_OUVRAGE_RAPPORT.toString())));
     }
 
     @Test
@@ -195,11 +231,17 @@ public class RapportResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(rapport.getId().intValue()))
-            .andExpect(jsonPath("$.idMemoire").value(DEFAULT_ID_MEMOIRE.toString()))
-            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.lieu").value(DEFAULT_LIEU.toString()))
-            .andExpect(jsonPath("$.maisonEdition").value(DEFAULT_MAISON_EDITION.toString()));
+            .andExpect(jsonPath("$.titreRapport").value(DEFAULT_TITRE_RAPPORT.toString()))
+            .andExpect(jsonPath("$.sousTitreRapport").value(DEFAULT_SOUS_TITRE_RAPPORT.toString()))
+            .andExpect(jsonPath("$.typeRapport").value(DEFAULT_TYPE_RAPPORT.toString()))
+            .andExpect(jsonPath("$.dateRapport").value(DEFAULT_DATE_RAPPORT.toString()))
+            .andExpect(jsonPath("$.lieuRapport").value(DEFAULT_LIEU_RAPPORT.toString()))
+            .andExpect(jsonPath("$.maisonEditionRapport").value(DEFAULT_MAISON_EDITION_RAPPORT.toString()))
+            .andExpect(jsonPath("$.langueRapport").value(DEFAULT_LANGUE_RAPPORT.toString()))
+            .andExpect(jsonPath("$.lienRapport").value(DEFAULT_LIEN_RAPPORT.toString()))
+            .andExpect(jsonPath("$.doiRapport").value(DEFAULT_DOI_RAPPORT.toString()))
+            .andExpect(jsonPath("$.halRapport").value(DEFAULT_HAL_RAPPORT.toString()))
+            .andExpect(jsonPath("$.diversOuvrageRapport").value(DEFAULT_DIVERS_OUVRAGE_RAPPORT.toString()));
     }
 
     @Test
@@ -222,11 +264,17 @@ public class RapportResourceIntTest {
         // Disconnect from session so that the updates on updatedRapport are not directly saved in db
         em.detach(updatedRapport);
         updatedRapport
-            .idMemoire(UPDATED_ID_MEMOIRE)
-            .type(UPDATED_TYPE)
-            .date(UPDATED_DATE)
-            .lieu(UPDATED_LIEU)
-            .maisonEdition(UPDATED_MAISON_EDITION);
+            .titreRapport(UPDATED_TITRE_RAPPORT)
+            .sousTitreRapport(UPDATED_SOUS_TITRE_RAPPORT)
+            .typeRapport(UPDATED_TYPE_RAPPORT)
+            .dateRapport(UPDATED_DATE_RAPPORT)
+            .lieuRapport(UPDATED_LIEU_RAPPORT)
+            .maisonEditionRapport(UPDATED_MAISON_EDITION_RAPPORT)
+            .langueRapport(UPDATED_LANGUE_RAPPORT)
+            .lienRapport(UPDATED_LIEN_RAPPORT)
+            .doiRapport(UPDATED_DOI_RAPPORT)
+            .halRapport(UPDATED_HAL_RAPPORT)
+            .diversOuvrageRapport(UPDATED_DIVERS_OUVRAGE_RAPPORT);
 
         restRapportMockMvc.perform(put("/api/rapports")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -237,11 +285,17 @@ public class RapportResourceIntTest {
         List<Rapport> rapportList = rapportRepository.findAll();
         assertThat(rapportList).hasSize(databaseSizeBeforeUpdate);
         Rapport testRapport = rapportList.get(rapportList.size() - 1);
-        assertThat(testRapport.getIdMemoire()).isEqualTo(UPDATED_ID_MEMOIRE);
-        assertThat(testRapport.getType()).isEqualTo(UPDATED_TYPE);
-        assertThat(testRapport.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testRapport.getLieu()).isEqualTo(UPDATED_LIEU);
-        assertThat(testRapport.getMaisonEdition()).isEqualTo(UPDATED_MAISON_EDITION);
+        assertThat(testRapport.getTitreRapport()).isEqualTo(UPDATED_TITRE_RAPPORT);
+        assertThat(testRapport.getSousTitreRapport()).isEqualTo(UPDATED_SOUS_TITRE_RAPPORT);
+        assertThat(testRapport.getTypeRapport()).isEqualTo(UPDATED_TYPE_RAPPORT);
+        assertThat(testRapport.getDateRapport()).isEqualTo(UPDATED_DATE_RAPPORT);
+        assertThat(testRapport.getLieuRapport()).isEqualTo(UPDATED_LIEU_RAPPORT);
+        assertThat(testRapport.getMaisonEditionRapport()).isEqualTo(UPDATED_MAISON_EDITION_RAPPORT);
+        assertThat(testRapport.getLangueRapport()).isEqualTo(UPDATED_LANGUE_RAPPORT);
+        assertThat(testRapport.getLienRapport()).isEqualTo(UPDATED_LIEN_RAPPORT);
+        assertThat(testRapport.getDoiRapport()).isEqualTo(UPDATED_DOI_RAPPORT);
+        assertThat(testRapport.getHalRapport()).isEqualTo(UPDATED_HAL_RAPPORT);
+        assertThat(testRapport.getDiversOuvrageRapport()).isEqualTo(UPDATED_DIVERS_OUVRAGE_RAPPORT);
     }
 
     @Test

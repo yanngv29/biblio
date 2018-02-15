@@ -3,73 +3,83 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
+            "javadoc": "Ouvrage{chapitre} to Chapitre,",
             "relationshipName": "notation",
-            "otherEntityName": "notation",
-            "otherEntityRelationshipName": "ouvrage"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "chapitre",
-            "otherEntityName": "chapitre",
+            "otherEntityName": "note",
             "otherEntityRelationshipName": "ouvrage"
         }
     ],
     "fields": [
         {
-            "fieldName": "idOuvrage",
+            "fieldName": "titreOuvrage",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "titre",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "type",
+            "fieldName": "typeOuvrage",
             "fieldType": "TypeOuvrage",
-            "fieldValues": "SCIENTIFIQUE,VULGARISATION"
+            "fieldValues": "SCIENTIFIQUE,VULGARISATION",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
-            "fieldName": "participation",
+            "fieldName": "participationOuvrage",
             "fieldType": "TypeParticipation",
             "fieldValues": "COMPLETE,PARTIELLE"
         },
         {
-            "fieldName": "annee",
+            "fieldName": "anneeOuvrage",
             "fieldType": "Integer"
         },
         {
-            "fieldName": "numeroEdition",
+            "fieldName": "numeroEditionOuvrage",
             "fieldType": "Integer"
         },
         {
-            "fieldName": "volume",
+            "fieldName": "volumeOuvrage",
             "fieldType": "Integer"
         },
         {
-            "fieldName": "traduction",
+            "fieldName": "traductionOuvrage",
             "fieldType": "String"
         },
         {
-            "fieldName": "lieu",
+            "fieldName": "lieuOuvrage",
             "fieldType": "String"
         },
         {
-            "fieldName": "maisonEdition",
+            "fieldName": "maisonEditionOuvrage",
             "fieldType": "String"
         },
         {
-            "fieldName": "collection",
+            "fieldName": "collectionOuvrage",
             "fieldType": "String"
         },
         {
-            "fieldName": "hal",
+            "fieldName": "langueOuvrage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienOuvrage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doiOuvrage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halOuvrage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversOuvrage",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153407",
+    "changelogDate": "20180215164206",
     "javadoc": "Acte de conférence : identifiant obligatoire",
     "entityTableName": "ouvrage",
     "dto": "no",

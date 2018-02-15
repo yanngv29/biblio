@@ -13,19 +13,19 @@
                    [(ngModel)]="article.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.article.idArticle" for="field_idArticle">Id Article</label>
-            <input type="text" class="form-control" name="idArticle" id="field_idArticle"
-                [(ngModel)]="article.idArticle" required/>
-            <div [hidden]="!(editForm.controls.idArticle?.dirty && editForm.controls.idArticle?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.titreArticle" for="field_titreArticle">Titre Article</label>
+            <input type="text" class="form-control" name="titreArticle" id="field_titreArticle"
+                [(ngModel)]="article.titreArticle" required/>
+            <div [hidden]="!(editForm.controls.titreArticle?.dirty && editForm.controls.titreArticle?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idArticle?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.titreArticle?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.article.type" for="field_type">Type</label>
-            <select class="form-control" name="type" [(ngModel)]="article.type" id="field_type" >
+            <label class="form-control-label" jhiTranslate="biblioApp.article.typeArticle" for="field_typeArticle">Type Article</label>
+            <select class="form-control" name="typeArticle" [(ngModel)]="article.typeArticle" id="field_typeArticle" >
                 <option value="PUBLIE">{{'biblioApp.TypeArticle.PUBLIE' | translate}}</option>
                 <option value="EN_PREPUBLICATION">{{'biblioApp.TypeArticle.EN_PREPUBLICATION' | translate}}</option>
                 <option value="SOUS_PRESSE">{{'biblioApp.TypeArticle.SOUS_PRESSE' | translate}}</option>
@@ -33,19 +33,34 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.article.pageDebut" for="field_pageDebut">Page Debut</label>
-            <input type="text" class="form-control" name="pageDebut" id="field_pageDebut"
-                [(ngModel)]="article.pageDebut" />
+            <label class="form-control-label" jhiTranslate="biblioApp.article.pageDebutArticle" for="field_pageDebutArticle">Page Debut Article</label>
+            <input type="text" class="form-control" name="pageDebutArticle" id="field_pageDebutArticle"
+                [(ngModel)]="article.pageDebutArticle" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.article.pageFin" for="field_pageFin">Page Fin</label>
-            <input type="text" class="form-control" name="pageFin" id="field_pageFin"
-                [(ngModel)]="article.pageFin" />
+            <label class="form-control-label" jhiTranslate="biblioApp.article.pageFinArticle" for="field_pageFinArticle">Page Fin Article</label>
+            <input type="text" class="form-control" name="pageFinArticle" id="field_pageFinArticle"
+                [(ngModel)]="article.pageFinArticle" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.article.hal" for="field_hal">Hal</label>
-            <input type="text" class="form-control" name="hal" id="field_hal"
-                [(ngModel)]="article.hal" />
+            <label class="form-control-label" jhiTranslate="biblioApp.article.langueArticle" for="field_langueArticle">Langue Article</label>
+            <input type="text" class="form-control" name="langueArticle" id="field_langueArticle"
+                [(ngModel)]="article.langueArticle" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.lienArticle" for="field_lienArticle">Lien Article</label>
+            <input type="text" class="form-control" name="lienArticle" id="field_lienArticle"
+                [(ngModel)]="article.lienArticle" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.halArticle" for="field_halArticle">Hal Article</label>
+            <input type="text" class="form-control" name="halArticle" id="field_halArticle"
+                [(ngModel)]="article.halArticle" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.diversArticle" for="field_diversArticle">Divers Article</label>
+            <input type="text" class="form-control" name="diversArticle" id="field_diversArticle"
+                [(ngModel)]="article.diversArticle" />
         </div>
 
         <div class="form-group">
@@ -56,10 +71,10 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.article.acte" for="field_acte">Acte</label>
-            <select class="form-control" id="field_acte" name="acte" [(ngModel)]="article.acte" >
+            <label class="form-control-label" jhiTranslate="biblioApp.article.actes" for="field_actes">Actes</label>
+            <select class="form-control" id="field_actes" name="actes" [(ngModel)]="article.actes" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="acteOption.id === article.acte?.id ? article.acte : acteOption" *ngFor="let acteOption of actes; trackBy: trackActeById">{{acteOption.id}}</option>
+                <option [ngValue]="actesOption.id === article.actes?.id ? article.actes : actesOption" *ngFor="let actesOption of actes; trackBy: trackActesById">{{actesOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
@@ -68,6 +83,12 @@
                 <option [ngValue]="null"></option>
                 <option [ngValue]="conferenceOption.id === article.conference?.id ? article.conference : conferenceOption" *ngFor="let conferenceOption of conferences; trackBy: trackConferenceById">{{conferenceOption.id}}</option>
             </select>
+        </div>
+        <div [hidden]="!(editForm.controls.auteur?.dirty && editForm.controls.auteur?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.auteur?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
         </div>
     </div>
     <div class="modal-footer">

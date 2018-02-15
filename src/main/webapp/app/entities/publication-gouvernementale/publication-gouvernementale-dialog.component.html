@@ -13,37 +13,62 @@
                    [(ngModel)]="publicationGouvernementale.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.idPG" for="field_idPG">Id PG</label>
-            <input type="text" class="form-control" name="idPG" id="field_idPG"
-                [(ngModel)]="publicationGouvernementale.idPG" required/>
-            <div [hidden]="!(editForm.controls.idPG?.dirty && editForm.controls.idPG?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.titrePG" for="field_titrePG">Titre PG</label>
+            <input type="text" class="form-control" name="titrePG" id="field_titrePG"
+                [(ngModel)]="publicationGouvernementale.titrePG" required/>
+            <div [hidden]="!(editForm.controls.titrePG?.dirty && editForm.controls.titrePG?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idPG?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.titrePG?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.date" for="field_date">Date</label>
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.datePG" for="field_datePG">Date PG</label>
             <div class="d-flex">
-                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="publicationGouvernementale.date"
+                <input id="field_datePG" type="datetime-local" class="form-control" name="datePG" [(ngModel)]="publicationGouvernementale.datePG"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.numeroEdition" for="field_numeroEdition">Numero Edition</label>
-            <input type="text" class="form-control" name="numeroEdition" id="field_numeroEdition"
-                [(ngModel)]="publicationGouvernementale.numeroEdition" />
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.numeroEditionPG" for="field_numeroEditionPG">Numero Edition PG</label>
+            <input type="text" class="form-control" name="numeroEditionPG" id="field_numeroEditionPG"
+                [(ngModel)]="publicationGouvernementale.numeroEditionPG" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.lieu" for="field_lieu">Lieu</label>
-            <input type="text" class="form-control" name="lieu" id="field_lieu"
-                [(ngModel)]="publicationGouvernementale.lieu" />
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.lieuPG" for="field_lieuPG">Lieu PG</label>
+            <input type="text" class="form-control" name="lieuPG" id="field_lieuPG"
+                [(ngModel)]="publicationGouvernementale.lieuPG" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.maisonEdition" for="field_maisonEdition">Maison Edition</label>
-            <input type="text" class="form-control" name="maisonEdition" id="field_maisonEdition"
-                [(ngModel)]="publicationGouvernementale.maisonEdition" />
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.maisonEditionPG" for="field_maisonEditionPG">Maison Edition PG</label>
+            <input type="text" class="form-control" name="maisonEditionPG" id="field_maisonEditionPG"
+                [(ngModel)]="publicationGouvernementale.maisonEditionPG" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.languePG" for="field_languePG">Langue PG</label>
+            <input type="text" class="form-control" name="languePG" id="field_languePG"
+                [(ngModel)]="publicationGouvernementale.languePG" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.lienPG" for="field_lienPG">Lien PG</label>
+            <input type="text" class="form-control" name="lienPG" id="field_lienPG"
+                [(ngModel)]="publicationGouvernementale.lienPG" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.doiPG" for="field_doiPG">Doi PG</label>
+            <input type="text" class="form-control" name="doiPG" id="field_doiPG"
+                [(ngModel)]="publicationGouvernementale.doiPG" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.halPG" for="field_halPG">Hal PG</label>
+            <input type="text" class="form-control" name="halPG" id="field_halPG"
+                [(ngModel)]="publicationGouvernementale.halPG" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.publicationGouvernementale.diversOuvragePG" for="field_diversOuvragePG">Divers Ouvrage PG</label>
+            <input type="text" class="form-control" name="diversOuvragePG" id="field_diversOuvragePG"
+                [(ngModel)]="publicationGouvernementale.diversOuvragePG" />
         </div>
 
     </div>

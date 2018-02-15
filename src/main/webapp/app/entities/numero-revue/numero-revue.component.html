@@ -17,13 +17,14 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.idNumeroRevue">Id Numero Revue</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.mois">Mois</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.annee">Annee</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.volume">Volume</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.numeroVolume">Numero Volume</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.lien">Lien</span></th>
-            <th><span jhiTranslate="biblioApp.numeroRevue.doi">Doi</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.volumeNumeroRevue">Volume Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.numeroVolumeNumeroRevue">Numero Volume Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.moisNumeroRevue">Mois Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.anneeNumeroRevue">Annee Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.langueNumeroRevue">Langue Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.lienNumeroRevue">Lien Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.doiNumeroRevue">Doi Numero Revue</span></th>
+            <th><span jhiTranslate="biblioApp.numeroRevue.diversNumeroRevue">Divers Numero Revue</span></th>
             <th><span jhiTranslate="biblioApp.numeroRevue.revue">Revue</span></th>
             <th></th>
             </tr>
@@ -31,13 +32,14 @@
             <tbody>
             <tr *ngFor="let numeroRevue of numeroRevues ;trackBy: trackId">
                 <td><a [routerLink]="['../numero-revue', numeroRevue.id ]">{{numeroRevue.id}}</a></td>
-                <td>{{numeroRevue.idNumeroRevue}}</td>
-                <td>{{numeroRevue.mois}}</td>
-                <td>{{numeroRevue.annee}}</td>
-                <td>{{numeroRevue.volume}}</td>
-                <td>{{numeroRevue.numeroVolume}}</td>
-                <td>{{numeroRevue.lien}}</td>
-                <td>{{numeroRevue.doi}}</td>
+                <td>{{numeroRevue.volumeNumeroRevue}}</td>
+                <td>{{numeroRevue.numeroVolumeNumeroRevue}}</td>
+                <td>{{numeroRevue.moisNumeroRevue}}</td>
+                <td>{{numeroRevue.anneeNumeroRevue}}</td>
+                <td>{{numeroRevue.langueNumeroRevue}}</td>
+                <td>{{numeroRevue.lienNumeroRevue}}</td>
+                <td>{{numeroRevue.doiNumeroRevue}}</td>
+                <td>{{numeroRevue.diversNumeroRevue}}</td>
                 <td>
                     <div *ngIf="numeroRevue.revue">
                         <a [routerLink]="['../revue', numeroRevue.revue?.id ]" >{{numeroRevue.revue?.id}}</a>

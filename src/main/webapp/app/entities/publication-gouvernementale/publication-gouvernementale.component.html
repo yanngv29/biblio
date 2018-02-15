@@ -17,22 +17,32 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.publicationGouvernementale.idPG">Id PG</span></th>
-            <th><span jhiTranslate="biblioApp.publicationGouvernementale.date">Date</span></th>
-            <th><span jhiTranslate="biblioApp.publicationGouvernementale.numeroEdition">Numero Edition</span></th>
-            <th><span jhiTranslate="biblioApp.publicationGouvernementale.lieu">Lieu</span></th>
-            <th><span jhiTranslate="biblioApp.publicationGouvernementale.maisonEdition">Maison Edition</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.titrePG">Titre PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.datePG">Date PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.numeroEditionPG">Numero Edition PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.lieuPG">Lieu PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.maisonEditionPG">Maison Edition PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.languePG">Langue PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.lienPG">Lien PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.doiPG">Doi PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.halPG">Hal PG</span></th>
+            <th><span jhiTranslate="biblioApp.publicationGouvernementale.diversOuvragePG">Divers Ouvrage PG</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let publicationGouvernementale of publicationGouvernementales ;trackBy: trackId">
                 <td><a [routerLink]="['../publication-gouvernementale', publicationGouvernementale.id ]">{{publicationGouvernementale.id}}</a></td>
-                <td>{{publicationGouvernementale.idPG}}</td>
-                <td>{{publicationGouvernementale.date | date:'medium'}}</td>
-                <td>{{publicationGouvernementale.numeroEdition}}</td>
-                <td>{{publicationGouvernementale.lieu}}</td>
-                <td>{{publicationGouvernementale.maisonEdition}}</td>
+                <td>{{publicationGouvernementale.titrePG}}</td>
+                <td>{{publicationGouvernementale.datePG | date:'medium'}}</td>
+                <td>{{publicationGouvernementale.numeroEditionPG}}</td>
+                <td>{{publicationGouvernementale.lieuPG}}</td>
+                <td>{{publicationGouvernementale.maisonEditionPG}}</td>
+                <td>{{publicationGouvernementale.languePG}}</td>
+                <td>{{publicationGouvernementale.lienPG}}</td>
+                <td>{{publicationGouvernementale.doiPG}}</td>
+                <td>{{publicationGouvernementale.halPG}}</td>
+                <td>{{publicationGouvernementale.diversOuvragePG}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -39,11 +39,8 @@ import edu.ensim.biblio.domain.enumeration.Audience;
 @SpringBootTest(classes = BiblioApp.class)
 public class RevueResourceIntTest {
 
-    private static final String DEFAULT_ID_REVUE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_REVUE = "BBBBBBBBBB";
-
-    private static final String DEFAULT_NOM = "AAAAAAAAAA";
-    private static final String UPDATED_NOM = "BBBBBBBBBB";
+    private static final String DEFAULT_NOM_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_NOM_REVUE = "BBBBBBBBBB";
 
     private static final Audience DEFAULT_AUDIENCE = Audience.NATIONALE;
     private static final Audience UPDATED_AUDIENCE = Audience.INTERNATIONALE;
@@ -51,26 +48,17 @@ public class RevueResourceIntTest {
     private static final Boolean DEFAULT_COMITE_SELECTION = false;
     private static final Boolean UPDATED_COMITE_SELECTION = true;
 
-    private static final String DEFAULT_MOIS = "AAAAAAAAAA";
-    private static final String UPDATED_MOIS = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_ANNEE = "AAAAAAAAAA";
-    private static final String UPDATED_ANNEE = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEU_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEU_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_VOLUME = "AAAAAAAAAA";
-    private static final String UPDATED_VOLUME = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEN_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_NUMERO_VOLUME = "AAAAAAAAAA";
-    private static final String UPDATED_NUMERO_VOLUME = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LIEU = "AAAAAAAAAA";
-    private static final String UPDATED_LIEU = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LIEN = "AAAAAAAAAA";
-    private static final String UPDATED_LIEN = "BBBBBBBBBB";
-
-    private static final String DEFAULT_DIVERS = "AAAAAAAAAA";
-    private static final String UPDATED_DIVERS = "BBBBBBBBBB";
+    private static final String DEFAULT_DIVERS_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_REVUE = "BBBBBBBBBB";
 
     @Autowired
     private RevueRepository revueRepository;
@@ -110,17 +98,13 @@ public class RevueResourceIntTest {
      */
     public static Revue createEntity(EntityManager em) {
         Revue revue = new Revue()
-            .idRevue(DEFAULT_ID_REVUE)
-            .nom(DEFAULT_NOM)
+            .nomRevue(DEFAULT_NOM_REVUE)
             .audience(DEFAULT_AUDIENCE)
             .comiteSelection(DEFAULT_COMITE_SELECTION)
-            .mois(DEFAULT_MOIS)
-            .annee(DEFAULT_ANNEE)
-            .volume(DEFAULT_VOLUME)
-            .numeroVolume(DEFAULT_NUMERO_VOLUME)
-            .lieu(DEFAULT_LIEU)
-            .lien(DEFAULT_LIEN)
-            .divers(DEFAULT_DIVERS);
+            .langueRevue(DEFAULT_LANGUE_REVUE)
+            .lieuRevue(DEFAULT_LIEU_REVUE)
+            .lienRevue(DEFAULT_LIEN_REVUE)
+            .diversRevue(DEFAULT_DIVERS_REVUE);
         return revue;
     }
 
@@ -144,17 +128,13 @@ public class RevueResourceIntTest {
         List<Revue> revueList = revueRepository.findAll();
         assertThat(revueList).hasSize(databaseSizeBeforeCreate + 1);
         Revue testRevue = revueList.get(revueList.size() - 1);
-        assertThat(testRevue.getIdRevue()).isEqualTo(DEFAULT_ID_REVUE);
-        assertThat(testRevue.getNom()).isEqualTo(DEFAULT_NOM);
+        assertThat(testRevue.getNomRevue()).isEqualTo(DEFAULT_NOM_REVUE);
         assertThat(testRevue.getAudience()).isEqualTo(DEFAULT_AUDIENCE);
         assertThat(testRevue.isComiteSelection()).isEqualTo(DEFAULT_COMITE_SELECTION);
-        assertThat(testRevue.getMois()).isEqualTo(DEFAULT_MOIS);
-        assertThat(testRevue.getAnnee()).isEqualTo(DEFAULT_ANNEE);
-        assertThat(testRevue.getVolume()).isEqualTo(DEFAULT_VOLUME);
-        assertThat(testRevue.getNumeroVolume()).isEqualTo(DEFAULT_NUMERO_VOLUME);
-        assertThat(testRevue.getLieu()).isEqualTo(DEFAULT_LIEU);
-        assertThat(testRevue.getLien()).isEqualTo(DEFAULT_LIEN);
-        assertThat(testRevue.getDivers()).isEqualTo(DEFAULT_DIVERS);
+        assertThat(testRevue.getLangueRevue()).isEqualTo(DEFAULT_LANGUE_REVUE);
+        assertThat(testRevue.getLieuRevue()).isEqualTo(DEFAULT_LIEU_REVUE);
+        assertThat(testRevue.getLienRevue()).isEqualTo(DEFAULT_LIEN_REVUE);
+        assertThat(testRevue.getDiversRevue()).isEqualTo(DEFAULT_DIVERS_REVUE);
     }
 
     @Test
@@ -178,10 +158,10 @@ public class RevueResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdRevueIsRequired() throws Exception {
+    public void checkNomRevueIsRequired() throws Exception {
         int databaseSizeBeforeTest = revueRepository.findAll().size();
         // set the field null
-        revue.setIdRevue(null);
+        revue.setNomRevue(null);
 
         // Create the Revue, which fails.
 
@@ -205,17 +185,13 @@ public class RevueResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(revue.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idRevue").value(hasItem(DEFAULT_ID_REVUE.toString())))
-            .andExpect(jsonPath("$.[*].nom").value(hasItem(DEFAULT_NOM.toString())))
+            .andExpect(jsonPath("$.[*].nomRevue").value(hasItem(DEFAULT_NOM_REVUE.toString())))
             .andExpect(jsonPath("$.[*].audience").value(hasItem(DEFAULT_AUDIENCE.toString())))
             .andExpect(jsonPath("$.[*].comiteSelection").value(hasItem(DEFAULT_COMITE_SELECTION.booleanValue())))
-            .andExpect(jsonPath("$.[*].mois").value(hasItem(DEFAULT_MOIS.toString())))
-            .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE.toString())))
-            .andExpect(jsonPath("$.[*].volume").value(hasItem(DEFAULT_VOLUME.toString())))
-            .andExpect(jsonPath("$.[*].numeroVolume").value(hasItem(DEFAULT_NUMERO_VOLUME.toString())))
-            .andExpect(jsonPath("$.[*].lieu").value(hasItem(DEFAULT_LIEU.toString())))
-            .andExpect(jsonPath("$.[*].lien").value(hasItem(DEFAULT_LIEN.toString())))
-            .andExpect(jsonPath("$.[*].divers").value(hasItem(DEFAULT_DIVERS.toString())));
+            .andExpect(jsonPath("$.[*].langueRevue").value(hasItem(DEFAULT_LANGUE_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].lieuRevue").value(hasItem(DEFAULT_LIEU_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].lienRevue").value(hasItem(DEFAULT_LIEN_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].diversRevue").value(hasItem(DEFAULT_DIVERS_REVUE.toString())));
     }
 
     @Test
@@ -229,17 +205,13 @@ public class RevueResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(revue.getId().intValue()))
-            .andExpect(jsonPath("$.idRevue").value(DEFAULT_ID_REVUE.toString()))
-            .andExpect(jsonPath("$.nom").value(DEFAULT_NOM.toString()))
+            .andExpect(jsonPath("$.nomRevue").value(DEFAULT_NOM_REVUE.toString()))
             .andExpect(jsonPath("$.audience").value(DEFAULT_AUDIENCE.toString()))
             .andExpect(jsonPath("$.comiteSelection").value(DEFAULT_COMITE_SELECTION.booleanValue()))
-            .andExpect(jsonPath("$.mois").value(DEFAULT_MOIS.toString()))
-            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE.toString()))
-            .andExpect(jsonPath("$.volume").value(DEFAULT_VOLUME.toString()))
-            .andExpect(jsonPath("$.numeroVolume").value(DEFAULT_NUMERO_VOLUME.toString()))
-            .andExpect(jsonPath("$.lieu").value(DEFAULT_LIEU.toString()))
-            .andExpect(jsonPath("$.lien").value(DEFAULT_LIEN.toString()))
-            .andExpect(jsonPath("$.divers").value(DEFAULT_DIVERS.toString()));
+            .andExpect(jsonPath("$.langueRevue").value(DEFAULT_LANGUE_REVUE.toString()))
+            .andExpect(jsonPath("$.lieuRevue").value(DEFAULT_LIEU_REVUE.toString()))
+            .andExpect(jsonPath("$.lienRevue").value(DEFAULT_LIEN_REVUE.toString()))
+            .andExpect(jsonPath("$.diversRevue").value(DEFAULT_DIVERS_REVUE.toString()));
     }
 
     @Test
@@ -262,17 +234,13 @@ public class RevueResourceIntTest {
         // Disconnect from session so that the updates on updatedRevue are not directly saved in db
         em.detach(updatedRevue);
         updatedRevue
-            .idRevue(UPDATED_ID_REVUE)
-            .nom(UPDATED_NOM)
+            .nomRevue(UPDATED_NOM_REVUE)
             .audience(UPDATED_AUDIENCE)
             .comiteSelection(UPDATED_COMITE_SELECTION)
-            .mois(UPDATED_MOIS)
-            .annee(UPDATED_ANNEE)
-            .volume(UPDATED_VOLUME)
-            .numeroVolume(UPDATED_NUMERO_VOLUME)
-            .lieu(UPDATED_LIEU)
-            .lien(UPDATED_LIEN)
-            .divers(UPDATED_DIVERS);
+            .langueRevue(UPDATED_LANGUE_REVUE)
+            .lieuRevue(UPDATED_LIEU_REVUE)
+            .lienRevue(UPDATED_LIEN_REVUE)
+            .diversRevue(UPDATED_DIVERS_REVUE);
 
         restRevueMockMvc.perform(put("/api/revues")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -283,17 +251,13 @@ public class RevueResourceIntTest {
         List<Revue> revueList = revueRepository.findAll();
         assertThat(revueList).hasSize(databaseSizeBeforeUpdate);
         Revue testRevue = revueList.get(revueList.size() - 1);
-        assertThat(testRevue.getIdRevue()).isEqualTo(UPDATED_ID_REVUE);
-        assertThat(testRevue.getNom()).isEqualTo(UPDATED_NOM);
+        assertThat(testRevue.getNomRevue()).isEqualTo(UPDATED_NOM_REVUE);
         assertThat(testRevue.getAudience()).isEqualTo(UPDATED_AUDIENCE);
         assertThat(testRevue.isComiteSelection()).isEqualTo(UPDATED_COMITE_SELECTION);
-        assertThat(testRevue.getMois()).isEqualTo(UPDATED_MOIS);
-        assertThat(testRevue.getAnnee()).isEqualTo(UPDATED_ANNEE);
-        assertThat(testRevue.getVolume()).isEqualTo(UPDATED_VOLUME);
-        assertThat(testRevue.getNumeroVolume()).isEqualTo(UPDATED_NUMERO_VOLUME);
-        assertThat(testRevue.getLieu()).isEqualTo(UPDATED_LIEU);
-        assertThat(testRevue.getLien()).isEqualTo(UPDATED_LIEN);
-        assertThat(testRevue.getDivers()).isEqualTo(UPDATED_DIVERS);
+        assertThat(testRevue.getLangueRevue()).isEqualTo(UPDATED_LANGUE_REVUE);
+        assertThat(testRevue.getLieuRevue()).isEqualTo(UPDATED_LIEU_REVUE);
+        assertThat(testRevue.getLienRevue()).isEqualTo(UPDATED_LIEN_REVUE);
+        assertThat(testRevue.getDiversRevue()).isEqualTo(UPDATED_DIVERS_REVUE);
     }
 
     @Test

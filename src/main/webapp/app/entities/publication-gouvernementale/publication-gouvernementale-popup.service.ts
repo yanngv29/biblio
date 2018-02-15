@@ -31,8 +31,8 @@ export class PublicationGouvernementalePopupService {
                 this.publicationGouvernementaleService.find(id)
                     .subscribe((publicationGouvernementaleResponse: HttpResponse<PublicationGouvernementale>) => {
                         const publicationGouvernementale: PublicationGouvernementale = publicationGouvernementaleResponse.body;
-                        publicationGouvernementale.date = this.datePipe
-                            .transform(publicationGouvernementale.date, 'yyyy-MM-ddTHH:mm:ss');
+                        publicationGouvernementale.datePG = this.datePipe
+                            .transform(publicationGouvernementale.datePG, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.publicationGouvernementaleModalRef(component, publicationGouvernementale);
                         resolve(this.ngbModalRef);
                     });

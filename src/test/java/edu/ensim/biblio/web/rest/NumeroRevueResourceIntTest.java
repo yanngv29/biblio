@@ -38,26 +38,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BiblioApp.class)
 public class NumeroRevueResourceIntTest {
 
-    private static final String DEFAULT_ID_NUMERO_REVUE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_NUMERO_REVUE = "BBBBBBBBBB";
+    private static final String DEFAULT_VOLUME_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_VOLUME_NUMERO_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_MOIS = "AAAAAAAAAA";
-    private static final String UPDATED_MOIS = "BBBBBBBBBB";
+    private static final String DEFAULT_NUMERO_VOLUME_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_NUMERO_VOLUME_NUMERO_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_ANNEE = "AAAAAAAAAA";
-    private static final String UPDATED_ANNEE = "BBBBBBBBBB";
+    private static final String DEFAULT_MOIS_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_MOIS_NUMERO_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_VOLUME = "AAAAAAAAAA";
-    private static final String UPDATED_VOLUME = "BBBBBBBBBB";
+    private static final String DEFAULT_ANNEE_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_ANNEE_NUMERO_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_NUMERO_VOLUME = "AAAAAAAAAA";
-    private static final String UPDATED_NUMERO_VOLUME = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_NUMERO_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LIEN = "AAAAAAAAAA";
-    private static final String UPDATED_LIEN = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEN_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_NUMERO_REVUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_DOI = "AAAAAAAAAA";
-    private static final String UPDATED_DOI = "BBBBBBBBBB";
+    private static final String DEFAULT_DOI_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_DOI_NUMERO_REVUE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_NUMERO_REVUE = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_NUMERO_REVUE = "BBBBBBBBBB";
 
     @Autowired
     private NumeroRevueRepository numeroRevueRepository;
@@ -97,13 +100,14 @@ public class NumeroRevueResourceIntTest {
      */
     public static NumeroRevue createEntity(EntityManager em) {
         NumeroRevue numeroRevue = new NumeroRevue()
-            .idNumeroRevue(DEFAULT_ID_NUMERO_REVUE)
-            .mois(DEFAULT_MOIS)
-            .annee(DEFAULT_ANNEE)
-            .volume(DEFAULT_VOLUME)
-            .numeroVolume(DEFAULT_NUMERO_VOLUME)
-            .lien(DEFAULT_LIEN)
-            .doi(DEFAULT_DOI);
+            .volumeNumeroRevue(DEFAULT_VOLUME_NUMERO_REVUE)
+            .numeroVolumeNumeroRevue(DEFAULT_NUMERO_VOLUME_NUMERO_REVUE)
+            .moisNumeroRevue(DEFAULT_MOIS_NUMERO_REVUE)
+            .anneeNumeroRevue(DEFAULT_ANNEE_NUMERO_REVUE)
+            .langueNumeroRevue(DEFAULT_LANGUE_NUMERO_REVUE)
+            .lienNumeroRevue(DEFAULT_LIEN_NUMERO_REVUE)
+            .doiNumeroRevue(DEFAULT_DOI_NUMERO_REVUE)
+            .diversNumeroRevue(DEFAULT_DIVERS_NUMERO_REVUE);
         return numeroRevue;
     }
 
@@ -127,13 +131,14 @@ public class NumeroRevueResourceIntTest {
         List<NumeroRevue> numeroRevueList = numeroRevueRepository.findAll();
         assertThat(numeroRevueList).hasSize(databaseSizeBeforeCreate + 1);
         NumeroRevue testNumeroRevue = numeroRevueList.get(numeroRevueList.size() - 1);
-        assertThat(testNumeroRevue.getIdNumeroRevue()).isEqualTo(DEFAULT_ID_NUMERO_REVUE);
-        assertThat(testNumeroRevue.getMois()).isEqualTo(DEFAULT_MOIS);
-        assertThat(testNumeroRevue.getAnnee()).isEqualTo(DEFAULT_ANNEE);
-        assertThat(testNumeroRevue.getVolume()).isEqualTo(DEFAULT_VOLUME);
-        assertThat(testNumeroRevue.getNumeroVolume()).isEqualTo(DEFAULT_NUMERO_VOLUME);
-        assertThat(testNumeroRevue.getLien()).isEqualTo(DEFAULT_LIEN);
-        assertThat(testNumeroRevue.getDoi()).isEqualTo(DEFAULT_DOI);
+        assertThat(testNumeroRevue.getVolumeNumeroRevue()).isEqualTo(DEFAULT_VOLUME_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getNumeroVolumeNumeroRevue()).isEqualTo(DEFAULT_NUMERO_VOLUME_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getMoisNumeroRevue()).isEqualTo(DEFAULT_MOIS_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getAnneeNumeroRevue()).isEqualTo(DEFAULT_ANNEE_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getLangueNumeroRevue()).isEqualTo(DEFAULT_LANGUE_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getLienNumeroRevue()).isEqualTo(DEFAULT_LIEN_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getDoiNumeroRevue()).isEqualTo(DEFAULT_DOI_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getDiversNumeroRevue()).isEqualTo(DEFAULT_DIVERS_NUMERO_REVUE);
     }
 
     @Test
@@ -157,24 +162,6 @@ public class NumeroRevueResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdNumeroRevueIsRequired() throws Exception {
-        int databaseSizeBeforeTest = numeroRevueRepository.findAll().size();
-        // set the field null
-        numeroRevue.setIdNumeroRevue(null);
-
-        // Create the NumeroRevue, which fails.
-
-        restNumeroRevueMockMvc.perform(post("/api/numero-revues")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(numeroRevue)))
-            .andExpect(status().isBadRequest());
-
-        List<NumeroRevue> numeroRevueList = numeroRevueRepository.findAll();
-        assertThat(numeroRevueList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllNumeroRevues() throws Exception {
         // Initialize the database
         numeroRevueRepository.saveAndFlush(numeroRevue);
@@ -184,13 +171,14 @@ public class NumeroRevueResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(numeroRevue.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idNumeroRevue").value(hasItem(DEFAULT_ID_NUMERO_REVUE.toString())))
-            .andExpect(jsonPath("$.[*].mois").value(hasItem(DEFAULT_MOIS.toString())))
-            .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE.toString())))
-            .andExpect(jsonPath("$.[*].volume").value(hasItem(DEFAULT_VOLUME.toString())))
-            .andExpect(jsonPath("$.[*].numeroVolume").value(hasItem(DEFAULT_NUMERO_VOLUME.toString())))
-            .andExpect(jsonPath("$.[*].lien").value(hasItem(DEFAULT_LIEN.toString())))
-            .andExpect(jsonPath("$.[*].doi").value(hasItem(DEFAULT_DOI.toString())));
+            .andExpect(jsonPath("$.[*].volumeNumeroRevue").value(hasItem(DEFAULT_VOLUME_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].numeroVolumeNumeroRevue").value(hasItem(DEFAULT_NUMERO_VOLUME_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].moisNumeroRevue").value(hasItem(DEFAULT_MOIS_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].anneeNumeroRevue").value(hasItem(DEFAULT_ANNEE_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].langueNumeroRevue").value(hasItem(DEFAULT_LANGUE_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].lienNumeroRevue").value(hasItem(DEFAULT_LIEN_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].doiNumeroRevue").value(hasItem(DEFAULT_DOI_NUMERO_REVUE.toString())))
+            .andExpect(jsonPath("$.[*].diversNumeroRevue").value(hasItem(DEFAULT_DIVERS_NUMERO_REVUE.toString())));
     }
 
     @Test
@@ -204,13 +192,14 @@ public class NumeroRevueResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(numeroRevue.getId().intValue()))
-            .andExpect(jsonPath("$.idNumeroRevue").value(DEFAULT_ID_NUMERO_REVUE.toString()))
-            .andExpect(jsonPath("$.mois").value(DEFAULT_MOIS.toString()))
-            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE.toString()))
-            .andExpect(jsonPath("$.volume").value(DEFAULT_VOLUME.toString()))
-            .andExpect(jsonPath("$.numeroVolume").value(DEFAULT_NUMERO_VOLUME.toString()))
-            .andExpect(jsonPath("$.lien").value(DEFAULT_LIEN.toString()))
-            .andExpect(jsonPath("$.doi").value(DEFAULT_DOI.toString()));
+            .andExpect(jsonPath("$.volumeNumeroRevue").value(DEFAULT_VOLUME_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.numeroVolumeNumeroRevue").value(DEFAULT_NUMERO_VOLUME_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.moisNumeroRevue").value(DEFAULT_MOIS_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.anneeNumeroRevue").value(DEFAULT_ANNEE_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.langueNumeroRevue").value(DEFAULT_LANGUE_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.lienNumeroRevue").value(DEFAULT_LIEN_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.doiNumeroRevue").value(DEFAULT_DOI_NUMERO_REVUE.toString()))
+            .andExpect(jsonPath("$.diversNumeroRevue").value(DEFAULT_DIVERS_NUMERO_REVUE.toString()));
     }
 
     @Test
@@ -233,13 +222,14 @@ public class NumeroRevueResourceIntTest {
         // Disconnect from session so that the updates on updatedNumeroRevue are not directly saved in db
         em.detach(updatedNumeroRevue);
         updatedNumeroRevue
-            .idNumeroRevue(UPDATED_ID_NUMERO_REVUE)
-            .mois(UPDATED_MOIS)
-            .annee(UPDATED_ANNEE)
-            .volume(UPDATED_VOLUME)
-            .numeroVolume(UPDATED_NUMERO_VOLUME)
-            .lien(UPDATED_LIEN)
-            .doi(UPDATED_DOI);
+            .volumeNumeroRevue(UPDATED_VOLUME_NUMERO_REVUE)
+            .numeroVolumeNumeroRevue(UPDATED_NUMERO_VOLUME_NUMERO_REVUE)
+            .moisNumeroRevue(UPDATED_MOIS_NUMERO_REVUE)
+            .anneeNumeroRevue(UPDATED_ANNEE_NUMERO_REVUE)
+            .langueNumeroRevue(UPDATED_LANGUE_NUMERO_REVUE)
+            .lienNumeroRevue(UPDATED_LIEN_NUMERO_REVUE)
+            .doiNumeroRevue(UPDATED_DOI_NUMERO_REVUE)
+            .diversNumeroRevue(UPDATED_DIVERS_NUMERO_REVUE);
 
         restNumeroRevueMockMvc.perform(put("/api/numero-revues")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -250,13 +240,14 @@ public class NumeroRevueResourceIntTest {
         List<NumeroRevue> numeroRevueList = numeroRevueRepository.findAll();
         assertThat(numeroRevueList).hasSize(databaseSizeBeforeUpdate);
         NumeroRevue testNumeroRevue = numeroRevueList.get(numeroRevueList.size() - 1);
-        assertThat(testNumeroRevue.getIdNumeroRevue()).isEqualTo(UPDATED_ID_NUMERO_REVUE);
-        assertThat(testNumeroRevue.getMois()).isEqualTo(UPDATED_MOIS);
-        assertThat(testNumeroRevue.getAnnee()).isEqualTo(UPDATED_ANNEE);
-        assertThat(testNumeroRevue.getVolume()).isEqualTo(UPDATED_VOLUME);
-        assertThat(testNumeroRevue.getNumeroVolume()).isEqualTo(UPDATED_NUMERO_VOLUME);
-        assertThat(testNumeroRevue.getLien()).isEqualTo(UPDATED_LIEN);
-        assertThat(testNumeroRevue.getDoi()).isEqualTo(UPDATED_DOI);
+        assertThat(testNumeroRevue.getVolumeNumeroRevue()).isEqualTo(UPDATED_VOLUME_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getNumeroVolumeNumeroRevue()).isEqualTo(UPDATED_NUMERO_VOLUME_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getMoisNumeroRevue()).isEqualTo(UPDATED_MOIS_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getAnneeNumeroRevue()).isEqualTo(UPDATED_ANNEE_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getLangueNumeroRevue()).isEqualTo(UPDATED_LANGUE_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getLienNumeroRevue()).isEqualTo(UPDATED_LIEN_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getDoiNumeroRevue()).isEqualTo(UPDATED_DOI_NUMERO_REVUE);
+        assertThat(testNumeroRevue.getDiversNumeroRevue()).isEqualTo(UPDATED_DIVERS_NUMERO_REVUE);
     }
 
     @Test

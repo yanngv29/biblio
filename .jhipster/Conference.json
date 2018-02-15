@@ -4,70 +4,62 @@
         {
             "relationshipType": "one-to-many",
             "relationshipName": "notation",
-            "otherEntityName": "notation",
+            "otherEntityName": "note",
             "otherEntityRelationshipName": "conference"
         }
     ],
     "fields": [
         {
-            "fieldName": "idConference",
+            "fieldName": "nomConference",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "type",
+            "fieldName": "typeConference",
             "fieldType": "TypeConference",
             "fieldValues": "CONFERENCE,COLLOQUE,JOURNEE_ETUDE,JOURNEE_ATELIERS,SEMINAIRE,SYMPOSIUM"
         },
         {
-            "fieldName": "nom",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "audience",
+            "fieldName": "audienceConference",
             "fieldType": "Audience",
             "fieldValues": "NATIONALE,INTERNATIONALE"
         },
         {
-            "fieldName": "comiteSelection",
+            "fieldName": "comiteSelectionConference",
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "editeur",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "dateDebut",
+            "fieldName": "dateDebutConference",
             "fieldType": "Instant"
         },
         {
-            "fieldName": "dateFin",
+            "fieldName": "dateFinConference",
             "fieldType": "Instant"
         },
         {
-            "fieldName": "ville",
+            "fieldName": "villeConference",
             "fieldType": "String"
         },
         {
-            "fieldName": "pays",
+            "fieldName": "paysConference",
             "fieldType": "String"
         },
         {
-            "fieldName": "lienSite",
+            "fieldName": "langueConference",
             "fieldType": "String"
         },
         {
-            "fieldName": "lienActes",
+            "fieldName": "lienSiteConference",
             "fieldType": "String"
         },
         {
-            "fieldName": "divers",
+            "fieldName": "diversConference",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153402",
+    "changelogDate": "20180215164201",
     "javadoc": "Conférence : critères non définitifs",
     "entityTableName": "conference",
     "dto": "no",

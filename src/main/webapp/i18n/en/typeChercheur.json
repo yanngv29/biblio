@@ -1,0 +1,12 @@
+{
+    "biblioApp": {
+        "TypeChercheur" : {
+            "null": "",
+            "PUBLIANT": "PUBLIANT",
+            "ENCADRANT": "ENCADRANT",
+            "DIRECTEUR": "DIRECTEUR",
+            "EDITIEUR": "EDITIEUR",
+            "COORDINATEUR": "COORDINATEUR"
+        }
+    }
+}

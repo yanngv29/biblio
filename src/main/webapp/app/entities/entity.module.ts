@@ -1,16 +1,15 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { BiblioActeModule } from './acte/acte.module';
+import { BiblioActesModule } from './actes/actes.module';
 import { BiblioArticleModule } from './article/article.module';
 import { BiblioChapitreModule } from './chapitre/chapitre.module';
 import { BiblioCommunicationModule } from './communication/communication.module';
 import { BiblioConferenceModule } from './conference/conference.module';
-import { BiblioContributionModule } from './contribution/contribution.module';
+import { BiblioChercheurModule } from './chercheur/chercheur.module';
 import { BiblioMemoireModule } from './memoire/memoire.module';
-import { BiblioNotationModule } from './notation/notation.module';
+import { BiblioNoteModule } from './note/note.module';
 import { BiblioNumeroRevueModule } from './numero-revue/numero-revue.module';
 import { BiblioOuvrageModule } from './ouvrage/ouvrage.module';
-import { BiblioPublicationModule } from './publication/publication.module';
 import { BiblioPublicationGouvernementaleModule } from './publication-gouvernementale/publication-gouvernementale.module';
 import { BiblioRapportModule } from './rapport/rapport.module';
 import { BiblioRevueModule } from './revue/revue.module';
@@ -18,17 +17,16 @@ import { BiblioRevueModule } from './revue/revue.module';
 
 @NgModule({
     imports: [
-        BiblioActeModule,
+        BiblioActesModule,
         BiblioArticleModule,
         BiblioChapitreModule,
         BiblioCommunicationModule,
         BiblioConferenceModule,
-        BiblioContributionModule,
+        BiblioChercheurModule,
         BiblioMemoireModule,
-        BiblioNotationModule,
+        BiblioNoteModule,
         BiblioNumeroRevueModule,
         BiblioOuvrageModule,
-        BiblioPublicationModule,
         BiblioPublicationGouvernementaleModule,
         BiblioRapportModule,
         BiblioRevueModule,

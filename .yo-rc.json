@@ -22,7 +22,7 @@
     "buildTool": "maven",
     "enableSocialSignIn": false,
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "4657415e3deff8be1aa0e5ab049d904cd7039449",
+    "jwtSecretKey": "161d3c10b0c6f4e9970b6490d5dadff495132331",
     "clientFramework": "angularX",
     "useSass": false,
     "clientPackageManager": "yarn",
@@ -37,6 +37,7 @@
       "fr",
       "en"
     ],
-    "herokuDeployType": "jar"
+    "herokuDeployType": "jar",
+    "herokuAppName": "biblio-73"
   }
 }

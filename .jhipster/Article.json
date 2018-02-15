@@ -9,8 +9,8 @@
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "acte",
-            "otherEntityName": "acte",
+            "relationshipName": "actes",
+            "otherEntityName": "actes",
             "otherEntityField": "id"
         },
         {
@@ -18,35 +18,55 @@
             "relationshipName": "conference",
             "otherEntityName": "conference",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "auteur",
+            "otherEntityName": "chercheur",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "article"
         }
     ],
     "fields": [
         {
-            "fieldName": "idArticle",
+            "fieldName": "titreArticle",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "type",
+            "fieldName": "typeArticle",
             "fieldType": "TypeArticle",
             "fieldValues": "PUBLIE,EN_PREPUBLICATION,SOUS_PRESSE,COURT"
         },
         {
-            "fieldName": "pageDebut",
+            "fieldName": "pageDebutArticle",
             "fieldType": "String"
         },
         {
-            "fieldName": "pageFin",
+            "fieldName": "pageFinArticle",
             "fieldType": "String"
         },
         {
-            "fieldName": "hal",
+            "fieldName": "langueArticle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienArticle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halArticle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversArticle",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153359",
+    "changelogDate": "20180215164158",
     "javadoc": "Article : type et identifiant obligatoires",
     "entityTableName": "article",
     "dto": "no",

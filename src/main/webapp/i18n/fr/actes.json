@@ -1,0 +1,35 @@
+
+{
+    "biblioApp": {
+        "actes" : {
+            "home": {
+                "title": "Actes",
+                "createLabel": "Créer un nouveau Actes",
+                "createOrEditLabel": "Créer ou éditer un Actes"
+            },
+            "created": "Un nouveau Actes a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Actes avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Actes avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Actes {{ id }} ?"
+            },
+            "detail": {
+                "title": "Actes"
+            },
+            "titreActe": "Titre Acte",
+            "typeActe": "Type Acte",
+            "anneeActe": "Annee Acte",
+            "numeroEditionActe": "Numero Edition Acte",
+            "volumeActe": "Volume Acte",
+            "traductionActe": "Traduction Acte",
+            "lieuActe": "Lieu Acte",
+            "maisonEditionActe": "Maison Edition Acte",
+            "collectionActe": "Collection Acte",
+            "langueActe": "Langue Acte",
+            "lienActe": "Lien Acte",
+            "halActe": "Hal Acte",
+            "diversActe": "Divers Acte",
+            "conference": "Conference"
+        }
+    }
+}

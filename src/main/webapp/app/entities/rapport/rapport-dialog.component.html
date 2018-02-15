@@ -13,39 +13,69 @@
                    [(ngModel)]="rapport.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.rapport.idMemoire" for="field_idMemoire">Id Memoire</label>
-            <input type="text" class="form-control" name="idMemoire" id="field_idMemoire"
-                [(ngModel)]="rapport.idMemoire" required/>
-            <div [hidden]="!(editForm.controls.idMemoire?.dirty && editForm.controls.idMemoire?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.titreRapport" for="field_titreRapport">Titre Rapport</label>
+            <input type="text" class="form-control" name="titreRapport" id="field_titreRapport"
+                [(ngModel)]="rapport.titreRapport" required/>
+            <div [hidden]="!(editForm.controls.titreRapport?.dirty && editForm.controls.titreRapport?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idMemoire?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.titreRapport?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.rapport.type" for="field_type">Type</label>
-            <select class="form-control" name="type" [(ngModel)]="rapport.type" id="field_type" >
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.sousTitreRapport" for="field_sousTitreRapport">Sous Titre Rapport</label>
+            <input type="text" class="form-control" name="sousTitreRapport" id="field_sousTitreRapport"
+                [(ngModel)]="rapport.sousTitreRapport" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.typeRapport" for="field_typeRapport">Type Rapport</label>
+            <select class="form-control" name="typeRapport" [(ngModel)]="rapport.typeRapport" id="field_typeRapport" >
                 <option value="RECHERCHE">{{'biblioApp.TypeRapport.RECHERCHE' | translate}}</option>
                 <option value="PROJET">{{'biblioApp.TypeRapport.PROJET' | translate}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.rapport.date" for="field_date">Date</label>
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.dateRapport" for="field_dateRapport">Date Rapport</label>
             <div class="d-flex">
-                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="rapport.date"
+                <input id="field_dateRapport" type="datetime-local" class="form-control" name="dateRapport" [(ngModel)]="rapport.dateRapport"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.rapport.lieu" for="field_lieu">Lieu</label>
-            <input type="text" class="form-control" name="lieu" id="field_lieu"
-                [(ngModel)]="rapport.lieu" />
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.lieuRapport" for="field_lieuRapport">Lieu Rapport</label>
+            <input type="text" class="form-control" name="lieuRapport" id="field_lieuRapport"
+                [(ngModel)]="rapport.lieuRapport" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.rapport.maisonEdition" for="field_maisonEdition">Maison Edition</label>
-            <input type="text" class="form-control" name="maisonEdition" id="field_maisonEdition"
-                [(ngModel)]="rapport.maisonEdition" />
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.maisonEditionRapport" for="field_maisonEditionRapport">Maison Edition Rapport</label>
+            <input type="text" class="form-control" name="maisonEditionRapport" id="field_maisonEditionRapport"
+                [(ngModel)]="rapport.maisonEditionRapport" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.langueRapport" for="field_langueRapport">Langue Rapport</label>
+            <input type="text" class="form-control" name="langueRapport" id="field_langueRapport"
+                [(ngModel)]="rapport.langueRapport" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.lienRapport" for="field_lienRapport">Lien Rapport</label>
+            <input type="text" class="form-control" name="lienRapport" id="field_lienRapport"
+                [(ngModel)]="rapport.lienRapport" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.doiRapport" for="field_doiRapport">Doi Rapport</label>
+            <input type="text" class="form-control" name="doiRapport" id="field_doiRapport"
+                [(ngModel)]="rapport.doiRapport" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.halRapport" for="field_halRapport">Hal Rapport</label>
+            <input type="text" class="form-control" name="halRapport" id="field_halRapport"
+                [(ngModel)]="rapport.halRapport" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.diversOuvrageRapport" for="field_diversOuvrageRapport">Divers Ouvrage Rapport</label>
+            <input type="text" class="form-control" name="diversOuvrageRapport" id="field_diversOuvrageRapport"
+                [(ngModel)]="rapport.diversOuvrageRapport" />
         </div>
 
     </div>

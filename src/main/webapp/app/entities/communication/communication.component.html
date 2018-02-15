@@ -17,9 +17,13 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.communication.idCommunication">Id Communication</span></th>
-            <th><span jhiTranslate="biblioApp.communication.type">Type</span></th>
-            <th><span jhiTranslate="biblioApp.communication.hal">Hal</span></th>
+            <th><span jhiTranslate="biblioApp.communication.titreCommunication">Titre Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.typeCommunication">Type Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.langueCommunication">Langue Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.lienCommunication">Lien Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.doiCommunication">Doi Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.halCommunication">Hal Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.diversCommunication">Divers Communication</span></th>
             <th><span jhiTranslate="biblioApp.communication.conference">Conference</span></th>
             <th></th>
             </tr>
@@ -27,9 +31,13 @@
             <tbody>
             <tr *ngFor="let communication of communications ;trackBy: trackId">
                 <td><a [routerLink]="['../communication', communication.id ]">{{communication.id}}</a></td>
-                <td>{{communication.idCommunication}}</td>
-                <td jhiTranslate="{{'biblioApp.TypeCommunication.' + communication.type}}">{{communication.type}}</td>
-                <td>{{communication.hal}}</td>
+                <td>{{communication.titreCommunication}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeCommunication.' + communication.typeCommunication}}">{{communication.typeCommunication}}</td>
+                <td>{{communication.langueCommunication}}</td>
+                <td>{{communication.lienCommunication}}</td>
+                <td>{{communication.doiCommunication}}</td>
+                <td>{{communication.halCommunication}}</td>
+                <td>{{communication.diversCommunication}}</td>
                 <td>
                     <div *ngIf="communication.conference">
                         <a [routerLink]="['../conference', communication.conference?.id ]" >{{communication.conference?.id}}</a>

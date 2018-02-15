@@ -16,14 +16,16 @@
             "detail": {
                 "title": "Numero Revue"
             },
-            "idNumeroRevue": "Id Numero Revue",
-            "mois": "Mois",
-            "annee": "Annee",
-            "volume": "Volume",
-            "numeroVolume": "Numero Volume",
-            "lien": "Lien",
-            "doi": "Doi",
-            "revue": "Revue"
+            "volumeNumeroRevue": "Volume Numero Revue",
+            "numeroVolumeNumeroRevue": "Numero Volume Numero Revue",
+            "moisNumeroRevue": "Mois Numero Revue",
+            "anneeNumeroRevue": "Annee Numero Revue",
+            "langueNumeroRevue": "Langue Numero Revue",
+            "lienNumeroRevue": "Lien Numero Revue",
+            "doiNumeroRevue": "Doi Numero Revue",
+            "diversNumeroRevue": "Divers Numero Revue",
+            "revue": "Revue",
+            "writer": "Writer"
         }
     }
 }

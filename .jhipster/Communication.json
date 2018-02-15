@@ -10,23 +10,36 @@
     ],
     "fields": [
         {
-            "fieldName": "idCommunication",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldName": "titreCommunication",
+            "fieldType": "String"
         },
         {
-            "fieldName": "type",
+            "fieldName": "typeCommunication",
             "fieldType": "TypeCommunication",
             "fieldValues": "AFFICHE,ATELIER,TABLE_RONDE"
         },
         {
-            "fieldName": "hal",
+            "fieldName": "langueCommunication",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienCommunication",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doiCommunication",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halCommunication",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversCommunication",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153401",
+    "changelogDate": "20180215164200",
     "javadoc": "Communication : identifiant et type obligatoires",
     "entityTableName": "communication",
     "dto": "no",

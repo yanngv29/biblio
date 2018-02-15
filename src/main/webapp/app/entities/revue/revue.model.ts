@@ -8,17 +8,13 @@ export const enum Audience {
 export class Revue implements BaseEntity {
     constructor(
         public id?: number,
-        public idRevue?: string,
-        public nom?: string,
+        public nomRevue?: string,
         public audience?: Audience,
         public comiteSelection?: boolean,
-        public mois?: string,
-        public annee?: string,
-        public volume?: string,
-        public numeroVolume?: string,
-        public lieu?: string,
-        public lien?: string,
-        public divers?: string,
+        public langueRevue?: string,
+        public lieuRevue?: string,
+        public lienRevue?: string,
+        public diversRevue?: string,
         public notations?: BaseEntity[],
     ) {
         this.comiteSelection = false;

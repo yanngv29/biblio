@@ -38,17 +38,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BiblioApp.class)
 public class ChapitreResourceIntTest {
 
-    private static final String DEFAULT_ID_CHAPITRE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_CHAPITRE = "BBBBBBBBBB";
+    private static final String DEFAULT_TITRE_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_TITRE_CHAPITRE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_PAGE_DEBUT = "AAAAAAAAAA";
-    private static final String UPDATED_PAGE_DEBUT = "BBBBBBBBBB";
+    private static final String DEFAULT_PAGE_DEBUT_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_PAGE_DEBUT_CHAPITRE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_PAGE_FIN = "AAAAAAAAAA";
-    private static final String UPDATED_PAGE_FIN = "BBBBBBBBBB";
+    private static final String DEFAULT_PAGE_FIN_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_PAGE_FIN_CHAPITRE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_HAL = "AAAAAAAAAA";
-    private static final String UPDATED_HAL = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_CHAPITRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LIEN_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_CHAPITRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HAL_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_HAL_CHAPITRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_CHAPITRE = "BBBBBBBBBB";
 
     @Autowired
     private ChapitreRepository chapitreRepository;
@@ -88,10 +97,13 @@ public class ChapitreResourceIntTest {
      */
     public static Chapitre createEntity(EntityManager em) {
         Chapitre chapitre = new Chapitre()
-            .idChapitre(DEFAULT_ID_CHAPITRE)
-            .pageDebut(DEFAULT_PAGE_DEBUT)
-            .pageFin(DEFAULT_PAGE_FIN)
-            .hal(DEFAULT_HAL);
+            .titreChapitre(DEFAULT_TITRE_CHAPITRE)
+            .pageDebutChapitre(DEFAULT_PAGE_DEBUT_CHAPITRE)
+            .pageFinChapitre(DEFAULT_PAGE_FIN_CHAPITRE)
+            .langueChapitre(DEFAULT_LANGUE_CHAPITRE)
+            .lienChapitre(DEFAULT_LIEN_CHAPITRE)
+            .halChapitre(DEFAULT_HAL_CHAPITRE)
+            .diversChapitre(DEFAULT_DIVERS_CHAPITRE);
         return chapitre;
     }
 
@@ -115,10 +127,13 @@ public class ChapitreResourceIntTest {
         List<Chapitre> chapitreList = chapitreRepository.findAll();
         assertThat(chapitreList).hasSize(databaseSizeBeforeCreate + 1);
         Chapitre testChapitre = chapitreList.get(chapitreList.size() - 1);
-        assertThat(testChapitre.getIdChapitre()).isEqualTo(DEFAULT_ID_CHAPITRE);
-        assertThat(testChapitre.getPageDebut()).isEqualTo(DEFAULT_PAGE_DEBUT);
-        assertThat(testChapitre.getPageFin()).isEqualTo(DEFAULT_PAGE_FIN);
-        assertThat(testChapitre.getHal()).isEqualTo(DEFAULT_HAL);
+        assertThat(testChapitre.getTitreChapitre()).isEqualTo(DEFAULT_TITRE_CHAPITRE);
+        assertThat(testChapitre.getPageDebutChapitre()).isEqualTo(DEFAULT_PAGE_DEBUT_CHAPITRE);
+        assertThat(testChapitre.getPageFinChapitre()).isEqualTo(DEFAULT_PAGE_FIN_CHAPITRE);
+        assertThat(testChapitre.getLangueChapitre()).isEqualTo(DEFAULT_LANGUE_CHAPITRE);
+        assertThat(testChapitre.getLienChapitre()).isEqualTo(DEFAULT_LIEN_CHAPITRE);
+        assertThat(testChapitre.getHalChapitre()).isEqualTo(DEFAULT_HAL_CHAPITRE);
+        assertThat(testChapitre.getDiversChapitre()).isEqualTo(DEFAULT_DIVERS_CHAPITRE);
     }
 
     @Test
@@ -142,10 +157,10 @@ public class ChapitreResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdChapitreIsRequired() throws Exception {
+    public void checkTitreChapitreIsRequired() throws Exception {
         int databaseSizeBeforeTest = chapitreRepository.findAll().size();
         // set the field null
-        chapitre.setIdChapitre(null);
+        chapitre.setTitreChapitre(null);
 
         // Create the Chapitre, which fails.
 
@@ -169,10 +184,13 @@ public class ChapitreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(chapitre.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idChapitre").value(hasItem(DEFAULT_ID_CHAPITRE.toString())))
-            .andExpect(jsonPath("$.[*].pageDebut").value(hasItem(DEFAULT_PAGE_DEBUT.toString())))
-            .andExpect(jsonPath("$.[*].pageFin").value(hasItem(DEFAULT_PAGE_FIN.toString())))
-            .andExpect(jsonPath("$.[*].hal").value(hasItem(DEFAULT_HAL.toString())));
+            .andExpect(jsonPath("$.[*].titreChapitre").value(hasItem(DEFAULT_TITRE_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].pageDebutChapitre").value(hasItem(DEFAULT_PAGE_DEBUT_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].pageFinChapitre").value(hasItem(DEFAULT_PAGE_FIN_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].langueChapitre").value(hasItem(DEFAULT_LANGUE_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].lienChapitre").value(hasItem(DEFAULT_LIEN_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].halChapitre").value(hasItem(DEFAULT_HAL_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].diversChapitre").value(hasItem(DEFAULT_DIVERS_CHAPITRE.toString())));
     }
 
     @Test
@@ -186,10 +204,13 @@ public class ChapitreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(chapitre.getId().intValue()))
-            .andExpect(jsonPath("$.idChapitre").value(DEFAULT_ID_CHAPITRE.toString()))
-            .andExpect(jsonPath("$.pageDebut").value(DEFAULT_PAGE_DEBUT.toString()))
-            .andExpect(jsonPath("$.pageFin").value(DEFAULT_PAGE_FIN.toString()))
-            .andExpect(jsonPath("$.hal").value(DEFAULT_HAL.toString()));
+            .andExpect(jsonPath("$.titreChapitre").value(DEFAULT_TITRE_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.pageDebutChapitre").value(DEFAULT_PAGE_DEBUT_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.pageFinChapitre").value(DEFAULT_PAGE_FIN_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.langueChapitre").value(DEFAULT_LANGUE_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.lienChapitre").value(DEFAULT_LIEN_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.halChapitre").value(DEFAULT_HAL_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.diversChapitre").value(DEFAULT_DIVERS_CHAPITRE.toString()));
     }
 
     @Test
@@ -212,10 +233,13 @@ public class ChapitreResourceIntTest {
         // Disconnect from session so that the updates on updatedChapitre are not directly saved in db
         em.detach(updatedChapitre);
         updatedChapitre
-            .idChapitre(UPDATED_ID_CHAPITRE)
-            .pageDebut(UPDATED_PAGE_DEBUT)
-            .pageFin(UPDATED_PAGE_FIN)
-            .hal(UPDATED_HAL);
+            .titreChapitre(UPDATED_TITRE_CHAPITRE)
+            .pageDebutChapitre(UPDATED_PAGE_DEBUT_CHAPITRE)
+            .pageFinChapitre(UPDATED_PAGE_FIN_CHAPITRE)
+            .langueChapitre(UPDATED_LANGUE_CHAPITRE)
+            .lienChapitre(UPDATED_LIEN_CHAPITRE)
+            .halChapitre(UPDATED_HAL_CHAPITRE)
+            .diversChapitre(UPDATED_DIVERS_CHAPITRE);
 
         restChapitreMockMvc.perform(put("/api/chapitres")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -226,10 +250,13 @@ public class ChapitreResourceIntTest {
         List<Chapitre> chapitreList = chapitreRepository.findAll();
         assertThat(chapitreList).hasSize(databaseSizeBeforeUpdate);
         Chapitre testChapitre = chapitreList.get(chapitreList.size() - 1);
-        assertThat(testChapitre.getIdChapitre()).isEqualTo(UPDATED_ID_CHAPITRE);
-        assertThat(testChapitre.getPageDebut()).isEqualTo(UPDATED_PAGE_DEBUT);
-        assertThat(testChapitre.getPageFin()).isEqualTo(UPDATED_PAGE_FIN);
-        assertThat(testChapitre.getHal()).isEqualTo(UPDATED_HAL);
+        assertThat(testChapitre.getTitreChapitre()).isEqualTo(UPDATED_TITRE_CHAPITRE);
+        assertThat(testChapitre.getPageDebutChapitre()).isEqualTo(UPDATED_PAGE_DEBUT_CHAPITRE);
+        assertThat(testChapitre.getPageFinChapitre()).isEqualTo(UPDATED_PAGE_FIN_CHAPITRE);
+        assertThat(testChapitre.getLangueChapitre()).isEqualTo(UPDATED_LANGUE_CHAPITRE);
+        assertThat(testChapitre.getLienChapitre()).isEqualTo(UPDATED_LIEN_CHAPITRE);
+        assertThat(testChapitre.getHalChapitre()).isEqualTo(UPDATED_HAL_CHAPITRE);
+        assertThat(testChapitre.getDiversChapitre()).isEqualTo(UPDATED_DIVERS_CHAPITRE);
     }
 
     @Test

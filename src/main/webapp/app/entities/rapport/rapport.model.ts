@@ -8,11 +8,17 @@ export const enum TypeRapport {
 export class Rapport implements BaseEntity {
     constructor(
         public id?: number,
-        public idMemoire?: string,
-        public type?: TypeRapport,
-        public date?: any,
-        public lieu?: string,
-        public maisonEdition?: string,
+        public titreRapport?: string,
+        public sousTitreRapport?: string,
+        public typeRapport?: TypeRapport,
+        public dateRapport?: any,
+        public lieuRapport?: string,
+        public maisonEditionRapport?: string,
+        public langueRapport?: string,
+        public lienRapport?: string,
+        public doiRapport?: string,
+        public halRapport?: string,
+        public diversOuvrageRapport?: string,
         public notations?: BaseEntity[],
     ) {
     }

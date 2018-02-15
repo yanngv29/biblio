@@ -35,51 +35,45 @@ public class Conference implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_conference", nullable = false)
-    private String idConference;
+    @Column(name = "nom_conference", nullable = false)
+    private String nomConference;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "jhi_type")
-    private TypeConference type;
-
-    @Column(name = "nom")
-    private String nom;
+    @Column(name = "type_conference")
+    private TypeConference typeConference;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "audience")
-    private Audience audience;
+    @Column(name = "audience_conference")
+    private Audience audienceConference;
 
-    @Column(name = "comite_selection")
-    private Boolean comiteSelection;
+    @Column(name = "comite_selection_conference")
+    private Boolean comiteSelectionConference;
 
-    @Column(name = "editeur")
-    private String editeur;
+    @Column(name = "date_debut_conference")
+    private Instant dateDebutConference;
 
-    @Column(name = "date_debut")
-    private Instant dateDebut;
+    @Column(name = "date_fin_conference")
+    private Instant dateFinConference;
 
-    @Column(name = "date_fin")
-    private Instant dateFin;
+    @Column(name = "ville_conference")
+    private String villeConference;
 
-    @Column(name = "ville")
-    private String ville;
+    @Column(name = "pays_conference")
+    private String paysConference;
 
-    @Column(name = "pays")
-    private String pays;
+    @Column(name = "langue_conference")
+    private String langueConference;
 
-    @Column(name = "lien_site")
-    private String lienSite;
+    @Column(name = "lien_site_conference")
+    private String lienSiteConference;
 
-    @Column(name = "lien_actes")
-    private String lienActes;
-
-    @Column(name = "divers")
-    private String divers;
+    @Column(name = "divers_conference")
+    private String diversConference;
 
     @OneToMany(mappedBy = "conference")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Notation> notations = new HashSet<>();
+    private Set<Note> notations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -90,198 +84,172 @@ public class Conference implements Serializable {
         this.id = id;
     }
 
-    public String getIdConference() {
-        return idConference;
+    public String getNomConference() {
+        return nomConference;
     }
 
-    public Conference idConference(String idConference) {
-        this.idConference = idConference;
+    public Conference nomConference(String nomConference) {
+        this.nomConference = nomConference;
         return this;
     }
 
-    public void setIdConference(String idConference) {
-        this.idConference = idConference;
+    public void setNomConference(String nomConference) {
+        this.nomConference = nomConference;
     }
 
-    public TypeConference getType() {
-        return type;
+    public TypeConference getTypeConference() {
+        return typeConference;
     }
 
-    public Conference type(TypeConference type) {
-        this.type = type;
+    public Conference typeConference(TypeConference typeConference) {
+        this.typeConference = typeConference;
         return this;
     }
 
-    public void setType(TypeConference type) {
-        this.type = type;
+    public void setTypeConference(TypeConference typeConference) {
+        this.typeConference = typeConference;
     }
 
-    public String getNom() {
-        return nom;
+    public Audience getAudienceConference() {
+        return audienceConference;
     }
 
-    public Conference nom(String nom) {
-        this.nom = nom;
+    public Conference audienceConference(Audience audienceConference) {
+        this.audienceConference = audienceConference;
         return this;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setAudienceConference(Audience audienceConference) {
+        this.audienceConference = audienceConference;
     }
 
-    public Audience getAudience() {
-        return audience;
+    public Boolean isComiteSelectionConference() {
+        return comiteSelectionConference;
     }
 
-    public Conference audience(Audience audience) {
-        this.audience = audience;
+    public Conference comiteSelectionConference(Boolean comiteSelectionConference) {
+        this.comiteSelectionConference = comiteSelectionConference;
         return this;
     }
 
-    public void setAudience(Audience audience) {
-        this.audience = audience;
+    public void setComiteSelectionConference(Boolean comiteSelectionConference) {
+        this.comiteSelectionConference = comiteSelectionConference;
     }
 
-    public Boolean isComiteSelection() {
-        return comiteSelection;
+    public Instant getDateDebutConference() {
+        return dateDebutConference;
     }
 
-    public Conference comiteSelection(Boolean comiteSelection) {
-        this.comiteSelection = comiteSelection;
+    public Conference dateDebutConference(Instant dateDebutConference) {
+        this.dateDebutConference = dateDebutConference;
         return this;
     }
 
-    public void setComiteSelection(Boolean comiteSelection) {
-        this.comiteSelection = comiteSelection;
+    public void setDateDebutConference(Instant dateDebutConference) {
+        this.dateDebutConference = dateDebutConference;
     }
 
-    public String getEditeur() {
-        return editeur;
+    public Instant getDateFinConference() {
+        return dateFinConference;
     }
 
-    public Conference editeur(String editeur) {
-        this.editeur = editeur;
+    public Conference dateFinConference(Instant dateFinConference) {
+        this.dateFinConference = dateFinConference;
         return this;
     }
 
-    public void setEditeur(String editeur) {
-        this.editeur = editeur;
+    public void setDateFinConference(Instant dateFinConference) {
+        this.dateFinConference = dateFinConference;
     }
 
-    public Instant getDateDebut() {
-        return dateDebut;
+    public String getVilleConference() {
+        return villeConference;
     }
 
-    public Conference dateDebut(Instant dateDebut) {
-        this.dateDebut = dateDebut;
+    public Conference villeConference(String villeConference) {
+        this.villeConference = villeConference;
         return this;
     }
 
-    public void setDateDebut(Instant dateDebut) {
-        this.dateDebut = dateDebut;
+    public void setVilleConference(String villeConference) {
+        this.villeConference = villeConference;
     }
 
-    public Instant getDateFin() {
-        return dateFin;
+    public String getPaysConference() {
+        return paysConference;
     }
 
-    public Conference dateFin(Instant dateFin) {
-        this.dateFin = dateFin;
+    public Conference paysConference(String paysConference) {
+        this.paysConference = paysConference;
         return this;
     }
 
-    public void setDateFin(Instant dateFin) {
-        this.dateFin = dateFin;
+    public void setPaysConference(String paysConference) {
+        this.paysConference = paysConference;
     }
 
-    public String getVille() {
-        return ville;
+    public String getLangueConference() {
+        return langueConference;
     }
 
-    public Conference ville(String ville) {
-        this.ville = ville;
+    public Conference langueConference(String langueConference) {
+        this.langueConference = langueConference;
         return this;
     }
 
-    public void setVille(String ville) {
-        this.ville = ville;
+    public void setLangueConference(String langueConference) {
+        this.langueConference = langueConference;
     }
 
-    public String getPays() {
-        return pays;
+    public String getLienSiteConference() {
+        return lienSiteConference;
     }
 
-    public Conference pays(String pays) {
-        this.pays = pays;
+    public Conference lienSiteConference(String lienSiteConference) {
+        this.lienSiteConference = lienSiteConference;
         return this;
     }
 
-    public void setPays(String pays) {
-        this.pays = pays;
+    public void setLienSiteConference(String lienSiteConference) {
+        this.lienSiteConference = lienSiteConference;
     }
 
-    public String getLienSite() {
-        return lienSite;
+    public String getDiversConference() {
+        return diversConference;
     }
 
-    public Conference lienSite(String lienSite) {
-        this.lienSite = lienSite;
+    public Conference diversConference(String diversConference) {
+        this.diversConference = diversConference;
         return this;
     }
 
-    public void setLienSite(String lienSite) {
-        this.lienSite = lienSite;
+    public void setDiversConference(String diversConference) {
+        this.diversConference = diversConference;
     }
 
-    public String getLienActes() {
-        return lienActes;
-    }
-
-    public Conference lienActes(String lienActes) {
-        this.lienActes = lienActes;
-        return this;
-    }
-
-    public void setLienActes(String lienActes) {
-        this.lienActes = lienActes;
-    }
-
-    public String getDivers() {
-        return divers;
-    }
-
-    public Conference divers(String divers) {
-        this.divers = divers;
-        return this;
-    }
-
-    public void setDivers(String divers) {
-        this.divers = divers;
-    }
-
-    public Set<Notation> getNotations() {
+    public Set<Note> getNotations() {
         return notations;
     }
 
-    public Conference notations(Set<Notation> notations) {
-        this.notations = notations;
+    public Conference notations(Set<Note> notes) {
+        this.notations = notes;
         return this;
     }
 
-    public Conference addNotation(Notation notation) {
-        this.notations.add(notation);
-        notation.setConference(this);
+    public Conference addNotation(Note note) {
+        this.notations.add(note);
+        note.setConference(this);
         return this;
     }
 
-    public Conference removeNotation(Notation notation) {
-        this.notations.remove(notation);
-        notation.setConference(null);
+    public Conference removeNotation(Note note) {
+        this.notations.remove(note);
+        note.setConference(null);
         return this;
     }
 
-    public void setNotations(Set<Notation> notations) {
-        this.notations = notations;
+    public void setNotations(Set<Note> notes) {
+        this.notations = notes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -309,19 +277,17 @@ public class Conference implements Serializable {
     public String toString() {
         return "Conference{" +
             "id=" + getId() +
-            ", idConference='" + getIdConference() + "'" +
-            ", type='" + getType() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", audience='" + getAudience() + "'" +
-            ", comiteSelection='" + isComiteSelection() + "'" +
-            ", editeur='" + getEditeur() + "'" +
-            ", dateDebut='" + getDateDebut() + "'" +
-            ", dateFin='" + getDateFin() + "'" +
-            ", ville='" + getVille() + "'" +
-            ", pays='" + getPays() + "'" +
-            ", lienSite='" + getLienSite() + "'" +
-            ", lienActes='" + getLienActes() + "'" +
-            ", divers='" + getDivers() + "'" +
+            ", nomConference='" + getNomConference() + "'" +
+            ", typeConference='" + getTypeConference() + "'" +
+            ", audienceConference='" + getAudienceConference() + "'" +
+            ", comiteSelectionConference='" + isComiteSelectionConference() + "'" +
+            ", dateDebutConference='" + getDateDebutConference() + "'" +
+            ", dateFinConference='" + getDateFinConference() + "'" +
+            ", villeConference='" + getVilleConference() + "'" +
+            ", paysConference='" + getPaysConference() + "'" +
+            ", langueConference='" + getLangueConference() + "'" +
+            ", lienSiteConference='" + getLienSiteConference() + "'" +
+            ", diversConference='" + getDiversConference() + "'" +
             "}";
     }
 }

@@ -1,0 +1,102 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "actes",
+            "otherEntityName": "actes",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "auteur",
+            "relationshipName": "article",
+            "otherEntityName": "article",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "chapitre",
+            "otherEntityName": "chapitre",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "communication",
+            "otherEntityName": "communication",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "ouvrage",
+            "otherEntityName": "ouvrage",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "publicationGouvernementale",
+            "otherEntityName": "publicationGouvernementale",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "revue",
+            "otherEntityName": "numeroRevue",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "memoire",
+            "otherEntityName": "memoire",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "rapport",
+            "otherEntityName": "rapport",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nomChercheur",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeChercheur",
+            "fieldType": "TypeChercheur",
+            "fieldValues": "PUBLIANT,ENCADRANT,DIRECTEUR,EDITIEUR,COORDINATEUR"
+        },
+        {
+            "fieldName": "rangChercheur",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180215164202",
+    "javadoc": "Contribution",
+    "entityTableName": "chercheur",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

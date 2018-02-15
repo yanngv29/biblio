@@ -16,11 +16,17 @@
             "detail": {
                 "title": "Rapport"
             },
-            "idMemoire": "Id Memoire",
-            "type": "Type",
-            "date": "Date",
-            "lieu": "Lieu",
-            "maisonEdition": "Maison Edition",
+            "titreRapport": "Titre Rapport",
+            "sousTitreRapport": "Sous Titre Rapport",
+            "typeRapport": "Type Rapport",
+            "dateRapport": "Date Rapport",
+            "lieuRapport": "Lieu Rapport",
+            "maisonEditionRapport": "Maison Edition Rapport",
+            "langueRapport": "Langue Rapport",
+            "lienRapport": "Lien Rapport",
+            "doiRapport": "Doi Rapport",
+            "halRapport": "Hal Rapport",
+            "diversOuvrageRapport": "Divers Ouvrage Rapport",
             "notation": "Notation"
         }
     }

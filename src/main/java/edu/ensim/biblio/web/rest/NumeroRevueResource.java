@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -45,7 +44,7 @@ public class NumeroRevueResource {
      */
     @PostMapping("/numero-revues")
     @Timed
-    public ResponseEntity<NumeroRevue> createNumeroRevue(@Valid @RequestBody NumeroRevue numeroRevue) throws URISyntaxException {
+    public ResponseEntity<NumeroRevue> createNumeroRevue(@RequestBody NumeroRevue numeroRevue) throws URISyntaxException {
         log.debug("REST request to save NumeroRevue : {}", numeroRevue);
         if (numeroRevue.getId() != null) {
             throw new BadRequestAlertException("A new numeroRevue cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,7 +66,7 @@ public class NumeroRevueResource {
      */
     @PutMapping("/numero-revues")
     @Timed
-    public ResponseEntity<NumeroRevue> updateNumeroRevue(@Valid @RequestBody NumeroRevue numeroRevue) throws URISyntaxException {
+    public ResponseEntity<NumeroRevue> updateNumeroRevue(@RequestBody NumeroRevue numeroRevue) throws URISyntaxException {
         log.debug("REST request to update NumeroRevue : {}", numeroRevue);
         if (numeroRevue.getId() == null) {
             return createNumeroRevue(numeroRevue);

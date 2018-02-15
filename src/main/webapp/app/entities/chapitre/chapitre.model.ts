@@ -3,10 +3,13 @@ import { BaseEntity } from './../../shared';
 export class Chapitre implements BaseEntity {
     constructor(
         public id?: number,
-        public idChapitre?: string,
-        public pageDebut?: string,
-        public pageFin?: string,
-        public hal?: string,
+        public titreChapitre?: string,
+        public pageDebutChapitre?: string,
+        public pageFinChapitre?: string,
+        public langueChapitre?: string,
+        public lienChapitre?: string,
+        public halChapitre?: string,
+        public diversChapitre?: string,
         public ouvrage?: BaseEntity,
     ) {
     }

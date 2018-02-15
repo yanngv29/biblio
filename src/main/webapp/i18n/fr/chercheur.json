@@ -1,0 +1,33 @@
+
+{
+    "biblioApp": {
+        "chercheur" : {
+            "home": {
+                "title": "Chercheurs",
+                "createLabel": "Créer un nouveau Chercheur",
+                "createOrEditLabel": "Créer ou éditer un Chercheur"
+            },
+            "created": "Un nouveau Chercheur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Chercheur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Chercheur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Chercheur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Chercheur"
+            },
+            "nomChercheur": "Nom Chercheur",
+            "typeChercheur": "Type Chercheur",
+            "rangChercheur": "Rang Chercheur",
+            "actes": "Actes",
+            "article": "Article",
+            "chapitre": "Chapitre",
+            "communication": "Communication",
+            "ouvrage": "Ouvrage",
+            "publicationGouvernementale": "Publication Gouvernementale",
+            "revue": "Revue",
+            "memoire": "Memoire",
+            "rapport": "Rapport"
+        }
+    }
+}

@@ -13,28 +13,42 @@
                    [(ngModel)]="communication.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.communication.idCommunication" for="field_idCommunication">Id Communication</label>
-            <input type="text" class="form-control" name="idCommunication" id="field_idCommunication"
-                [(ngModel)]="communication.idCommunication" required/>
-            <div [hidden]="!(editForm.controls.idCommunication?.dirty && editForm.controls.idCommunication?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idCommunication?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.titreCommunication" for="field_titreCommunication">Titre Communication</label>
+            <input type="text" class="form-control" name="titreCommunication" id="field_titreCommunication"
+                [(ngModel)]="communication.titreCommunication" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.communication.type" for="field_type">Type</label>
-            <select class="form-control" name="type" [(ngModel)]="communication.type" id="field_type" >
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.typeCommunication" for="field_typeCommunication">Type Communication</label>
+            <select class="form-control" name="typeCommunication" [(ngModel)]="communication.typeCommunication" id="field_typeCommunication" >
                 <option value="AFFICHE">{{'biblioApp.TypeCommunication.AFFICHE' | translate}}</option>
                 <option value="ATELIER">{{'biblioApp.TypeCommunication.ATELIER' | translate}}</option>
                 <option value="TABLE_RONDE">{{'biblioApp.TypeCommunication.TABLE_RONDE' | translate}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.communication.hal" for="field_hal">Hal</label>
-            <input type="text" class="form-control" name="hal" id="field_hal"
-                [(ngModel)]="communication.hal" />
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.langueCommunication" for="field_langueCommunication">Langue Communication</label>
+            <input type="text" class="form-control" name="langueCommunication" id="field_langueCommunication"
+                [(ngModel)]="communication.langueCommunication" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.lienCommunication" for="field_lienCommunication">Lien Communication</label>
+            <input type="text" class="form-control" name="lienCommunication" id="field_lienCommunication"
+                [(ngModel)]="communication.lienCommunication" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.doiCommunication" for="field_doiCommunication">Doi Communication</label>
+            <input type="text" class="form-control" name="doiCommunication" id="field_doiCommunication"
+                [(ngModel)]="communication.doiCommunication" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.halCommunication" for="field_halCommunication">Hal Communication</label>
+            <input type="text" class="form-control" name="halCommunication" id="field_halCommunication"
+                [(ngModel)]="communication.halCommunication" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.diversCommunication" for="field_diversCommunication">Divers Communication</label>
+            <input type="text" class="form-control" name="diversCommunication" id="field_diversCommunication"
+                [(ngModel)]="communication.diversCommunication" />
         </div>
 
         <div class="form-group">

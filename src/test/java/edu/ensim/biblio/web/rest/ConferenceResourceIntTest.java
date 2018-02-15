@@ -42,44 +42,38 @@ import edu.ensim.biblio.domain.enumeration.Audience;
 @SpringBootTest(classes = BiblioApp.class)
 public class ConferenceResourceIntTest {
 
-    private static final String DEFAULT_ID_CONFERENCE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_CONFERENCE = "BBBBBBBBBB";
+    private static final String DEFAULT_NOM_CONFERENCE = "AAAAAAAAAA";
+    private static final String UPDATED_NOM_CONFERENCE = "BBBBBBBBBB";
 
-    private static final TypeConference DEFAULT_TYPE = TypeConference.CONFERENCE;
-    private static final TypeConference UPDATED_TYPE = TypeConference.COLLOQUE;
+    private static final TypeConference DEFAULT_TYPE_CONFERENCE = TypeConference.CONFERENCE;
+    private static final TypeConference UPDATED_TYPE_CONFERENCE = TypeConference.COLLOQUE;
 
-    private static final String DEFAULT_NOM = "AAAAAAAAAA";
-    private static final String UPDATED_NOM = "BBBBBBBBBB";
+    private static final Audience DEFAULT_AUDIENCE_CONFERENCE = Audience.NATIONALE;
+    private static final Audience UPDATED_AUDIENCE_CONFERENCE = Audience.INTERNATIONALE;
 
-    private static final Audience DEFAULT_AUDIENCE = Audience.NATIONALE;
-    private static final Audience UPDATED_AUDIENCE = Audience.INTERNATIONALE;
+    private static final Boolean DEFAULT_COMITE_SELECTION_CONFERENCE = false;
+    private static final Boolean UPDATED_COMITE_SELECTION_CONFERENCE = true;
 
-    private static final Boolean DEFAULT_COMITE_SELECTION = false;
-    private static final Boolean UPDATED_COMITE_SELECTION = true;
+    private static final Instant DEFAULT_DATE_DEBUT_CONFERENCE = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_DATE_DEBUT_CONFERENCE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final String DEFAULT_EDITEUR = "AAAAAAAAAA";
-    private static final String UPDATED_EDITEUR = "BBBBBBBBBB";
+    private static final Instant DEFAULT_DATE_FIN_CONFERENCE = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_DATE_FIN_CONFERENCE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final Instant DEFAULT_DATE_DEBUT = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE_DEBUT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final String DEFAULT_VILLE_CONFERENCE = "AAAAAAAAAA";
+    private static final String UPDATED_VILLE_CONFERENCE = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_DATE_FIN = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE_FIN = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final String DEFAULT_PAYS_CONFERENCE = "AAAAAAAAAA";
+    private static final String UPDATED_PAYS_CONFERENCE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_VILLE = "AAAAAAAAAA";
-    private static final String UPDATED_VILLE = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_CONFERENCE = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_CONFERENCE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_PAYS = "AAAAAAAAAA";
-    private static final String UPDATED_PAYS = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEN_SITE_CONFERENCE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_SITE_CONFERENCE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_LIEN_SITE = "AAAAAAAAAA";
-    private static final String UPDATED_LIEN_SITE = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LIEN_ACTES = "AAAAAAAAAA";
-    private static final String UPDATED_LIEN_ACTES = "BBBBBBBBBB";
-
-    private static final String DEFAULT_DIVERS = "AAAAAAAAAA";
-    private static final String UPDATED_DIVERS = "BBBBBBBBBB";
+    private static final String DEFAULT_DIVERS_CONFERENCE = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_CONFERENCE = "BBBBBBBBBB";
 
     @Autowired
     private ConferenceRepository conferenceRepository;
@@ -119,19 +113,17 @@ public class ConferenceResourceIntTest {
      */
     public static Conference createEntity(EntityManager em) {
         Conference conference = new Conference()
-            .idConference(DEFAULT_ID_CONFERENCE)
-            .type(DEFAULT_TYPE)
-            .nom(DEFAULT_NOM)
-            .audience(DEFAULT_AUDIENCE)
-            .comiteSelection(DEFAULT_COMITE_SELECTION)
-            .editeur(DEFAULT_EDITEUR)
-            .dateDebut(DEFAULT_DATE_DEBUT)
-            .dateFin(DEFAULT_DATE_FIN)
-            .ville(DEFAULT_VILLE)
-            .pays(DEFAULT_PAYS)
-            .lienSite(DEFAULT_LIEN_SITE)
-            .lienActes(DEFAULT_LIEN_ACTES)
-            .divers(DEFAULT_DIVERS);
+            .nomConference(DEFAULT_NOM_CONFERENCE)
+            .typeConference(DEFAULT_TYPE_CONFERENCE)
+            .audienceConference(DEFAULT_AUDIENCE_CONFERENCE)
+            .comiteSelectionConference(DEFAULT_COMITE_SELECTION_CONFERENCE)
+            .dateDebutConference(DEFAULT_DATE_DEBUT_CONFERENCE)
+            .dateFinConference(DEFAULT_DATE_FIN_CONFERENCE)
+            .villeConference(DEFAULT_VILLE_CONFERENCE)
+            .paysConference(DEFAULT_PAYS_CONFERENCE)
+            .langueConference(DEFAULT_LANGUE_CONFERENCE)
+            .lienSiteConference(DEFAULT_LIEN_SITE_CONFERENCE)
+            .diversConference(DEFAULT_DIVERS_CONFERENCE);
         return conference;
     }
 
@@ -155,19 +147,17 @@ public class ConferenceResourceIntTest {
         List<Conference> conferenceList = conferenceRepository.findAll();
         assertThat(conferenceList).hasSize(databaseSizeBeforeCreate + 1);
         Conference testConference = conferenceList.get(conferenceList.size() - 1);
-        assertThat(testConference.getIdConference()).isEqualTo(DEFAULT_ID_CONFERENCE);
-        assertThat(testConference.getType()).isEqualTo(DEFAULT_TYPE);
-        assertThat(testConference.getNom()).isEqualTo(DEFAULT_NOM);
-        assertThat(testConference.getAudience()).isEqualTo(DEFAULT_AUDIENCE);
-        assertThat(testConference.isComiteSelection()).isEqualTo(DEFAULT_COMITE_SELECTION);
-        assertThat(testConference.getEditeur()).isEqualTo(DEFAULT_EDITEUR);
-        assertThat(testConference.getDateDebut()).isEqualTo(DEFAULT_DATE_DEBUT);
-        assertThat(testConference.getDateFin()).isEqualTo(DEFAULT_DATE_FIN);
-        assertThat(testConference.getVille()).isEqualTo(DEFAULT_VILLE);
-        assertThat(testConference.getPays()).isEqualTo(DEFAULT_PAYS);
-        assertThat(testConference.getLienSite()).isEqualTo(DEFAULT_LIEN_SITE);
-        assertThat(testConference.getLienActes()).isEqualTo(DEFAULT_LIEN_ACTES);
-        assertThat(testConference.getDivers()).isEqualTo(DEFAULT_DIVERS);
+        assertThat(testConference.getNomConference()).isEqualTo(DEFAULT_NOM_CONFERENCE);
+        assertThat(testConference.getTypeConference()).isEqualTo(DEFAULT_TYPE_CONFERENCE);
+        assertThat(testConference.getAudienceConference()).isEqualTo(DEFAULT_AUDIENCE_CONFERENCE);
+        assertThat(testConference.isComiteSelectionConference()).isEqualTo(DEFAULT_COMITE_SELECTION_CONFERENCE);
+        assertThat(testConference.getDateDebutConference()).isEqualTo(DEFAULT_DATE_DEBUT_CONFERENCE);
+        assertThat(testConference.getDateFinConference()).isEqualTo(DEFAULT_DATE_FIN_CONFERENCE);
+        assertThat(testConference.getVilleConference()).isEqualTo(DEFAULT_VILLE_CONFERENCE);
+        assertThat(testConference.getPaysConference()).isEqualTo(DEFAULT_PAYS_CONFERENCE);
+        assertThat(testConference.getLangueConference()).isEqualTo(DEFAULT_LANGUE_CONFERENCE);
+        assertThat(testConference.getLienSiteConference()).isEqualTo(DEFAULT_LIEN_SITE_CONFERENCE);
+        assertThat(testConference.getDiversConference()).isEqualTo(DEFAULT_DIVERS_CONFERENCE);
     }
 
     @Test
@@ -191,10 +181,10 @@ public class ConferenceResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdConferenceIsRequired() throws Exception {
+    public void checkNomConferenceIsRequired() throws Exception {
         int databaseSizeBeforeTest = conferenceRepository.findAll().size();
         // set the field null
-        conference.setIdConference(null);
+        conference.setNomConference(null);
 
         // Create the Conference, which fails.
 
@@ -218,19 +208,17 @@ public class ConferenceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(conference.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idConference").value(hasItem(DEFAULT_ID_CONFERENCE.toString())))
-            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].nom").value(hasItem(DEFAULT_NOM.toString())))
-            .andExpect(jsonPath("$.[*].audience").value(hasItem(DEFAULT_AUDIENCE.toString())))
-            .andExpect(jsonPath("$.[*].comiteSelection").value(hasItem(DEFAULT_COMITE_SELECTION.booleanValue())))
-            .andExpect(jsonPath("$.[*].editeur").value(hasItem(DEFAULT_EDITEUR.toString())))
-            .andExpect(jsonPath("$.[*].dateDebut").value(hasItem(DEFAULT_DATE_DEBUT.toString())))
-            .andExpect(jsonPath("$.[*].dateFin").value(hasItem(DEFAULT_DATE_FIN.toString())))
-            .andExpect(jsonPath("$.[*].ville").value(hasItem(DEFAULT_VILLE.toString())))
-            .andExpect(jsonPath("$.[*].pays").value(hasItem(DEFAULT_PAYS.toString())))
-            .andExpect(jsonPath("$.[*].lienSite").value(hasItem(DEFAULT_LIEN_SITE.toString())))
-            .andExpect(jsonPath("$.[*].lienActes").value(hasItem(DEFAULT_LIEN_ACTES.toString())))
-            .andExpect(jsonPath("$.[*].divers").value(hasItem(DEFAULT_DIVERS.toString())));
+            .andExpect(jsonPath("$.[*].nomConference").value(hasItem(DEFAULT_NOM_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].typeConference").value(hasItem(DEFAULT_TYPE_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].audienceConference").value(hasItem(DEFAULT_AUDIENCE_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].comiteSelectionConference").value(hasItem(DEFAULT_COMITE_SELECTION_CONFERENCE.booleanValue())))
+            .andExpect(jsonPath("$.[*].dateDebutConference").value(hasItem(DEFAULT_DATE_DEBUT_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].dateFinConference").value(hasItem(DEFAULT_DATE_FIN_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].villeConference").value(hasItem(DEFAULT_VILLE_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].paysConference").value(hasItem(DEFAULT_PAYS_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].langueConference").value(hasItem(DEFAULT_LANGUE_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].lienSiteConference").value(hasItem(DEFAULT_LIEN_SITE_CONFERENCE.toString())))
+            .andExpect(jsonPath("$.[*].diversConference").value(hasItem(DEFAULT_DIVERS_CONFERENCE.toString())));
     }
 
     @Test
@@ -244,19 +232,17 @@ public class ConferenceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(conference.getId().intValue()))
-            .andExpect(jsonPath("$.idConference").value(DEFAULT_ID_CONFERENCE.toString()))
-            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.nom").value(DEFAULT_NOM.toString()))
-            .andExpect(jsonPath("$.audience").value(DEFAULT_AUDIENCE.toString()))
-            .andExpect(jsonPath("$.comiteSelection").value(DEFAULT_COMITE_SELECTION.booleanValue()))
-            .andExpect(jsonPath("$.editeur").value(DEFAULT_EDITEUR.toString()))
-            .andExpect(jsonPath("$.dateDebut").value(DEFAULT_DATE_DEBUT.toString()))
-            .andExpect(jsonPath("$.dateFin").value(DEFAULT_DATE_FIN.toString()))
-            .andExpect(jsonPath("$.ville").value(DEFAULT_VILLE.toString()))
-            .andExpect(jsonPath("$.pays").value(DEFAULT_PAYS.toString()))
-            .andExpect(jsonPath("$.lienSite").value(DEFAULT_LIEN_SITE.toString()))
-            .andExpect(jsonPath("$.lienActes").value(DEFAULT_LIEN_ACTES.toString()))
-            .andExpect(jsonPath("$.divers").value(DEFAULT_DIVERS.toString()));
+            .andExpect(jsonPath("$.nomConference").value(DEFAULT_NOM_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.typeConference").value(DEFAULT_TYPE_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.audienceConference").value(DEFAULT_AUDIENCE_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.comiteSelectionConference").value(DEFAULT_COMITE_SELECTION_CONFERENCE.booleanValue()))
+            .andExpect(jsonPath("$.dateDebutConference").value(DEFAULT_DATE_DEBUT_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.dateFinConference").value(DEFAULT_DATE_FIN_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.villeConference").value(DEFAULT_VILLE_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.paysConference").value(DEFAULT_PAYS_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.langueConference").value(DEFAULT_LANGUE_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.lienSiteConference").value(DEFAULT_LIEN_SITE_CONFERENCE.toString()))
+            .andExpect(jsonPath("$.diversConference").value(DEFAULT_DIVERS_CONFERENCE.toString()));
     }
 
     @Test
@@ -279,19 +265,17 @@ public class ConferenceResourceIntTest {
         // Disconnect from session so that the updates on updatedConference are not directly saved in db
         em.detach(updatedConference);
         updatedConference
-            .idConference(UPDATED_ID_CONFERENCE)
-            .type(UPDATED_TYPE)
-            .nom(UPDATED_NOM)
-            .audience(UPDATED_AUDIENCE)
-            .comiteSelection(UPDATED_COMITE_SELECTION)
-            .editeur(UPDATED_EDITEUR)
-            .dateDebut(UPDATED_DATE_DEBUT)
-            .dateFin(UPDATED_DATE_FIN)
-            .ville(UPDATED_VILLE)
-            .pays(UPDATED_PAYS)
-            .lienSite(UPDATED_LIEN_SITE)
-            .lienActes(UPDATED_LIEN_ACTES)
-            .divers(UPDATED_DIVERS);
+            .nomConference(UPDATED_NOM_CONFERENCE)
+            .typeConference(UPDATED_TYPE_CONFERENCE)
+            .audienceConference(UPDATED_AUDIENCE_CONFERENCE)
+            .comiteSelectionConference(UPDATED_COMITE_SELECTION_CONFERENCE)
+            .dateDebutConference(UPDATED_DATE_DEBUT_CONFERENCE)
+            .dateFinConference(UPDATED_DATE_FIN_CONFERENCE)
+            .villeConference(UPDATED_VILLE_CONFERENCE)
+            .paysConference(UPDATED_PAYS_CONFERENCE)
+            .langueConference(UPDATED_LANGUE_CONFERENCE)
+            .lienSiteConference(UPDATED_LIEN_SITE_CONFERENCE)
+            .diversConference(UPDATED_DIVERS_CONFERENCE);
 
         restConferenceMockMvc.perform(put("/api/conferences")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -302,19 +286,17 @@ public class ConferenceResourceIntTest {
         List<Conference> conferenceList = conferenceRepository.findAll();
         assertThat(conferenceList).hasSize(databaseSizeBeforeUpdate);
         Conference testConference = conferenceList.get(conferenceList.size() - 1);
-        assertThat(testConference.getIdConference()).isEqualTo(UPDATED_ID_CONFERENCE);
-        assertThat(testConference.getType()).isEqualTo(UPDATED_TYPE);
-        assertThat(testConference.getNom()).isEqualTo(UPDATED_NOM);
-        assertThat(testConference.getAudience()).isEqualTo(UPDATED_AUDIENCE);
-        assertThat(testConference.isComiteSelection()).isEqualTo(UPDATED_COMITE_SELECTION);
-        assertThat(testConference.getEditeur()).isEqualTo(UPDATED_EDITEUR);
-        assertThat(testConference.getDateDebut()).isEqualTo(UPDATED_DATE_DEBUT);
-        assertThat(testConference.getDateFin()).isEqualTo(UPDATED_DATE_FIN);
-        assertThat(testConference.getVille()).isEqualTo(UPDATED_VILLE);
-        assertThat(testConference.getPays()).isEqualTo(UPDATED_PAYS);
-        assertThat(testConference.getLienSite()).isEqualTo(UPDATED_LIEN_SITE);
-        assertThat(testConference.getLienActes()).isEqualTo(UPDATED_LIEN_ACTES);
-        assertThat(testConference.getDivers()).isEqualTo(UPDATED_DIVERS);
+        assertThat(testConference.getNomConference()).isEqualTo(UPDATED_NOM_CONFERENCE);
+        assertThat(testConference.getTypeConference()).isEqualTo(UPDATED_TYPE_CONFERENCE);
+        assertThat(testConference.getAudienceConference()).isEqualTo(UPDATED_AUDIENCE_CONFERENCE);
+        assertThat(testConference.isComiteSelectionConference()).isEqualTo(UPDATED_COMITE_SELECTION_CONFERENCE);
+        assertThat(testConference.getDateDebutConference()).isEqualTo(UPDATED_DATE_DEBUT_CONFERENCE);
+        assertThat(testConference.getDateFinConference()).isEqualTo(UPDATED_DATE_FIN_CONFERENCE);
+        assertThat(testConference.getVilleConference()).isEqualTo(UPDATED_VILLE_CONFERENCE);
+        assertThat(testConference.getPaysConference()).isEqualTo(UPDATED_PAYS_CONFERENCE);
+        assertThat(testConference.getLangueConference()).isEqualTo(UPDATED_LANGUE_CONFERENCE);
+        assertThat(testConference.getLienSiteConference()).isEqualTo(UPDATED_LIEN_SITE_CONFERENCE);
+        assertThat(testConference.getDiversConference()).isEqualTo(UPDATED_DIVERS_CONFERENCE);
     }
 
     @Test

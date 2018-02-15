@@ -10,8 +10,9 @@ import { Article } from './article.model';
 import { ArticlePopupService } from './article-popup.service';
 import { ArticleService } from './article.service';
 import { NumeroRevue, NumeroRevueService } from '../numero-revue';
-import { Acte, ActeService } from '../acte';
+import { Actes, ActesService } from '../actes';
 import { Conference, ConferenceService } from '../conference';
+import { Chercheur, ChercheurService } from '../chercheur';
 
 @Component({
     selector: 'jhi-article-dialog',
@@ -24,17 +25,20 @@ export class ArticleDialogComponent implements OnInit {
 
     numerorevues: NumeroRevue[];
 
-    actes: Acte[];
+    actes: Actes[];
 
     conferences: Conference[];
+
+    chercheurs: Chercheur[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private articleService: ArticleService,
         private numeroRevueService: NumeroRevueService,
-        private acteService: ActeService,
+        private actesService: ActesService,
         private conferenceService: ConferenceService,
+        private chercheurService: ChercheurService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -43,10 +47,12 @@ export class ArticleDialogComponent implements OnInit {
         this.isSaving = false;
         this.numeroRevueService.query()
             .subscribe((res: HttpResponse<NumeroRevue[]>) => { this.numerorevues = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.acteService.query()
-            .subscribe((res: HttpResponse<Acte[]>) => { this.actes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.actesService.query()
+            .subscribe((res: HttpResponse<Actes[]>) => { this.actes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.conferenceService.query()
             .subscribe((res: HttpResponse<Conference[]>) => { this.conferences = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.chercheurService.query()
+            .subscribe((res: HttpResponse<Chercheur[]>) => { this.chercheurs = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -87,12 +93,27 @@ export class ArticleDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackActeById(index: number, item: Acte) {
+    trackActesById(index: number, item: Actes) {
         return item.id;
     }
 
     trackConferenceById(index: number, item: Conference) {
         return item.id;
+    }
+
+    trackChercheurById(index: number, item: Chercheur) {
+        return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }
 

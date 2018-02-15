@@ -4,36 +4,56 @@
         {
             "relationshipType": "one-to-many",
             "relationshipName": "notation",
-            "otherEntityName": "notation",
+            "otherEntityName": "note",
             "otherEntityRelationshipName": "publicationGouvernementale"
         }
     ],
     "fields": [
         {
-            "fieldName": "idPG",
+            "fieldName": "titrePG",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "date",
+            "fieldName": "datePG",
             "fieldType": "Instant"
         },
         {
-            "fieldName": "numeroEdition",
+            "fieldName": "numeroEditionPG",
             "fieldType": "String"
         },
         {
-            "fieldName": "lieu",
+            "fieldName": "lieuPG",
             "fieldType": "String"
         },
         {
-            "fieldName": "maisonEdition",
+            "fieldName": "maisonEditionPG",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "languePG",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienPG",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doiPG",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halPG",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversOuvragePG",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153409",
+    "changelogDate": "20180215164207",
     "javadoc": "Publication gouvernementale : identifiant et CNU obligatoires",
     "entityTableName": "publication_gouvernementale",
     "dto": "no",

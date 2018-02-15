@@ -41,20 +41,32 @@ import edu.ensim.biblio.domain.enumeration.TypeMemoire;
 @SpringBootTest(classes = BiblioApp.class)
 public class MemoireResourceIntTest {
 
-    private static final String DEFAULT_ID_MEMOIRE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_MEMOIRE = "BBBBBBBBBB";
+    private static final String DEFAULT_TITRE_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_TITRE_MEMOIRE = "BBBBBBBBBB";
 
-    private static final TypeMemoire DEFAULT_TYPE = TypeMemoire.THESE;
-    private static final TypeMemoire UPDATED_TYPE = TypeMemoire.HDR;
+    private static final TypeMemoire DEFAULT_TYPE_MEMOIRE = TypeMemoire.THESE;
+    private static final TypeMemoire UPDATED_TYPE_MEMOIRE = TypeMemoire.HDR;
 
-    private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final Instant DEFAULT_DATE_MEMOIRE = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_DATE_MEMOIRE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final String DEFAULT_LIEU = "AAAAAAAAAA";
-    private static final String UPDATED_LIEU = "BBBBBBBBBB";
+    private static final String DEFAULT_LIEU_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEU_MEMOIRE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_HAL = "AAAAAAAAAA";
-    private static final String UPDATED_HAL = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_MEMOIRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LIEN_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_MEMOIRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DOI_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_DOI_MEMOIRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HAL_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_HAL_MEMOIRE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_MEMOIRE = "BBBBBBBBBB";
 
     @Autowired
     private MemoireRepository memoireRepository;
@@ -94,11 +106,15 @@ public class MemoireResourceIntTest {
      */
     public static Memoire createEntity(EntityManager em) {
         Memoire memoire = new Memoire()
-            .idMemoire(DEFAULT_ID_MEMOIRE)
-            .type(DEFAULT_TYPE)
-            .date(DEFAULT_DATE)
-            .lieu(DEFAULT_LIEU)
-            .hal(DEFAULT_HAL);
+            .titreMemoire(DEFAULT_TITRE_MEMOIRE)
+            .typeMemoire(DEFAULT_TYPE_MEMOIRE)
+            .dateMemoire(DEFAULT_DATE_MEMOIRE)
+            .lieuMemoire(DEFAULT_LIEU_MEMOIRE)
+            .langueMemoire(DEFAULT_LANGUE_MEMOIRE)
+            .lienMemoire(DEFAULT_LIEN_MEMOIRE)
+            .doiMemoire(DEFAULT_DOI_MEMOIRE)
+            .halMemoire(DEFAULT_HAL_MEMOIRE)
+            .diversMemoire(DEFAULT_DIVERS_MEMOIRE);
         return memoire;
     }
 
@@ -122,11 +138,15 @@ public class MemoireResourceIntTest {
         List<Memoire> memoireList = memoireRepository.findAll();
         assertThat(memoireList).hasSize(databaseSizeBeforeCreate + 1);
         Memoire testMemoire = memoireList.get(memoireList.size() - 1);
-        assertThat(testMemoire.getIdMemoire()).isEqualTo(DEFAULT_ID_MEMOIRE);
-        assertThat(testMemoire.getType()).isEqualTo(DEFAULT_TYPE);
-        assertThat(testMemoire.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testMemoire.getLieu()).isEqualTo(DEFAULT_LIEU);
-        assertThat(testMemoire.getHal()).isEqualTo(DEFAULT_HAL);
+        assertThat(testMemoire.getTitreMemoire()).isEqualTo(DEFAULT_TITRE_MEMOIRE);
+        assertThat(testMemoire.getTypeMemoire()).isEqualTo(DEFAULT_TYPE_MEMOIRE);
+        assertThat(testMemoire.getDateMemoire()).isEqualTo(DEFAULT_DATE_MEMOIRE);
+        assertThat(testMemoire.getLieuMemoire()).isEqualTo(DEFAULT_LIEU_MEMOIRE);
+        assertThat(testMemoire.getLangueMemoire()).isEqualTo(DEFAULT_LANGUE_MEMOIRE);
+        assertThat(testMemoire.getLienMemoire()).isEqualTo(DEFAULT_LIEN_MEMOIRE);
+        assertThat(testMemoire.getDoiMemoire()).isEqualTo(DEFAULT_DOI_MEMOIRE);
+        assertThat(testMemoire.getHalMemoire()).isEqualTo(DEFAULT_HAL_MEMOIRE);
+        assertThat(testMemoire.getDiversMemoire()).isEqualTo(DEFAULT_DIVERS_MEMOIRE);
     }
 
     @Test
@@ -150,10 +170,28 @@ public class MemoireResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdMemoireIsRequired() throws Exception {
+    public void checkTitreMemoireIsRequired() throws Exception {
         int databaseSizeBeforeTest = memoireRepository.findAll().size();
         // set the field null
-        memoire.setIdMemoire(null);
+        memoire.setTitreMemoire(null);
+
+        // Create the Memoire, which fails.
+
+        restMemoireMockMvc.perform(post("/api/memoires")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(memoire)))
+            .andExpect(status().isBadRequest());
+
+        List<Memoire> memoireList = memoireRepository.findAll();
+        assertThat(memoireList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkTypeMemoireIsRequired() throws Exception {
+        int databaseSizeBeforeTest = memoireRepository.findAll().size();
+        // set the field null
+        memoire.setTypeMemoire(null);
 
         // Create the Memoire, which fails.
 
@@ -177,11 +215,15 @@ public class MemoireResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(memoire.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idMemoire").value(hasItem(DEFAULT_ID_MEMOIRE.toString())))
-            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].lieu").value(hasItem(DEFAULT_LIEU.toString())))
-            .andExpect(jsonPath("$.[*].hal").value(hasItem(DEFAULT_HAL.toString())));
+            .andExpect(jsonPath("$.[*].titreMemoire").value(hasItem(DEFAULT_TITRE_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].typeMemoire").value(hasItem(DEFAULT_TYPE_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].dateMemoire").value(hasItem(DEFAULT_DATE_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].lieuMemoire").value(hasItem(DEFAULT_LIEU_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].langueMemoire").value(hasItem(DEFAULT_LANGUE_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].lienMemoire").value(hasItem(DEFAULT_LIEN_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].doiMemoire").value(hasItem(DEFAULT_DOI_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].halMemoire").value(hasItem(DEFAULT_HAL_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].diversMemoire").value(hasItem(DEFAULT_DIVERS_MEMOIRE.toString())));
     }
 
     @Test
@@ -195,11 +237,15 @@ public class MemoireResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(memoire.getId().intValue()))
-            .andExpect(jsonPath("$.idMemoire").value(DEFAULT_ID_MEMOIRE.toString()))
-            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.lieu").value(DEFAULT_LIEU.toString()))
-            .andExpect(jsonPath("$.hal").value(DEFAULT_HAL.toString()));
+            .andExpect(jsonPath("$.titreMemoire").value(DEFAULT_TITRE_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.typeMemoire").value(DEFAULT_TYPE_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.dateMemoire").value(DEFAULT_DATE_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.lieuMemoire").value(DEFAULT_LIEU_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.langueMemoire").value(DEFAULT_LANGUE_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.lienMemoire").value(DEFAULT_LIEN_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.doiMemoire").value(DEFAULT_DOI_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.halMemoire").value(DEFAULT_HAL_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.diversMemoire").value(DEFAULT_DIVERS_MEMOIRE.toString()));
     }
 
     @Test
@@ -222,11 +268,15 @@ public class MemoireResourceIntTest {
         // Disconnect from session so that the updates on updatedMemoire are not directly saved in db
         em.detach(updatedMemoire);
         updatedMemoire
-            .idMemoire(UPDATED_ID_MEMOIRE)
-            .type(UPDATED_TYPE)
-            .date(UPDATED_DATE)
-            .lieu(UPDATED_LIEU)
-            .hal(UPDATED_HAL);
+            .titreMemoire(UPDATED_TITRE_MEMOIRE)
+            .typeMemoire(UPDATED_TYPE_MEMOIRE)
+            .dateMemoire(UPDATED_DATE_MEMOIRE)
+            .lieuMemoire(UPDATED_LIEU_MEMOIRE)
+            .langueMemoire(UPDATED_LANGUE_MEMOIRE)
+            .lienMemoire(UPDATED_LIEN_MEMOIRE)
+            .doiMemoire(UPDATED_DOI_MEMOIRE)
+            .halMemoire(UPDATED_HAL_MEMOIRE)
+            .diversMemoire(UPDATED_DIVERS_MEMOIRE);
 
         restMemoireMockMvc.perform(put("/api/memoires")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -237,11 +287,15 @@ public class MemoireResourceIntTest {
         List<Memoire> memoireList = memoireRepository.findAll();
         assertThat(memoireList).hasSize(databaseSizeBeforeUpdate);
         Memoire testMemoire = memoireList.get(memoireList.size() - 1);
-        assertThat(testMemoire.getIdMemoire()).isEqualTo(UPDATED_ID_MEMOIRE);
-        assertThat(testMemoire.getType()).isEqualTo(UPDATED_TYPE);
-        assertThat(testMemoire.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testMemoire.getLieu()).isEqualTo(UPDATED_LIEU);
-        assertThat(testMemoire.getHal()).isEqualTo(UPDATED_HAL);
+        assertThat(testMemoire.getTitreMemoire()).isEqualTo(UPDATED_TITRE_MEMOIRE);
+        assertThat(testMemoire.getTypeMemoire()).isEqualTo(UPDATED_TYPE_MEMOIRE);
+        assertThat(testMemoire.getDateMemoire()).isEqualTo(UPDATED_DATE_MEMOIRE);
+        assertThat(testMemoire.getLieuMemoire()).isEqualTo(UPDATED_LIEU_MEMOIRE);
+        assertThat(testMemoire.getLangueMemoire()).isEqualTo(UPDATED_LANGUE_MEMOIRE);
+        assertThat(testMemoire.getLienMemoire()).isEqualTo(UPDATED_LIEN_MEMOIRE);
+        assertThat(testMemoire.getDoiMemoire()).isEqualTo(UPDATED_DOI_MEMOIRE);
+        assertThat(testMemoire.getHalMemoire()).isEqualTo(UPDATED_HAL_MEMOIRE);
+        assertThat(testMemoire.getDiversMemoire()).isEqualTo(UPDATED_DIVERS_MEMOIRE);
     }
 
     @Test

@@ -1,0 +1,80 @@
+
+<div *ngIf="actes">
+    <h2><span jhiTranslate="biblioApp.actes.detail.title">Actes</span> {{actes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.actes.titreActe">Titre Acte</span></dt>
+        <dd>
+            <span>{{actes.titreActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.typeActe">Type Acte</span></dt>
+        <dd>
+            <span>{{actes.typeActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.anneeActe">Annee Acte</span></dt>
+        <dd>
+            <span>{{actes.anneeActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.numeroEditionActe">Numero Edition Acte</span></dt>
+        <dd>
+            <span>{{actes.numeroEditionActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.volumeActe">Volume Acte</span></dt>
+        <dd>
+            <span>{{actes.volumeActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.traductionActe">Traduction Acte</span></dt>
+        <dd>
+            <span>{{actes.traductionActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.lieuActe">Lieu Acte</span></dt>
+        <dd>
+            <span>{{actes.lieuActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.maisonEditionActe">Maison Edition Acte</span></dt>
+        <dd>
+            <span>{{actes.maisonEditionActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.collectionActe">Collection Acte</span></dt>
+        <dd>
+            <span>{{actes.collectionActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.langueActe">Langue Acte</span></dt>
+        <dd>
+            <span>{{actes.langueActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.lienActe">Lien Acte</span></dt>
+        <dd>
+            <span>{{actes.lienActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.halActe">Hal Acte</span></dt>
+        <dd>
+            <span>{{actes.halActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.diversActe">Divers Acte</span></dt>
+        <dd>
+            <span>{{actes.diversActe}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.actes.conference">Conference</span></dt>
+        <dd>
+            <div *ngIf="actes.conference">
+                <a [routerLink]="['/conference', actes.conference?.id]">{{actes.conference?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'actes/'+ actes.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

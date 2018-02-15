@@ -4,37 +4,56 @@
         {
             "relationshipType": "one-to-many",
             "relationshipName": "notation",
-            "otherEntityName": "notation",
+            "otherEntityName": "note",
             "otherEntityRelationshipName": "memoire"
         }
     ],
     "fields": [
         {
-            "fieldName": "idMemoire",
+            "fieldName": "titreMemoire",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "type",
+            "fieldName": "typeMemoire",
             "fieldType": "TypeMemoire",
-            "fieldValues": "THESE,HDR"
+            "fieldValues": "THESE,HDR",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
-            "fieldName": "date",
+            "fieldName": "dateMemoire",
             "fieldType": "Instant"
         },
         {
-            "fieldName": "lieu",
+            "fieldName": "lieuMemoire",
             "fieldType": "String"
         },
         {
-            "fieldName": "hal",
+            "fieldName": "langueMemoire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienMemoire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doiMemoire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halMemoire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversMemoire",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153404",
+    "changelogDate": "20180215164203",
     "javadoc": "Mémoire : tous les critères obligatoires",
     "entityTableName": "memoire",
     "dto": "no",

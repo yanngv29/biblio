@@ -17,38 +17,34 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.conference.idConference">Id Conference</span></th>
-            <th><span jhiTranslate="biblioApp.conference.type">Type</span></th>
-            <th><span jhiTranslate="biblioApp.conference.nom">Nom</span></th>
-            <th><span jhiTranslate="biblioApp.conference.audience">Audience</span></th>
-            <th><span jhiTranslate="biblioApp.conference.comiteSelection">Comite Selection</span></th>
-            <th><span jhiTranslate="biblioApp.conference.editeur">Editeur</span></th>
-            <th><span jhiTranslate="biblioApp.conference.dateDebut">Date Debut</span></th>
-            <th><span jhiTranslate="biblioApp.conference.dateFin">Date Fin</span></th>
-            <th><span jhiTranslate="biblioApp.conference.ville">Ville</span></th>
-            <th><span jhiTranslate="biblioApp.conference.pays">Pays</span></th>
-            <th><span jhiTranslate="biblioApp.conference.lienSite">Lien Site</span></th>
-            <th><span jhiTranslate="biblioApp.conference.lienActes">Lien Actes</span></th>
-            <th><span jhiTranslate="biblioApp.conference.divers">Divers</span></th>
+            <th><span jhiTranslate="biblioApp.conference.nomConference">Nom Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.typeConference">Type Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.audienceConference">Audience Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.comiteSelectionConference">Comite Selection Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.dateDebutConference">Date Debut Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.dateFinConference">Date Fin Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.villeConference">Ville Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.paysConference">Pays Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.langueConference">Langue Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.lienSiteConference">Lien Site Conference</span></th>
+            <th><span jhiTranslate="biblioApp.conference.diversConference">Divers Conference</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let conference of conferences ;trackBy: trackId">
                 <td><a [routerLink]="['../conference', conference.id ]">{{conference.id}}</a></td>
-                <td>{{conference.idConference}}</td>
-                <td jhiTranslate="{{'biblioApp.TypeConference.' + conference.type}}">{{conference.type}}</td>
-                <td>{{conference.nom}}</td>
-                <td jhiTranslate="{{'biblioApp.Audience.' + conference.audience}}">{{conference.audience}}</td>
-                <td>{{conference.comiteSelection}}</td>
-                <td>{{conference.editeur}}</td>
-                <td>{{conference.dateDebut | date:'medium'}}</td>
-                <td>{{conference.dateFin | date:'medium'}}</td>
-                <td>{{conference.ville}}</td>
-                <td>{{conference.pays}}</td>
-                <td>{{conference.lienSite}}</td>
-                <td>{{conference.lienActes}}</td>
-                <td>{{conference.divers}}</td>
+                <td>{{conference.nomConference}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeConference.' + conference.typeConference}}">{{conference.typeConference}}</td>
+                <td jhiTranslate="{{'biblioApp.Audience.' + conference.audienceConference}}">{{conference.audienceConference}}</td>
+                <td>{{conference.comiteSelectionConference}}</td>
+                <td>{{conference.dateDebutConference | date:'medium'}}</td>
+                <td>{{conference.dateFinConference | date:'medium'}}</td>
+                <td>{{conference.villeConference}}</td>
+                <td>{{conference.paysConference}}</td>
+                <td>{{conference.langueConference}}</td>
+                <td>{{conference.lienSiteConference}}</td>
+                <td>{{conference.diversConference}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

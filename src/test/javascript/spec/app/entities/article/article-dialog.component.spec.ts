@@ -10,8 +10,9 @@ import { ArticleDialogComponent } from '../../../../../../main/webapp/app/entiti
 import { ArticleService } from '../../../../../../main/webapp/app/entities/article/article.service';
 import { Article } from '../../../../../../main/webapp/app/entities/article/article.model';
 import { NumeroRevueService } from '../../../../../../main/webapp/app/entities/numero-revue';
-import { ActeService } from '../../../../../../main/webapp/app/entities/acte';
+import { ActesService } from '../../../../../../main/webapp/app/entities/actes';
 import { ConferenceService } from '../../../../../../main/webapp/app/entities/conference';
+import { ChercheurService } from '../../../../../../main/webapp/app/entities/chercheur';
 
 describe('Component Tests', () => {
 
@@ -28,8 +29,9 @@ describe('Component Tests', () => {
                 declarations: [ArticleDialogComponent],
                 providers: [
                     NumeroRevueService,
-                    ActeService,
+                    ActesService,
                     ConferenceService,
+                    ChercheurService,
                     ArticleService
                 ]
             })

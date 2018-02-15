@@ -31,8 +31,8 @@ export class MemoirePopupService {
                 this.memoireService.find(id)
                     .subscribe((memoireResponse: HttpResponse<Memoire>) => {
                         const memoire: Memoire = memoireResponse.body;
-                        memoire.date = this.datePipe
-                            .transform(memoire.date, 'yyyy-MM-ddTHH:mm:ss');
+                        memoire.dateMemoire = this.datePipe
+                            .transform(memoire.dateMemoire, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.memoireModalRef(component, memoire);
                         resolve(this.ngbModalRef);
                     });

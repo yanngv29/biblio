@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -45,7 +44,7 @@ public class CommunicationResource {
      */
     @PostMapping("/communications")
     @Timed
-    public ResponseEntity<Communication> createCommunication(@Valid @RequestBody Communication communication) throws URISyntaxException {
+    public ResponseEntity<Communication> createCommunication(@RequestBody Communication communication) throws URISyntaxException {
         log.debug("REST request to save Communication : {}", communication);
         if (communication.getId() != null) {
             throw new BadRequestAlertException("A new communication cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,7 +66,7 @@ public class CommunicationResource {
      */
     @PutMapping("/communications")
     @Timed
-    public ResponseEntity<Communication> updateCommunication(@Valid @RequestBody Communication communication) throws URISyntaxException {
+    public ResponseEntity<Communication> updateCommunication(@RequestBody Communication communication) throws URISyntaxException {
         log.debug("REST request to update Communication : {}", communication);
         if (communication.getId() == null) {
             return createCommunication(communication);

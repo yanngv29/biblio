@@ -13,19 +13,19 @@
                    [(ngModel)]="conference.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.idConference" for="field_idConference">Id Conference</label>
-            <input type="text" class="form-control" name="idConference" id="field_idConference"
-                [(ngModel)]="conference.idConference" required/>
-            <div [hidden]="!(editForm.controls.idConference?.dirty && editForm.controls.idConference?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.nomConference" for="field_nomConference">Nom Conference</label>
+            <input type="text" class="form-control" name="nomConference" id="field_nomConference"
+                [(ngModel)]="conference.nomConference" required/>
+            <div [hidden]="!(editForm.controls.nomConference?.dirty && editForm.controls.nomConference?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idConference?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.nomConference?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.type" for="field_type">Type</label>
-            <select class="form-control" name="type" [(ngModel)]="conference.type" id="field_type" >
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.typeConference" for="field_typeConference">Type Conference</label>
+            <select class="form-control" name="typeConference" [(ngModel)]="conference.typeConference" id="field_typeConference" >
                 <option value="CONFERENCE">{{'biblioApp.TypeConference.CONFERENCE' | translate}}</option>
                 <option value="COLLOQUE">{{'biblioApp.TypeConference.COLLOQUE' | translate}}</option>
                 <option value="JOURNEE_ETUDE">{{'biblioApp.TypeConference.JOURNEE_ETUDE' | translate}}</option>
@@ -35,65 +35,55 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.nom" for="field_nom">Nom</label>
-            <input type="text" class="form-control" name="nom" id="field_nom"
-                [(ngModel)]="conference.nom" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.audience" for="field_audience">Audience</label>
-            <select class="form-control" name="audience" [(ngModel)]="conference.audience" id="field_audience" >
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.audienceConference" for="field_audienceConference">Audience Conference</label>
+            <select class="form-control" name="audienceConference" [(ngModel)]="conference.audienceConference" id="field_audienceConference" >
                 <option value="NATIONALE">{{'biblioApp.Audience.NATIONALE' | translate}}</option>
                 <option value="INTERNATIONALE">{{'biblioApp.Audience.INTERNATIONALE' | translate}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.comiteSelection" for="field_comiteSelection">Comite Selection</label>
-            <input type="checkbox" class="form-control" name="comiteSelection" id="field_comiteSelection"
-                [(ngModel)]="conference.comiteSelection" />
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.comiteSelectionConference" for="field_comiteSelectionConference">Comite Selection Conference</label>
+            <input type="checkbox" class="form-control" name="comiteSelectionConference" id="field_comiteSelectionConference"
+                [(ngModel)]="conference.comiteSelectionConference" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.editeur" for="field_editeur">Editeur</label>
-            <input type="text" class="form-control" name="editeur" id="field_editeur"
-                [(ngModel)]="conference.editeur" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.dateDebut" for="field_dateDebut">Date Debut</label>
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.dateDebutConference" for="field_dateDebutConference">Date Debut Conference</label>
             <div class="d-flex">
-                <input id="field_dateDebut" type="datetime-local" class="form-control" name="dateDebut" [(ngModel)]="conference.dateDebut"
+                <input id="field_dateDebutConference" type="datetime-local" class="form-control" name="dateDebutConference" [(ngModel)]="conference.dateDebutConference"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.dateFin" for="field_dateFin">Date Fin</label>
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.dateFinConference" for="field_dateFinConference">Date Fin Conference</label>
             <div class="d-flex">
-                <input id="field_dateFin" type="datetime-local" class="form-control" name="dateFin" [(ngModel)]="conference.dateFin"
+                <input id="field_dateFinConference" type="datetime-local" class="form-control" name="dateFinConference" [(ngModel)]="conference.dateFinConference"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.ville" for="field_ville">Ville</label>
-            <input type="text" class="form-control" name="ville" id="field_ville"
-                [(ngModel)]="conference.ville" />
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.villeConference" for="field_villeConference">Ville Conference</label>
+            <input type="text" class="form-control" name="villeConference" id="field_villeConference"
+                [(ngModel)]="conference.villeConference" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.pays" for="field_pays">Pays</label>
-            <input type="text" class="form-control" name="pays" id="field_pays"
-                [(ngModel)]="conference.pays" />
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.paysConference" for="field_paysConference">Pays Conference</label>
+            <input type="text" class="form-control" name="paysConference" id="field_paysConference"
+                [(ngModel)]="conference.paysConference" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.lienSite" for="field_lienSite">Lien Site</label>
-            <input type="text" class="form-control" name="lienSite" id="field_lienSite"
-                [(ngModel)]="conference.lienSite" />
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.langueConference" for="field_langueConference">Langue Conference</label>
+            <input type="text" class="form-control" name="langueConference" id="field_langueConference"
+                [(ngModel)]="conference.langueConference" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.lienActes" for="field_lienActes">Lien Actes</label>
-            <input type="text" class="form-control" name="lienActes" id="field_lienActes"
-                [(ngModel)]="conference.lienActes" />
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.lienSiteConference" for="field_lienSiteConference">Lien Site Conference</label>
+            <input type="text" class="form-control" name="lienSiteConference" id="field_lienSiteConference"
+                [(ngModel)]="conference.lienSiteConference" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.conference.divers" for="field_divers">Divers</label>
-            <input type="text" class="form-control" name="divers" id="field_divers"
-                [(ngModel)]="conference.divers" />
+            <label class="form-control-label" jhiTranslate="biblioApp.conference.diversConference" for="field_diversConference">Divers Conference</label>
+            <input type="text" class="form-control" name="diversConference" id="field_diversConference"
+                [(ngModel)]="conference.diversConference" />
         </div>
 
     </div>

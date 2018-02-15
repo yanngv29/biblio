@@ -32,11 +32,8 @@ public class Revue implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_revue", nullable = false)
-    private String idRevue;
-
-    @Column(name = "nom")
-    private String nom;
+    @Column(name = "nom_revue", nullable = false)
+    private String nomRevue;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "audience")
@@ -45,31 +42,22 @@ public class Revue implements Serializable {
     @Column(name = "comite_selection")
     private Boolean comiteSelection;
 
-    @Column(name = "mois")
-    private String mois;
+    @Column(name = "langue_revue")
+    private String langueRevue;
 
-    @Column(name = "annee")
-    private String annee;
+    @Column(name = "lieu_revue")
+    private String lieuRevue;
 
-    @Column(name = "volume")
-    private String volume;
+    @Column(name = "lien_revue")
+    private String lienRevue;
 
-    @Column(name = "numero_volume")
-    private String numeroVolume;
-
-    @Column(name = "lieu")
-    private String lieu;
-
-    @Column(name = "lien")
-    private String lien;
-
-    @Column(name = "divers")
-    private String divers;
+    @Column(name = "divers_revue")
+    private String diversRevue;
 
     @OneToMany(mappedBy = "revue")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Notation> notations = new HashSet<>();
+    private Set<Note> notations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -80,30 +68,17 @@ public class Revue implements Serializable {
         this.id = id;
     }
 
-    public String getIdRevue() {
-        return idRevue;
+    public String getNomRevue() {
+        return nomRevue;
     }
 
-    public Revue idRevue(String idRevue) {
-        this.idRevue = idRevue;
+    public Revue nomRevue(String nomRevue) {
+        this.nomRevue = nomRevue;
         return this;
     }
 
-    public void setIdRevue(String idRevue) {
-        this.idRevue = idRevue;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public Revue nom(String nom) {
-        this.nom = nom;
-        return this;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomRevue(String nomRevue) {
+        this.nomRevue = nomRevue;
     }
 
     public Audience getAudience() {
@@ -132,120 +107,81 @@ public class Revue implements Serializable {
         this.comiteSelection = comiteSelection;
     }
 
-    public String getMois() {
-        return mois;
+    public String getLangueRevue() {
+        return langueRevue;
     }
 
-    public Revue mois(String mois) {
-        this.mois = mois;
+    public Revue langueRevue(String langueRevue) {
+        this.langueRevue = langueRevue;
         return this;
     }
 
-    public void setMois(String mois) {
-        this.mois = mois;
+    public void setLangueRevue(String langueRevue) {
+        this.langueRevue = langueRevue;
     }
 
-    public String getAnnee() {
-        return annee;
+    public String getLieuRevue() {
+        return lieuRevue;
     }
 
-    public Revue annee(String annee) {
-        this.annee = annee;
+    public Revue lieuRevue(String lieuRevue) {
+        this.lieuRevue = lieuRevue;
         return this;
     }
 
-    public void setAnnee(String annee) {
-        this.annee = annee;
+    public void setLieuRevue(String lieuRevue) {
+        this.lieuRevue = lieuRevue;
     }
 
-    public String getVolume() {
-        return volume;
+    public String getLienRevue() {
+        return lienRevue;
     }
 
-    public Revue volume(String volume) {
-        this.volume = volume;
+    public Revue lienRevue(String lienRevue) {
+        this.lienRevue = lienRevue;
         return this;
     }
 
-    public void setVolume(String volume) {
-        this.volume = volume;
+    public void setLienRevue(String lienRevue) {
+        this.lienRevue = lienRevue;
     }
 
-    public String getNumeroVolume() {
-        return numeroVolume;
+    public String getDiversRevue() {
+        return diversRevue;
     }
 
-    public Revue numeroVolume(String numeroVolume) {
-        this.numeroVolume = numeroVolume;
+    public Revue diversRevue(String diversRevue) {
+        this.diversRevue = diversRevue;
         return this;
     }
 
-    public void setNumeroVolume(String numeroVolume) {
-        this.numeroVolume = numeroVolume;
+    public void setDiversRevue(String diversRevue) {
+        this.diversRevue = diversRevue;
     }
 
-    public String getLieu() {
-        return lieu;
-    }
-
-    public Revue lieu(String lieu) {
-        this.lieu = lieu;
-        return this;
-    }
-
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
-    }
-
-    public String getLien() {
-        return lien;
-    }
-
-    public Revue lien(String lien) {
-        this.lien = lien;
-        return this;
-    }
-
-    public void setLien(String lien) {
-        this.lien = lien;
-    }
-
-    public String getDivers() {
-        return divers;
-    }
-
-    public Revue divers(String divers) {
-        this.divers = divers;
-        return this;
-    }
-
-    public void setDivers(String divers) {
-        this.divers = divers;
-    }
-
-    public Set<Notation> getNotations() {
+    public Set<Note> getNotations() {
         return notations;
     }
 
-    public Revue notations(Set<Notation> notations) {
-        this.notations = notations;
+    public Revue notations(Set<Note> notes) {
+        this.notations = notes;
         return this;
     }
 
-    public Revue addNotation(Notation notation) {
-        this.notations.add(notation);
-        notation.setRevue(this);
+    public Revue addNotation(Note note) {
+        this.notations.add(note);
+        note.setRevue(this);
         return this;
     }
 
-    public Revue removeNotation(Notation notation) {
-        this.notations.remove(notation);
-        notation.setRevue(null);
+    public Revue removeNotation(Note note) {
+        this.notations.remove(note);
+        note.setRevue(null);
         return this;
     }
 
-    public void setNotations(Set<Notation> notations) {
-        this.notations = notations;
+    public void setNotations(Set<Note> notes) {
+        this.notations = notes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -273,17 +209,13 @@ public class Revue implements Serializable {
     public String toString() {
         return "Revue{" +
             "id=" + getId() +
-            ", idRevue='" + getIdRevue() + "'" +
-            ", nom='" + getNom() + "'" +
+            ", nomRevue='" + getNomRevue() + "'" +
             ", audience='" + getAudience() + "'" +
             ", comiteSelection='" + isComiteSelection() + "'" +
-            ", mois='" + getMois() + "'" +
-            ", annee='" + getAnnee() + "'" +
-            ", volume='" + getVolume() + "'" +
-            ", numeroVolume='" + getNumeroVolume() + "'" +
-            ", lieu='" + getLieu() + "'" +
-            ", lien='" + getLien() + "'" +
-            ", divers='" + getDivers() + "'" +
+            ", langueRevue='" + getLangueRevue() + "'" +
+            ", lieuRevue='" + getLieuRevue() + "'" +
+            ", lienRevue='" + getLienRevue() + "'" +
+            ", diversRevue='" + getDiversRevue() + "'" +
             "}";
     }
 }

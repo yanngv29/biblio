@@ -13,30 +13,45 @@
                    [(ngModel)]="chapitre.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.idChapitre" for="field_idChapitre">Id Chapitre</label>
-            <input type="text" class="form-control" name="idChapitre" id="field_idChapitre"
-                [(ngModel)]="chapitre.idChapitre" required/>
-            <div [hidden]="!(editForm.controls.idChapitre?.dirty && editForm.controls.idChapitre?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.titreChapitre" for="field_titreChapitre">Titre Chapitre</label>
+            <input type="text" class="form-control" name="titreChapitre" id="field_titreChapitre"
+                [(ngModel)]="chapitre.titreChapitre" required/>
+            <div [hidden]="!(editForm.controls.titreChapitre?.dirty && editForm.controls.titreChapitre?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idChapitre?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.titreChapitre?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.pageDebut" for="field_pageDebut">Page Debut</label>
-            <input type="text" class="form-control" name="pageDebut" id="field_pageDebut"
-                [(ngModel)]="chapitre.pageDebut" />
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.pageDebutChapitre" for="field_pageDebutChapitre">Page Debut Chapitre</label>
+            <input type="text" class="form-control" name="pageDebutChapitre" id="field_pageDebutChapitre"
+                [(ngModel)]="chapitre.pageDebutChapitre" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.pageFin" for="field_pageFin">Page Fin</label>
-            <input type="text" class="form-control" name="pageFin" id="field_pageFin"
-                [(ngModel)]="chapitre.pageFin" />
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.pageFinChapitre" for="field_pageFinChapitre">Page Fin Chapitre</label>
+            <input type="text" class="form-control" name="pageFinChapitre" id="field_pageFinChapitre"
+                [(ngModel)]="chapitre.pageFinChapitre" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.hal" for="field_hal">Hal</label>
-            <input type="text" class="form-control" name="hal" id="field_hal"
-                [(ngModel)]="chapitre.hal" />
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.langueChapitre" for="field_langueChapitre">Langue Chapitre</label>
+            <input type="text" class="form-control" name="langueChapitre" id="field_langueChapitre"
+                [(ngModel)]="chapitre.langueChapitre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.lienChapitre" for="field_lienChapitre">Lien Chapitre</label>
+            <input type="text" class="form-control" name="lienChapitre" id="field_lienChapitre"
+                [(ngModel)]="chapitre.lienChapitre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.halChapitre" for="field_halChapitre">Hal Chapitre</label>
+            <input type="text" class="form-control" name="halChapitre" id="field_halChapitre"
+                [(ngModel)]="chapitre.halChapitre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.diversChapitre" for="field_diversChapitre">Divers Chapitre</label>
+            <input type="text" class="form-control" name="diversChapitre" id="field_diversChapitre"
+                [(ngModel)]="chapitre.diversChapitre" />
         </div>
 
         <div class="form-group">

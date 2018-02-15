@@ -1,0 +1,31 @@
+
+{
+    "biblioApp": {
+        "note" : {
+            "home": {
+                "title": "Notes",
+                "createLabel": "Créer un nouveau Note",
+                "createOrEditLabel": "Créer ou éditer un Note"
+            },
+            "created": "Un nouveau Note a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Note avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Note avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Note {{ id }} ?"
+            },
+            "detail": {
+                "title": "Note"
+            },
+            "cnuNote": "Cnu Note",
+            "rangNote": "Rang Note",
+            "debutNote": "Debut Note",
+            "finNote": "Fin Note",
+            "conference": "Conference",
+            "memoire": "Memoire",
+            "ouvrage": "Ouvrage",
+            "publicationGouvernementale": "Publication Gouvernementale",
+            "rapport": "Rapport",
+            "revue": "Revue"
+        }
+    }
+}

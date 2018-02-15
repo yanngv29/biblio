@@ -1,0 +1,74 @@
+
+<div *ngIf="note">
+    <h2><span jhiTranslate="biblioApp.note.detail.title">Note</span> {{note.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="biblioApp.note.cnuNote">Cnu Note</span></dt>
+        <dd>
+            <span>{{note.cnuNote}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.rangNote">Rang Note</span></dt>
+        <dd>
+            <span jhiTranslate="{{'biblioApp.RangNote.' + note.rangNote}}">{{note.rangNote}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.debutNote">Debut Note</span></dt>
+        <dd>
+            <span>{{note.debutNote}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.finNote">Fin Note</span></dt>
+        <dd>
+            <span>{{note.finNote}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.conference">Conference</span></dt>
+        <dd>
+            <div *ngIf="note.conference">
+                <a [routerLink]="['/conference', note.conference?.id]">{{note.conference?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.memoire">Memoire</span></dt>
+        <dd>
+            <div *ngIf="note.memoire">
+                <a [routerLink]="['/memoire', note.memoire?.id]">{{note.memoire?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.ouvrage">Ouvrage</span></dt>
+        <dd>
+            <div *ngIf="note.ouvrage">
+                <a [routerLink]="['/ouvrage', note.ouvrage?.id]">{{note.ouvrage?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.publicationGouvernementale">Publication Gouvernementale</span></dt>
+        <dd>
+            <div *ngIf="note.publicationGouvernementale">
+                <a [routerLink]="['/publication-gouvernementale', note.publicationGouvernementale?.id]">{{note.publicationGouvernementale?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.rapport">Rapport</span></dt>
+        <dd>
+            <div *ngIf="note.rapport">
+                <a [routerLink]="['/rapport', note.rapport?.id]">{{note.rapport?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.note.revue">Revue</span></dt>
+        <dd>
+            <div *ngIf="note.revue">
+                <a [routerLink]="['/revue', note.revue?.id]">{{note.revue?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'note/'+ note.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

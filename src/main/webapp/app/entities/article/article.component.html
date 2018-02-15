@@ -17,13 +17,16 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="biblioApp.article.idArticle">Id Article</span></th>
-            <th><span jhiTranslate="biblioApp.article.type">Type</span></th>
-            <th><span jhiTranslate="biblioApp.article.pageDebut">Page Debut</span></th>
-            <th><span jhiTranslate="biblioApp.article.pageFin">Page Fin</span></th>
-            <th><span jhiTranslate="biblioApp.article.hal">Hal</span></th>
+            <th><span jhiTranslate="biblioApp.article.titreArticle">Titre Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.typeArticle">Type Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.pageDebutArticle">Page Debut Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.pageFinArticle">Page Fin Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.langueArticle">Langue Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.lienArticle">Lien Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.halArticle">Hal Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.diversArticle">Divers Article</span></th>
             <th><span jhiTranslate="biblioApp.article.numeroRevue">Numero Revue</span></th>
-            <th><span jhiTranslate="biblioApp.article.acte">Acte</span></th>
+            <th><span jhiTranslate="biblioApp.article.actes">Actes</span></th>
             <th><span jhiTranslate="biblioApp.article.conference">Conference</span></th>
             <th></th>
             </tr>
@@ -31,19 +34,22 @@
             <tbody>
             <tr *ngFor="let article of articles ;trackBy: trackId">
                 <td><a [routerLink]="['../article', article.id ]">{{article.id}}</a></td>
-                <td>{{article.idArticle}}</td>
-                <td jhiTranslate="{{'biblioApp.TypeArticle.' + article.type}}">{{article.type}}</td>
-                <td>{{article.pageDebut}}</td>
-                <td>{{article.pageFin}}</td>
-                <td>{{article.hal}}</td>
+                <td>{{article.titreArticle}}</td>
+                <td jhiTranslate="{{'biblioApp.TypeArticle.' + article.typeArticle}}">{{article.typeArticle}}</td>
+                <td>{{article.pageDebutArticle}}</td>
+                <td>{{article.pageFinArticle}}</td>
+                <td>{{article.langueArticle}}</td>
+                <td>{{article.lienArticle}}</td>
+                <td>{{article.halArticle}}</td>
+                <td>{{article.diversArticle}}</td>
                 <td>
                     <div *ngIf="article.numeroRevue">
                         <a [routerLink]="['../numero-revue', article.numeroRevue?.id ]" >{{article.numeroRevue?.id}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="article.acte">
-                        <a [routerLink]="['../acte', article.acte?.id ]" >{{article.acte?.id}}</a>
+                    <div *ngIf="article.actes">
+                        <a [routerLink]="['../actes', article.actes?.id ]" >{{article.actes?.id}}</a>
                     </div>
                 </td>
                 <td>

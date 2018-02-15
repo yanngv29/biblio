@@ -31,25 +31,40 @@ public class PublicationGouvernementale implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_pg", nullable = false)
-    private String idPG;
+    @Column(name = "titre_pg", nullable = false)
+    private String titrePG;
 
-    @Column(name = "jhi_date")
-    private Instant date;
+    @Column(name = "date_pg")
+    private Instant datePG;
 
-    @Column(name = "numero_edition")
-    private String numeroEdition;
+    @Column(name = "numero_edition_pg")
+    private String numeroEditionPG;
 
-    @Column(name = "lieu")
-    private String lieu;
+    @Column(name = "lieu_pg")
+    private String lieuPG;
 
-    @Column(name = "maison_edition")
-    private String maisonEdition;
+    @Column(name = "maison_edition_pg")
+    private String maisonEditionPG;
+
+    @Column(name = "langue_pg")
+    private String languePG;
+
+    @Column(name = "lien_pg")
+    private String lienPG;
+
+    @Column(name = "doi_pg")
+    private String doiPG;
+
+    @Column(name = "hal_pg")
+    private String halPG;
+
+    @Column(name = "divers_ouvrage_pg")
+    private String diversOuvragePG;
 
     @OneToMany(mappedBy = "publicationGouvernementale")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Notation> notations = new HashSet<>();
+    private Set<Note> notations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -60,94 +75,159 @@ public class PublicationGouvernementale implements Serializable {
         this.id = id;
     }
 
-    public String getIdPG() {
-        return idPG;
+    public String getTitrePG() {
+        return titrePG;
     }
 
-    public PublicationGouvernementale idPG(String idPG) {
-        this.idPG = idPG;
+    public PublicationGouvernementale titrePG(String titrePG) {
+        this.titrePG = titrePG;
         return this;
     }
 
-    public void setIdPG(String idPG) {
-        this.idPG = idPG;
+    public void setTitrePG(String titrePG) {
+        this.titrePG = titrePG;
     }
 
-    public Instant getDate() {
-        return date;
+    public Instant getDatePG() {
+        return datePG;
     }
 
-    public PublicationGouvernementale date(Instant date) {
-        this.date = date;
+    public PublicationGouvernementale datePG(Instant datePG) {
+        this.datePG = datePG;
         return this;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public void setDatePG(Instant datePG) {
+        this.datePG = datePG;
     }
 
-    public String getNumeroEdition() {
-        return numeroEdition;
+    public String getNumeroEditionPG() {
+        return numeroEditionPG;
     }
 
-    public PublicationGouvernementale numeroEdition(String numeroEdition) {
-        this.numeroEdition = numeroEdition;
+    public PublicationGouvernementale numeroEditionPG(String numeroEditionPG) {
+        this.numeroEditionPG = numeroEditionPG;
         return this;
     }
 
-    public void setNumeroEdition(String numeroEdition) {
-        this.numeroEdition = numeroEdition;
+    public void setNumeroEditionPG(String numeroEditionPG) {
+        this.numeroEditionPG = numeroEditionPG;
     }
 
-    public String getLieu() {
-        return lieu;
+    public String getLieuPG() {
+        return lieuPG;
     }
 
-    public PublicationGouvernementale lieu(String lieu) {
-        this.lieu = lieu;
+    public PublicationGouvernementale lieuPG(String lieuPG) {
+        this.lieuPG = lieuPG;
         return this;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setLieuPG(String lieuPG) {
+        this.lieuPG = lieuPG;
     }
 
-    public String getMaisonEdition() {
-        return maisonEdition;
+    public String getMaisonEditionPG() {
+        return maisonEditionPG;
     }
 
-    public PublicationGouvernementale maisonEdition(String maisonEdition) {
-        this.maisonEdition = maisonEdition;
+    public PublicationGouvernementale maisonEditionPG(String maisonEditionPG) {
+        this.maisonEditionPG = maisonEditionPG;
         return this;
     }
 
-    public void setMaisonEdition(String maisonEdition) {
-        this.maisonEdition = maisonEdition;
+    public void setMaisonEditionPG(String maisonEditionPG) {
+        this.maisonEditionPG = maisonEditionPG;
     }
 
-    public Set<Notation> getNotations() {
+    public String getLanguePG() {
+        return languePG;
+    }
+
+    public PublicationGouvernementale languePG(String languePG) {
+        this.languePG = languePG;
+        return this;
+    }
+
+    public void setLanguePG(String languePG) {
+        this.languePG = languePG;
+    }
+
+    public String getLienPG() {
+        return lienPG;
+    }
+
+    public PublicationGouvernementale lienPG(String lienPG) {
+        this.lienPG = lienPG;
+        return this;
+    }
+
+    public void setLienPG(String lienPG) {
+        this.lienPG = lienPG;
+    }
+
+    public String getDoiPG() {
+        return doiPG;
+    }
+
+    public PublicationGouvernementale doiPG(String doiPG) {
+        this.doiPG = doiPG;
+        return this;
+    }
+
+    public void setDoiPG(String doiPG) {
+        this.doiPG = doiPG;
+    }
+
+    public String getHalPG() {
+        return halPG;
+    }
+
+    public PublicationGouvernementale halPG(String halPG) {
+        this.halPG = halPG;
+        return this;
+    }
+
+    public void setHalPG(String halPG) {
+        this.halPG = halPG;
+    }
+
+    public String getDiversOuvragePG() {
+        return diversOuvragePG;
+    }
+
+    public PublicationGouvernementale diversOuvragePG(String diversOuvragePG) {
+        this.diversOuvragePG = diversOuvragePG;
+        return this;
+    }
+
+    public void setDiversOuvragePG(String diversOuvragePG) {
+        this.diversOuvragePG = diversOuvragePG;
+    }
+
+    public Set<Note> getNotations() {
         return notations;
     }
 
-    public PublicationGouvernementale notations(Set<Notation> notations) {
-        this.notations = notations;
+    public PublicationGouvernementale notations(Set<Note> notes) {
+        this.notations = notes;
         return this;
     }
 
-    public PublicationGouvernementale addNotation(Notation notation) {
-        this.notations.add(notation);
-        notation.setPublicationGouvernementale(this);
+    public PublicationGouvernementale addNotation(Note note) {
+        this.notations.add(note);
+        note.setPublicationGouvernementale(this);
         return this;
     }
 
-    public PublicationGouvernementale removeNotation(Notation notation) {
-        this.notations.remove(notation);
-        notation.setPublicationGouvernementale(null);
+    public PublicationGouvernementale removeNotation(Note note) {
+        this.notations.remove(note);
+        note.setPublicationGouvernementale(null);
         return this;
     }
 
-    public void setNotations(Set<Notation> notations) {
-        this.notations = notations;
+    public void setNotations(Set<Note> notes) {
+        this.notations = notes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -175,11 +255,16 @@ public class PublicationGouvernementale implements Serializable {
     public String toString() {
         return "PublicationGouvernementale{" +
             "id=" + getId() +
-            ", idPG='" + getIdPG() + "'" +
-            ", date='" + getDate() + "'" +
-            ", numeroEdition='" + getNumeroEdition() + "'" +
-            ", lieu='" + getLieu() + "'" +
-            ", maisonEdition='" + getMaisonEdition() + "'" +
+            ", titrePG='" + getTitrePG() + "'" +
+            ", datePG='" + getDatePG() + "'" +
+            ", numeroEditionPG='" + getNumeroEditionPG() + "'" +
+            ", lieuPG='" + getLieuPG() + "'" +
+            ", maisonEditionPG='" + getMaisonEditionPG() + "'" +
+            ", languePG='" + getLanguePG() + "'" +
+            ", lienPG='" + getLienPG() + "'" +
+            ", doiPG='" + getDoiPG() + "'" +
+            ", halPG='" + getHalPG() + "'" +
+            ", diversOuvragePG='" + getDiversOuvragePG() + "'" +
             "}";
     }
 }

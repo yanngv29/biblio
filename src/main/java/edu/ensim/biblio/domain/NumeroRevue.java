@@ -1,13 +1,15 @@
 package edu.ensim.biblio.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,30 +28,37 @@ public class NumeroRevue implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "id_numero_revue", nullable = false)
-    private String idNumeroRevue;
+    @Column(name = "volume_numero_revue")
+    private String volumeNumeroRevue;
 
-    @Column(name = "mois")
-    private String mois;
+    @Column(name = "numero_volume_numero_revue")
+    private String numeroVolumeNumeroRevue;
 
-    @Column(name = "annee")
-    private String annee;
+    @Column(name = "mois_numero_revue")
+    private String moisNumeroRevue;
 
-    @Column(name = "volume")
-    private String volume;
+    @Column(name = "annee_numero_revue")
+    private String anneeNumeroRevue;
 
-    @Column(name = "numero_volume")
-    private String numeroVolume;
+    @Column(name = "langue_numero_revue")
+    private String langueNumeroRevue;
 
-    @Column(name = "lien")
-    private String lien;
+    @Column(name = "lien_numero_revue")
+    private String lienNumeroRevue;
 
-    @Column(name = "doi")
-    private String doi;
+    @Column(name = "doi_numero_revue")
+    private String doiNumeroRevue;
+
+    @Column(name = "divers_numero_revue")
+    private String diversNumeroRevue;
 
     @ManyToOne
     private Revue revue;
+
+    @OneToMany(mappedBy = "numeroRevue")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Article> writers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -60,95 +69,108 @@ public class NumeroRevue implements Serializable {
         this.id = id;
     }
 
-    public String getIdNumeroRevue() {
-        return idNumeroRevue;
+    public String getVolumeNumeroRevue() {
+        return volumeNumeroRevue;
     }
 
-    public NumeroRevue idNumeroRevue(String idNumeroRevue) {
-        this.idNumeroRevue = idNumeroRevue;
+    public NumeroRevue volumeNumeroRevue(String volumeNumeroRevue) {
+        this.volumeNumeroRevue = volumeNumeroRevue;
         return this;
     }
 
-    public void setIdNumeroRevue(String idNumeroRevue) {
-        this.idNumeroRevue = idNumeroRevue;
+    public void setVolumeNumeroRevue(String volumeNumeroRevue) {
+        this.volumeNumeroRevue = volumeNumeroRevue;
     }
 
-    public String getMois() {
-        return mois;
+    public String getNumeroVolumeNumeroRevue() {
+        return numeroVolumeNumeroRevue;
     }
 
-    public NumeroRevue mois(String mois) {
-        this.mois = mois;
+    public NumeroRevue numeroVolumeNumeroRevue(String numeroVolumeNumeroRevue) {
+        this.numeroVolumeNumeroRevue = numeroVolumeNumeroRevue;
         return this;
     }
 
-    public void setMois(String mois) {
-        this.mois = mois;
+    public void setNumeroVolumeNumeroRevue(String numeroVolumeNumeroRevue) {
+        this.numeroVolumeNumeroRevue = numeroVolumeNumeroRevue;
     }
 
-    public String getAnnee() {
-        return annee;
+    public String getMoisNumeroRevue() {
+        return moisNumeroRevue;
     }
 
-    public NumeroRevue annee(String annee) {
-        this.annee = annee;
+    public NumeroRevue moisNumeroRevue(String moisNumeroRevue) {
+        this.moisNumeroRevue = moisNumeroRevue;
         return this;
     }
 
-    public void setAnnee(String annee) {
-        this.annee = annee;
+    public void setMoisNumeroRevue(String moisNumeroRevue) {
+        this.moisNumeroRevue = moisNumeroRevue;
     }
 
-    public String getVolume() {
-        return volume;
+    public String getAnneeNumeroRevue() {
+        return anneeNumeroRevue;
     }
 
-    public NumeroRevue volume(String volume) {
-        this.volume = volume;
+    public NumeroRevue anneeNumeroRevue(String anneeNumeroRevue) {
+        this.anneeNumeroRevue = anneeNumeroRevue;
         return this;
     }
 
-    public void setVolume(String volume) {
-        this.volume = volume;
+    public void setAnneeNumeroRevue(String anneeNumeroRevue) {
+        this.anneeNumeroRevue = anneeNumeroRevue;
     }
 
-    public String getNumeroVolume() {
-        return numeroVolume;
+    public String getLangueNumeroRevue() {
+        return langueNumeroRevue;
     }
 
-    public NumeroRevue numeroVolume(String numeroVolume) {
-        this.numeroVolume = numeroVolume;
+    public NumeroRevue langueNumeroRevue(String langueNumeroRevue) {
+        this.langueNumeroRevue = langueNumeroRevue;
         return this;
     }
 
-    public void setNumeroVolume(String numeroVolume) {
-        this.numeroVolume = numeroVolume;
+    public void setLangueNumeroRevue(String langueNumeroRevue) {
+        this.langueNumeroRevue = langueNumeroRevue;
     }
 
-    public String getLien() {
-        return lien;
+    public String getLienNumeroRevue() {
+        return lienNumeroRevue;
     }
 
-    public NumeroRevue lien(String lien) {
-        this.lien = lien;
+    public NumeroRevue lienNumeroRevue(String lienNumeroRevue) {
+        this.lienNumeroRevue = lienNumeroRevue;
         return this;
     }
 
-    public void setLien(String lien) {
-        this.lien = lien;
+    public void setLienNumeroRevue(String lienNumeroRevue) {
+        this.lienNumeroRevue = lienNumeroRevue;
     }
 
-    public String getDoi() {
-        return doi;
+    public String getDoiNumeroRevue() {
+        return doiNumeroRevue;
     }
 
-    public NumeroRevue doi(String doi) {
-        this.doi = doi;
+    public NumeroRevue doiNumeroRevue(String doiNumeroRevue) {
+        this.doiNumeroRevue = doiNumeroRevue;
         return this;
     }
 
-    public void setDoi(String doi) {
-        this.doi = doi;
+    public void setDoiNumeroRevue(String doiNumeroRevue) {
+        this.doiNumeroRevue = doiNumeroRevue;
+    }
+
+    public String getDiversNumeroRevue() {
+        return diversNumeroRevue;
+    }
+
+    public NumeroRevue diversNumeroRevue(String diversNumeroRevue) {
+        this.diversNumeroRevue = diversNumeroRevue;
+        return this;
+    }
+
+    public void setDiversNumeroRevue(String diversNumeroRevue) {
+        this.diversNumeroRevue = diversNumeroRevue;
     }
 
     public Revue getRevue() {
@@ -162,6 +184,31 @@ public class NumeroRevue implements Serializable {
 
     public void setRevue(Revue revue) {
         this.revue = revue;
+    }
+
+    public Set<Article> getWriters() {
+        return writers;
+    }
+
+    public NumeroRevue writers(Set<Article> articles) {
+        this.writers = articles;
+        return this;
+    }
+
+    public NumeroRevue addWriter(Article article) {
+        this.writers.add(article);
+        article.setNumeroRevue(this);
+        return this;
+    }
+
+    public NumeroRevue removeWriter(Article article) {
+        this.writers.remove(article);
+        article.setNumeroRevue(null);
+        return this;
+    }
+
+    public void setWriters(Set<Article> articles) {
+        this.writers = articles;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -189,13 +236,14 @@ public class NumeroRevue implements Serializable {
     public String toString() {
         return "NumeroRevue{" +
             "id=" + getId() +
-            ", idNumeroRevue='" + getIdNumeroRevue() + "'" +
-            ", mois='" + getMois() + "'" +
-            ", annee='" + getAnnee() + "'" +
-            ", volume='" + getVolume() + "'" +
-            ", numeroVolume='" + getNumeroVolume() + "'" +
-            ", lien='" + getLien() + "'" +
-            ", doi='" + getDoi() + "'" +
+            ", volumeNumeroRevue='" + getVolumeNumeroRevue() + "'" +
+            ", numeroVolumeNumeroRevue='" + getNumeroVolumeNumeroRevue() + "'" +
+            ", moisNumeroRevue='" + getMoisNumeroRevue() + "'" +
+            ", anneeNumeroRevue='" + getAnneeNumeroRevue() + "'" +
+            ", langueNumeroRevue='" + getLangueNumeroRevue() + "'" +
+            ", lienNumeroRevue='" + getLienNumeroRevue() + "'" +
+            ", doiNumeroRevue='" + getDoiNumeroRevue() + "'" +
+            ", diversNumeroRevue='" + getDiversNumeroRevue() + "'" +
             "}";
     }
 }

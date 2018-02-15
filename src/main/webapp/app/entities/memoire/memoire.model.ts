@@ -8,11 +8,15 @@ export const enum TypeMemoire {
 export class Memoire implements BaseEntity {
     constructor(
         public id?: number,
-        public idMemoire?: string,
-        public type?: TypeMemoire,
-        public date?: any,
-        public lieu?: string,
-        public hal?: string,
+        public titreMemoire?: string,
+        public typeMemoire?: TypeMemoire,
+        public dateMemoire?: any,
+        public lieuMemoire?: string,
+        public langueMemoire?: string,
+        public lienMemoire?: string,
+        public doiMemoire?: string,
+        public halMemoire?: string,
+        public diversMemoire?: string,
         public notations?: BaseEntity[],
     ) {
     }

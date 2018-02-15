@@ -2,34 +2,46 @@
     "fluentMethods": true,
     "relationships": [
         {
+            "relationshipType": "many-to-one",
             "relationshipName": "ouvrage",
             "otherEntityName": "ouvrage",
-            "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }
     ],
     "fields": [
         {
-            "fieldName": "idChapitre",
+            "fieldName": "titreChapitre",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "pageDebut",
+            "fieldName": "pageDebutChapitre",
             "fieldType": "String"
         },
         {
-            "fieldName": "pageFin",
+            "fieldName": "pageFinChapitre",
             "fieldType": "String"
         },
         {
-            "fieldName": "hal",
+            "fieldName": "langueChapitre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienChapitre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "halChapitre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diversChapitre",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153400",
+    "changelogDate": "20180215164159",
     "javadoc": "Chapitre : identifiant nécessaire",
     "entityTableName": "chapitre",
     "dto": "no",

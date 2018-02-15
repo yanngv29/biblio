@@ -63,8 +63,8 @@ export class MemoireService {
      */
     private convertItemFromServer(memoire: Memoire): Memoire {
         const copy: Memoire = Object.assign({}, memoire);
-        copy.date = this.dateUtils
-            .convertDateTimeFromServer(memoire.date);
+        copy.dateMemoire = this.dateUtils
+            .convertDateTimeFromServer(memoire.dateMemoire);
         return copy;
     }
 
@@ -74,7 +74,7 @@ export class MemoireService {
     private convert(memoire: Memoire): Memoire {
         const copy: Memoire = Object.assign({}, memoire);
 
-        copy.date = this.dateUtils.toDate(memoire.date);
+        copy.dateMemoire = this.dateUtils.toDate(memoire.dateMemoire);
         return copy;
     }
 }

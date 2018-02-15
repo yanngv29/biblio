@@ -16,17 +16,13 @@
             "detail": {
                 "title": "Revue"
             },
-            "idRevue": "Id Revue",
-            "nom": "Nom",
+            "nomRevue": "Nom Revue",
             "audience": "Audience",
             "comiteSelection": "Comite Selection",
-            "mois": "Mois",
-            "annee": "Annee",
-            "volume": "Volume",
-            "numeroVolume": "Numero Volume",
-            "lieu": "Lieu",
-            "lien": "Lien",
-            "divers": "Divers",
+            "langueRevue": "Langue Revue",
+            "lieuRevue": "Lieu Revue",
+            "lienRevue": "Lien Revue",
+            "diversRevue": "Divers Revue",
             "notation": "Notation"
         }
     }

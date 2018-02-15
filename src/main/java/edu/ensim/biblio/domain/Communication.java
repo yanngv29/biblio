@@ -5,7 +5,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -28,16 +27,27 @@ public class Communication implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "id_communication", nullable = false)
-    private String idCommunication;
+    @Column(name = "titre_communication")
+    private String titreCommunication;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "jhi_type")
-    private TypeCommunication type;
+    @Column(name = "type_communication")
+    private TypeCommunication typeCommunication;
 
-    @Column(name = "hal")
-    private String hal;
+    @Column(name = "langue_communication")
+    private String langueCommunication;
+
+    @Column(name = "lien_communication")
+    private String lienCommunication;
+
+    @Column(name = "doi_communication")
+    private String doiCommunication;
+
+    @Column(name = "hal_communication")
+    private String halCommunication;
+
+    @Column(name = "divers_communication")
+    private String diversCommunication;
 
     @ManyToOne
     private Conference conference;
@@ -51,43 +61,95 @@ public class Communication implements Serializable {
         this.id = id;
     }
 
-    public String getIdCommunication() {
-        return idCommunication;
+    public String getTitreCommunication() {
+        return titreCommunication;
     }
 
-    public Communication idCommunication(String idCommunication) {
-        this.idCommunication = idCommunication;
+    public Communication titreCommunication(String titreCommunication) {
+        this.titreCommunication = titreCommunication;
         return this;
     }
 
-    public void setIdCommunication(String idCommunication) {
-        this.idCommunication = idCommunication;
+    public void setTitreCommunication(String titreCommunication) {
+        this.titreCommunication = titreCommunication;
     }
 
-    public TypeCommunication getType() {
-        return type;
+    public TypeCommunication getTypeCommunication() {
+        return typeCommunication;
     }
 
-    public Communication type(TypeCommunication type) {
-        this.type = type;
+    public Communication typeCommunication(TypeCommunication typeCommunication) {
+        this.typeCommunication = typeCommunication;
         return this;
     }
 
-    public void setType(TypeCommunication type) {
-        this.type = type;
+    public void setTypeCommunication(TypeCommunication typeCommunication) {
+        this.typeCommunication = typeCommunication;
     }
 
-    public String getHal() {
-        return hal;
+    public String getLangueCommunication() {
+        return langueCommunication;
     }
 
-    public Communication hal(String hal) {
-        this.hal = hal;
+    public Communication langueCommunication(String langueCommunication) {
+        this.langueCommunication = langueCommunication;
         return this;
     }
 
-    public void setHal(String hal) {
-        this.hal = hal;
+    public void setLangueCommunication(String langueCommunication) {
+        this.langueCommunication = langueCommunication;
+    }
+
+    public String getLienCommunication() {
+        return lienCommunication;
+    }
+
+    public Communication lienCommunication(String lienCommunication) {
+        this.lienCommunication = lienCommunication;
+        return this;
+    }
+
+    public void setLienCommunication(String lienCommunication) {
+        this.lienCommunication = lienCommunication;
+    }
+
+    public String getDoiCommunication() {
+        return doiCommunication;
+    }
+
+    public Communication doiCommunication(String doiCommunication) {
+        this.doiCommunication = doiCommunication;
+        return this;
+    }
+
+    public void setDoiCommunication(String doiCommunication) {
+        this.doiCommunication = doiCommunication;
+    }
+
+    public String getHalCommunication() {
+        return halCommunication;
+    }
+
+    public Communication halCommunication(String halCommunication) {
+        this.halCommunication = halCommunication;
+        return this;
+    }
+
+    public void setHalCommunication(String halCommunication) {
+        this.halCommunication = halCommunication;
+    }
+
+    public String getDiversCommunication() {
+        return diversCommunication;
+    }
+
+    public Communication diversCommunication(String diversCommunication) {
+        this.diversCommunication = diversCommunication;
+        return this;
+    }
+
+    public void setDiversCommunication(String diversCommunication) {
+        this.diversCommunication = diversCommunication;
     }
 
     public Conference getConference() {
@@ -128,9 +190,13 @@ public class Communication implements Serializable {
     public String toString() {
         return "Communication{" +
             "id=" + getId() +
-            ", idCommunication='" + getIdCommunication() + "'" +
-            ", type='" + getType() + "'" +
-            ", hal='" + getHal() + "'" +
+            ", titreCommunication='" + getTitreCommunication() + "'" +
+            ", typeCommunication='" + getTypeCommunication() + "'" +
+            ", langueCommunication='" + getLangueCommunication() + "'" +
+            ", lienCommunication='" + getLienCommunication() + "'" +
+            ", doiCommunication='" + getDoiCommunication() + "'" +
+            ", halCommunication='" + getHalCommunication() + "'" +
+            ", diversCommunication='" + getDiversCommunication() + "'" +
             "}";
     }
 }

@@ -13,39 +13,65 @@
                    [(ngModel)]="memoire.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.memoire.idMemoire" for="field_idMemoire">Id Memoire</label>
-            <input type="text" class="form-control" name="idMemoire" id="field_idMemoire"
-                [(ngModel)]="memoire.idMemoire" required/>
-            <div [hidden]="!(editForm.controls.idMemoire?.dirty && editForm.controls.idMemoire?.invalid)">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.titreMemoire" for="field_titreMemoire">Titre Memoire</label>
+            <input type="text" class="form-control" name="titreMemoire" id="field_titreMemoire"
+                [(ngModel)]="memoire.titreMemoire" required/>
+            <div [hidden]="!(editForm.controls.titreMemoire?.dirty && editForm.controls.titreMemoire?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.idMemoire?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.titreMemoire?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.memoire.type" for="field_type">Type</label>
-            <select class="form-control" name="type" [(ngModel)]="memoire.type" id="field_type" >
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.typeMemoire" for="field_typeMemoire">Type Memoire</label>
+            <select class="form-control" name="typeMemoire" [(ngModel)]="memoire.typeMemoire" id="field_typeMemoire"  required>
                 <option value="THESE">{{'biblioApp.TypeMemoire.THESE' | translate}}</option>
                 <option value="HDR">{{'biblioApp.TypeMemoire.HDR' | translate}}</option>
             </select>
+            <div [hidden]="!(editForm.controls.typeMemoire?.dirty && editForm.controls.typeMemoire?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.typeMemoire?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.memoire.date" for="field_date">Date</label>
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.dateMemoire" for="field_dateMemoire">Date Memoire</label>
             <div class="d-flex">
-                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="memoire.date"
+                <input id="field_dateMemoire" type="datetime-local" class="form-control" name="dateMemoire" [(ngModel)]="memoire.dateMemoire"
                 />
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.memoire.lieu" for="field_lieu">Lieu</label>
-            <input type="text" class="form-control" name="lieu" id="field_lieu"
-                [(ngModel)]="memoire.lieu" />
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.lieuMemoire" for="field_lieuMemoire">Lieu Memoire</label>
+            <input type="text" class="form-control" name="lieuMemoire" id="field_lieuMemoire"
+                [(ngModel)]="memoire.lieuMemoire" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.memoire.hal" for="field_hal">Hal</label>
-            <input type="text" class="form-control" name="hal" id="field_hal"
-                [(ngModel)]="memoire.hal" />
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.langueMemoire" for="field_langueMemoire">Langue Memoire</label>
+            <input type="text" class="form-control" name="langueMemoire" id="field_langueMemoire"
+                [(ngModel)]="memoire.langueMemoire" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.lienMemoire" for="field_lienMemoire">Lien Memoire</label>
+            <input type="text" class="form-control" name="lienMemoire" id="field_lienMemoire"
+                [(ngModel)]="memoire.lienMemoire" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.doiMemoire" for="field_doiMemoire">Doi Memoire</label>
+            <input type="text" class="form-control" name="doiMemoire" id="field_doiMemoire"
+                [(ngModel)]="memoire.doiMemoire" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.halMemoire" for="field_halMemoire">Hal Memoire</label>
+            <input type="text" class="form-control" name="halMemoire" id="field_halMemoire"
+                [(ngModel)]="memoire.halMemoire" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.diversMemoire" for="field_diversMemoire">Divers Memoire</label>
+            <input type="text" class="form-control" name="diversMemoire" id="field_diversMemoire"
+                [(ngModel)]="memoire.diversMemoire" />
         </div>
 
     </div>

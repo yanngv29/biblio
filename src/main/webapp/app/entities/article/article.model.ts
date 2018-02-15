@@ -10,14 +10,18 @@ export const enum TypeArticle {
 export class Article implements BaseEntity {
     constructor(
         public id?: number,
-        public idArticle?: string,
-        public type?: TypeArticle,
-        public pageDebut?: string,
-        public pageFin?: string,
-        public hal?: string,
+        public titreArticle?: string,
+        public typeArticle?: TypeArticle,
+        public pageDebutArticle?: string,
+        public pageFinArticle?: string,
+        public langueArticle?: string,
+        public lienArticle?: string,
+        public halArticle?: string,
+        public diversArticle?: string,
         public numeroRevue?: BaseEntity,
-        public acte?: BaseEntity,
+        public actes?: BaseEntity,
         public conference?: BaseEntity,
+        public auteurs?: BaseEntity[],
     ) {
     }
 }

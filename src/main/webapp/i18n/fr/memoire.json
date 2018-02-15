@@ -16,11 +16,15 @@
             "detail": {
                 "title": "Memoire"
             },
-            "idMemoire": "Id Memoire",
-            "type": "Type",
-            "date": "Date",
-            "lieu": "Lieu",
-            "hal": "Hal",
+            "titreMemoire": "Titre Memoire",
+            "typeMemoire": "Type Memoire",
+            "dateMemoire": "Date Memoire",
+            "lieuMemoire": "Lieu Memoire",
+            "langueMemoire": "Langue Memoire",
+            "lienMemoire": "Lien Memoire",
+            "doiMemoire": "Doi Memoire",
+            "halMemoire": "Hal Memoire",
+            "diversMemoire": "Divers Memoire",
             "notation": "Notation"
         }
     }

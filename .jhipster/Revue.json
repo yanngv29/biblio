@@ -4,21 +4,17 @@
         {
             "relationshipType": "one-to-many",
             "relationshipName": "notation",
-            "otherEntityName": "notation",
+            "otherEntityName": "note",
             "otherEntityRelationshipName": "revue"
         }
     ],
     "fields": [
         {
-            "fieldName": "idRevue",
+            "fieldName": "nomRevue",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
-        },
-        {
-            "fieldName": "nom",
-            "fieldType": "String"
         },
         {
             "fieldName": "audience",
@@ -30,35 +26,23 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "mois",
+            "fieldName": "langueRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "annee",
+            "fieldName": "lieuRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "volume",
+            "fieldName": "lienRevue",
             "fieldType": "String"
         },
         {
-            "fieldName": "numeroVolume",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "lieu",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "lien",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "divers",
+            "fieldName": "diversRevue",
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180214153411",
+    "changelogDate": "20180215164209",
     "javadoc": "Revue : identifiant, nom et année obligatoires",
     "entityTableName": "revue",
     "dto": "no",

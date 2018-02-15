@@ -17,21 +17,19 @@ export const enum Audience {
 export class Conference implements BaseEntity {
     constructor(
         public id?: number,
-        public idConference?: string,
-        public type?: TypeConference,
-        public nom?: string,
-        public audience?: Audience,
-        public comiteSelection?: boolean,
-        public editeur?: string,
-        public dateDebut?: any,
-        public dateFin?: any,
-        public ville?: string,
-        public pays?: string,
-        public lienSite?: string,
-        public lienActes?: string,
-        public divers?: string,
+        public nomConference?: string,
+        public typeConference?: TypeConference,
+        public audienceConference?: Audience,
+        public comiteSelectionConference?: boolean,
+        public dateDebutConference?: any,
+        public dateFinConference?: any,
+        public villeConference?: string,
+        public paysConference?: string,
+        public langueConference?: string,
+        public lienSiteConference?: string,
+        public diversConference?: string,
         public notations?: BaseEntity[],
     ) {
-        this.comiteSelection = false;
+        this.comiteSelectionConference = false;
     }
 }

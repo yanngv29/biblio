@@ -27,17 +27,26 @@ public class Chapitre implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_chapitre", nullable = false)
-    private String idChapitre;
+    @Column(name = "titre_chapitre", nullable = false)
+    private String titreChapitre;
 
-    @Column(name = "page_debut")
-    private String pageDebut;
+    @Column(name = "page_debut_chapitre")
+    private String pageDebutChapitre;
 
-    @Column(name = "page_fin")
-    private String pageFin;
+    @Column(name = "page_fin_chapitre")
+    private String pageFinChapitre;
 
-    @Column(name = "hal")
-    private String hal;
+    @Column(name = "langue_chapitre")
+    private String langueChapitre;
+
+    @Column(name = "lien_chapitre")
+    private String lienChapitre;
+
+    @Column(name = "hal_chapitre")
+    private String halChapitre;
+
+    @Column(name = "divers_chapitre")
+    private String diversChapitre;
 
     @ManyToOne
     private Ouvrage ouvrage;
@@ -51,56 +60,95 @@ public class Chapitre implements Serializable {
         this.id = id;
     }
 
-    public String getIdChapitre() {
-        return idChapitre;
+    public String getTitreChapitre() {
+        return titreChapitre;
     }
 
-    public Chapitre idChapitre(String idChapitre) {
-        this.idChapitre = idChapitre;
+    public Chapitre titreChapitre(String titreChapitre) {
+        this.titreChapitre = titreChapitre;
         return this;
     }
 
-    public void setIdChapitre(String idChapitre) {
-        this.idChapitre = idChapitre;
+    public void setTitreChapitre(String titreChapitre) {
+        this.titreChapitre = titreChapitre;
     }
 
-    public String getPageDebut() {
-        return pageDebut;
+    public String getPageDebutChapitre() {
+        return pageDebutChapitre;
     }
 
-    public Chapitre pageDebut(String pageDebut) {
-        this.pageDebut = pageDebut;
+    public Chapitre pageDebutChapitre(String pageDebutChapitre) {
+        this.pageDebutChapitre = pageDebutChapitre;
         return this;
     }
 
-    public void setPageDebut(String pageDebut) {
-        this.pageDebut = pageDebut;
+    public void setPageDebutChapitre(String pageDebutChapitre) {
+        this.pageDebutChapitre = pageDebutChapitre;
     }
 
-    public String getPageFin() {
-        return pageFin;
+    public String getPageFinChapitre() {
+        return pageFinChapitre;
     }
 
-    public Chapitre pageFin(String pageFin) {
-        this.pageFin = pageFin;
+    public Chapitre pageFinChapitre(String pageFinChapitre) {
+        this.pageFinChapitre = pageFinChapitre;
         return this;
     }
 
-    public void setPageFin(String pageFin) {
-        this.pageFin = pageFin;
+    public void setPageFinChapitre(String pageFinChapitre) {
+        this.pageFinChapitre = pageFinChapitre;
     }
 
-    public String getHal() {
-        return hal;
+    public String getLangueChapitre() {
+        return langueChapitre;
     }
 
-    public Chapitre hal(String hal) {
-        this.hal = hal;
+    public Chapitre langueChapitre(String langueChapitre) {
+        this.langueChapitre = langueChapitre;
         return this;
     }
 
-    public void setHal(String hal) {
-        this.hal = hal;
+    public void setLangueChapitre(String langueChapitre) {
+        this.langueChapitre = langueChapitre;
+    }
+
+    public String getLienChapitre() {
+        return lienChapitre;
+    }
+
+    public Chapitre lienChapitre(String lienChapitre) {
+        this.lienChapitre = lienChapitre;
+        return this;
+    }
+
+    public void setLienChapitre(String lienChapitre) {
+        this.lienChapitre = lienChapitre;
+    }
+
+    public String getHalChapitre() {
+        return halChapitre;
+    }
+
+    public Chapitre halChapitre(String halChapitre) {
+        this.halChapitre = halChapitre;
+        return this;
+    }
+
+    public void setHalChapitre(String halChapitre) {
+        this.halChapitre = halChapitre;
+    }
+
+    public String getDiversChapitre() {
+        return diversChapitre;
+    }
+
+    public Chapitre diversChapitre(String diversChapitre) {
+        this.diversChapitre = diversChapitre;
+        return this;
+    }
+
+    public void setDiversChapitre(String diversChapitre) {
+        this.diversChapitre = diversChapitre;
     }
 
     public Ouvrage getOuvrage() {
@@ -141,10 +189,13 @@ public class Chapitre implements Serializable {
     public String toString() {
         return "Chapitre{" +
             "id=" + getId() +
-            ", idChapitre='" + getIdChapitre() + "'" +
-            ", pageDebut='" + getPageDebut() + "'" +
-            ", pageFin='" + getPageFin() + "'" +
-            ", hal='" + getHal() + "'" +
+            ", titreChapitre='" + getTitreChapitre() + "'" +
+            ", pageDebutChapitre='" + getPageDebutChapitre() + "'" +
+            ", pageFinChapitre='" + getPageFinChapitre() + "'" +
+            ", langueChapitre='" + getLangueChapitre() + "'" +
+            ", lienChapitre='" + getLienChapitre() + "'" +
+            ", halChapitre='" + getHalChapitre() + "'" +
+            ", diversChapitre='" + getDiversChapitre() + "'" +
             "}";
     }
 }

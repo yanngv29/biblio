@@ -3,14 +3,16 @@ import { BaseEntity } from './../../shared';
 export class NumeroRevue implements BaseEntity {
     constructor(
         public id?: number,
-        public idNumeroRevue?: string,
-        public mois?: string,
-        public annee?: string,
-        public volume?: string,
-        public numeroVolume?: string,
-        public lien?: string,
-        public doi?: string,
+        public volumeNumeroRevue?: string,
+        public numeroVolumeNumeroRevue?: string,
+        public moisNumeroRevue?: string,
+        public anneeNumeroRevue?: string,
+        public langueNumeroRevue?: string,
+        public lienNumeroRevue?: string,
+        public doiNumeroRevue?: string,
+        public diversNumeroRevue?: string,
         public revue?: BaseEntity,
+        public writers?: BaseEntity[],
     ) {
     }
 }

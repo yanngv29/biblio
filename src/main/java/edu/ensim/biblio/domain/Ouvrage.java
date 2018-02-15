@@ -2,6 +2,7 @@ package edu.ensim.biblio.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,53 +35,62 @@ public class Ouvrage implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_ouvrage", nullable = false)
-    private String idOuvrage;
+    @Column(name = "titre_ouvrage", nullable = false)
+    private String titreOuvrage;
 
-    @Column(name = "titre")
-    private String titre;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type_ouvrage", nullable = false)
+    private TypeOuvrage typeOuvrage;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "jhi_type")
-    private TypeOuvrage type;
+    @Column(name = "participation_ouvrage")
+    private TypeParticipation participationOuvrage;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "participation")
-    private TypeParticipation participation;
+    @Column(name = "annee_ouvrage")
+    private Integer anneeOuvrage;
 
-    @Column(name = "annee")
-    private Integer annee;
+    @Column(name = "numero_edition_ouvrage")
+    private Integer numeroEditionOuvrage;
 
-    @Column(name = "numero_edition")
-    private Integer numeroEdition;
+    @Column(name = "volume_ouvrage")
+    private Integer volumeOuvrage;
 
-    @Column(name = "volume")
-    private Integer volume;
+    @Column(name = "traduction_ouvrage")
+    private String traductionOuvrage;
 
-    @Column(name = "traduction")
-    private String traduction;
+    @Column(name = "lieu_ouvrage")
+    private String lieuOuvrage;
 
-    @Column(name = "lieu")
-    private String lieu;
+    @Column(name = "maison_edition_ouvrage")
+    private String maisonEditionOuvrage;
 
-    @Column(name = "maison_edition")
-    private String maisonEdition;
+    @Column(name = "collection_ouvrage")
+    private String collectionOuvrage;
 
-    @Column(name = "collection")
-    private String collection;
+    @Column(name = "langue_ouvrage")
+    private String langueOuvrage;
 
-    @Column(name = "hal")
-    private String hal;
+    @Column(name = "lien_ouvrage")
+    private String lienOuvrage;
 
+    @Column(name = "doi_ouvrage")
+    private String doiOuvrage;
+
+    @Column(name = "hal_ouvrage")
+    private String halOuvrage;
+
+    @Column(name = "divers_ouvrage")
+    private String diversOuvrage;
+
+    /**
+     * Ouvrage{chapitre} to Chapitre,
+     */
+    @ApiModelProperty(value = "Ouvrage{chapitre} to Chapitre,")
     @OneToMany(mappedBy = "ouvrage")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Notation> notations = new HashSet<>();
-
-    @OneToMany(mappedBy = "ouvrage")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Chapitre> chapitres = new HashSet<>();
+    private Set<Note> notations = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -91,210 +101,224 @@ public class Ouvrage implements Serializable {
         this.id = id;
     }
 
-    public String getIdOuvrage() {
-        return idOuvrage;
+    public String getTitreOuvrage() {
+        return titreOuvrage;
     }
 
-    public Ouvrage idOuvrage(String idOuvrage) {
-        this.idOuvrage = idOuvrage;
+    public Ouvrage titreOuvrage(String titreOuvrage) {
+        this.titreOuvrage = titreOuvrage;
         return this;
     }
 
-    public void setIdOuvrage(String idOuvrage) {
-        this.idOuvrage = idOuvrage;
+    public void setTitreOuvrage(String titreOuvrage) {
+        this.titreOuvrage = titreOuvrage;
     }
 
-    public String getTitre() {
-        return titre;
+    public TypeOuvrage getTypeOuvrage() {
+        return typeOuvrage;
     }
 
-    public Ouvrage titre(String titre) {
-        this.titre = titre;
+    public Ouvrage typeOuvrage(TypeOuvrage typeOuvrage) {
+        this.typeOuvrage = typeOuvrage;
         return this;
     }
 
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setTypeOuvrage(TypeOuvrage typeOuvrage) {
+        this.typeOuvrage = typeOuvrage;
     }
 
-    public TypeOuvrage getType() {
-        return type;
+    public TypeParticipation getParticipationOuvrage() {
+        return participationOuvrage;
     }
 
-    public Ouvrage type(TypeOuvrage type) {
-        this.type = type;
+    public Ouvrage participationOuvrage(TypeParticipation participationOuvrage) {
+        this.participationOuvrage = participationOuvrage;
         return this;
     }
 
-    public void setType(TypeOuvrage type) {
-        this.type = type;
+    public void setParticipationOuvrage(TypeParticipation participationOuvrage) {
+        this.participationOuvrage = participationOuvrage;
     }
 
-    public TypeParticipation getParticipation() {
-        return participation;
+    public Integer getAnneeOuvrage() {
+        return anneeOuvrage;
     }
 
-    public Ouvrage participation(TypeParticipation participation) {
-        this.participation = participation;
+    public Ouvrage anneeOuvrage(Integer anneeOuvrage) {
+        this.anneeOuvrage = anneeOuvrage;
         return this;
     }
 
-    public void setParticipation(TypeParticipation participation) {
-        this.participation = participation;
+    public void setAnneeOuvrage(Integer anneeOuvrage) {
+        this.anneeOuvrage = anneeOuvrage;
     }
 
-    public Integer getAnnee() {
-        return annee;
+    public Integer getNumeroEditionOuvrage() {
+        return numeroEditionOuvrage;
     }
 
-    public Ouvrage annee(Integer annee) {
-        this.annee = annee;
+    public Ouvrage numeroEditionOuvrage(Integer numeroEditionOuvrage) {
+        this.numeroEditionOuvrage = numeroEditionOuvrage;
         return this;
     }
 
-    public void setAnnee(Integer annee) {
-        this.annee = annee;
+    public void setNumeroEditionOuvrage(Integer numeroEditionOuvrage) {
+        this.numeroEditionOuvrage = numeroEditionOuvrage;
     }
 
-    public Integer getNumeroEdition() {
-        return numeroEdition;
+    public Integer getVolumeOuvrage() {
+        return volumeOuvrage;
     }
 
-    public Ouvrage numeroEdition(Integer numeroEdition) {
-        this.numeroEdition = numeroEdition;
+    public Ouvrage volumeOuvrage(Integer volumeOuvrage) {
+        this.volumeOuvrage = volumeOuvrage;
         return this;
     }
 
-    public void setNumeroEdition(Integer numeroEdition) {
-        this.numeroEdition = numeroEdition;
+    public void setVolumeOuvrage(Integer volumeOuvrage) {
+        this.volumeOuvrage = volumeOuvrage;
     }
 
-    public Integer getVolume() {
-        return volume;
+    public String getTraductionOuvrage() {
+        return traductionOuvrage;
     }
 
-    public Ouvrage volume(Integer volume) {
-        this.volume = volume;
+    public Ouvrage traductionOuvrage(String traductionOuvrage) {
+        this.traductionOuvrage = traductionOuvrage;
         return this;
     }
 
-    public void setVolume(Integer volume) {
-        this.volume = volume;
+    public void setTraductionOuvrage(String traductionOuvrage) {
+        this.traductionOuvrage = traductionOuvrage;
     }
 
-    public String getTraduction() {
-        return traduction;
+    public String getLieuOuvrage() {
+        return lieuOuvrage;
     }
 
-    public Ouvrage traduction(String traduction) {
-        this.traduction = traduction;
+    public Ouvrage lieuOuvrage(String lieuOuvrage) {
+        this.lieuOuvrage = lieuOuvrage;
         return this;
     }
 
-    public void setTraduction(String traduction) {
-        this.traduction = traduction;
+    public void setLieuOuvrage(String lieuOuvrage) {
+        this.lieuOuvrage = lieuOuvrage;
     }
 
-    public String getLieu() {
-        return lieu;
+    public String getMaisonEditionOuvrage() {
+        return maisonEditionOuvrage;
     }
 
-    public Ouvrage lieu(String lieu) {
-        this.lieu = lieu;
+    public Ouvrage maisonEditionOuvrage(String maisonEditionOuvrage) {
+        this.maisonEditionOuvrage = maisonEditionOuvrage;
         return this;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setMaisonEditionOuvrage(String maisonEditionOuvrage) {
+        this.maisonEditionOuvrage = maisonEditionOuvrage;
     }
 
-    public String getMaisonEdition() {
-        return maisonEdition;
+    public String getCollectionOuvrage() {
+        return collectionOuvrage;
     }
 
-    public Ouvrage maisonEdition(String maisonEdition) {
-        this.maisonEdition = maisonEdition;
+    public Ouvrage collectionOuvrage(String collectionOuvrage) {
+        this.collectionOuvrage = collectionOuvrage;
         return this;
     }
 
-    public void setMaisonEdition(String maisonEdition) {
-        this.maisonEdition = maisonEdition;
+    public void setCollectionOuvrage(String collectionOuvrage) {
+        this.collectionOuvrage = collectionOuvrage;
     }
 
-    public String getCollection() {
-        return collection;
+    public String getLangueOuvrage() {
+        return langueOuvrage;
     }
 
-    public Ouvrage collection(String collection) {
-        this.collection = collection;
+    public Ouvrage langueOuvrage(String langueOuvrage) {
+        this.langueOuvrage = langueOuvrage;
         return this;
     }
 
-    public void setCollection(String collection) {
-        this.collection = collection;
+    public void setLangueOuvrage(String langueOuvrage) {
+        this.langueOuvrage = langueOuvrage;
     }
 
-    public String getHal() {
-        return hal;
+    public String getLienOuvrage() {
+        return lienOuvrage;
     }
 
-    public Ouvrage hal(String hal) {
-        this.hal = hal;
+    public Ouvrage lienOuvrage(String lienOuvrage) {
+        this.lienOuvrage = lienOuvrage;
         return this;
     }
 
-    public void setHal(String hal) {
-        this.hal = hal;
+    public void setLienOuvrage(String lienOuvrage) {
+        this.lienOuvrage = lienOuvrage;
     }
 
-    public Set<Notation> getNotations() {
+    public String getDoiOuvrage() {
+        return doiOuvrage;
+    }
+
+    public Ouvrage doiOuvrage(String doiOuvrage) {
+        this.doiOuvrage = doiOuvrage;
+        return this;
+    }
+
+    public void setDoiOuvrage(String doiOuvrage) {
+        this.doiOuvrage = doiOuvrage;
+    }
+
+    public String getHalOuvrage() {
+        return halOuvrage;
+    }
+
+    public Ouvrage halOuvrage(String halOuvrage) {
+        this.halOuvrage = halOuvrage;
+        return this;
+    }
+
+    public void setHalOuvrage(String halOuvrage) {
+        this.halOuvrage = halOuvrage;
+    }
+
+    public String getDiversOuvrage() {
+        return diversOuvrage;
+    }
+
+    public Ouvrage diversOuvrage(String diversOuvrage) {
+        this.diversOuvrage = diversOuvrage;
+        return this;
+    }
+
+    public void setDiversOuvrage(String diversOuvrage) {
+        this.diversOuvrage = diversOuvrage;
+    }
+
+    public Set<Note> getNotations() {
         return notations;
     }
 
-    public Ouvrage notations(Set<Notation> notations) {
-        this.notations = notations;
+    public Ouvrage notations(Set<Note> notes) {
+        this.notations = notes;
         return this;
     }
 
-    public Ouvrage addNotation(Notation notation) {
-        this.notations.add(notation);
-        notation.setOuvrage(this);
+    public Ouvrage addNotation(Note note) {
+        this.notations.add(note);
+        note.setOuvrage(this);
         return this;
     }
 
-    public Ouvrage removeNotation(Notation notation) {
-        this.notations.remove(notation);
-        notation.setOuvrage(null);
+    public Ouvrage removeNotation(Note note) {
+        this.notations.remove(note);
+        note.setOuvrage(null);
         return this;
     }
 
-    public void setNotations(Set<Notation> notations) {
-        this.notations = notations;
-    }
-
-    public Set<Chapitre> getChapitres() {
-        return chapitres;
-    }
-
-    public Ouvrage chapitres(Set<Chapitre> chapitres) {
-        this.chapitres = chapitres;
-        return this;
-    }
-
-    public Ouvrage addChapitre(Chapitre chapitre) {
-        this.chapitres.add(chapitre);
-        chapitre.setOuvrage(this);
-        return this;
-    }
-
-    public Ouvrage removeChapitre(Chapitre chapitre) {
-        this.chapitres.remove(chapitre);
-        chapitre.setOuvrage(null);
-        return this;
-    }
-
-    public void setChapitres(Set<Chapitre> chapitres) {
-        this.chapitres = chapitres;
+    public void setNotations(Set<Note> notes) {
+        this.notations = notes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -322,18 +346,21 @@ public class Ouvrage implements Serializable {
     public String toString() {
         return "Ouvrage{" +
             "id=" + getId() +
-            ", idOuvrage='" + getIdOuvrage() + "'" +
-            ", titre='" + getTitre() + "'" +
-            ", type='" + getType() + "'" +
-            ", participation='" + getParticipation() + "'" +
-            ", annee=" + getAnnee() +
-            ", numeroEdition=" + getNumeroEdition() +
-            ", volume=" + getVolume() +
-            ", traduction='" + getTraduction() + "'" +
-            ", lieu='" + getLieu() + "'" +
-            ", maisonEdition='" + getMaisonEdition() + "'" +
-            ", collection='" + getCollection() + "'" +
-            ", hal='" + getHal() + "'" +
+            ", titreOuvrage='" + getTitreOuvrage() + "'" +
+            ", typeOuvrage='" + getTypeOuvrage() + "'" +
+            ", participationOuvrage='" + getParticipationOuvrage() + "'" +
+            ", anneeOuvrage=" + getAnneeOuvrage() +
+            ", numeroEditionOuvrage=" + getNumeroEditionOuvrage() +
+            ", volumeOuvrage=" + getVolumeOuvrage() +
+            ", traductionOuvrage='" + getTraductionOuvrage() + "'" +
+            ", lieuOuvrage='" + getLieuOuvrage() + "'" +
+            ", maisonEditionOuvrage='" + getMaisonEditionOuvrage() + "'" +
+            ", collectionOuvrage='" + getCollectionOuvrage() + "'" +
+            ", langueOuvrage='" + getLangueOuvrage() + "'" +
+            ", lienOuvrage='" + getLienOuvrage() + "'" +
+            ", doiOuvrage='" + getDoiOuvrage() + "'" +
+            ", halOuvrage='" + getHalOuvrage() + "'" +
+            ", diversOuvrage='" + getDiversOuvrage() + "'" +
             "}";
     }
 }

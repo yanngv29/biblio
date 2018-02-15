@@ -16,9 +16,13 @@
             "detail": {
                 "title": "Communication"
             },
-            "idCommunication": "Id Communication",
-            "type": "Type",
-            "hal": "Hal",
+            "titreCommunication": "Titre Communication",
+            "typeCommunication": "Type Communication",
+            "langueCommunication": "Langue Communication",
+            "lienCommunication": "Lien Communication",
+            "doiCommunication": "Doi Communication",
+            "halCommunication": "Hal Communication",
+            "diversCommunication": "Divers Communication",
             "conference": "Conference"
         }
     }

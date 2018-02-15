@@ -4,25 +4,49 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="biblioApp.rapport.idMemoire">Id Memoire</span></dt>
+        <dt><span jhiTranslate="biblioApp.rapport.titreRapport">Titre Rapport</span></dt>
         <dd>
-            <span>{{rapport.idMemoire}}</span>
+            <span>{{rapport.titreRapport}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.rapport.type">Type</span></dt>
+        <dt><span jhiTranslate="biblioApp.rapport.sousTitreRapport">Sous Titre Rapport</span></dt>
         <dd>
-            <span jhiTranslate="{{'biblioApp.TypeRapport.' + rapport.type}}">{{rapport.type}}</span>
+            <span>{{rapport.sousTitreRapport}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.rapport.date">Date</span></dt>
+        <dt><span jhiTranslate="biblioApp.rapport.typeRapport">Type Rapport</span></dt>
         <dd>
-            <span>{{rapport.date | date:'medium'}}</span>
+            <span jhiTranslate="{{'biblioApp.TypeRapport.' + rapport.typeRapport}}">{{rapport.typeRapport}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.rapport.lieu">Lieu</span></dt>
+        <dt><span jhiTranslate="biblioApp.rapport.dateRapport">Date Rapport</span></dt>
         <dd>
-            <span>{{rapport.lieu}}</span>
+            <span>{{rapport.dateRapport | date:'medium'}}</span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.rapport.maisonEdition">Maison Edition</span></dt>
+        <dt><span jhiTranslate="biblioApp.rapport.lieuRapport">Lieu Rapport</span></dt>
         <dd>
-            <span>{{rapport.maisonEdition}}</span>
+            <span>{{rapport.lieuRapport}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.maisonEditionRapport">Maison Edition Rapport</span></dt>
+        <dd>
+            <span>{{rapport.maisonEditionRapport}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.langueRapport">Langue Rapport</span></dt>
+        <dd>
+            <span>{{rapport.langueRapport}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.lienRapport">Lien Rapport</span></dt>
+        <dd>
+            <span>{{rapport.lienRapport}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.doiRapport">Doi Rapport</span></dt>
+        <dd>
+            <span>{{rapport.doiRapport}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.halRapport">Hal Rapport</span></dt>
+        <dd>
+            <span>{{rapport.halRapport}}</span>
+        </dd>
+        <dt><span jhiTranslate="biblioApp.rapport.diversOuvrageRapport">Divers Ouvrage Rapport</span></dt>
+        <dd>
+            <span>{{rapport.diversOuvrageRapport}}</span>
         </dd>
     </dl>
 

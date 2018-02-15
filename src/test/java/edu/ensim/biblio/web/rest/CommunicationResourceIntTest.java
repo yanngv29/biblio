@@ -39,14 +39,26 @@ import edu.ensim.biblio.domain.enumeration.TypeCommunication;
 @SpringBootTest(classes = BiblioApp.class)
 public class CommunicationResourceIntTest {
 
-    private static final String DEFAULT_ID_COMMUNICATION = "AAAAAAAAAA";
-    private static final String UPDATED_ID_COMMUNICATION = "BBBBBBBBBB";
+    private static final String DEFAULT_TITRE_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_TITRE_COMMUNICATION = "BBBBBBBBBB";
 
-    private static final TypeCommunication DEFAULT_TYPE = TypeCommunication.AFFICHE;
-    private static final TypeCommunication UPDATED_TYPE = TypeCommunication.ATELIER;
+    private static final TypeCommunication DEFAULT_TYPE_COMMUNICATION = TypeCommunication.AFFICHE;
+    private static final TypeCommunication UPDATED_TYPE_COMMUNICATION = TypeCommunication.ATELIER;
 
-    private static final String DEFAULT_HAL = "AAAAAAAAAA";
-    private static final String UPDATED_HAL = "BBBBBBBBBB";
+    private static final String DEFAULT_LANGUE_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_LANGUE_COMMUNICATION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LIEN_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_LIEN_COMMUNICATION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DOI_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_DOI_COMMUNICATION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HAL_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_HAL_COMMUNICATION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIVERS_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_DIVERS_COMMUNICATION = "BBBBBBBBBB";
 
     @Autowired
     private CommunicationRepository communicationRepository;
@@ -86,9 +98,13 @@ public class CommunicationResourceIntTest {
      */
     public static Communication createEntity(EntityManager em) {
         Communication communication = new Communication()
-            .idCommunication(DEFAULT_ID_COMMUNICATION)
-            .type(DEFAULT_TYPE)
-            .hal(DEFAULT_HAL);
+            .titreCommunication(DEFAULT_TITRE_COMMUNICATION)
+            .typeCommunication(DEFAULT_TYPE_COMMUNICATION)
+            .langueCommunication(DEFAULT_LANGUE_COMMUNICATION)
+            .lienCommunication(DEFAULT_LIEN_COMMUNICATION)
+            .doiCommunication(DEFAULT_DOI_COMMUNICATION)
+            .halCommunication(DEFAULT_HAL_COMMUNICATION)
+            .diversCommunication(DEFAULT_DIVERS_COMMUNICATION);
         return communication;
     }
 
@@ -112,9 +128,13 @@ public class CommunicationResourceIntTest {
         List<Communication> communicationList = communicationRepository.findAll();
         assertThat(communicationList).hasSize(databaseSizeBeforeCreate + 1);
         Communication testCommunication = communicationList.get(communicationList.size() - 1);
-        assertThat(testCommunication.getIdCommunication()).isEqualTo(DEFAULT_ID_COMMUNICATION);
-        assertThat(testCommunication.getType()).isEqualTo(DEFAULT_TYPE);
-        assertThat(testCommunication.getHal()).isEqualTo(DEFAULT_HAL);
+        assertThat(testCommunication.getTitreCommunication()).isEqualTo(DEFAULT_TITRE_COMMUNICATION);
+        assertThat(testCommunication.getTypeCommunication()).isEqualTo(DEFAULT_TYPE_COMMUNICATION);
+        assertThat(testCommunication.getLangueCommunication()).isEqualTo(DEFAULT_LANGUE_COMMUNICATION);
+        assertThat(testCommunication.getLienCommunication()).isEqualTo(DEFAULT_LIEN_COMMUNICATION);
+        assertThat(testCommunication.getDoiCommunication()).isEqualTo(DEFAULT_DOI_COMMUNICATION);
+        assertThat(testCommunication.getHalCommunication()).isEqualTo(DEFAULT_HAL_COMMUNICATION);
+        assertThat(testCommunication.getDiversCommunication()).isEqualTo(DEFAULT_DIVERS_COMMUNICATION);
     }
 
     @Test
@@ -138,24 +158,6 @@ public class CommunicationResourceIntTest {
 
     @Test
     @Transactional
-    public void checkIdCommunicationIsRequired() throws Exception {
-        int databaseSizeBeforeTest = communicationRepository.findAll().size();
-        // set the field null
-        communication.setIdCommunication(null);
-
-        // Create the Communication, which fails.
-
-        restCommunicationMockMvc.perform(post("/api/communications")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(communication)))
-            .andExpect(status().isBadRequest());
-
-        List<Communication> communicationList = communicationRepository.findAll();
-        assertThat(communicationList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllCommunications() throws Exception {
         // Initialize the database
         communicationRepository.saveAndFlush(communication);
@@ -165,9 +167,13 @@ public class CommunicationResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(communication.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idCommunication").value(hasItem(DEFAULT_ID_COMMUNICATION.toString())))
-            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].hal").value(hasItem(DEFAULT_HAL.toString())));
+            .andExpect(jsonPath("$.[*].titreCommunication").value(hasItem(DEFAULT_TITRE_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].typeCommunication").value(hasItem(DEFAULT_TYPE_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].langueCommunication").value(hasItem(DEFAULT_LANGUE_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].lienCommunication").value(hasItem(DEFAULT_LIEN_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].doiCommunication").value(hasItem(DEFAULT_DOI_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].halCommunication").value(hasItem(DEFAULT_HAL_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].diversCommunication").value(hasItem(DEFAULT_DIVERS_COMMUNICATION.toString())));
     }
 
     @Test
@@ -181,9 +187,13 @@ public class CommunicationResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(communication.getId().intValue()))
-            .andExpect(jsonPath("$.idCommunication").value(DEFAULT_ID_COMMUNICATION.toString()))
-            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.hal").value(DEFAULT_HAL.toString()));
+            .andExpect(jsonPath("$.titreCommunication").value(DEFAULT_TITRE_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.typeCommunication").value(DEFAULT_TYPE_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.langueCommunication").value(DEFAULT_LANGUE_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.lienCommunication").value(DEFAULT_LIEN_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.doiCommunication").value(DEFAULT_DOI_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.halCommunication").value(DEFAULT_HAL_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.diversCommunication").value(DEFAULT_DIVERS_COMMUNICATION.toString()));
     }
 
     @Test
@@ -206,9 +216,13 @@ public class CommunicationResourceIntTest {
         // Disconnect from session so that the updates on updatedCommunication are not directly saved in db
         em.detach(updatedCommunication);
         updatedCommunication
-            .idCommunication(UPDATED_ID_COMMUNICATION)
-            .type(UPDATED_TYPE)
-            .hal(UPDATED_HAL);
+            .titreCommunication(UPDATED_TITRE_COMMUNICATION)
+            .typeCommunication(UPDATED_TYPE_COMMUNICATION)
+            .langueCommunication(UPDATED_LANGUE_COMMUNICATION)
+            .lienCommunication(UPDATED_LIEN_COMMUNICATION)
+            .doiCommunication(UPDATED_DOI_COMMUNICATION)
+            .halCommunication(UPDATED_HAL_COMMUNICATION)
+            .diversCommunication(UPDATED_DIVERS_COMMUNICATION);
 
         restCommunicationMockMvc.perform(put("/api/communications")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -219,9 +233,13 @@ public class CommunicationResourceIntTest {
         List<Communication> communicationList = communicationRepository.findAll();
         assertThat(communicationList).hasSize(databaseSizeBeforeUpdate);
         Communication testCommunication = communicationList.get(communicationList.size() - 1);
-        assertThat(testCommunication.getIdCommunication()).isEqualTo(UPDATED_ID_COMMUNICATION);
-        assertThat(testCommunication.getType()).isEqualTo(UPDATED_TYPE);
-        assertThat(testCommunication.getHal()).isEqualTo(UPDATED_HAL);
+        assertThat(testCommunication.getTitreCommunication()).isEqualTo(UPDATED_TITRE_COMMUNICATION);
+        assertThat(testCommunication.getTypeCommunication()).isEqualTo(UPDATED_TYPE_COMMUNICATION);
+        assertThat(testCommunication.getLangueCommunication()).isEqualTo(UPDATED_LANGUE_COMMUNICATION);
+        assertThat(testCommunication.getLienCommunication()).isEqualTo(UPDATED_LIEN_COMMUNICATION);
+        assertThat(testCommunication.getDoiCommunication()).isEqualTo(UPDATED_DOI_COMMUNICATION);
+        assertThat(testCommunication.getHalCommunication()).isEqualTo(UPDATED_HAL_COMMUNICATION);
+        assertThat(testCommunication.getDiversCommunication()).isEqualTo(UPDATED_DIVERS_COMMUNICATION);
     }
 
     @Test

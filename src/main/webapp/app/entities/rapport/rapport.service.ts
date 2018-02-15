@@ -63,8 +63,8 @@ export class RapportService {
      */
     private convertItemFromServer(rapport: Rapport): Rapport {
         const copy: Rapport = Object.assign({}, rapport);
-        copy.date = this.dateUtils
-            .convertDateTimeFromServer(rapport.date);
+        copy.dateRapport = this.dateUtils
+            .convertDateTimeFromServer(rapport.dateRapport);
         return copy;
     }
 
@@ -74,7 +74,7 @@ export class RapportService {
     private convert(rapport: Rapport): Rapport {
         const copy: Rapport = Object.assign({}, rapport);
 
-        copy.date = this.dateUtils.toDate(rapport.date);
+        copy.dateRapport = this.dateUtils.toDate(rapport.dateRapport);
         return copy;
     }
 }
