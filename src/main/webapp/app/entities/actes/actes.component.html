@@ -18,6 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="biblioApp.actes.titreActe">Titre Acte</span></th>
+            <th><span jhiTranslate="biblioApp.actes.sousTitreActe">Sous Titre Acte</span></th>
             <th><span jhiTranslate="biblioApp.actes.typeActe">Type Acte</span></th>
             <th><span jhiTranslate="biblioApp.actes.anneeActe">Annee Acte</span></th>
             <th><span jhiTranslate="biblioApp.actes.numeroEditionActe">Numero Edition Acte</span></th>
@@ -38,6 +39,7 @@
             <tr *ngFor="let actes of actes ;trackBy: trackId">
                 <td><a [routerLink]="['../actes', actes.id ]">{{actes.id}}</a></td>
                 <td>{{actes.titreActe}}</td>
+                <td>{{actes.sousTitreActe}}</td>
                 <td>{{actes.typeActe}}</td>
                 <td>{{actes.anneeActe}}</td>
                 <td>{{actes.numeroEditionActe}}</td>

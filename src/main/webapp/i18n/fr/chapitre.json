@@ -17,13 +17,13 @@
                 "title": "Chapitre"
             },
             "titreChapitre": "Titre Chapitre",
+            "sousTitreChapitre": "Sous Titre Chapitre",
             "pageDebutChapitre": "Page Debut Chapitre",
             "pageFinChapitre": "Page Fin Chapitre",
             "langueChapitre": "Langue Chapitre",
             "lienChapitre": "Lien Chapitre",
             "halChapitre": "Hal Chapitre",
-            "diversChapitre": "Divers Chapitre",
-            "ouvrage": "Ouvrage"
+            "diversChapitre": "Divers Chapitre"
         }
     }
 }

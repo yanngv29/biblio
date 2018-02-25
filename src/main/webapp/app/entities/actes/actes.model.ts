@@ -4,6 +4,7 @@ export class Actes implements BaseEntity {
     constructor(
         public id?: number,
         public titreActe?: string,
+        public sousTitreActe?: string,
         public typeActe?: string,
         public anneeActe?: number,
         public numeroEditionActe?: number,

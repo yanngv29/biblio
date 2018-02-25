@@ -17,6 +17,7 @@
                 "title": "Memoire"
             },
             "titreMemoire": "Titre Memoire",
+            "sousTitreMemoire": "Sous Titre Memoire",
             "typeMemoire": "Type Memoire",
             "dateMemoire": "Date Memoire",
             "lieuMemoire": "Lieu Memoire",

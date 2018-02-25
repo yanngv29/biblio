@@ -35,6 +35,9 @@ public class Article implements Serializable {
     @Column(name = "titre_article", nullable = false)
     private String titreArticle;
 
+    @Column(name = "sous_titre_article")
+    private String sousTitreArticle;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "type_article")
     private TypeArticle typeArticle;
@@ -91,6 +94,19 @@ public class Article implements Serializable {
 
     public void setTitreArticle(String titreArticle) {
         this.titreArticle = titreArticle;
+    }
+
+    public String getSousTitreArticle() {
+        return sousTitreArticle;
+    }
+
+    public Article sousTitreArticle(String sousTitreArticle) {
+        this.sousTitreArticle = sousTitreArticle;
+        return this;
+    }
+
+    public void setSousTitreArticle(String sousTitreArticle) {
+        this.sousTitreArticle = sousTitreArticle;
     }
 
     public TypeArticle getTypeArticle() {
@@ -274,6 +290,7 @@ public class Article implements Serializable {
         return "Article{" +
             "id=" + getId() +
             ", titreArticle='" + getTitreArticle() + "'" +
+            ", sousTitreArticle='" + getSousTitreArticle() + "'" +
             ", typeArticle='" + getTypeArticle() + "'" +
             ", pageDebutArticle='" + getPageDebutArticle() + "'" +
             ", pageFinArticle='" + getPageFinArticle() + "'" +

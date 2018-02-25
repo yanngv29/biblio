@@ -42,7 +42,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164209",
+    "changelogDate": "20180225202052",
     "javadoc": "Revue : identifiant, nom et année obligatoires",
     "entityTableName": "revue",
     "dto": "no",

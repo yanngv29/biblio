@@ -14,7 +14,6 @@ import { ArticleService } from '../../../../../../main/webapp/app/entities/artic
 import { ChapitreService } from '../../../../../../main/webapp/app/entities/chapitre';
 import { CommunicationService } from '../../../../../../main/webapp/app/entities/communication';
 import { OuvrageService } from '../../../../../../main/webapp/app/entities/ouvrage';
-import { PublicationGouvernementaleService } from '../../../../../../main/webapp/app/entities/publication-gouvernementale';
 import { NumeroRevueService } from '../../../../../../main/webapp/app/entities/numero-revue';
 import { MemoireService } from '../../../../../../main/webapp/app/entities/memoire';
 import { RapportService } from '../../../../../../main/webapp/app/entities/rapport';
@@ -38,7 +37,6 @@ describe('Component Tests', () => {
                     ChapitreService,
                     CommunicationService,
                     OuvrageService,
-                    PublicationGouvernementaleService,
                     NumeroRevueService,
                     MemoireService,
                     RapportService,

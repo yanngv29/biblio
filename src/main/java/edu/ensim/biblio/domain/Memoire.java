@@ -36,6 +36,9 @@ public class Memoire implements Serializable {
     @Column(name = "titre_memoire", nullable = false)
     private String titreMemoire;
 
+    @Column(name = "sous_titre_memoire")
+    private String sousTitreMemoire;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "type_memoire", nullable = false)
@@ -87,6 +90,19 @@ public class Memoire implements Serializable {
 
     public void setTitreMemoire(String titreMemoire) {
         this.titreMemoire = titreMemoire;
+    }
+
+    public String getSousTitreMemoire() {
+        return sousTitreMemoire;
+    }
+
+    public Memoire sousTitreMemoire(String sousTitreMemoire) {
+        this.sousTitreMemoire = sousTitreMemoire;
+        return this;
+    }
+
+    public void setSousTitreMemoire(String sousTitreMemoire) {
+        this.sousTitreMemoire = sousTitreMemoire;
     }
 
     public TypeMemoire getTypeMemoire() {
@@ -244,6 +260,7 @@ public class Memoire implements Serializable {
         return "Memoire{" +
             "id=" + getId() +
             ", titreMemoire='" + getTitreMemoire() + "'" +
+            ", sousTitreMemoire='" + getSousTitreMemoire() + "'" +
             ", typeMemoire='" + getTypeMemoire() + "'" +
             ", dateMemoire='" + getDateMemoire() + "'" +
             ", lieuMemoire='" + getLieuMemoire() + "'" +

@@ -12,7 +12,6 @@ import { NoteService } from './note.service';
 import { Conference, ConferenceService } from '../conference';
 import { Memoire, MemoireService } from '../memoire';
 import { Ouvrage, OuvrageService } from '../ouvrage';
-import { PublicationGouvernementale, PublicationGouvernementaleService } from '../publication-gouvernementale';
 import { Rapport, RapportService } from '../rapport';
 import { Revue, RevueService } from '../revue';
 
@@ -31,8 +30,6 @@ export class NoteDialogComponent implements OnInit {
 
     ouvrages: Ouvrage[];
 
-    publicationgouvernementales: PublicationGouvernementale[];
-
     rapports: Rapport[];
 
     revues: Revue[];
@@ -44,7 +41,6 @@ export class NoteDialogComponent implements OnInit {
         private conferenceService: ConferenceService,
         private memoireService: MemoireService,
         private ouvrageService: OuvrageService,
-        private publicationGouvernementaleService: PublicationGouvernementaleService,
         private rapportService: RapportService,
         private revueService: RevueService,
         private eventManager: JhiEventManager
@@ -59,8 +55,6 @@ export class NoteDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<Memoire[]>) => { this.memoires = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.ouvrageService.query()
             .subscribe((res: HttpResponse<Ouvrage[]>) => { this.ouvrages = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.publicationGouvernementaleService.query()
-            .subscribe((res: HttpResponse<PublicationGouvernementale[]>) => { this.publicationgouvernementales = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.rapportService.query()
             .subscribe((res: HttpResponse<Rapport[]>) => { this.rapports = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.revueService.query()
@@ -110,10 +104,6 @@ export class NoteDialogComponent implements OnInit {
     }
 
     trackOuvrageById(index: number, item: Ouvrage) {
-        return item.id;
-    }
-
-    trackPublicationGouvernementaleById(index: number, item: PublicationGouvernementale) {
         return item.id;
     }
 

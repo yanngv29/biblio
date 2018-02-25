@@ -24,6 +24,11 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.sousTitreChapitre" for="field_sousTitreChapitre">Sous Titre Chapitre</label>
+            <input type="text" class="form-control" name="sousTitreChapitre" id="field_sousTitreChapitre"
+                [(ngModel)]="chapitre.sousTitreChapitre" />
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.chapitre.pageDebutChapitre" for="field_pageDebutChapitre">Page Debut Chapitre</label>
             <input type="text" class="form-control" name="pageDebutChapitre" id="field_pageDebutChapitre"
                 [(ngModel)]="chapitre.pageDebutChapitre" />
@@ -54,13 +59,6 @@
                 [(ngModel)]="chapitre.diversChapitre" />
         </div>
 
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.chapitre.ouvrage" for="field_ouvrage">Ouvrage</label>
-            <select class="form-control" id="field_ouvrage" name="ouvrage" [(ngModel)]="chapitre.ouvrage" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="ouvrageOption.id === chapitre.ouvrage?.id ? chapitre.ouvrage : ouvrageOption" *ngFor="let ouvrageOption of ouvrages; trackBy: trackOuvrageById">{{ouvrageOption.id}}</option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

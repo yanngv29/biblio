@@ -20,12 +20,6 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipName": "publicationGouvernementale",
-            "otherEntityName": "publicationGouvernementale",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipName": "rapport",
             "otherEntityName": "rapport",
             "relationshipType": "many-to-one",
@@ -57,7 +51,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164204",
+    "changelogDate": "20180225202048",
     "javadoc": "Notation",
     "entityTableName": "note",
     "dto": "no",

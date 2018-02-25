@@ -70,12 +70,6 @@
             </select>
         </div>
         <div class="form-group">
-            <label jhiTranslate="biblioApp.chercheur.publicationGouvernementale" for="field_publicationGouvernementale">Publication Gouvernementale</label>
-            <select class="form-control" id="field_publicationGouvernementale" multiple name="publicationGouvernementale" [(ngModel)]="chercheur.publicationGouvernementales">
-                <option [ngValue]="getSelected(chercheur.publicationGouvernementales, publicationGouvernementaleOption)" *ngFor="let publicationGouvernementaleOption of publicationgouvernementales; trackBy: trackPublicationGouvernementaleById">{{publicationGouvernementaleOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label jhiTranslate="biblioApp.chercheur.revue" for="field_revue">Revue</label>
             <select class="form-control" id="field_revue" multiple name="revue" [(ngModel)]="chercheur.revues">
                 <option [ngValue]="getSelected(chercheur.revues, numeroRevueOption)" *ngFor="let numeroRevueOption of numerorevues; trackBy: trackNumeroRevueById">{{numeroRevueOption.id}}</option>

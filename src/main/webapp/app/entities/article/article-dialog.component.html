@@ -24,6 +24,11 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.article.sousTitreArticle" for="field_sousTitreArticle">Sous Titre Article</label>
+            <input type="text" class="form-control" name="sousTitreArticle" id="field_sousTitreArticle"
+                [(ngModel)]="article.sousTitreArticle" />
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.article.typeArticle" for="field_typeArticle">Type Article</label>
             <select class="form-control" name="typeArticle" [(ngModel)]="article.typeArticle" id="field_typeArticle" >
                 <option value="PUBLIE">{{'biblioApp.TypeArticle.PUBLIE' | translate}}</option>

@@ -3,7 +3,6 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "javadoc": "Ouvrage{chapitre} to Chapitre,",
             "relationshipName": "notation",
             "otherEntityName": "note",
             "otherEntityRelationshipName": "ouvrage"
@@ -16,6 +15,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "sousTitreOuvrage",
+            "fieldType": "String"
         },
         {
             "fieldName": "typeOuvrage",
@@ -79,7 +82,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164206",
+    "changelogDate": "20180225202050",
     "javadoc": "Acte de conférence : identifiant obligatoire",
     "entityTableName": "ouvrage",
     "dto": "no",

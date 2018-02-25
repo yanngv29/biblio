@@ -18,6 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="biblioApp.ouvrage.titreOuvrage">Titre Ouvrage</span></th>
+            <th><span jhiTranslate="biblioApp.ouvrage.sousTitreOuvrage">Sous Titre Ouvrage</span></th>
             <th><span jhiTranslate="biblioApp.ouvrage.typeOuvrage">Type Ouvrage</span></th>
             <th><span jhiTranslate="biblioApp.ouvrage.participationOuvrage">Participation Ouvrage</span></th>
             <th><span jhiTranslate="biblioApp.ouvrage.anneeOuvrage">Annee Ouvrage</span></th>
@@ -39,6 +40,7 @@
             <tr *ngFor="let ouvrage of ouvrages ;trackBy: trackId">
                 <td><a [routerLink]="['../ouvrage', ouvrage.id ]">{{ouvrage.id}}</a></td>
                 <td>{{ouvrage.titreOuvrage}}</td>
+                <td>{{ouvrage.sousTitreOuvrage}}</td>
                 <td jhiTranslate="{{'biblioApp.TypeOuvrage.' + ouvrage.typeOuvrage}}">{{ouvrage.typeOuvrage}}</td>
                 <td jhiTranslate="{{'biblioApp.TypeParticipation.' + ouvrage.participationOuvrage}}">{{ouvrage.participationOuvrage}}</td>
                 <td>{{ouvrage.anneeOuvrage}}</td>

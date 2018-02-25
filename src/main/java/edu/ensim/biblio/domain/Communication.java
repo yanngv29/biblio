@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -27,8 +28,12 @@ public class Communication implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "titre_communication")
+    @NotNull
+    @Column(name = "titre_communication", nullable = false)
     private String titreCommunication;
+
+    @Column(name = "sous_titre_communication")
+    private String sousTitreCommunication;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type_communication")
@@ -72,6 +77,19 @@ public class Communication implements Serializable {
 
     public void setTitreCommunication(String titreCommunication) {
         this.titreCommunication = titreCommunication;
+    }
+
+    public String getSousTitreCommunication() {
+        return sousTitreCommunication;
+    }
+
+    public Communication sousTitreCommunication(String sousTitreCommunication) {
+        this.sousTitreCommunication = sousTitreCommunication;
+        return this;
+    }
+
+    public void setSousTitreCommunication(String sousTitreCommunication) {
+        this.sousTitreCommunication = sousTitreCommunication;
     }
 
     public TypeCommunication getTypeCommunication() {
@@ -191,6 +209,7 @@ public class Communication implements Serializable {
         return "Communication{" +
             "id=" + getId() +
             ", titreCommunication='" + getTitreCommunication() + "'" +
+            ", sousTitreCommunication='" + getSousTitreCommunication() + "'" +
             ", typeCommunication='" + getTypeCommunication() + "'" +
             ", langueCommunication='" + getLangueCommunication() + "'" +
             ", lienCommunication='" + getLienCommunication() + "'" +

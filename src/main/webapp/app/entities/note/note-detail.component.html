@@ -38,12 +38,6 @@
                 <a [routerLink]="['/ouvrage', note.ouvrage?.id]">{{note.ouvrage?.id}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="biblioApp.note.publicationGouvernementale">Publication Gouvernementale</span></dt>
-        <dd>
-            <div *ngIf="note.publicationGouvernementale">
-                <a [routerLink]="['/publication-gouvernementale', note.publicationGouvernementale?.id]">{{note.publicationGouvernementale?.id}}</a>
-            </div>
-        </dd>
         <dt><span jhiTranslate="biblioApp.note.rapport">Rapport</span></dt>
         <dd>
             <div *ngIf="note.rapport">

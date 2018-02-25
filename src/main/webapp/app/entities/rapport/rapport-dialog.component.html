@@ -36,6 +36,13 @@
             </select>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.rapport.statut" for="field_statut">Statut</label>
+            <select class="form-control" name="statut" [(ngModel)]="rapport.statut" id="field_statut" >
+                <option value="INTERNE">{{'biblioApp.Statut.INTERNE' | translate}}</option>
+                <option value="PUBLIC">{{'biblioApp.Statut.PUBLIC' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.rapport.dateRapport" for="field_dateRapport">Date Rapport</label>
             <div class="d-flex">
                 <input id="field_dateRapport" type="datetime-local" class="form-control" name="dateRapport" [(ngModel)]="rapport.dateRapport"

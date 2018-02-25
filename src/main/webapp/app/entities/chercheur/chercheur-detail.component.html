@@ -46,12 +46,6 @@
                 <a [routerLink]="['/ouvrage', ouvrage?.id ]">{{ouvrage.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span jhiTranslate="biblioApp.chercheur.publicationGouvernementale">Publication Gouvernementale</span></dt>
-        <dd>
-            <span *ngFor="let publicationGouvernementale of chercheur.publicationGouvernementales; let last = last">
-                <a [routerLink]="['/publication-gouvernementale', publicationGouvernementale?.id ]">{{publicationGouvernementale.id}}</a>{{last ? '' : ', '}}
-            </span>
-        </dd>
         <dt><span jhiTranslate="biblioApp.chercheur.revue">Revue</span></dt>
         <dd>
             <span *ngFor="let revue of chercheur.revues; let last = last">

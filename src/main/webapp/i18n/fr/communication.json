@@ -17,6 +17,7 @@
                 "title": "Communication"
             },
             "titreCommunication": "Titre Communication",
+            "sousTitreCommunication": "Sous Titre Communication",
             "typeCommunication": "Type Communication",
             "langueCommunication": "Langue Communication",
             "lienCommunication": "Lien Communication",

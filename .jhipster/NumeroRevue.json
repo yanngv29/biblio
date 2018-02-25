@@ -48,7 +48,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164205",
+    "changelogDate": "20180225202049",
     "javadoc": "Numéro d'une revue",
     "entityTableName": "numero_revue",
     "dto": "no",

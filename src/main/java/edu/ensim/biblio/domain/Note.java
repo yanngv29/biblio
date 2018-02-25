@@ -50,9 +50,6 @@ public class Note implements Serializable {
     private Ouvrage ouvrage;
 
     @ManyToOne
-    private PublicationGouvernementale publicationGouvernementale;
-
-    @ManyToOne
     private Rapport rapport;
 
     @ManyToOne
@@ -156,19 +153,6 @@ public class Note implements Serializable {
 
     public void setOuvrage(Ouvrage ouvrage) {
         this.ouvrage = ouvrage;
-    }
-
-    public PublicationGouvernementale getPublicationGouvernementale() {
-        return publicationGouvernementale;
-    }
-
-    public Note publicationGouvernementale(PublicationGouvernementale publicationGouvernementale) {
-        this.publicationGouvernementale = publicationGouvernementale;
-        return this;
-    }
-
-    public void setPublicationGouvernementale(PublicationGouvernementale publicationGouvernementale) {
-        this.publicationGouvernementale = publicationGouvernementale;
     }
 
     public Rapport getRapport() {

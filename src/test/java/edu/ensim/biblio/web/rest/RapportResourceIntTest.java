@@ -32,6 +32,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import edu.ensim.biblio.domain.enumeration.TypeRapport;
+import edu.ensim.biblio.domain.enumeration.Statut;
 /**
  * Test class for the RapportResource REST controller.
  *
@@ -49,6 +50,9 @@ public class RapportResourceIntTest {
 
     private static final TypeRapport DEFAULT_TYPE_RAPPORT = TypeRapport.RECHERCHE;
     private static final TypeRapport UPDATED_TYPE_RAPPORT = TypeRapport.PROJET;
+
+    private static final Statut DEFAULT_STATUT = Statut.INTERNE;
+    private static final Statut UPDATED_STATUT = Statut.PUBLIC;
 
     private static final Instant DEFAULT_DATE_RAPPORT = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATE_RAPPORT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
@@ -115,6 +119,7 @@ public class RapportResourceIntTest {
             .titreRapport(DEFAULT_TITRE_RAPPORT)
             .sousTitreRapport(DEFAULT_SOUS_TITRE_RAPPORT)
             .typeRapport(DEFAULT_TYPE_RAPPORT)
+            .statut(DEFAULT_STATUT)
             .dateRapport(DEFAULT_DATE_RAPPORT)
             .lieuRapport(DEFAULT_LIEU_RAPPORT)
             .maisonEditionRapport(DEFAULT_MAISON_EDITION_RAPPORT)
@@ -149,6 +154,7 @@ public class RapportResourceIntTest {
         assertThat(testRapport.getTitreRapport()).isEqualTo(DEFAULT_TITRE_RAPPORT);
         assertThat(testRapport.getSousTitreRapport()).isEqualTo(DEFAULT_SOUS_TITRE_RAPPORT);
         assertThat(testRapport.getTypeRapport()).isEqualTo(DEFAULT_TYPE_RAPPORT);
+        assertThat(testRapport.getStatut()).isEqualTo(DEFAULT_STATUT);
         assertThat(testRapport.getDateRapport()).isEqualTo(DEFAULT_DATE_RAPPORT);
         assertThat(testRapport.getLieuRapport()).isEqualTo(DEFAULT_LIEU_RAPPORT);
         assertThat(testRapport.getMaisonEditionRapport()).isEqualTo(DEFAULT_MAISON_EDITION_RAPPORT);
@@ -210,6 +216,7 @@ public class RapportResourceIntTest {
             .andExpect(jsonPath("$.[*].titreRapport").value(hasItem(DEFAULT_TITRE_RAPPORT.toString())))
             .andExpect(jsonPath("$.[*].sousTitreRapport").value(hasItem(DEFAULT_SOUS_TITRE_RAPPORT.toString())))
             .andExpect(jsonPath("$.[*].typeRapport").value(hasItem(DEFAULT_TYPE_RAPPORT.toString())))
+            .andExpect(jsonPath("$.[*].statut").value(hasItem(DEFAULT_STATUT.toString())))
             .andExpect(jsonPath("$.[*].dateRapport").value(hasItem(DEFAULT_DATE_RAPPORT.toString())))
             .andExpect(jsonPath("$.[*].lieuRapport").value(hasItem(DEFAULT_LIEU_RAPPORT.toString())))
             .andExpect(jsonPath("$.[*].maisonEditionRapport").value(hasItem(DEFAULT_MAISON_EDITION_RAPPORT.toString())))
@@ -234,6 +241,7 @@ public class RapportResourceIntTest {
             .andExpect(jsonPath("$.titreRapport").value(DEFAULT_TITRE_RAPPORT.toString()))
             .andExpect(jsonPath("$.sousTitreRapport").value(DEFAULT_SOUS_TITRE_RAPPORT.toString()))
             .andExpect(jsonPath("$.typeRapport").value(DEFAULT_TYPE_RAPPORT.toString()))
+            .andExpect(jsonPath("$.statut").value(DEFAULT_STATUT.toString()))
             .andExpect(jsonPath("$.dateRapport").value(DEFAULT_DATE_RAPPORT.toString()))
             .andExpect(jsonPath("$.lieuRapport").value(DEFAULT_LIEU_RAPPORT.toString()))
             .andExpect(jsonPath("$.maisonEditionRapport").value(DEFAULT_MAISON_EDITION_RAPPORT.toString()))
@@ -267,6 +275,7 @@ public class RapportResourceIntTest {
             .titreRapport(UPDATED_TITRE_RAPPORT)
             .sousTitreRapport(UPDATED_SOUS_TITRE_RAPPORT)
             .typeRapport(UPDATED_TYPE_RAPPORT)
+            .statut(UPDATED_STATUT)
             .dateRapport(UPDATED_DATE_RAPPORT)
             .lieuRapport(UPDATED_LIEU_RAPPORT)
             .maisonEditionRapport(UPDATED_MAISON_EDITION_RAPPORT)
@@ -288,6 +297,7 @@ public class RapportResourceIntTest {
         assertThat(testRapport.getTitreRapport()).isEqualTo(UPDATED_TITRE_RAPPORT);
         assertThat(testRapport.getSousTitreRapport()).isEqualTo(UPDATED_SOUS_TITRE_RAPPORT);
         assertThat(testRapport.getTypeRapport()).isEqualTo(UPDATED_TYPE_RAPPORT);
+        assertThat(testRapport.getStatut()).isEqualTo(UPDATED_STATUT);
         assertThat(testRapport.getDateRapport()).isEqualTo(UPDATED_DATE_RAPPORT);
         assertThat(testRapport.getLieuRapport()).isEqualTo(UPDATED_LIEU_RAPPORT);
         assertThat(testRapport.getMaisonEditionRapport()).isEqualTo(UPDATED_MAISON_EDITION_RAPPORT);

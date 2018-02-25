@@ -1,0 +1,9 @@
+{
+    "biblioApp": {
+        "Statut" : {
+            "null": "",
+            "INTERNE": "INTERNE",
+            "PUBLIC": "PUBLIC"
+        }
+    }
+}

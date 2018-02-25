@@ -30,6 +30,9 @@ public class Chapitre implements Serializable {
     @Column(name = "titre_chapitre", nullable = false)
     private String titreChapitre;
 
+    @Column(name = "sous_titre_chapitre")
+    private String sousTitreChapitre;
+
     @Column(name = "page_debut_chapitre")
     private String pageDebutChapitre;
 
@@ -47,9 +50,6 @@ public class Chapitre implements Serializable {
 
     @Column(name = "divers_chapitre")
     private String diversChapitre;
-
-    @ManyToOne
-    private Ouvrage ouvrage;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -71,6 +71,19 @@ public class Chapitre implements Serializable {
 
     public void setTitreChapitre(String titreChapitre) {
         this.titreChapitre = titreChapitre;
+    }
+
+    public String getSousTitreChapitre() {
+        return sousTitreChapitre;
+    }
+
+    public Chapitre sousTitreChapitre(String sousTitreChapitre) {
+        this.sousTitreChapitre = sousTitreChapitre;
+        return this;
+    }
+
+    public void setSousTitreChapitre(String sousTitreChapitre) {
+        this.sousTitreChapitre = sousTitreChapitre;
     }
 
     public String getPageDebutChapitre() {
@@ -150,19 +163,6 @@ public class Chapitre implements Serializable {
     public void setDiversChapitre(String diversChapitre) {
         this.diversChapitre = diversChapitre;
     }
-
-    public Ouvrage getOuvrage() {
-        return ouvrage;
-    }
-
-    public Chapitre ouvrage(Ouvrage ouvrage) {
-        this.ouvrage = ouvrage;
-        return this;
-    }
-
-    public void setOuvrage(Ouvrage ouvrage) {
-        this.ouvrage = ouvrage;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -190,6 +190,7 @@ public class Chapitre implements Serializable {
         return "Chapitre{" +
             "id=" + getId() +
             ", titreChapitre='" + getTitreChapitre() + "'" +
+            ", sousTitreChapitre='" + getSousTitreChapitre() + "'" +
             ", pageDebutChapitre='" + getPageDebutChapitre() + "'" +
             ", pageFinChapitre='" + getPageFinChapitre() + "'" +
             ", langueChapitre='" + getLangueChapitre() + "'" +

@@ -16,7 +16,6 @@ export class Note implements BaseEntity {
         public conference?: BaseEntity,
         public memoire?: BaseEntity,
         public ouvrage?: BaseEntity,
-        public publicationGouvernementale?: BaseEntity,
         public rapport?: BaseEntity,
         public revue?: BaseEntity,
     ) {

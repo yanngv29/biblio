@@ -1,13 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "ouvrage",
-            "otherEntityName": "ouvrage",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "titreChapitre",
@@ -15,6 +8,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "sousTitreChapitre",
+            "fieldType": "String"
         },
         {
             "fieldName": "pageDebutChapitre",
@@ -41,7 +38,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164159",
+    "changelogDate": "20180225202043",
     "javadoc": "Chapitre : identifiant nécessaire",
     "entityTableName": "chapitre",
     "dto": "no",

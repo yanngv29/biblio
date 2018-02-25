@@ -5,12 +5,18 @@ export const enum TypeRapport {
     'PROJET'
 }
 
+export const enum Statut {
+    'INTERNE',
+    'PUBLIC'
+}
+
 export class Rapport implements BaseEntity {
     constructor(
         public id?: number,
         public titreRapport?: string,
         public sousTitreRapport?: string,
         public typeRapport?: TypeRapport,
+        public statut?: Statut,
         public dateRapport?: any,
         public lieuRapport?: string,
         public maisonEditionRapport?: string,

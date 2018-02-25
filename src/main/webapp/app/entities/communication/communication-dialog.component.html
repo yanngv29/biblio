@@ -15,7 +15,18 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.communication.titreCommunication" for="field_titreCommunication">Titre Communication</label>
             <input type="text" class="form-control" name="titreCommunication" id="field_titreCommunication"
-                [(ngModel)]="communication.titreCommunication" />
+                [(ngModel)]="communication.titreCommunication" required/>
+            <div [hidden]="!(editForm.controls.titreCommunication?.dirty && editForm.controls.titreCommunication?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titreCommunication?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.communication.sousTitreCommunication" for="field_sousTitreCommunication">Sous Titre Communication</label>
+            <input type="text" class="form-control" name="sousTitreCommunication" id="field_sousTitreCommunication"
+                [(ngModel)]="communication.sousTitreCommunication" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.communication.typeCommunication" for="field_typeCommunication">Type Communication</label>

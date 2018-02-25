@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Rapport.
+    -->
+    <changeSet id="20180225202051-1" author="jhipster">
+        <createTable tableName="rapport">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="titre_rapport" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="sous_titre_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="type_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="statut" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_rapport" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="lieu_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="maison_edition_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="langue_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="lien_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="doi_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="hal_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="divers_ouvrage_rapport" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="rapport" columnName="date_rapport" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

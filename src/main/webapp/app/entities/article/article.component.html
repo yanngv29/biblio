@@ -18,6 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="biblioApp.article.titreArticle">Titre Article</span></th>
+            <th><span jhiTranslate="biblioApp.article.sousTitreArticle">Sous Titre Article</span></th>
             <th><span jhiTranslate="biblioApp.article.typeArticle">Type Article</span></th>
             <th><span jhiTranslate="biblioApp.article.pageDebutArticle">Page Debut Article</span></th>
             <th><span jhiTranslate="biblioApp.article.pageFinArticle">Page Fin Article</span></th>
@@ -35,6 +36,7 @@
             <tr *ngFor="let article of articles ;trackBy: trackId">
                 <td><a [routerLink]="['../article', article.id ]">{{article.id}}</a></td>
                 <td>{{article.titreArticle}}</td>
+                <td>{{article.sousTitreArticle}}</td>
                 <td jhiTranslate="{{'biblioApp.TypeArticle.' + article.typeArticle}}">{{article.typeArticle}}</td>
                 <td>{{article.pageDebutArticle}}</td>
                 <td>{{article.pageFinArticle}}</td>

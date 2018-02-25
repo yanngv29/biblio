@@ -14,7 +14,6 @@ import { Article, ArticleService } from '../article';
 import { Chapitre, ChapitreService } from '../chapitre';
 import { Communication, CommunicationService } from '../communication';
 import { Ouvrage, OuvrageService } from '../ouvrage';
-import { PublicationGouvernementale, PublicationGouvernementaleService } from '../publication-gouvernementale';
 import { NumeroRevue, NumeroRevueService } from '../numero-revue';
 import { Memoire, MemoireService } from '../memoire';
 import { Rapport, RapportService } from '../rapport';
@@ -38,8 +37,6 @@ export class ChercheurDialogComponent implements OnInit {
 
     ouvrages: Ouvrage[];
 
-    publicationgouvernementales: PublicationGouvernementale[];
-
     numerorevues: NumeroRevue[];
 
     memoires: Memoire[];
@@ -55,7 +52,6 @@ export class ChercheurDialogComponent implements OnInit {
         private chapitreService: ChapitreService,
         private communicationService: CommunicationService,
         private ouvrageService: OuvrageService,
-        private publicationGouvernementaleService: PublicationGouvernementaleService,
         private numeroRevueService: NumeroRevueService,
         private memoireService: MemoireService,
         private rapportService: RapportService,
@@ -75,8 +71,6 @@ export class ChercheurDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<Communication[]>) => { this.communications = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.ouvrageService.query()
             .subscribe((res: HttpResponse<Ouvrage[]>) => { this.ouvrages = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.publicationGouvernementaleService.query()
-            .subscribe((res: HttpResponse<PublicationGouvernementale[]>) => { this.publicationgouvernementales = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.numeroRevueService.query()
             .subscribe((res: HttpResponse<NumeroRevue[]>) => { this.numerorevues = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.memoireService.query()
@@ -136,10 +130,6 @@ export class ChercheurDialogComponent implements OnInit {
     }
 
     trackOuvrageById(index: number, item: Ouvrage) {
-        return item.id;
-    }
-
-    trackPublicationGouvernementaleById(index: number, item: PublicationGouvernementale) {
         return item.id;
     }
 

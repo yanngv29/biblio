@@ -20,6 +20,7 @@
             <th><span jhiTranslate="biblioApp.rapport.titreRapport">Titre Rapport</span></th>
             <th><span jhiTranslate="biblioApp.rapport.sousTitreRapport">Sous Titre Rapport</span></th>
             <th><span jhiTranslate="biblioApp.rapport.typeRapport">Type Rapport</span></th>
+            <th><span jhiTranslate="biblioApp.rapport.statut">Statut</span></th>
             <th><span jhiTranslate="biblioApp.rapport.dateRapport">Date Rapport</span></th>
             <th><span jhiTranslate="biblioApp.rapport.lieuRapport">Lieu Rapport</span></th>
             <th><span jhiTranslate="biblioApp.rapport.maisonEditionRapport">Maison Edition Rapport</span></th>
@@ -37,6 +38,7 @@
                 <td>{{rapport.titreRapport}}</td>
                 <td>{{rapport.sousTitreRapport}}</td>
                 <td jhiTranslate="{{'biblioApp.TypeRapport.' + rapport.typeRapport}}">{{rapport.typeRapport}}</td>
+                <td jhiTranslate="{{'biblioApp.Statut.' + rapport.statut}}">{{rapport.statut}}</td>
                 <td>{{rapport.dateRapport | date:'medium'}}</td>
                 <td>{{rapport.lieuRapport}}</td>
                 <td>{{rapport.maisonEditionRapport}}</td>

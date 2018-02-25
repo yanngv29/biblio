@@ -41,6 +41,9 @@ public class ChapitreResourceIntTest {
     private static final String DEFAULT_TITRE_CHAPITRE = "AAAAAAAAAA";
     private static final String UPDATED_TITRE_CHAPITRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SOUS_TITRE_CHAPITRE = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_CHAPITRE = "BBBBBBBBBB";
+
     private static final String DEFAULT_PAGE_DEBUT_CHAPITRE = "AAAAAAAAAA";
     private static final String UPDATED_PAGE_DEBUT_CHAPITRE = "BBBBBBBBBB";
 
@@ -98,6 +101,7 @@ public class ChapitreResourceIntTest {
     public static Chapitre createEntity(EntityManager em) {
         Chapitre chapitre = new Chapitre()
             .titreChapitre(DEFAULT_TITRE_CHAPITRE)
+            .sousTitreChapitre(DEFAULT_SOUS_TITRE_CHAPITRE)
             .pageDebutChapitre(DEFAULT_PAGE_DEBUT_CHAPITRE)
             .pageFinChapitre(DEFAULT_PAGE_FIN_CHAPITRE)
             .langueChapitre(DEFAULT_LANGUE_CHAPITRE)
@@ -128,6 +132,7 @@ public class ChapitreResourceIntTest {
         assertThat(chapitreList).hasSize(databaseSizeBeforeCreate + 1);
         Chapitre testChapitre = chapitreList.get(chapitreList.size() - 1);
         assertThat(testChapitre.getTitreChapitre()).isEqualTo(DEFAULT_TITRE_CHAPITRE);
+        assertThat(testChapitre.getSousTitreChapitre()).isEqualTo(DEFAULT_SOUS_TITRE_CHAPITRE);
         assertThat(testChapitre.getPageDebutChapitre()).isEqualTo(DEFAULT_PAGE_DEBUT_CHAPITRE);
         assertThat(testChapitre.getPageFinChapitre()).isEqualTo(DEFAULT_PAGE_FIN_CHAPITRE);
         assertThat(testChapitre.getLangueChapitre()).isEqualTo(DEFAULT_LANGUE_CHAPITRE);
@@ -185,6 +190,7 @@ public class ChapitreResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(chapitre.getId().intValue())))
             .andExpect(jsonPath("$.[*].titreChapitre").value(hasItem(DEFAULT_TITRE_CHAPITRE.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreChapitre").value(hasItem(DEFAULT_SOUS_TITRE_CHAPITRE.toString())))
             .andExpect(jsonPath("$.[*].pageDebutChapitre").value(hasItem(DEFAULT_PAGE_DEBUT_CHAPITRE.toString())))
             .andExpect(jsonPath("$.[*].pageFinChapitre").value(hasItem(DEFAULT_PAGE_FIN_CHAPITRE.toString())))
             .andExpect(jsonPath("$.[*].langueChapitre").value(hasItem(DEFAULT_LANGUE_CHAPITRE.toString())))
@@ -205,6 +211,7 @@ public class ChapitreResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(chapitre.getId().intValue()))
             .andExpect(jsonPath("$.titreChapitre").value(DEFAULT_TITRE_CHAPITRE.toString()))
+            .andExpect(jsonPath("$.sousTitreChapitre").value(DEFAULT_SOUS_TITRE_CHAPITRE.toString()))
             .andExpect(jsonPath("$.pageDebutChapitre").value(DEFAULT_PAGE_DEBUT_CHAPITRE.toString()))
             .andExpect(jsonPath("$.pageFinChapitre").value(DEFAULT_PAGE_FIN_CHAPITRE.toString()))
             .andExpect(jsonPath("$.langueChapitre").value(DEFAULT_LANGUE_CHAPITRE.toString()))
@@ -234,6 +241,7 @@ public class ChapitreResourceIntTest {
         em.detach(updatedChapitre);
         updatedChapitre
             .titreChapitre(UPDATED_TITRE_CHAPITRE)
+            .sousTitreChapitre(UPDATED_SOUS_TITRE_CHAPITRE)
             .pageDebutChapitre(UPDATED_PAGE_DEBUT_CHAPITRE)
             .pageFinChapitre(UPDATED_PAGE_FIN_CHAPITRE)
             .langueChapitre(UPDATED_LANGUE_CHAPITRE)
@@ -251,6 +259,7 @@ public class ChapitreResourceIntTest {
         assertThat(chapitreList).hasSize(databaseSizeBeforeUpdate);
         Chapitre testChapitre = chapitreList.get(chapitreList.size() - 1);
         assertThat(testChapitre.getTitreChapitre()).isEqualTo(UPDATED_TITRE_CHAPITRE);
+        assertThat(testChapitre.getSousTitreChapitre()).isEqualTo(UPDATED_SOUS_TITRE_CHAPITRE);
         assertThat(testChapitre.getPageDebutChapitre()).isEqualTo(UPDATED_PAGE_DEBUT_CHAPITRE);
         assertThat(testChapitre.getPageFinChapitre()).isEqualTo(UPDATED_PAGE_FIN_CHAPITRE);
         assertThat(testChapitre.getLangueChapitre()).isEqualTo(UPDATED_LANGUE_CHAPITRE);

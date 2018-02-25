@@ -10,7 +10,6 @@ import { BiblioMemoireModule } from './memoire/memoire.module';
 import { BiblioNoteModule } from './note/note.module';
 import { BiblioNumeroRevueModule } from './numero-revue/numero-revue.module';
 import { BiblioOuvrageModule } from './ouvrage/ouvrage.module';
-import { BiblioPublicationGouvernementaleModule } from './publication-gouvernementale/publication-gouvernementale.module';
 import { BiblioRapportModule } from './rapport/rapport.module';
 import { BiblioRevueModule } from './revue/revue.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
@@ -27,7 +26,6 @@ import { BiblioRevueModule } from './revue/revue.module';
         BiblioNoteModule,
         BiblioNumeroRevueModule,
         BiblioOuvrageModule,
-        BiblioPublicationGouvernementaleModule,
         BiblioRapportModule,
         BiblioRevueModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */

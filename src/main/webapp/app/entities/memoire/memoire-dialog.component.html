@@ -24,6 +24,11 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.memoire.sousTitreMemoire" for="field_sousTitreMemoire">Sous Titre Memoire</label>
+            <input type="text" class="form-control" name="sousTitreMemoire" id="field_sousTitreMemoire"
+                [(ngModel)]="memoire.sousTitreMemoire" />
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.memoire.typeMemoire" for="field_typeMemoire">Type Memoire</label>
             <select class="form-control" name="typeMemoire" [(ngModel)]="memoire.typeMemoire" id="field_typeMemoire"  required>
                 <option value="THESE">{{'biblioApp.TypeMemoire.THESE' | translate}}</option>

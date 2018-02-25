@@ -78,13 +78,6 @@ public class Chercheur implements Serializable {
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "chercheur_publication_gouvernementale",
-               joinColumns = @JoinColumn(name="chercheurs_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="publication_gouvernementales_id", referencedColumnName="id"))
-    private Set<PublicationGouvernementale> publicationGouvernementales = new HashSet<>();
-
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "chercheur_revue",
                joinColumns = @JoinColumn(name="chercheurs_id", referencedColumnName="id"),
                inverseJoinColumns = @JoinColumn(name="revues_id", referencedColumnName="id"))
@@ -267,29 +260,6 @@ public class Chercheur implements Serializable {
 
     public void setOuvrages(Set<Ouvrage> ouvrages) {
         this.ouvrages = ouvrages;
-    }
-
-    public Set<PublicationGouvernementale> getPublicationGouvernementales() {
-        return publicationGouvernementales;
-    }
-
-    public Chercheur publicationGouvernementales(Set<PublicationGouvernementale> publicationGouvernementales) {
-        this.publicationGouvernementales = publicationGouvernementales;
-        return this;
-    }
-
-    public Chercheur addPublicationGouvernementale(PublicationGouvernementale publicationGouvernementale) {
-        this.publicationGouvernementales.add(publicationGouvernementale);
-        return this;
-    }
-
-    public Chercheur removePublicationGouvernementale(PublicationGouvernementale publicationGouvernementale) {
-        this.publicationGouvernementales.remove(publicationGouvernementale);
-        return this;
-    }
-
-    public void setPublicationGouvernementales(Set<PublicationGouvernementale> publicationGouvernementales) {
-        this.publicationGouvernementales = publicationGouvernementales;
     }
 
     public Set<NumeroRevue> getRevues() {

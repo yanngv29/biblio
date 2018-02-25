@@ -18,6 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="biblioApp.communication.titreCommunication">Titre Communication</span></th>
+            <th><span jhiTranslate="biblioApp.communication.sousTitreCommunication">Sous Titre Communication</span></th>
             <th><span jhiTranslate="biblioApp.communication.typeCommunication">Type Communication</span></th>
             <th><span jhiTranslate="biblioApp.communication.langueCommunication">Langue Communication</span></th>
             <th><span jhiTranslate="biblioApp.communication.lienCommunication">Lien Communication</span></th>
@@ -32,6 +33,7 @@
             <tr *ngFor="let communication of communications ;trackBy: trackId">
                 <td><a [routerLink]="['../communication', communication.id ]">{{communication.id}}</a></td>
                 <td>{{communication.titreCommunication}}</td>
+                <td>{{communication.sousTitreCommunication}}</td>
                 <td jhiTranslate="{{'biblioApp.TypeCommunication.' + communication.typeCommunication}}">{{communication.typeCommunication}}</td>
                 <td>{{communication.langueCommunication}}</td>
                 <td>{{communication.lienCommunication}}</td>

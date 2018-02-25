@@ -9,6 +9,7 @@ export class Memoire implements BaseEntity {
     constructor(
         public id?: number,
         public titreMemoire?: string,
+        public sousTitreMemoire?: string,
         public typeMemoire?: TypeMemoire,
         public dateMemoire?: any,
         public lieuMemoire?: string,

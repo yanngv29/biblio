@@ -43,6 +43,9 @@ public class OuvrageResourceIntTest {
     private static final String DEFAULT_TITRE_OUVRAGE = "AAAAAAAAAA";
     private static final String UPDATED_TITRE_OUVRAGE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SOUS_TITRE_OUVRAGE = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_OUVRAGE = "BBBBBBBBBB";
+
     private static final TypeOuvrage DEFAULT_TYPE_OUVRAGE = TypeOuvrage.SCIENTIFIQUE;
     private static final TypeOuvrage UPDATED_TYPE_OUVRAGE = TypeOuvrage.VULGARISATION;
 
@@ -124,6 +127,7 @@ public class OuvrageResourceIntTest {
     public static Ouvrage createEntity(EntityManager em) {
         Ouvrage ouvrage = new Ouvrage()
             .titreOuvrage(DEFAULT_TITRE_OUVRAGE)
+            .sousTitreOuvrage(DEFAULT_SOUS_TITRE_OUVRAGE)
             .typeOuvrage(DEFAULT_TYPE_OUVRAGE)
             .participationOuvrage(DEFAULT_PARTICIPATION_OUVRAGE)
             .anneeOuvrage(DEFAULT_ANNEE_OUVRAGE)
@@ -162,6 +166,7 @@ public class OuvrageResourceIntTest {
         assertThat(ouvrageList).hasSize(databaseSizeBeforeCreate + 1);
         Ouvrage testOuvrage = ouvrageList.get(ouvrageList.size() - 1);
         assertThat(testOuvrage.getTitreOuvrage()).isEqualTo(DEFAULT_TITRE_OUVRAGE);
+        assertThat(testOuvrage.getSousTitreOuvrage()).isEqualTo(DEFAULT_SOUS_TITRE_OUVRAGE);
         assertThat(testOuvrage.getTypeOuvrage()).isEqualTo(DEFAULT_TYPE_OUVRAGE);
         assertThat(testOuvrage.getParticipationOuvrage()).isEqualTo(DEFAULT_PARTICIPATION_OUVRAGE);
         assertThat(testOuvrage.getAnneeOuvrage()).isEqualTo(DEFAULT_ANNEE_OUVRAGE);
@@ -245,6 +250,7 @@ public class OuvrageResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ouvrage.getId().intValue())))
             .andExpect(jsonPath("$.[*].titreOuvrage").value(hasItem(DEFAULT_TITRE_OUVRAGE.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreOuvrage").value(hasItem(DEFAULT_SOUS_TITRE_OUVRAGE.toString())))
             .andExpect(jsonPath("$.[*].typeOuvrage").value(hasItem(DEFAULT_TYPE_OUVRAGE.toString())))
             .andExpect(jsonPath("$.[*].participationOuvrage").value(hasItem(DEFAULT_PARTICIPATION_OUVRAGE.toString())))
             .andExpect(jsonPath("$.[*].anneeOuvrage").value(hasItem(DEFAULT_ANNEE_OUVRAGE)))
@@ -273,6 +279,7 @@ public class OuvrageResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(ouvrage.getId().intValue()))
             .andExpect(jsonPath("$.titreOuvrage").value(DEFAULT_TITRE_OUVRAGE.toString()))
+            .andExpect(jsonPath("$.sousTitreOuvrage").value(DEFAULT_SOUS_TITRE_OUVRAGE.toString()))
             .andExpect(jsonPath("$.typeOuvrage").value(DEFAULT_TYPE_OUVRAGE.toString()))
             .andExpect(jsonPath("$.participationOuvrage").value(DEFAULT_PARTICIPATION_OUVRAGE.toString()))
             .andExpect(jsonPath("$.anneeOuvrage").value(DEFAULT_ANNEE_OUVRAGE))
@@ -310,6 +317,7 @@ public class OuvrageResourceIntTest {
         em.detach(updatedOuvrage);
         updatedOuvrage
             .titreOuvrage(UPDATED_TITRE_OUVRAGE)
+            .sousTitreOuvrage(UPDATED_SOUS_TITRE_OUVRAGE)
             .typeOuvrage(UPDATED_TYPE_OUVRAGE)
             .participationOuvrage(UPDATED_PARTICIPATION_OUVRAGE)
             .anneeOuvrage(UPDATED_ANNEE_OUVRAGE)
@@ -335,6 +343,7 @@ public class OuvrageResourceIntTest {
         assertThat(ouvrageList).hasSize(databaseSizeBeforeUpdate);
         Ouvrage testOuvrage = ouvrageList.get(ouvrageList.size() - 1);
         assertThat(testOuvrage.getTitreOuvrage()).isEqualTo(UPDATED_TITRE_OUVRAGE);
+        assertThat(testOuvrage.getSousTitreOuvrage()).isEqualTo(UPDATED_SOUS_TITRE_OUVRAGE);
         assertThat(testOuvrage.getTypeOuvrage()).isEqualTo(UPDATED_TYPE_OUVRAGE);
         assertThat(testOuvrage.getParticipationOuvrage()).isEqualTo(UPDATED_PARTICIPATION_OUVRAGE);
         assertThat(testOuvrage.getAnneeOuvrage()).isEqualTo(UPDATED_ANNEE_OUVRAGE);

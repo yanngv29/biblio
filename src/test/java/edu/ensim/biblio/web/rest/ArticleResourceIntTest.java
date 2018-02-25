@@ -43,6 +43,9 @@ public class ArticleResourceIntTest {
     private static final String DEFAULT_TITRE_ARTICLE = "AAAAAAAAAA";
     private static final String UPDATED_TITRE_ARTICLE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SOUS_TITRE_ARTICLE = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_ARTICLE = "BBBBBBBBBB";
+
     private static final TypeArticle DEFAULT_TYPE_ARTICLE = TypeArticle.PUBLIE;
     private static final TypeArticle UPDATED_TYPE_ARTICLE = TypeArticle.EN_PREPUBLICATION;
 
@@ -103,6 +106,7 @@ public class ArticleResourceIntTest {
     public static Article createEntity(EntityManager em) {
         Article article = new Article()
             .titreArticle(DEFAULT_TITRE_ARTICLE)
+            .sousTitreArticle(DEFAULT_SOUS_TITRE_ARTICLE)
             .typeArticle(DEFAULT_TYPE_ARTICLE)
             .pageDebutArticle(DEFAULT_PAGE_DEBUT_ARTICLE)
             .pageFinArticle(DEFAULT_PAGE_FIN_ARTICLE)
@@ -139,6 +143,7 @@ public class ArticleResourceIntTest {
         assertThat(articleList).hasSize(databaseSizeBeforeCreate + 1);
         Article testArticle = articleList.get(articleList.size() - 1);
         assertThat(testArticle.getTitreArticle()).isEqualTo(DEFAULT_TITRE_ARTICLE);
+        assertThat(testArticle.getSousTitreArticle()).isEqualTo(DEFAULT_SOUS_TITRE_ARTICLE);
         assertThat(testArticle.getTypeArticle()).isEqualTo(DEFAULT_TYPE_ARTICLE);
         assertThat(testArticle.getPageDebutArticle()).isEqualTo(DEFAULT_PAGE_DEBUT_ARTICLE);
         assertThat(testArticle.getPageFinArticle()).isEqualTo(DEFAULT_PAGE_FIN_ARTICLE);
@@ -197,6 +202,7 @@ public class ArticleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(article.getId().intValue())))
             .andExpect(jsonPath("$.[*].titreArticle").value(hasItem(DEFAULT_TITRE_ARTICLE.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreArticle").value(hasItem(DEFAULT_SOUS_TITRE_ARTICLE.toString())))
             .andExpect(jsonPath("$.[*].typeArticle").value(hasItem(DEFAULT_TYPE_ARTICLE.toString())))
             .andExpect(jsonPath("$.[*].pageDebutArticle").value(hasItem(DEFAULT_PAGE_DEBUT_ARTICLE.toString())))
             .andExpect(jsonPath("$.[*].pageFinArticle").value(hasItem(DEFAULT_PAGE_FIN_ARTICLE.toString())))
@@ -218,6 +224,7 @@ public class ArticleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(article.getId().intValue()))
             .andExpect(jsonPath("$.titreArticle").value(DEFAULT_TITRE_ARTICLE.toString()))
+            .andExpect(jsonPath("$.sousTitreArticle").value(DEFAULT_SOUS_TITRE_ARTICLE.toString()))
             .andExpect(jsonPath("$.typeArticle").value(DEFAULT_TYPE_ARTICLE.toString()))
             .andExpect(jsonPath("$.pageDebutArticle").value(DEFAULT_PAGE_DEBUT_ARTICLE.toString()))
             .andExpect(jsonPath("$.pageFinArticle").value(DEFAULT_PAGE_FIN_ARTICLE.toString()))
@@ -248,6 +255,7 @@ public class ArticleResourceIntTest {
         em.detach(updatedArticle);
         updatedArticle
             .titreArticle(UPDATED_TITRE_ARTICLE)
+            .sousTitreArticle(UPDATED_SOUS_TITRE_ARTICLE)
             .typeArticle(UPDATED_TYPE_ARTICLE)
             .pageDebutArticle(UPDATED_PAGE_DEBUT_ARTICLE)
             .pageFinArticle(UPDATED_PAGE_FIN_ARTICLE)
@@ -266,6 +274,7 @@ public class ArticleResourceIntTest {
         assertThat(articleList).hasSize(databaseSizeBeforeUpdate);
         Article testArticle = articleList.get(articleList.size() - 1);
         assertThat(testArticle.getTitreArticle()).isEqualTo(UPDATED_TITRE_ARTICLE);
+        assertThat(testArticle.getSousTitreArticle()).isEqualTo(UPDATED_SOUS_TITRE_ARTICLE);
         assertThat(testArticle.getTypeArticle()).isEqualTo(UPDATED_TYPE_ARTICLE);
         assertThat(testArticle.getPageDebutArticle()).isEqualTo(UPDATED_PAGE_DEBUT_ARTICLE);
         assertThat(testArticle.getPageFinArticle()).isEqualTo(UPDATED_PAGE_FIN_ARTICLE);

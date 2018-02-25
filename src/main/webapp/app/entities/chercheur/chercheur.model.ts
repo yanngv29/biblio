@@ -19,7 +19,6 @@ export class Chercheur implements BaseEntity {
         public chapitres?: BaseEntity[],
         public communications?: BaseEntity[],
         public ouvrages?: BaseEntity[],
-        public publicationGouvernementales?: BaseEntity[],
         public revues?: BaseEntity[],
         public memoires?: BaseEntity[],
         public rapports?: BaseEntity[],

@@ -15,6 +15,8 @@ import java.util.Objects;
 
 import edu.ensim.biblio.domain.enumeration.TypeRapport;
 
+import edu.ensim.biblio.domain.enumeration.Statut;
+
 /**
  * A Rapport.
  */
@@ -40,6 +42,10 @@ public class Rapport implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "type_rapport")
     private TypeRapport typeRapport;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "statut")
+    private Statut statut;
 
     @Column(name = "date_rapport")
     private Instant dateRapport;
@@ -116,6 +122,19 @@ public class Rapport implements Serializable {
 
     public void setTypeRapport(TypeRapport typeRapport) {
         this.typeRapport = typeRapport;
+    }
+
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public Rapport statut(Statut statut) {
+        this.statut = statut;
+        return this;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
     }
 
     public Instant getDateRapport() {
@@ -275,6 +294,7 @@ public class Rapport implements Serializable {
             ", titreRapport='" + getTitreRapport() + "'" +
             ", sousTitreRapport='" + getSousTitreRapport() + "'" +
             ", typeRapport='" + getTypeRapport() + "'" +
+            ", statut='" + getStatut() + "'" +
             ", dateRapport='" + getDateRapport() + "'" +
             ", lieuRapport='" + getLieuRapport() + "'" +
             ", maisonEditionRapport='" + getMaisonEditionRapport() + "'" +

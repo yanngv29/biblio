@@ -44,14 +44,6 @@
         {
             "relationshipType": "many-to-many",
             "otherEntityRelationshipName": "",
-            "relationshipName": "publicationGouvernementale",
-            "otherEntityName": "publicationGouvernementale",
-            "otherEntityField": "id",
-            "ownerSide": true
-        },
-        {
-            "relationshipType": "many-to-many",
-            "otherEntityRelationshipName": "",
             "relationshipName": "revue",
             "otherEntityName": "numeroRevue",
             "otherEntityField": "id",
@@ -92,7 +84,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164202",
+    "changelogDate": "20180225202046",
     "javadoc": "Contribution",
     "entityTableName": "chercheur",
     "dto": "no",

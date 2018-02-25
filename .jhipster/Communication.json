@@ -11,6 +11,13 @@
     "fields": [
         {
             "fieldName": "titreCommunication",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sousTitreCommunication",
             "fieldType": "String"
         },
         {
@@ -39,7 +46,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164200",
+    "changelogDate": "20180225202044",
     "javadoc": "Communication : identifiant et type obligatoires",
     "entityTableName": "communication",
     "dto": "no",

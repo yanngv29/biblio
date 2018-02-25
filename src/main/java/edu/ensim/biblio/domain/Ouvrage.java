@@ -2,7 +2,6 @@ package edu.ensim.biblio.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -37,6 +36,9 @@ public class Ouvrage implements Serializable {
     @NotNull
     @Column(name = "titre_ouvrage", nullable = false)
     private String titreOuvrage;
+
+    @Column(name = "sous_titre_ouvrage")
+    private String sousTitreOuvrage;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -83,10 +85,6 @@ public class Ouvrage implements Serializable {
     @Column(name = "divers_ouvrage")
     private String diversOuvrage;
 
-    /**
-     * Ouvrage{chapitre} to Chapitre,
-     */
-    @ApiModelProperty(value = "Ouvrage{chapitre} to Chapitre,")
     @OneToMany(mappedBy = "ouvrage")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -112,6 +110,19 @@ public class Ouvrage implements Serializable {
 
     public void setTitreOuvrage(String titreOuvrage) {
         this.titreOuvrage = titreOuvrage;
+    }
+
+    public String getSousTitreOuvrage() {
+        return sousTitreOuvrage;
+    }
+
+    public Ouvrage sousTitreOuvrage(String sousTitreOuvrage) {
+        this.sousTitreOuvrage = sousTitreOuvrage;
+        return this;
+    }
+
+    public void setSousTitreOuvrage(String sousTitreOuvrage) {
+        this.sousTitreOuvrage = sousTitreOuvrage;
     }
 
     public TypeOuvrage getTypeOuvrage() {
@@ -347,6 +358,7 @@ public class Ouvrage implements Serializable {
         return "Ouvrage{" +
             "id=" + getId() +
             ", titreOuvrage='" + getTitreOuvrage() + "'" +
+            ", sousTitreOuvrage='" + getSousTitreOuvrage() + "'" +
             ", typeOuvrage='" + getTypeOuvrage() + "'" +
             ", participationOuvrage='" + getParticipationOuvrage() + "'" +
             ", anneeOuvrage=" + getAnneeOuvrage() +

@@ -17,6 +17,7 @@
                 "title": "Ouvrage"
             },
             "titreOuvrage": "Titre Ouvrage",
+            "sousTitreOuvrage": "Sous Titre Ouvrage",
             "typeOuvrage": "Type Ouvrage",
             "participationOuvrage": "Participation Ouvrage",
             "anneeOuvrage": "Annee Ouvrage",

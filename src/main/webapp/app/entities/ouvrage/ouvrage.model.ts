@@ -14,6 +14,7 @@ export class Ouvrage implements BaseEntity {
     constructor(
         public id?: number,
         public titreOuvrage?: string,
+        public sousTitreOuvrage?: string,
         public typeOuvrage?: TypeOuvrage,
         public participationOuvrage?: TypeParticipation,
         public anneeOuvrage?: number,

@@ -4,12 +4,11 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager } from 'ng-jhipster';
 
 import { Chapitre } from './chapitre.model';
 import { ChapitrePopupService } from './chapitre-popup.service';
 import { ChapitreService } from './chapitre.service';
-import { Ouvrage, OuvrageService } from '../ouvrage';
 
 @Component({
     selector: 'jhi-chapitre-dialog',
@@ -20,21 +19,15 @@ export class ChapitreDialogComponent implements OnInit {
     chapitre: Chapitre;
     isSaving: boolean;
 
-    ouvrages: Ouvrage[];
-
     constructor(
         public activeModal: NgbActiveModal,
-        private jhiAlertService: JhiAlertService,
         private chapitreService: ChapitreService,
-        private ouvrageService: OuvrageService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.ouvrageService.query()
-            .subscribe((res: HttpResponse<Ouvrage[]>) => { this.ouvrages = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -65,14 +58,6 @@ export class ChapitreDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(error: any) {
-        this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackOuvrageById(index: number, item: Ouvrage) {
-        return item.id;
     }
 }
 

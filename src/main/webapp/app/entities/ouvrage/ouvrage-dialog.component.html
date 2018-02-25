@@ -24,6 +24,11 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.sousTitreOuvrage" for="field_sousTitreOuvrage">Sous Titre Ouvrage</label>
+            <input type="text" class="form-control" name="sousTitreOuvrage" id="field_sousTitreOuvrage"
+                [(ngModel)]="ouvrage.sousTitreOuvrage" />
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.ouvrage.typeOuvrage" for="field_typeOuvrage">Type Ouvrage</label>
             <select class="form-control" name="typeOuvrage" [(ngModel)]="ouvrage.typeOuvrage" id="field_typeOuvrage"  required>
                 <option value="SCIENTIFIQUE">{{'biblioApp.TypeOuvrage.SCIENTIFIQUE' | translate}}</option>

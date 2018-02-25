@@ -42,6 +42,9 @@ public class CommunicationResourceIntTest {
     private static final String DEFAULT_TITRE_COMMUNICATION = "AAAAAAAAAA";
     private static final String UPDATED_TITRE_COMMUNICATION = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SOUS_TITRE_COMMUNICATION = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_COMMUNICATION = "BBBBBBBBBB";
+
     private static final TypeCommunication DEFAULT_TYPE_COMMUNICATION = TypeCommunication.AFFICHE;
     private static final TypeCommunication UPDATED_TYPE_COMMUNICATION = TypeCommunication.ATELIER;
 
@@ -99,6 +102,7 @@ public class CommunicationResourceIntTest {
     public static Communication createEntity(EntityManager em) {
         Communication communication = new Communication()
             .titreCommunication(DEFAULT_TITRE_COMMUNICATION)
+            .sousTitreCommunication(DEFAULT_SOUS_TITRE_COMMUNICATION)
             .typeCommunication(DEFAULT_TYPE_COMMUNICATION)
             .langueCommunication(DEFAULT_LANGUE_COMMUNICATION)
             .lienCommunication(DEFAULT_LIEN_COMMUNICATION)
@@ -129,6 +133,7 @@ public class CommunicationResourceIntTest {
         assertThat(communicationList).hasSize(databaseSizeBeforeCreate + 1);
         Communication testCommunication = communicationList.get(communicationList.size() - 1);
         assertThat(testCommunication.getTitreCommunication()).isEqualTo(DEFAULT_TITRE_COMMUNICATION);
+        assertThat(testCommunication.getSousTitreCommunication()).isEqualTo(DEFAULT_SOUS_TITRE_COMMUNICATION);
         assertThat(testCommunication.getTypeCommunication()).isEqualTo(DEFAULT_TYPE_COMMUNICATION);
         assertThat(testCommunication.getLangueCommunication()).isEqualTo(DEFAULT_LANGUE_COMMUNICATION);
         assertThat(testCommunication.getLienCommunication()).isEqualTo(DEFAULT_LIEN_COMMUNICATION);
@@ -158,6 +163,24 @@ public class CommunicationResourceIntTest {
 
     @Test
     @Transactional
+    public void checkTitreCommunicationIsRequired() throws Exception {
+        int databaseSizeBeforeTest = communicationRepository.findAll().size();
+        // set the field null
+        communication.setTitreCommunication(null);
+
+        // Create the Communication, which fails.
+
+        restCommunicationMockMvc.perform(post("/api/communications")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(communication)))
+            .andExpect(status().isBadRequest());
+
+        List<Communication> communicationList = communicationRepository.findAll();
+        assertThat(communicationList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllCommunications() throws Exception {
         // Initialize the database
         communicationRepository.saveAndFlush(communication);
@@ -168,6 +191,7 @@ public class CommunicationResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(communication.getId().intValue())))
             .andExpect(jsonPath("$.[*].titreCommunication").value(hasItem(DEFAULT_TITRE_COMMUNICATION.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreCommunication").value(hasItem(DEFAULT_SOUS_TITRE_COMMUNICATION.toString())))
             .andExpect(jsonPath("$.[*].typeCommunication").value(hasItem(DEFAULT_TYPE_COMMUNICATION.toString())))
             .andExpect(jsonPath("$.[*].langueCommunication").value(hasItem(DEFAULT_LANGUE_COMMUNICATION.toString())))
             .andExpect(jsonPath("$.[*].lienCommunication").value(hasItem(DEFAULT_LIEN_COMMUNICATION.toString())))
@@ -188,6 +212,7 @@ public class CommunicationResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(communication.getId().intValue()))
             .andExpect(jsonPath("$.titreCommunication").value(DEFAULT_TITRE_COMMUNICATION.toString()))
+            .andExpect(jsonPath("$.sousTitreCommunication").value(DEFAULT_SOUS_TITRE_COMMUNICATION.toString()))
             .andExpect(jsonPath("$.typeCommunication").value(DEFAULT_TYPE_COMMUNICATION.toString()))
             .andExpect(jsonPath("$.langueCommunication").value(DEFAULT_LANGUE_COMMUNICATION.toString()))
             .andExpect(jsonPath("$.lienCommunication").value(DEFAULT_LIEN_COMMUNICATION.toString()))
@@ -217,6 +242,7 @@ public class CommunicationResourceIntTest {
         em.detach(updatedCommunication);
         updatedCommunication
             .titreCommunication(UPDATED_TITRE_COMMUNICATION)
+            .sousTitreCommunication(UPDATED_SOUS_TITRE_COMMUNICATION)
             .typeCommunication(UPDATED_TYPE_COMMUNICATION)
             .langueCommunication(UPDATED_LANGUE_COMMUNICATION)
             .lienCommunication(UPDATED_LIEN_COMMUNICATION)
@@ -234,6 +260,7 @@ public class CommunicationResourceIntTest {
         assertThat(communicationList).hasSize(databaseSizeBeforeUpdate);
         Communication testCommunication = communicationList.get(communicationList.size() - 1);
         assertThat(testCommunication.getTitreCommunication()).isEqualTo(UPDATED_TITRE_COMMUNICATION);
+        assertThat(testCommunication.getSousTitreCommunication()).isEqualTo(UPDATED_SOUS_TITRE_COMMUNICATION);
         assertThat(testCommunication.getTypeCommunication()).isEqualTo(UPDATED_TYPE_COMMUNICATION);
         assertThat(testCommunication.getLangueCommunication()).isEqualTo(UPDATED_LANGUE_COMMUNICATION);
         assertThat(testCommunication.getLienCommunication()).isEqualTo(UPDATED_LIEN_COMMUNICATION);

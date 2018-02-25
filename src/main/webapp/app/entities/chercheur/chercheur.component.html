@@ -25,7 +25,6 @@
             <th><span jhiTranslate="biblioApp.chercheur.chapitre">Chapitre</span></th>
             <th><span jhiTranslate="biblioApp.chercheur.communication">Communication</span></th>
             <th><span jhiTranslate="biblioApp.chercheur.ouvrage">Ouvrage</span></th>
-            <th><span jhiTranslate="biblioApp.chercheur.publicationGouvernementale">Publication Gouvernementale</span></th>
             <th><span jhiTranslate="biblioApp.chercheur.revue">Revue</span></th>
             <th><span jhiTranslate="biblioApp.chercheur.memoire">Memoire</span></th>
             <th><span jhiTranslate="biblioApp.chercheur.rapport">Rapport</span></th>
@@ -61,11 +60,6 @@
                 <td>
                     <span *ngFor="let ouvrage of chercheur.ouvrages; let last = last">
                             <a class="form-control-static" [routerLink]="['../ouvrage', ouvrage?.id ]">{{ouvrage.id}}</a>{{last ? '' : ', '}}
-                        </span>
-                </td>
-                <td>
-                    <span *ngFor="let publicationGouvernementale of chercheur.publicationGouvernementales; let last = last">
-                            <a class="form-control-static" [routerLink]="['../publication-gouvernementale', publicationGouvernementale?.id ]">{{publicationGouvernementale.id}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td>

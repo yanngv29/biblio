@@ -9,7 +9,6 @@ import { BiblioTestModule } from '../../../test.module';
 import { ChapitreDialogComponent } from '../../../../../../main/webapp/app/entities/chapitre/chapitre-dialog.component';
 import { ChapitreService } from '../../../../../../main/webapp/app/entities/chapitre/chapitre.service';
 import { Chapitre } from '../../../../../../main/webapp/app/entities/chapitre/chapitre.model';
-import { OuvrageService } from '../../../../../../main/webapp/app/entities/ouvrage';
 
 describe('Component Tests', () => {
 
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [BiblioTestModule],
                 declarations: [ChapitreDialogComponent],
                 providers: [
-                    OuvrageService,
                     ChapitreService
                 ]
             })

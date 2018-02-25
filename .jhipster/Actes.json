@@ -19,6 +19,10 @@
             ]
         },
         {
+            "fieldName": "sousTitreActe",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "typeActe",
             "fieldType": "String"
         },
@@ -67,7 +71,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164157",
+    "changelogDate": "20180225202041",
     "javadoc": "Actes de conférence : identifiant obligatoire",
     "entityTableName": "actes",
     "dto": "no",

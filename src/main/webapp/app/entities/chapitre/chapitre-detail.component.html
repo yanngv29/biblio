@@ -8,6 +8,10 @@
         <dd>
             <span>{{chapitre.titreChapitre}}</span>
         </dd>
+        <dt><span jhiTranslate="biblioApp.chapitre.sousTitreChapitre">Sous Titre Chapitre</span></dt>
+        <dd>
+            <span>{{chapitre.sousTitreChapitre}}</span>
+        </dd>
         <dt><span jhiTranslate="biblioApp.chapitre.pageDebutChapitre">Page Debut Chapitre</span></dt>
         <dd>
             <span>{{chapitre.pageDebutChapitre}}</span>
@@ -31,12 +35,6 @@
         <dt><span jhiTranslate="biblioApp.chapitre.diversChapitre">Divers Chapitre</span></dt>
         <dd>
             <span>{{chapitre.diversChapitre}}</span>
-        </dd>
-        <dt><span jhiTranslate="biblioApp.chapitre.ouvrage">Ouvrage</span></dt>
-        <dd>
-            <div *ngIf="chapitre.ouvrage">
-                <a [routerLink]="['/ouvrage', chapitre.ouvrage?.id]">{{chapitre.ouvrage?.id}}</a>
-            </div>
         </dd>
     </dl>
 

@@ -41,6 +41,9 @@ public class ActesResourceIntTest {
     private static final String DEFAULT_TITRE_ACTE = "AAAAAAAAAA";
     private static final String UPDATED_TITRE_ACTE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SOUS_TITRE_ACTE = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_ACTE = "BBBBBBBBBB";
+
     private static final String DEFAULT_TYPE_ACTE = "AAAAAAAAAA";
     private static final String UPDATED_TYPE_ACTE = "BBBBBBBBBB";
 
@@ -116,6 +119,7 @@ public class ActesResourceIntTest {
     public static Actes createEntity(EntityManager em) {
         Actes actes = new Actes()
             .titreActe(DEFAULT_TITRE_ACTE)
+            .sousTitreActe(DEFAULT_SOUS_TITRE_ACTE)
             .typeActe(DEFAULT_TYPE_ACTE)
             .anneeActe(DEFAULT_ANNEE_ACTE)
             .numeroEditionActe(DEFAULT_NUMERO_EDITION_ACTE)
@@ -152,6 +156,7 @@ public class ActesResourceIntTest {
         assertThat(actesList).hasSize(databaseSizeBeforeCreate + 1);
         Actes testActes = actesList.get(actesList.size() - 1);
         assertThat(testActes.getTitreActe()).isEqualTo(DEFAULT_TITRE_ACTE);
+        assertThat(testActes.getSousTitreActe()).isEqualTo(DEFAULT_SOUS_TITRE_ACTE);
         assertThat(testActes.getTypeActe()).isEqualTo(DEFAULT_TYPE_ACTE);
         assertThat(testActes.getAnneeActe()).isEqualTo(DEFAULT_ANNEE_ACTE);
         assertThat(testActes.getNumeroEditionActe()).isEqualTo(DEFAULT_NUMERO_EDITION_ACTE);
@@ -215,6 +220,7 @@ public class ActesResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(actes.getId().intValue())))
             .andExpect(jsonPath("$.[*].titreActe").value(hasItem(DEFAULT_TITRE_ACTE.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreActe").value(hasItem(DEFAULT_SOUS_TITRE_ACTE.toString())))
             .andExpect(jsonPath("$.[*].typeActe").value(hasItem(DEFAULT_TYPE_ACTE.toString())))
             .andExpect(jsonPath("$.[*].anneeActe").value(hasItem(DEFAULT_ANNEE_ACTE)))
             .andExpect(jsonPath("$.[*].numeroEditionActe").value(hasItem(DEFAULT_NUMERO_EDITION_ACTE)))
@@ -241,6 +247,7 @@ public class ActesResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(actes.getId().intValue()))
             .andExpect(jsonPath("$.titreActe").value(DEFAULT_TITRE_ACTE.toString()))
+            .andExpect(jsonPath("$.sousTitreActe").value(DEFAULT_SOUS_TITRE_ACTE.toString()))
             .andExpect(jsonPath("$.typeActe").value(DEFAULT_TYPE_ACTE.toString()))
             .andExpect(jsonPath("$.anneeActe").value(DEFAULT_ANNEE_ACTE))
             .andExpect(jsonPath("$.numeroEditionActe").value(DEFAULT_NUMERO_EDITION_ACTE))
@@ -276,6 +283,7 @@ public class ActesResourceIntTest {
         em.detach(updatedActes);
         updatedActes
             .titreActe(UPDATED_TITRE_ACTE)
+            .sousTitreActe(UPDATED_SOUS_TITRE_ACTE)
             .typeActe(UPDATED_TYPE_ACTE)
             .anneeActe(UPDATED_ANNEE_ACTE)
             .numeroEditionActe(UPDATED_NUMERO_EDITION_ACTE)
@@ -299,6 +307,7 @@ public class ActesResourceIntTest {
         assertThat(actesList).hasSize(databaseSizeBeforeUpdate);
         Actes testActes = actesList.get(actesList.size() - 1);
         assertThat(testActes.getTitreActe()).isEqualTo(UPDATED_TITRE_ACTE);
+        assertThat(testActes.getSousTitreActe()).isEqualTo(UPDATED_SOUS_TITRE_ACTE);
         assertThat(testActes.getTypeActe()).isEqualTo(UPDATED_TYPE_ACTE);
         assertThat(testActes.getAnneeActe()).isEqualTo(UPDATED_ANNEE_ACTE);
         assertThat(testActes.getNumeroEditionActe()).isEqualTo(UPDATED_NUMERO_EDITION_ACTE);

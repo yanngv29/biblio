@@ -19,6 +19,7 @@
             "titreRapport": "Titre Rapport",
             "sousTitreRapport": "Sous Titre Rapport",
             "typeRapport": "Type Rapport",
+            "statut": "Statut",
             "dateRapport": "Date Rapport",
             "lieuRapport": "Lieu Rapport",
             "maisonEditionRapport": "Maison Edition Rapport",

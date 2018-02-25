@@ -17,6 +17,7 @@
                 "title": "Actes"
             },
             "titreActe": "Titre Acte",
+            "sousTitreActe": "Sous Titre Acte",
             "typeActe": "Type Acte",
             "anneeActe": "Annee Acte",
             "numeroEditionActe": "Numero Edition Acte",

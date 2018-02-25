@@ -10,6 +10,7 @@ export class Communication implements BaseEntity {
     constructor(
         public id?: number,
         public titreCommunication?: string,
+        public sousTitreCommunication?: string,
         public typeCommunication?: TypeCommunication,
         public langueCommunication?: string,
         public lienCommunication?: string,

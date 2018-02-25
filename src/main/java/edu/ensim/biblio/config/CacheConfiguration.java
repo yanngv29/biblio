@@ -55,7 +55,6 @@ public class CacheConfiguration {
             cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".chapitres", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".communications", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".ouvrages", jcacheConfiguration);
-            cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".publicationGouvernementales", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".revues", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".memoires", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Chercheur.class.getName() + ".rapports", jcacheConfiguration);
@@ -65,10 +64,7 @@ public class CacheConfiguration {
             cm.createCache(edu.ensim.biblio.domain.NumeroRevue.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.NumeroRevue.class.getName() + ".writers", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Ouvrage.class.getName(), jcacheConfiguration);
-            cm.createCache(edu.ensim.biblio.domain.Ouvrage.class.getName() + ".chapitres", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Ouvrage.class.getName() + ".notations", jcacheConfiguration);
-            cm.createCache(edu.ensim.biblio.domain.PublicationGouvernementale.class.getName(), jcacheConfiguration);
-            cm.createCache(edu.ensim.biblio.domain.PublicationGouvernementale.class.getName() + ".notations", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Rapport.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Rapport.class.getName() + ".notations", jcacheConfiguration);
             cm.createCache(edu.ensim.biblio.domain.Revue.class.getName(), jcacheConfiguration);

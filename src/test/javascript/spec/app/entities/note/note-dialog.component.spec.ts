@@ -12,7 +12,6 @@ import { Note } from '../../../../../../main/webapp/app/entities/note/note.model
 import { ConferenceService } from '../../../../../../main/webapp/app/entities/conference';
 import { MemoireService } from '../../../../../../main/webapp/app/entities/memoire';
 import { OuvrageService } from '../../../../../../main/webapp/app/entities/ouvrage';
-import { PublicationGouvernementaleService } from '../../../../../../main/webapp/app/entities/publication-gouvernementale';
 import { RapportService } from '../../../../../../main/webapp/app/entities/rapport';
 import { RevueService } from '../../../../../../main/webapp/app/entities/revue';
 
@@ -33,7 +32,6 @@ describe('Component Tests', () => {
                     ConferenceService,
                     MemoireService,
                     OuvrageService,
-                    PublicationGouvernementaleService,
                     RapportService,
                     RevueService,
                     NoteService

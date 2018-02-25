@@ -11,6 +11,7 @@ export class Article implements BaseEntity {
     constructor(
         public id?: number,
         public titreArticle?: string,
+        public sousTitreArticle?: string,
         public typeArticle?: TypeArticle,
         public pageDebutArticle?: string,
         public pageFinArticle?: string,

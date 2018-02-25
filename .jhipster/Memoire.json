@@ -17,6 +17,10 @@
             ]
         },
         {
+            "fieldName": "sousTitreMemoire",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "typeMemoire",
             "fieldType": "TypeMemoire",
             "fieldValues": "THESE,HDR",
@@ -53,7 +57,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164203",
+    "changelogDate": "20180225202047",
     "javadoc": "Mémoire : tous les critères obligatoires",
     "entityTableName": "memoire",
     "dto": "no",

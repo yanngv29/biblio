@@ -17,6 +17,7 @@
                 "title": "Article"
             },
             "titreArticle": "Titre Article",
+            "sousTitreArticle": "Sous Titre Article",
             "typeArticle": "Type Article",
             "pageDebutArticle": "Page Debut Article",
             "pageFinArticle": "Page Fin Article",

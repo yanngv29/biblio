@@ -58,13 +58,6 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="biblioApp.note.publicationGouvernementale" for="field_publicationGouvernementale">Publication Gouvernementale</label>
-            <select class="form-control" id="field_publicationGouvernementale" name="publicationGouvernementale" [(ngModel)]="note.publicationGouvernementale" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="publicationGouvernementaleOption.id === note.publicationGouvernementale?.id ? note.publicationGouvernementale : publicationGouvernementaleOption" *ngFor="let publicationGouvernementaleOption of publicationgouvernementales; trackBy: trackPublicationGouvernementaleById">{{publicationGouvernementaleOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.note.rapport" for="field_rapport">Rapport</label>
             <select class="form-control" id="field_rapport" name="rapport" [(ngModel)]="note.rapport" >
                 <option [ngValue]="null"></option>

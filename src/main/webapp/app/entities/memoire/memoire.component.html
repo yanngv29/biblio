@@ -18,6 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="biblioApp.memoire.titreMemoire">Titre Memoire</span></th>
+            <th><span jhiTranslate="biblioApp.memoire.sousTitreMemoire">Sous Titre Memoire</span></th>
             <th><span jhiTranslate="biblioApp.memoire.typeMemoire">Type Memoire</span></th>
             <th><span jhiTranslate="biblioApp.memoire.dateMemoire">Date Memoire</span></th>
             <th><span jhiTranslate="biblioApp.memoire.lieuMemoire">Lieu Memoire</span></th>
@@ -33,6 +34,7 @@
             <tr *ngFor="let memoire of memoires ;trackBy: trackId">
                 <td><a [routerLink]="['../memoire', memoire.id ]">{{memoire.id}}</a></td>
                 <td>{{memoire.titreMemoire}}</td>
+                <td>{{memoire.sousTitreMemoire}}</td>
                 <td jhiTranslate="{{'biblioApp.TypeMemoire.' + memoire.typeMemoire}}">{{memoire.typeMemoire}}</td>
                 <td>{{memoire.dateMemoire | date:'medium'}}</td>
                 <td>{{memoire.lieuMemoire}}</td>

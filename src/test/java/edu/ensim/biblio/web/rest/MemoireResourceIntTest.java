@@ -44,6 +44,9 @@ public class MemoireResourceIntTest {
     private static final String DEFAULT_TITRE_MEMOIRE = "AAAAAAAAAA";
     private static final String UPDATED_TITRE_MEMOIRE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SOUS_TITRE_MEMOIRE = "AAAAAAAAAA";
+    private static final String UPDATED_SOUS_TITRE_MEMOIRE = "BBBBBBBBBB";
+
     private static final TypeMemoire DEFAULT_TYPE_MEMOIRE = TypeMemoire.THESE;
     private static final TypeMemoire UPDATED_TYPE_MEMOIRE = TypeMemoire.HDR;
 
@@ -107,6 +110,7 @@ public class MemoireResourceIntTest {
     public static Memoire createEntity(EntityManager em) {
         Memoire memoire = new Memoire()
             .titreMemoire(DEFAULT_TITRE_MEMOIRE)
+            .sousTitreMemoire(DEFAULT_SOUS_TITRE_MEMOIRE)
             .typeMemoire(DEFAULT_TYPE_MEMOIRE)
             .dateMemoire(DEFAULT_DATE_MEMOIRE)
             .lieuMemoire(DEFAULT_LIEU_MEMOIRE)
@@ -139,6 +143,7 @@ public class MemoireResourceIntTest {
         assertThat(memoireList).hasSize(databaseSizeBeforeCreate + 1);
         Memoire testMemoire = memoireList.get(memoireList.size() - 1);
         assertThat(testMemoire.getTitreMemoire()).isEqualTo(DEFAULT_TITRE_MEMOIRE);
+        assertThat(testMemoire.getSousTitreMemoire()).isEqualTo(DEFAULT_SOUS_TITRE_MEMOIRE);
         assertThat(testMemoire.getTypeMemoire()).isEqualTo(DEFAULT_TYPE_MEMOIRE);
         assertThat(testMemoire.getDateMemoire()).isEqualTo(DEFAULT_DATE_MEMOIRE);
         assertThat(testMemoire.getLieuMemoire()).isEqualTo(DEFAULT_LIEU_MEMOIRE);
@@ -216,6 +221,7 @@ public class MemoireResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(memoire.getId().intValue())))
             .andExpect(jsonPath("$.[*].titreMemoire").value(hasItem(DEFAULT_TITRE_MEMOIRE.toString())))
+            .andExpect(jsonPath("$.[*].sousTitreMemoire").value(hasItem(DEFAULT_SOUS_TITRE_MEMOIRE.toString())))
             .andExpect(jsonPath("$.[*].typeMemoire").value(hasItem(DEFAULT_TYPE_MEMOIRE.toString())))
             .andExpect(jsonPath("$.[*].dateMemoire").value(hasItem(DEFAULT_DATE_MEMOIRE.toString())))
             .andExpect(jsonPath("$.[*].lieuMemoire").value(hasItem(DEFAULT_LIEU_MEMOIRE.toString())))
@@ -238,6 +244,7 @@ public class MemoireResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(memoire.getId().intValue()))
             .andExpect(jsonPath("$.titreMemoire").value(DEFAULT_TITRE_MEMOIRE.toString()))
+            .andExpect(jsonPath("$.sousTitreMemoire").value(DEFAULT_SOUS_TITRE_MEMOIRE.toString()))
             .andExpect(jsonPath("$.typeMemoire").value(DEFAULT_TYPE_MEMOIRE.toString()))
             .andExpect(jsonPath("$.dateMemoire").value(DEFAULT_DATE_MEMOIRE.toString()))
             .andExpect(jsonPath("$.lieuMemoire").value(DEFAULT_LIEU_MEMOIRE.toString()))
@@ -269,6 +276,7 @@ public class MemoireResourceIntTest {
         em.detach(updatedMemoire);
         updatedMemoire
             .titreMemoire(UPDATED_TITRE_MEMOIRE)
+            .sousTitreMemoire(UPDATED_SOUS_TITRE_MEMOIRE)
             .typeMemoire(UPDATED_TYPE_MEMOIRE)
             .dateMemoire(UPDATED_DATE_MEMOIRE)
             .lieuMemoire(UPDATED_LIEU_MEMOIRE)
@@ -288,6 +296,7 @@ public class MemoireResourceIntTest {
         assertThat(memoireList).hasSize(databaseSizeBeforeUpdate);
         Memoire testMemoire = memoireList.get(memoireList.size() - 1);
         assertThat(testMemoire.getTitreMemoire()).isEqualTo(UPDATED_TITRE_MEMOIRE);
+        assertThat(testMemoire.getSousTitreMemoire()).isEqualTo(UPDATED_SOUS_TITRE_MEMOIRE);
         assertThat(testMemoire.getTypeMemoire()).isEqualTo(UPDATED_TYPE_MEMOIRE);
         assertThat(testMemoire.getDateMemoire()).isEqualTo(UPDATED_DATE_MEMOIRE);
         assertThat(testMemoire.getLieuMemoire()).isEqualTo(UPDATED_LIEU_MEMOIRE);

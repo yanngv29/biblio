@@ -26,6 +26,11 @@
             "fieldValues": "RECHERCHE,PROJET"
         },
         {
+            "fieldName": "statut",
+            "fieldType": "Statut",
+            "fieldValues": "INTERNE,PUBLIC"
+        },
+        {
             "fieldName": "dateRapport",
             "fieldType": "Instant"
         },
@@ -58,7 +63,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180215164208",
+    "changelogDate": "20180225202051",
     "entityTableName": "rapport",
     "dto": "no",
     "pagination": "no",

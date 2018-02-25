@@ -24,6 +24,11 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="biblioApp.actes.sousTitreActe" for="field_sousTitreActe">Sous Titre Acte</label>
+            <input type="text" class="form-control" name="sousTitreActe" id="field_sousTitreActe"
+                [(ngModel)]="actes.sousTitreActe" />
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="biblioApp.actes.typeActe" for="field_typeActe">Type Acte</label>
             <input type="text" class="form-control" name="typeActe" id="field_typeActe"
                 [(ngModel)]="actes.typeActe" />

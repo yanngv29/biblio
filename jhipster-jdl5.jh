@@ -1,0 +1,249 @@
+/* Actes de conférence : identifiant obligatoire */
+entity Actes {
+	// idActe String required,
+    titreActe String required,
+    sousTitreActe String,
+    typeActe String,
+	anneeActe Integer,
+	numeroEditionActe Integer,
+    volumeActe Integer,
+    traductionActe String,
+    lieuActe String,
+    maisonEditionActe String,
+    collectionActe String,
+    langueActe String,
+    lienActe String,
+    halActe String, // référence HAL
+    diversActe String
+}
+
+/* Article : type et identifiant obligatoires */
+entity Article {
+	// idArticle String,
+    titreArticle String required,
+    sousTitreArticle String,
+    typeArticle TypeArticle,
+	pageDebutArticle String,
+	pageFinArticle String,
+    langueArticle String,
+    lienArticle String,
+    halArticle String, // référence HAL
+    diversArticle String
+}
+
+/* Chapitre : identifiant nécessaire */
+entity Chapitre {
+	// idChapitre String,
+    titreChapitre String required,
+    sousTitreChapitre String,
+	pageDebutChapitre String,
+	pageFinChapitre String,
+    langueChapitre String,
+    lienChapitre String,
+    halChapitre String, // référence HAL
+    diversChapitre String
+}
+
+/* Communication : identifiant et type obligatoires */
+entity Communication {
+	// idCommunication String,
+    titreCommunication String required,
+    sousTitreCommunication String,
+    typeCommunication TypeCommunication,
+    langueCommunication String,
+	lienCommunication String,
+	doiCommunication String // DOI
+    halCommunication String // référence HAL
+    diversCommunication String,
+}
+
+/* Conférence : critères non définitifs */
+entity Conference {
+	// idConference String
+    nomConference String required,
+	typeConference TypeConference,
+    audienceConference Audience,
+    comiteSelectionConference Boolean,
+    dateDebutConference Instant,
+    dateFinConference Instant,
+    villeConference String,
+    paysConference String,
+    langueConference String,
+    lienSiteConference String,
+	diversConference String
+}
+
+/** Contribution */
+entity Chercheur {
+	// idContribution String,
+    nomChercheur String required,
+	typeChercheur TypeChercheur,
+    rangChercheur String,
+}
+
+/* Mémoire : tous les critères obligatoires */
+entity Memoire {
+	// idMemoire String
+    titreMemoire String required,
+    sousTitreMemoire String,
+    typeMemoire TypeMemoire required,
+	dateMemoire Instant,
+    lieuMemoire String,
+    langueMemoire String,
+    lienMemoire String,
+    doiMemoire String, // DOI
+    halMemoire String, // référence HAL
+    diversMemoire String
+}
+
+/* Notation */
+entity Note {
+	// idNotation String required,
+    cnuNote String, // section CNU
+    rangNote RangNote,
+    debutNote String, // provisoire
+    finNote String // provisoire
+}
+
+/* Numéro d'une revue */
+entity NumeroRevue {
+	// idNumeroRevue String,
+    volumeNumeroRevue String,
+    numeroVolumeNumeroRevue String,
+    moisNumeroRevue String,
+    anneeNumeroRevue String,
+    langueNumeroRevue String,
+    lienNumeroRevue String, // lien quelconque
+    doiNumeroRevue String, // DOI
+    diversNumeroRevue String
+}
+
+/* Acte de conférence : identifiant obligatoire */
+entity Ouvrage {
+	// idOuvrage String,
+    titreOuvrage String required,
+    sousTitreOuvrage String,
+    typeOuvrage TypeOuvrage required,
+    participationOuvrage TypeParticipation,
+	anneeOuvrage Integer,
+	numeroEditionOuvrage Integer,
+    volumeOuvrage Integer,
+    traductionOuvrage String,
+    lieuOuvrage String,
+    maisonEditionOuvrage String,
+    collectionOuvrage String,
+    langueOuvrage String,
+    lienOuvrage String,
+    doiOuvrage String, // DOI
+    halOuvrage String, // référence HAL
+    diversOuvrage String
+}
+
+entity Rapport {
+	// idMemoire String
+    titreRapport String required,
+    sousTitreRapport String,
+    typeRapport TypeRapport,
+    statut Statut,
+	dateRapport Instant,
+    lieuRapport String,
+    maisonEditionRapport String,
+    langueRapport String,
+    lienRapport String,
+    doiRapport String, // DOI
+    halRapport String, // référence HAL
+    diversOuvrageRapport String
+}
+
+/* Revue : identifiant, nom et année obligatoires */
+entity Revue {
+	// idRevue String,
+    nomRevue String required,
+    audience Audience,
+    comiteSelection Boolean,
+    langueRevue String,
+    lieuRevue String,
+    lienRevue String,
+	diversRevue String
+}
+
+enum Audience {
+    NATIONALE, INTERNATIONALE
+}
+
+enum Statut {
+    INTERNE, PUBLIC
+}
+
+enum TypeChercheur {
+    PUBLIANT, ENCADRANT, DIRECTEUR, EDITIEUR, COORDINATEUR
+}
+
+enum RangNote {
+    A, B, C
+}
+
+enum TypeArticle {
+    PUBLIE, EN_PREPUBLICATION, SOUS_PRESSE, COURT
+}
+
+enum TypeCommunication {
+    AFFICHE, ATELIER, TABLE_RONDE
+}
+
+enum TypeConference {
+    CONFERENCE, COLLOQUE, JOURNEE_ETUDE, JOURNEE_ATELIERS, SEMINAIRE, SYMPOSIUM
+}
+
+enum TypeMemoire {
+    THESE, HDR
+}
+
+enum TypeOuvrage {
+    SCIENTIFIQUE, VULGARISATION
+}
+
+enum TypeParticipation {
+    COMPLETE, PARTIELLE
+}
+
+enum TypeRapport {
+    RECHERCHE, PROJET
+}
+
+relationship OneToOne {   
+	Actes{conference} to Conference
+}
+
+relationship ManyToOne {
+	Article{numeroRevue} to NumeroRevue{writer(name)},
+    Article{actes} to Actes,
+    Article{conference} to Conference,
+    
+    Communication{conference} to Conference,
+	NumeroRevue{revue} to Revue
+}
+
+relationship OneToMany {
+	Conference{notation} to Note,
+    Memoire{notation} to Note,
+	
+    Ouvrage{notation} to Note,
+    
+    Rapport{notation} to Note,
+    Revue{notation} to Note
+}
+
+relationship ManyToMany {
+	Chercheur{actes} to Actes,
+    Chercheur{article} to Article {auteur(nomChercheur) required},
+    Chercheur{chapitre} to Chapitre,
+	Chercheur{communication} to Communication,
+    Chercheur{ouvrage} to Ouvrage,
+    Chercheur{revue} to NumeroRevue,
+    Chercheur{memoire} to Memoire,
+    Chercheur{rapport} to Rapport
+}
+
+#edges: rounded
+#fill: #404040; #000000

@@ -30,6 +30,9 @@ public class Actes implements Serializable {
     @Column(name = "titre_acte", nullable = false)
     private String titreActe;
 
+    @Column(name = "sous_titre_acte")
+    private String sousTitreActe;
+
     @Column(name = "type_acte")
     private String typeActe;
 
@@ -90,6 +93,19 @@ public class Actes implements Serializable {
 
     public void setTitreActe(String titreActe) {
         this.titreActe = titreActe;
+    }
+
+    public String getSousTitreActe() {
+        return sousTitreActe;
+    }
+
+    public Actes sousTitreActe(String sousTitreActe) {
+        this.sousTitreActe = sousTitreActe;
+        return this;
+    }
+
+    public void setSousTitreActe(String sousTitreActe) {
+        this.sousTitreActe = sousTitreActe;
     }
 
     public String getTypeActe() {
@@ -287,6 +303,7 @@ public class Actes implements Serializable {
         return "Actes{" +
             "id=" + getId() +
             ", titreActe='" + getTitreActe() + "'" +
+            ", sousTitreActe='" + getSousTitreActe() + "'" +
             ", typeActe='" + getTypeActe() + "'" +
             ", anneeActe=" + getAnneeActe() +
             ", numeroEditionActe=" + getNumeroEditionActe() +

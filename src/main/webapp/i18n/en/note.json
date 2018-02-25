@@ -23,7 +23,6 @@
             "conference": "Conference",
             "memoire": "Memoire",
             "ouvrage": "Ouvrage",
-            "publicationGouvernementale": "Publication Gouvernementale",
             "rapport": "Rapport",
             "revue": "Revue"
         }
